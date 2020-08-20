@@ -586,6 +586,40 @@ circle[gpu] {
 	border:1px solid;
 }
 
+.page.cpu .g_raph[page*="0"] .heatmap {
+	display:none!important;
+}
+
+.page.cpu .g_raph[page*="1"] .graph {
+	display:none!important;
+}
+
+
+.page.cpu .g_raph .heatmap {
+	display:flex;
+	flex-wrap:wrap;
+	flex:1;
+	overflow:auto;
+	background-color:black;
+	color:white;
+	height:100%;
+	min-height:26px;
+	
+}
+
+.page.cpu .g_raph .heatmap cpu{
+	--heatmap-usage:0;
+	flex:1;
+	display:inline-flex;
+	align-items:center;
+	justify-content:center;
+	font-size:16px;
+	font-weight:500;
+	min-width:50px;
+	background-color:rgba(193,144,0,calc( var(--heatmap-usage) / 100 ));
+	border:1px solid #7f6000;
+}
+
 
 .page box.left .button .graph {
 	width:64px;

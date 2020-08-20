@@ -6,6 +6,15 @@ function CPU1() {
 		$('.page.cpu').attr("page", "1");
 }
 
+function CPU1_t() {
+	if ($('.page.cpu .g_raph').attr("page") == 0) {
+		$('.page.cpu .g_raph').attr("page", "1");
+	} else {
+		$('.page.cpu .g_raph').attr("page", "0");
+	}
+}
+
+
 function CPU() {
 		$('body').attr("tab", "CPU");
 }
