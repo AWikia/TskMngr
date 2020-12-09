@@ -143,6 +143,9 @@
 			<a class="gpu" onclick="GPU()">
 				<circle gpu></circle> GPU
 			</a>
+			<a class="tv" onclick="TV()">
+				<circle tv></circle> TV
+			</a>
 		</header>
 		<!--CPU-->
 		<section class="page cpu" page="0">
@@ -935,9 +938,296 @@
 					</div>
 			</box>
 
-
 		</section>
 
+		<!--TV-->
+		<section class="page tv" page="0">
+			<box class="left">
+				<a class="button p0" onclick="TV0()">
+					<img class="graph" src="TV.png"></img>
+					<div>
+						<big>Presenter</big>
+						<br>
+						<span>Αγγελική Νικολούλη</span>
+						<br>U: 144 D: 0Mbps (22%)
+					</div>
+				</a>
+				<a class="button p1" onclick="TV1()">
+					<img class="graph" src="TV1.png"></img>
+					<div>
+						<big>Cartoon</big>
+						<br>
+						<span>Power Rangers Dino Charge</span>
+						<br>U: 9,6 D: 0Mbps (26%)
+					</div>
+				</a>
+				<a class="button p2" onclick="TV2()">
+					<img class="graph" src="TV2.png"></img>
+					<div>
+						<big>Cartoon</big>
+						<br>
+						<span>Pac-Man and the Ghostly Adventures</span>
+						<br>U: 20 D: 57Mbps (51%)
+					</div>
+				</a>
+				<a class="button p3" onclick="TV3()">
+					<img class="graph" src="TV3.png"></img>
+					<div>
+						<big>Presenter</big>
+						<br>
+						<span>Χρήστος Γιασκουλίδης</span>
+						<br>U: 9 D: 30Mbps (58%)
+					</div>
+				</a>
+			</box>
+			<box class="right p0">
+				<div class="header">
+					<h3>Αγγελική Νικολούλη</h3>
+					<h1>Presenter</h1>
+				</div>
+					<img class="graph" src="TV_1.png"></img>
+					<div class="bottom">
+						<div class="leftp">
+							<div class="col">
+								<div class="info">
+									<span>Utilization</span>
+									<em>22%</em>
+								</div>
+								<div class="info">
+									<span>Signal Quality</span>
+									<em>48%</em>
+								</div>
+							</div>
+
+							<div class="col">
+								<div class="info">
+									<span>Attenuation</span>
+									<em>1%</em>
+								</div>
+								<div class="info">
+									<span>Transistors</span>
+									<em>5</em>
+								</div>
+							</div>
+							
+							<div class="col">
+								<div class="info" style="border-left: 2px dotted var(--content-color);">
+									<span>Upstream</span>
+									<em>144Mbps</em>
+								</div>
+								<div class="info" style="border-left: 2px solid var(--content-border);">
+									<span>Downstream</span>
+									<em>0Kbps</em>
+								</div>
+							</div>
+
+
+						</div>
+						<div class="rightp">
+							<ul>
+							<li>
+							Technology Format: <span>NVS 2</span>
+							</li>
+							<li>
+							Maximum Upstream Speed: <span>144Mbps</span>
+							</li>
+							<li>
+							Maximum Downstream Speed: <span>220Mbps</span>
+							</li>
+							<li>
+							Average Ping Time: <span>12ms</span>
+							</li>
+							</ul>
+						</div>
+					</div>
+			</box>
+			
+			<box class="right p1">
+				<div class="header">
+					<h3>Power Rangers Dino Charge</h3>
+					<h1>Cartoon</h1>
+				</div>
+					<img class="graph" src="TV1_1.png"></img>
+					<div class="bottom">
+						<div class="leftp">
+							<div class="col">
+								<div class="info">
+									<span>Utilization</span>
+									<em>26%</em>
+								</div>
+								<div class="info">
+									<span>Signal Quality</span>
+									<em>25%</em>
+								</div>
+							</div>
+
+							<div class="col">
+								<div class="info">
+									<span>Attenuation</span>
+									<em>0%</em>
+								</div>
+								<div class="info">
+									<span>Transistors</span>
+									<em>14</em>
+								</div>
+							</div>
+							
+							<div class="col">
+								<div class="info" style="border-left: 2px dotted var(--content-color);">
+									<span>Upstream</span>
+									<em>9,6Mbps</em>
+								</div>
+								<div class="info" style="border-left: 2px solid var(--content-border);">
+									<span>Downstream</span>
+									<em>0Kbps</em>
+								</div>
+							</div>
+
+
+						</div>
+						<div class="rightp">
+							<ul>
+							<li>
+							Technology Format: <span>CartoonClassic</span>
+							</li>
+							<li>
+							Maximum Upstream Speed: <span>10Mbps</span>
+							</li>
+							<li>
+							Maximum Downstream Speed: <span>28Mbps</span>
+							</li>
+							<li>
+							Average Ping Time: <span>14ms</span>
+							</li>
+							</ul>
+						</div>
+					</div>
+			</box>
+
+			<box class="right p2">
+				<div class="header">
+					<h3>Pac-Man and the Ghostly Adventures</h3>
+					<h1>Cartoon</h1>
+				</div>
+					<img class="graph" src="TV2_1.png"></img>
+					<div class="bottom">
+						<div class="leftp">
+							<div class="col">
+								<div class="info">
+									<span>Utilization</span>
+									<em>51%</em>
+								</div>
+								<div class="info">
+									<span>Signal Quality</span>
+									<em>80%</em>
+								</div>
+							</div>
+
+							<div class="col">
+								<div class="info">
+									<span>Attenuation</span>
+									<em>6%</em>
+								</div>
+								<div class="info">
+									<span>Transistors</span>
+									<em>19</em>
+								</div>
+							</div>
+							
+							<div class="col">
+								<div class="info" style="border-left: 2px dotted var(--content-color);">
+									<span>Upstream</span>
+									<em>20Mbps</em>
+								</div>
+								<div class="info" style="border-left: 2px solid var(--content-border);">
+									<span>Downstream</span>
+									<em>57Mbps</em>
+								</div>
+							</div>
+
+
+						</div>
+						<div class="rightp">
+							<ul>
+							<li>
+							Technology Format: <span>CartoonNow</span>
+							</li>
+							<li>
+							Maximum Upstream Speed: <span>21Mbps</span>
+							</li>
+							<li>
+							Maximum Downstream Speed: <span>60Mbps</span>
+							</li>
+							<li>
+							Average Ping Time: <span>13ms</span>
+							</li>
+							</ul>
+						</div>
+					</div>
+			</box>
+			
+			<box class="right p3">
+				<div class="header">
+					<h3>Χρήστος Γιασκουλίδης</h3>
+					<h1>Presenter</h1>
+				</div>
+					<img class="graph" src="TV3_1.png"></img>
+					<div class="bottom">
+						<div class="leftp">
+							<div class="col">
+								<div class="info">
+									<span>Utilization</span>
+									<em>58%</em>
+								</div>
+								<div class="info">
+									<span>Signal Quality</span>
+									<em>37%</em>
+								</div>
+							</div>
+
+							<div class="col">
+								<div class="info">
+									<span>Attenuation</span>
+									<em>-27%</em>
+								</div>
+								<div class="info">
+									<span>Transistors</span>
+									<em>44</em>
+								</div>
+							</div>
+							
+							<div class="col">
+								<div class="info" style="border-left: 2px dotted var(--content-color);">
+									<span>Upstream</span>
+									<em>9Mbps</em>
+								</div>
+								<div class="info" style="border-left: 2px solid var(--content-border);">
+									<span>Downstream</span>
+									<em>30Mbps</em>
+								</div>
+							</div>
+
+
+						</div>
+						<div class="rightp">
+							<ul>
+							<li>
+							Technology Format: <span>NVS 2</span>
+							</li>
+							<li>
+							Maximum Upstream Speed: <span>7,2Mbps</span>
+							</li>
+							<li>
+							Maximum Downstream Speed: <span>32Mbps</span>
+							</li>
+							<li>
+							Average Ping Time: <span>8ms</span>
+							</li>
+							</ul>
+						</div>
+					</div>
+			</box>
+		</section>
 
 	</body>
 </html>

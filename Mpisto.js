@@ -1,19 +1,4 @@
-function CPU0() {
-		$('.page.cpu').attr("page", "0");
-}
-
-function CPU1() {
-		$('.page.cpu').attr("page", "1");
-}
-
-function CPU1_t() {
-	if ($('.page.cpu .g_raph').attr("page") == 0) {
-		$('.page.cpu .g_raph').attr("page", "1");
-	} else {
-		$('.page.cpu .g_raph').attr("page", "0");
-	}
-}
-
+/* Tab Changing Functions */
 
 function CPU() {
 		$('body').attr("tab", "CPU");
@@ -33,6 +18,29 @@ function Network() {
 
 function GPU() {
 		$('body').attr("tab", "GPU");
+}
+
+function TV() {
+		$('body').attr("tab", "TV");
+}
+
+
+/* Page Changing Functions */
+
+function CPU0() {
+		$('.page.cpu').attr("page", "0");
+}
+
+function CPU1() {
+		$('.page.cpu').attr("page", "1");
+}
+
+function CPU1_t() {
+	if ($('.page.cpu .g_raph').attr("page") == 0) {
+		$('.page.cpu .g_raph').attr("page", "1");
+	} else {
+		$('.page.cpu .g_raph').attr("page", "0");
+	}
 }
 
 function Disk0() {
@@ -61,4 +69,21 @@ function GPU0() {
 
 function GPU1() {
 		$('.page.gpu').attr("page", "1");
+}
+
+
+function TV0() {
+		$('.page.tv').attr("page", "0");
+}
+
+function TV1() {
+		$('.page.tv').attr("page", "1");
+}
+
+function TV2() {
+		$('.page.tv').attr("page", "2");
+}
+
+function TV3() {
+		$('.page.tv').attr("page", "3");
 }

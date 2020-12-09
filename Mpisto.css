@@ -474,7 +474,8 @@ user-select:none;
 [tab*="MEM"] .graphs .ram,
 [tab*="DSK"] .graphs .disk,
 [tab*="NET"] .graphs .network,
-[tab*="GPU"] .graphs .gpu {
+[tab*="GPU"] .graphs .gpu,
+[tab*="TV"]  .graphs .tv {
 	background-color:var(--content-bg);
 	color:var(--content-color);
 }
@@ -507,6 +508,10 @@ circle[gpu] {
 	background-color:magenta;
 }
 
+circle[tv] {
+	background-color:white;
+}
+
 .page {
 	display:none;
 	margin:0 5px;
@@ -520,7 +525,8 @@ circle[gpu] {
 [tab*="MEM"] .page.ram,
 [tab*="DSK"] .page.disk,
 [tab*="NET"] .page.network,
-[tab*="GPU"] .page.gpu {
+[tab*="GPU"] .page.gpu,
+[tab*="TV"]  .page.tv {
 	display:flex;
 }
 
@@ -543,7 +549,8 @@ circle[gpu] {
 
 .page[page*="0"] box.right.p0,
 .page[page*="1"] box.right.p1,
-.page[page*="2"] box.right.p2 {
+.page[page*="2"] box.right.p2,
+.page[page*="3"] box.right.p3 {
 	display:flex;
 }
 
@@ -576,6 +583,7 @@ circle[gpu] {
 .page[page*="0"] box.left .button.p0,
 .page[page*="1"] box.left .button.p1,
 .page[page*="2"] box.left .button.p2,
+.page[page*="3"] box.left .button.p3,
 .page box.left .button:hover:active {
 	background-color:rgba(var(--link-color),0.2);
 	border-color:transparent;
@@ -604,7 +612,7 @@ circle[gpu] {
 	color:white;
 	height:100%;
 	min-height:26px;
-	
+	border:1px solid #7f6000;	
 }
 
 .page.cpu .g_raph .heatmap cpu{
@@ -645,6 +653,10 @@ circle[gpu] {
 
 .page.gpu .graph {
 	color:#4c1130;
+}
+
+.page.tv .graph {
+	color:#cccccc;
 }
 
 .page box.right .header {
