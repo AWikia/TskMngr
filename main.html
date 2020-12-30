@@ -126,1166 +126,1551 @@
 </defs>
 
 <html class="main">
-	<body onfocus="CheckTheme()" tab="CPU" onblur="CheckTheme()"  class="tskmngr" style="overflow:hidden;" id="Handler" onclick="">
-		  <header class="graphs">
-			<a class="cpu" onclick="CPU()">
-				<circle cpu></circle> CPU
-			</a>
-			<a class="ram" onclick="RAM()">
-				<circle ram></circle> RAM
-			</a>
-			<a class="disk" onclick="Disk()">
-				<circle disk></circle> Δίσκος
-			</a>
-			<a class="network" onclick="Network()">
-				<circle network></circle> Δικτύωση
-			</a>
-			<a class="gpu" onclick="GPU()">
-				<circle gpu></circle> GPU
-			</a>
-			<a class="tv" onclick="TV()">
-				<circle tv></circle> TV
-			</a>
+	<body onfocus="CheckTheme()" page="processes" tab="CPU" onblur="CheckTheme()"  class="tskmngr" style="overflow:hidden;" id="Handler" onclick="">
+		<header class="tabs">
+			<a class="processes" onclick="Tab0()">Εργασίες</a>
+			<a class="performance" onclick="Tab1()">Επιδόσεις</a>
+			<a class="users" onclick="Tab2()">Χρήστες</a>
+			<a class="details" onclick="Tab3()">Πληροφορίες</a>
 		</header>
-		<!--CPU-->
-		<section class="page cpu" page="0">
-			<box class="left">
-				<a class="button p0" onclick="CPU0()">
-					<img class="graph" src="CPU.png"></img>
-					<div>
-						<big>CPU</big>
-						<br>
-						5%
-					</div>
-				</a>
-				<a class="button p1" onclick="CPU1()">
-					<img class="graph" src="CPU1.png"></img>
-					<div>
-						<big>CPU</big>
-						<br>
-						MC: 16 SC: 128Kbps
-					</div>
-				</a>
-			</box>
-			<box class="right p0">
-				<div class="header">
-					<h3>Aurelis Processor</h3>
-					<h1>CPU</h1>
-				</div>
-					<div class="g_raph" style="display:contents; flex:1;" onclick="CPU1_t()" page="0">
-						<img class="graph" src="CPU_1.png"></img>
-						<aside class="heatmap">
-							<cpu style="--heatmap-usage:1;">1%</cpu>
-							<cpu style="--heatmap-usage:1;">1%</cpu>
-							<cpu style="--heatmap-usage:1;">1%</cpu>
-							<cpu style="--heatmap-usage:0;">0%</cpu>
-							<cpu style="--heatmap-usage:1;">1%</cpu>
-							<cpu style="--heatmap-usage:1;">1%</cpu>
-						</aside>
-					</div>
-					<div class="bottom">
-						<div class="leftp">
-							<div class="col">
-								<div class="info">
-									<span>Ενεργός Χρόνος</span>
-									<em>5%</em>
-								</div>
-								<div class="info">
-									<span>Μετάδοση</span>
-									<em>980MHz</em>
-								</div>
-							</div>
+		<!--Processes-->
+		<main class="processes">
+			<div class="proc_page">
+				<section>
+					<article>
+						<header class="header upper">
+							<span class="name">
+								Όνομα Διεργασίας
+							</span>
+							<span class="cpu">
+							<counter>5%</counter>
+								CPU
+							</span>
+							<span class="ram">
+							<counter>50%</counter>
+								RAM
+							</span>
+							<span class="disk">
+							<counter>46%</counter>
+								Δίσκος
+							</span>
+							<span class="network">
+							<counter>2%</counter>
+								Δικτύωση
+							</span>
+							<span class="gpu">
+							<counter>72%</counter>
+								GPU
+							</span>
+							<span class="ucpu">
+								Χρόνος CPU
+							</span>
+						</header>
 
-							<div class="col">
-								<div class="info">
-									<span>Διεργασίες</span>
-									<em>100</em>
-								</div>
-								<div class="info">
-									<span>Νήματα</span>
-									<em>2180</em>
-								</div>
-								<div class="info">
-									<span>Θερμοκρασία</span>
-									<em>48°C</em>
-								</div>
-							</div>
+						<header class="header heading">
+							<span class="name"><h2>Διεργασίες Προσκήνιου</h2></span>
+							<span class="cpu"></span>
+							<span class="ram"></span>
+							<span class="disk"></span>
+							<span class="network"></span>
+							<span class="gpu"></span>
+							<span class="ucpu"></span>
+						</header>
+
+						<header appname="FileManager" class="header item">
+							<span class="name">Εξερεύνηση Αρχείων</span>
+							<span class="cpu">1%</span>
+							<span class="ram">700ΜΒ</span>
+							<span class="disk">2,2Gbps</span>
+							<span class="network">0Kbps</span>
+							<span class="gpu">1%</span>
+							<span class="ucpu">00:01:30</span>
+						</header>
+						<header appname="dolphin" class="header item">
+							<span class="name">Dolphin 5.0</span>
+							<span class="cpu">3%</span>
+							<span class="ram">816ΜΒ</span>
+							<span class="disk">1Mbps</span>
+							<span class="network">0Kbps</span>
+							<span class="gpu">68%</span>
+							<span class="ucpu">01:00:30</span>
+						</header>
+						<header appname="dolphin" class="header item">
+							<span class="name">RPG Maker MV</span>
+							<span class="cpu">1%</span>
+							<span class="ram">208ΜΒ</span>
+							<span class="disk">16Kbps</span>
+							<span class="network">0Kbps</span>
+							<span class="gpu">0%</span>
+							<span class="ucpu">00:05:34</span>
+						</header>
+						
+						<header appname="browser" class="header item">
+							<span class="name">Qortex Chromessentials</span>
+							<span class="cpu">0%</span>
+							<span class="ram">1536ΜΒ</span>
+							<span class="disk">4Mbps</span>
+							<span class="network">100Mbps</span>
+							<span class="gpu">3%</span>
+							<span class="ucpu">00:44:07</span>
+						</header>
 							
-							<div class="col">
-								<div class="info" style="border-left: 2px dotted yellow;">
-									<span>Πολλαπλοί Πυρήνες</span>
-									<em>16Kbps</em>
-								</div>
-								<div class="info" style="border-left: 2px solid #bf9000;">
-									<span>Μονός Πυρήνας</span>
-									<em>128Kbps</em>
-								</div>
-							</div>
+						<header class="header heading">
+							<span class="name"><h2>Διεργασίες Παρασκήνιου</h2></span>
+							<span class="cpu"></span>
+							<span class="ram"></span>
+							<span class="disk"></span>
+							<span class="network"></span>
+							<span class="gpu"></span>
+							<span class="ucpu"></span>
+						</header>
 
-
-						</div>
-						<div class="rightp">
-							<ul>
-							<li>
-							Μάξιμουμ Ταχύτητα: <span>1,0GHz</span>
-							</li>
-							<li>
-							Πυρήνες: <span>6</span>
-							</li>
-							<li>
-							Λογικοί Επεξεργαστές: <span>6</span>
-							</li>
-							<li>
-							Κόμβοι NUMA: <span>1</span>
-							</li>
-							<li>
-							L1 Cache: <span>2,0Mb</span>
-							</li>
-							<li>
-							L2 Cache: <span>8,0Mb</span>
-							</li>
-							<li>
-							L3 Cache: <span>64Mb</span>
-							</li>
-							</ul>
-						</div>
-					</div>
-			</box>
-
-			<box class="right p1">
-				<div class="header">
-					<h3>Aurelis Processor</h3>
-					<h1>CPU</h1>
-				</div>
-					<img class="graph" src="CPU1_1.png"></img>
-					<div class="bottom">
-						<div class="leftp">
-							<div class="col">
-								<div class="info">
-									<span>Ενεργός Χρόνος</span>
-									<em>5%</em>
-								</div>
-								<div class="info">
-									<span>Μετάδοση</span>
-									<em>980MHz</em>
-								</div>
-							</div>
-
-							<div class="col">
-								<div class="info">
-									<span>Διεργασίες</span>
-									<em>100</em>
-								</div>
-								<div class="info">
-									<span>Νήματα</span>
-									<em>2180</em>
-								</div>
-								<div class="info">
-									<span>Θερμοκρασία</span>
-									<em>48°C</em>
-								</div>
-							</div>
-							
-							<div class="col">
-								<div class="info" style="border-left: 2px dotted yellow;">
-									<span>Πολλαπλοί Πυρήνες</span>
-									<em>16Kbps</em>
-								</div>
-								<div class="info" style="border-left: 2px solid #bf9000;">
-									<span>Μονός Πυρήνας</span>
-									<em>128Kbps</em>
-								</div>
-							</div>
-
-
-						</div>
-						<div class="rightp">
-							<ul>
-							<li>
-							Μάξιμουμ Ταχύτητα: <span>1,0GHz</span>
-							</li>
-							<li>
-							Πυρήνες: <span>6</span>
-							</li>
-							<li>
-							Λογικοί Επεξεργαστές: <span>6</span>
-							</li>
-							<li>
-							Κόμβοι NUMA: <span>1</span>
-							</li>
-							<li>
-							L1 Cache: <span>2,0Mb</span>
-							</li>
-							<li>
-							L2 Cache: <span>8,0Mb</span>
-							</li>
-							<li>
-							L3 Cache: <span>64Mb</span>
-							</li>
-							</ul>
-						</div>
-					</div>
-			</box>
-
-		</section>
-		<!--RAM-->
-		<section class="page ram" page="0">
-			<box class="left">
-				<a class="button p0"> <!--onclick="RAM0()"-->
-					<img class="graph" src="RAM.png"></img>
-					<div>
-						<big>RAM</big>
-						<br>
-						4,0/8,0GB (50%)
-						<br>
-						DDR3
-					</div>
-				</a>
-			</box>
-			<box class="right p0">
-				<div class="header">
-					<h3>DDR3 8,0GB</h3>
-					<h1>RAM</h1>
-				</div>
-					<img class="graph" src="RAM_1.png"></img>
-					<div class="bottom">
-						<div class="leftp">
-							<div class="col">
-								<div class="info">
-									<span>Ενεργός Χρόνος</span>
-									<em>50%</em>
-								</div>
-								<div class="info">
-									<span>Χρήση Μνήμης</span>
-									<em>4,0/8,0GB</em>
-								</div>
-							</div>
-
-							<div class="col">
-								<div class="info">
-									<span>Εικονική Μνήμη</span>
-									<em>6,1/9,9GB</em>
-								</div>
-								<div class="info">
-									<span>Ελεύθερη</span>
-									<em>4,0GB</em>
-								</div>
-							</div>
-							
-							<div class="col">
-								<div class="info">
-									<span>Χρόνος Καθυστέρισης</span>
-									<em>90ms</em>
-								</div>
-								<div class="info">
-									<span>Στα Κρυφά</span>
-									<em>1,1GB</em>
-								</div>
-							</div>
-
-
-						</div>
-						<div class="rightp">
-							<ul>
-							<li>
-							Μετάδοση: <span>1,3GHz</span>
-							</li>
-							<li>
-							Υποδοχές σε χρήση: <span>2/4 (-/4,0GB 1,3GHz/-/4,0GB 1,3GHz)</span>
-							</li>
-							<li>
-							Μνήμη αποκλειστικά για υλικό: <span>10,4MB</span>
-							</li>
-							</ul>
-						</div>
-					</div>
-			</box>
-
-		</section>
-		<!--Disk-->
-		<section class="page disk" page="0">
-			<box class="left">
-				<a class="button p0" onclick="Disk0()">
-					<img class="graph" src="Disk.png"></img>
-					<div>
-						<big>Δίσκος 0 (A:)</big>
-						<br>
-						W: 0,5 R: 1,5Mbps
-						<br>System (1%)
-					</div>
-				</a>
-				<a class="button p1" onclick="Disk1()">
-					<img class="graph" src="Disk1.png"></img>
-					<div>
-						<big>Δίσκος 1 (B:)</big>
-						<br>
-						W: 1,1 R: 0,5Gbps
-						<br>HDD (46%)
-					</div>
-				</a>
-				<a class="button p2" onclick="Disk2()">
-					<img class="graph" src="Disk2.png"></img>
-					<div>
-						<big>Δίσκος 2 (C:)</big>
-						<br>
-						W: 0 R: 1,1Gbps
-						<br>USB (92%)
-					</div>
-				</a>
-			</box>
-			<box class="right p0">
-				<div class="header">
-					<h3>Jinjina SSD Series 256GB</h3>
-					<h1>Δίσκος 0 (A:)</h1>
-				</div>
-					<img class="graph" src="Disk_1.png"></img>
-					<div class="bottom">
-						<div class="leftp">
-							<div class="col">
-								<div class="info">
-									<span>Ενεργός Χρόνος</span>
-									<em>1%</em>
-								</div>
-								<div class="info">
-									<span>Χρόνος απόκρισης</span>
-									<em>0,1ms</em>
-								</div>
-							</div>
-
-							<div class="col">
-								<div class="info" style="border-left: 2px dotted lime;">
-									<span>Εγγραφή</span>
-									<em>512Kbps</em>
-								</div>
-								<div class="info" style="border-left: 2px solid #38761d;">
-									<span>Ανάγνωση</span>
-									<em>1,5Mbps</em>
-								</div>
-							</div>
-							
-							<div class="col">
-								<div class="info" style="border-left: 2px double lime;">
-									<span>4K Εγγραφή</span>
-									<em>104Kbps</em>
-								</div>
-								<div class="info" style="border-left: 2px dashed #38761d;">
-									<span>4K Ανάγνωση</span>
-									<em>640Kbps</em>
-								</div>
-							</div>
-
-
-						</div>
-						<div class="rightp">
-							<ul>
-							<li>
-							Χωρητικότητα: <span>256GB</span>
-							</li>
-							<li>
-							Σε χρήση: <span>230GB</span>
-							</li>
-							<li>
-							Μορφοποιημένη: <span>230GB</span>
-							</li>
-							<li>
-							Είδος: <span>Δίσκος Συστήματος</span>
-							</li>
-							<li>
-							Δεσμευμένη στο Κονζτίντι: <span>3,9MB</span>
-							</li>
-							</ul>
-						</div>
-					</div>
-			</box>
-
-			<box class="right p1">
-				<div class="header">
-					<h3>WDC WD10EZEX-00RKKA0</h3>
-					<h1>Δίσκος 1 (B:)</h1>
-				</div>
-					<img class="graph" src="Disk1_1.png"></img>
-					<div class="bottom">
-						<div class="leftp">
-							<div class="col">
-								<div class="info">
-									<span>Ενεργός Χρόνος</span>
-									<em>46%</em>
-								</div>
-								<div class="info">
-									<span>Χρόνος απόκρισης</span>
-									<em>16,3ms</em>
-								</div>
-							</div>
-
-							<div class="col">
-								<div class="info" style="border-left: 2px dotted lime;">
-									<span>Εγγραφή</span>
-									<em>1,1Gbps</em>
-								</div>
-								<div class="info" style="border-left: 2px solid #38761d;">
-									<span>Ανάγνωση</span>
-									<em>508Mbps</em>
-								</div>
-							</div>
-							
-							<div class="col">
-								<div class="info" style="border-left: 2px double lime;">
-									<span>4K Εγγραφή</span>
-									<em>16Mbps</em>
-								</div>
-								<div class="info" style="border-left: 2px dashed #38761d;">
-									<span>4K Ανάγνωση</span>
-									<em>4,2Mbps</em>
-								</div>
-							</div>
-
-
-						</div>
-						<div class="rightp">
-							<ul>
-							<li>
-							Χωρητικότητα: <span>1TB</span>
-							</li>
-							<li>
-							Σε χρήση: <span>930GB</span>
-							</li>
-							<li>
-							Μορφοποιημένη: <span>930GB</span>
-							</li>
-							<li>
-							Είδος: <span>Μονάδα Σκληρού Δίσκου</span>
-							</li>
-							<li>
-							Δεσμευμένη στο Κονζτίντι: <span>5,1MB</span>
-							</li>
-							</ul>
-						</div>
-					</div>
-			</box>
-
-
-			<box class="right p2">
-				<div class="header">
-					<h3>YN3000000-USB3</h3>
-					<h1>Δίσκος 2 (C:)</h1>
-				</div>
-					<img class="graph" src="Disk2_1.png"></img>
-					<div class="bottom">
-						<div class="leftp">
-							<div class="col">
-								<div class="info">
-									<span>Ενεργός Χρόνος</span>
-									<em>92%</em>
-								</div>
-								<div class="info">
-									<span>Χρόνος απόκρισης</span>
-									<em>100,2ms</em>
-								</div>
-							</div>
-
-							<div class="col">
-								<div class="info" style="border-left: 2px dotted lime;">
-									<span>Εγγραφή</span>
-									<em>29Mbps</em>
-								</div>
-								<div class="info" style="border-left: 2px solid #38761d;">
-									<span>Ανάγνωση</span>
-									<em>1,1Gbps</em>
-								</div>
-							</div>
-							
-							<div class="col">
-								<div class="info" style="border-left: 2px double lime;">
-									<span>4K Εγγραφή</span>
-									<em>768Kbps</em>
-								</div>
-								<div class="info" style="border-left: 2px dashed #38761d;">
-									<span>4K Ανάγνωση</span>
-									<em>1,0Mbps</em>
-								</div>
-							</div>
-
-
-						</div>
-						<div class="rightp">
-							<ul>
-							<li>
-							Χωρητικότητα: <span>64GB</span>
-							</li>
-							<li>
-							Σε χρήση: <span>57,8GB</span>
-							</li>
-							<li>
-							Μορφοποιημένη: <span>57,8GB</span>
-							</li>
-							<li>
-							Είδος: <span>Μονάδα Αφαιρούμενου Μέσου</span>
-							</li>
-							<li>
-							Δεσμευμένη στο Κονζτίντι: <span>960KB</span>
-							</li>
-							</ul>
-						</div>
-					</div>
-			</box>
-
-
-		</section>
-		<!--Network-->
-		<section class="page network" page="0">
-			<box class="left">
-				<a class="button p0" onclick="Network0()">
-					<img class="graph" src="Network.png"></img>
-					<div>
-						<big>Wi-Fi</big>
-						<br>
-						4%
-						</br>
-						S: 0,9 R: 100Mbps
-						<br>
-					</div>
-				</a>
-				<a class="button p1" onclick="Network1()">
-					<img class="graph" src="Network1.png"></img>
-					<div>
-						<big>Ethernet</big>
-						<br>
-						1%
-						</br>
-						S: 16 R: 192Mbps
-						<br>
-					</div>
-				</a>
-			</box>
-			<box class="right p0">
-				<div class="header">
-					<h3>Paksama ConnectUp Network Adapter</h3>
-					<h1>Wi-Fi</h1>
-				</div>
-					<img class="graph" src="Network_1.png"></img>
-					<div class="bottom">
-						<div class="leftp">
-							<div class="col">
-								<div class="info">
-									<span>Ενεργός Χρόνος</span>
-									<em>4%</em>
-								</div>
-								<div class="info">
-									<span>Χρόνος απόκρισης</span>
-									<em>10ms</em>
-								</div>
-							</div>
-							<div class="col">
-								<div class="info">
-									<span>Ισχύς Σήματος</span>
-									<em>100%</em>
-								</div>
-								<div class="info">
-									<span>Ποιότητα Σήματος</span>
-									<em>60%</em>
-								</div>
-							</div>
-							<div class="col">
-								<div class="info" style="border-left: 2px dotted #ff9900;">
-									<span>Φόρτωση</span>
-									<em>944Kbps</em>
-								</div>
-								<div class="info" style="border-left: 2px solid #b45f06;">
-									<span>Λήψη</span>
-									<em>100Mbps</em>
-								</div>
-							</div>
-							
-
-
-						</div>
-						<div class="rightp">
-							<ul>
-							<li>
-							SSID: <span>Yorkbook Internet</span>
-							</li>
-							<li>
-							Πάροχος Υπηρεσίας Δικτύωσης: <span>YN100000-YI</span>
-							</li>
-							<li>
-							Μορφή Δικτύου: <span>ConnectUp</span>
-							</li>
-							<li>
-							Ντι Εν Ες: <span>---</span>
-							</li>
-							<li>
-							IPv4: <span>192.168.1.3</span>
-							</li>
-							<li>
-							IPv6: <span>2a02:587:a009:8191:48e0:e063:117a:4d18</span>
-							</li>
-							</ul>
-						</div>
-					</div>
-			</box>
-			<box class="right p1">
-				<div class="header">
-					<h3>Jinjina Ethernet 100Gb Adapter</h3>
-					<h1>Ethernet</h1>
-				</div>
-					<img class="graph" src="Network1_1.png"></img>
-					<div class="bottom">
-						<div class="leftp">
-							<div class="col">
-								<div class="info">
-									<span>Ενεργός Χρόνος</span>
-									<em>1%</em>
-								</div>
-								<div class="info">
-									<span>Χρόνος απόκρισης</span>
-									<em>15ms</em>
-								</div>
-							</div>
-							<div class="col">
-								<div class="info" >
-									<span>Ισχύς Σήματος</span>
-									<em>100%</em>
-								</div>
-								<div class="info">
-									<span>Ποιότητα Σήματος</span>
-									<em>92%</em>
-								</div>
-							</div>
-							<div class="col">
-								<div class="info" style="border-left: 2px dotted #ff9900;">
-									<span>Φόρτωση</span>
-									<em>16Mbps</em>
-								</div>
-								<div class="info" style="border-left: 2px solid #b45f06;">
-									<span>Λήψη</span>
-									<em>192Mbps</em>
-								</div>
-							</div>
-							
-
-
-						</div>
-						<div class="rightp">
-							<ul>
-							<li>
-							SSID: <span>COSMOTE-058487</span>
-							</li>
-							<li>
-							Πάροχος Υπηρεσίας Δικτύωσης: <span>Cosmote</span>
-							</li>
-							<li>
-							Μορφή Δικτύου: <span>Fiber</span>
-							</li>
-							<li>
-							Ντι Εν Ες: <span>---</span>
-							</li>
-							<li>
-							IPv4: <span>192.168.1.5</span>
-							</li>
-							<li>
-							IPv6: <span>2a02:587:a009:8191:48e0:e063:117a:4d18</span>
-							</li>
-							</ul>
-						</div>
-					</div>
-			</box>
-
-
-		</section>
-
-		<!--GPU-->
-		<section class="page gpu" page="0">
-			<box class="left">
-				<a class="button p0" onclick="GPU0()">
-					<img class="graph" src="GPU.png"></img>
-					<div>
-						<big>GPU 0</big>
-						<br>
-						<span>Aurelis Emulator Gold</span>
-						<br>72%
-					</div>
-				</a>
-				<a class="button p1" onclick="GPU1()">
-					<img class="graph" src="GPU1.png"></img>
-					<div>
-						<big>GPU 0</big>
-						<br>
-						<span>Aurelis Emulator Gold</span>
-						<br> 3D: 0 2D: 5,5Gbps
-					</div>
-				</a>
-			</box>
-			<box class="right p0">
-				<div class="header">
-					<h3>Aurelis Emulator Gold</h3>
-					<h1>GPU 0</h1>
-				</div>
-					<img class="graph" src="GPU_1.png"></img>
-					<div class="bottom">
-						<div class="leftp">
-							<div class="col">
-								<div class="info">
-									<span>Ενεργός Χρόνος</span>
-									<em>72%</em>
-								</div>
-								<div class="info">
-									<span>Μνήμη σε χρήση</span>
-									<em>0,4/4,0GB</em>
-								</div>
-								<div class="info">
-									<span>Κοινή Μνήμη σε Χρήση</span>
-									<em>0,0/5,0GΒ</em>
-								</div>
-							</div>
-
-							<div class="col">
-								<div class="info" style="border-left: 2px dotted magenta;">
-									<span>3Δ</span>
-									<em>54Mbps</em>
-								</div>
-								<div class="info" style="border-left: 2px solid #741b47;">
-									<span>2Δ</span>
-									<em>5,5Gbps</em>
-								</div>
-								<div class="info">
-									<span>Μετάδοση</span>
-									<em>800MHz</em>
-								</div>
-							</div>
-							
-							<div class="col">
-								<div class="info" style="border-left: 2px double magenta;">
-									<span>HDR</span>
-									<em>0Kbps</em>
-								</div>
-								<div class="info" style="border-left: 2px dashed #741b47;">
-									<span>M.Render</span>
-									<em>0Kbps</em>
-								</div>
-								<div class="info">
-									<span>Θερμοκρασία</span>
-									<em>54°C</em>
-								</div>
-							</div>
-
-
-						</div>
-						<div class="rightp">
-							<ul>
-							<li>
-							Μνήμη GPU: <span>4,0GB</span>
-							</li>
-							<li>
-							Εκδοχή DX: <span>12 Ultimate</span>
-							</li>
-							<li>
-							Κατασκευαστής: <span>Yorkbook Noodlechnologies</span>
-							</li>
-							<li>
-							Δεσμευμένη στο Κονζτίντι: <span>1,8MB</span>
-							</li>
-							</ul>
-						</div>
-					</div>
-			</box>
-			<box class="right p1">
-				<div class="header">
-					<h3>Aurelis Emulator Gold</h3>
-					<h1>GPU 0</h1>
-				</div>
-					<img class="graph" src="GPU1_1.png"></img>
-					<div class="bottom">
-						<div class="leftp">
-							<div class="col">
-								<div class="info">
-									<span>Ενεργός Χρόνος</span>
-									<em>72%</em>
-								</div>
-								<div class="info">
-									<span>Μνήμη σε χρήση</span>
-									<em>0,4/4,0GB</em>
-								</div>
-								<div class="info">
-									<span>Κοινή Μνήμη σε Χρήση</span>
-									<em>0,0/5,0GΒ</em>
-								</div>
-							</div>
-
-							<div class="col">
-								<div class="info" style="border-left: 2px dotted magenta;">
-									<span>3Δ</span>
-									<em>54Mbps</em>
-								</div>
-								<div class="info" style="border-left: 2px solid #741b47;">
-									<span>2Δ</span>
-									<em>5,5Gbps</em>
-								</div>
-								<div class="info">
-									<span>Μετάδοση</span>
-									<em>800MHz</em>
-								</div>
-							</div>
-							
-							<div class="col">
-								<div class="info" style="border-left: 2px double magenta;">
-									<span>HDR</span>
-									<em>0Kbps</em>
-								</div>
-								<div class="info" style="border-left: 2px dashed #741b47;">
-									<span>M.Render</span>
-									<em>0Kbps</em>
-								</div>
-								<div class="info">
-									<span>Θερμοκρασία</span>
-									<em>54°C</em>
-								</div>
-							</div>
-
-
-						</div>
-						<div class="rightp">
-							<ul>
-							<li>
-							Μνήμη GPU: <span>4,0GB</span>
-							</li>
-							<li>
-							Εκδοχή DX: <span>12 Ultimate</span>
-							</li>
-							<li>
-							Κατασκευαστής: <span>Yorkbook Noodlechnologies</span>
-							</li>
-							<li>
-							Δεσμευμένη στο Κονζτίντι: <span>1,8MB</span>
-							</li>
-							</ul>
-						</div>
-					</div>
-			</box>
-
-
-		</section>
-
-		<!--TV-->
-		<section class="page tv" page="0">
-			<box class="left">
-				<a class="button p0" onclick="TV0()">
-					<img class="graph" src="TV.png"></img>
-					<div>
-						<big>Παρουσιαστής</big>
-						<br>
-						<span>Αγγελική Νικολούλη</span>
-						<br>U: 144 D: 0Mbps (22%)
-					</div>
-				</a>
-				<a class="button p1" onclick="TV1()">
-					<img class="graph" src="TV1.png"></img>
-					<div>
-						<big>Παιδικό</big>
-						<br>
-						<span>Power Rangers Dino Charge</span>
-						<br>U: 9,6 D: 0Mbps (26%)
-					</div>
-				</a>
-				<a class="button p2" onclick="TV2()">
-					<img class="graph" src="TV2.png"></img>
-					<div>
-						<big>Παιδικό</big>
-						<br>
-						<span>Pac-Man and the Ghostly Adventures</span>
-						<br>U: 20 D: 57Mbps (51%)
-					</div>
-				</a>
-				<a class="button p3" onclick="TV3()">
-					<img class="graph" src="TV3.png"></img>
-					<div>
-						<big>Παρουσιαστής</big>
-						<br>
-						<span>Χρήστος Γιασκουλίδης</span>
-						<br>U: 9 D: 30Mbps (58%)
-					</div>
-				</a>
-			</box>
-			<box class="right p0">
-				<div class="header">
-					<h3>Αγγελική Νικολούλη</h3>
-					<h1>Παρουσιαστής</h1>
-				</div>
-					<img class="graph" src="TV_1.png"></img>
-					<div class="bottom">
-						<div class="leftp">
-							<div class="col">
-								<div class="info">
-									<span>Ενεργός Χρόνος</span>
-									<em>22%</em>
-								</div>
-								<div class="info">
-									<span>Ποιότητα Σήματος</span>
-									<em>48%</em>
-								</div>
-								<div class="info">
-									<span>Μετάδοση</span>
-									<em>1008MHz</em>
-								</div>
-							</div>
-
-							<div class="col">
-								<div class="info">
-									<span>Εξασθένιση</span>
-									<em>1%</em>
-								</div>
-								<div class="info">
-									<span>Αποκωδικοποιητές</span>
-									<em>5</em>
-								</div>
-								<div class="info">
-									<span>Μνήμη στα Κρυφά</span>
-									<em>0,7/2,0GΒ</em>
-								</div>
-							</div>
-							
-							<div class="col">
-								<div class="info" style="border-left: 2px dotted var(--content-color);">
-									<span>Ανοδική</span>
-									<em>144Mbps</em>
-								</div>
-								<div class="info" style="border-left: 2px solid var(--content-border);">
-									<span>Καθοδική</span>
-									<em>0Kbps</em>
-								</div>
-							</div>
-
-
-						</div>
-						<div class="rightp">
-							<ul>
-							<li>
-							Πρότυπο Τεχνολογίας: <span>NVS 2</span>
-							</li>
-							<li>
-							Μέγιστη Ανοδική Ταχύτητα: <span>144Mbps</span>
-							</li>
-							<li>
-							Μέγιστη Καθοδική Ταχύτητα: <span>220Mbps</span>
-							</li>
-							<li>
-							Μέσος Χρόνος Απόκρισης: <span>12ms</span>
-							</li>
-							</ul>
-						</div>
-					</div>
-			</box>
+						<header appname="browser" class="header item">
+							<span class="name">Qortex Chromessentials</span>
+							<span class="cpu">0%</span>
+							<span class="ram">768ΜΒ</span>
+							<span class="disk">4Mbps</span>
+							<span class="network">100Mbps</span>
+							<span class="gpu">2%</span>
+							<span class="ucpu">00:44:07</span>
+						</header>
+						<header appname="browser" class="header item">
+							<span class="name">Qortex Chromessentials</span>
+							<span class="cpu">0%</span>
+							<span class="ram">713ΜΒ</span>
+							<span class="disk">0Kbps</span>
+							<span class="network">0Mbps</span>
+							<span class="gpu">1%</span>
+							<span class="ucpu">00:44:07</span>
+						</header>
+						<header appname="browser" class="header item">
+							<span class="name">Qortex Chromessentials</span>
+							<span class="cpu">0%</span>
+							<span class="ram">55ΜΒ</span>
+							<span class="disk">640Kbps</span>
+							<span class="network">0Mbps</span>
+							<span class="gpu">0%</span>
+							<span class="ucpu">00:10:00</span>
+						</header>
+						<header appname="system" class="header item">
+							<span class="name">System</span>
+							<span class="cpu">0%</span>
+							<span class="ram">738ΜΒ</span>
+							<span class="disk">8Kbps</span>
+							<span class="network">0Kbps</span>
+							<span class="gpu">0%</span>
+							<span class="ucpu">01:08:22</span>
+						</header>
+						<header appname="windowproc" class="header item">
+							<span class="name">Window Process</span>
+							<span class="cpu">0%</span>
+							<span class="ram">0ΜΒ</span>
+							<span class="disk">8Kbps</span>
+							<span class="network">0Kbps</span>
+							<span class="gpu">0%</span>
+							<span class="ucpu">01:08:22</span>
+						</header>
+						<header appname="services" class="header item">
+							<span class="name">Υπηρεσίες Mpisto</span>
+							<span class="cpu">0%</span>
+							<span class="ram">1,7ΜΒ</span>
+							<span class="disk">0Kbps</span>
+							<span class="network">0Kbps</span>
+							<span class="gpu">0%</span>
+							<span class="ucpu">01:08:22</span>
+						</header>
+						<header appname="cosnole" class="header item">
+							<span class="name">Κονσόλα Εντολών</span>
+							<span class="cpu">0%</span>
+							<span class="ram">0,1ΜΒ</span>
+							<span class="disk">0Kbps</span>
+							<span class="network">0Kbps</span>
+							<span class="gpu">0%</span>
+							<span class="ucpu">01:08:22</span>
+						</header>
+						<header appname="cosnole" class="header item">
+							<span class="name">Κονσόλα Εντολών</span>
+							<span class="cpu">0%</span>
+							<span class="ram">0,2ΜΒ</span>
+							<span class="disk">0Kbps</span>
+							<span class="network">0Kbps</span>
+							<span class="gpu">0%</span>
+							<span class="ucpu">01:08:22</span>
+						</header>
 			
-			<box class="right p1">
-				<div class="header">
-					<h3>Power Rangers Dino Charge</h3>
-					<h1>Παιδικό</h1>
-				</div>
-					<img class="graph" src="TV1_1.png"></img>
-					<div class="bottom">
-						<div class="leftp">
-							<div class="col">
-								<div class="info">
-									<span>Ενεργός Χρόνος</span>
-									<em>26%</em>
-								</div>
-								<div class="info">
-									<span>Ποιότητα Σήματος</span>
-									<em>25%</em>
-								</div>
-								<div class="info">
-									<span>Μετάδοση</span>
-									<em>1280MHz</em>
-								</div>
-							</div>
+					</article>
+					<footer>
+						<button class="wds-button">Τερματισμός Διεργασίας</button>
+					</footer>
 
-							<div class="col">
-								<div class="info">
-									<span>Εξασθένιση</span>
-									<em>0%</em>
-								</div>
-								<div class="info">
-									<span>Αποκωδικοποιητές</span>
-									<em>14</em>
-								</div>
-								<div class="info">
-									<span>Μνήμη στα Κρυφά</span>
-									<em>288/1020ΜΒ</em>
-								</div>
-							</div>
-							
-							<div class="col">
-								<div class="info" style="border-left: 2px dotted var(--content-color);">
-									<span>Ανοδική</span>
-									<em>9,6Mbps</em>
-								</div>
-								<div class="info" style="border-left: 2px solid var(--content-border);">
-									<span>Καθοδική</span>
-									<em>0Kbps</em>
-								</div>
-							</div>
-
-
+				</section>
+			</div>
+		</main>
+		<!--Performance-->
+		<main class="performance">
+			  <header class="graphs">
+				<a class="cpu" onclick="CPU()">
+					<circle cpu></circle> CPU
+				</a>
+				<a class="ram" onclick="RAM()">
+					<circle ram></circle> RAM
+				</a>
+				<a class="disk" onclick="Disk()">
+					<circle disk></circle> Δίσκος
+				</a>
+				<a class="network" onclick="Network()">
+					<circle network></circle> Δικτύωση
+				</a>
+				<a class="gpu" onclick="GPU()">
+					<circle gpu></circle> GPU
+				</a>
+				<a class="tv" onclick="TV()">
+					<circle tv></circle> TV
+				</a>
+			</header>
+			<!--CPU-->
+			<section class="page cpu" page="0">
+				<box class="left">
+					<a class="button p0" onclick="CPU0()">
+						<img class="graph" src="CPU.png"></img>
+						<div>
+							<big>CPU</big>
+							<br>
+							5%
 						</div>
-						<div class="rightp">
-							<ul>
-							<li>
-							Πρότυπο Τεχνολογίας: <span>CartoonClassic</span>
-							</li>
-							<li>
-							Μέγιστη Ανοδική Ταχύτητα: <span>10Mbps</span>
-							</li>
-							<li>
-							Μέγιστη Καθοδική Ταχύτητα: <span>28Mbps</span>
-							</li>
-							<li>
-							Μέσος Χρόνος Απόκρισης: <span>14ms</span>
-							</li>
-							</ul>
+					</a>
+					<a class="button p1" onclick="CPU1()">
+						<img class="graph" src="CPU1.png"></img>
+						<div>
+							<big>CPU</big>
+							<br>
+							MC: 16 SC: 128Kbps
 						</div>
+					</a>
+				</box>
+				<box class="right p0">
+					<div class="header">
+						<h3>Aurelis Processor</h3>
+						<h1>CPU</h1>
 					</div>
-			</box>
-
-			<box class="right p2">
-				<div class="header">
-					<h3>Pac-Man and the Ghostly Adventures</h3>
-					<h1>Παιδικό</h1>
-				</div>
-					<img class="graph" src="TV2_1.png"></img>
-					<div class="bottom">
-						<div class="leftp">
-							<div class="col">
-								<div class="info">
-									<span>Ενεργός Χρόνος</span>
-									<em>51%</em>
-								</div>
-								<div class="info">
-									<span>Ποιότητα Σήματος</span>
-									<em>80%</em>
-								</div>
-								<div class="info">
-									<span>Μετάδοση</span>
-									<em>1024MHz</em>
-								</div>
-							</div>
-
-							<div class="col">
-								<div class="info">
-									<span>Εξασθένιση</span>
-									<em>6%</em>
-								</div>
-								<div class="info">
-									<span>Αποκωδικοποιητές</span>
-									<em>19</em>
-								</div>
-								<div class="info">
-									<span>Μνήμη στα Κρυφά</span>
-									<em>1,6/2,5GB</em>
-								</div>
-							</div>
-							
-							<div class="col">
-								<div class="info" style="border-left: 2px dotted var(--content-color);">
-									<span>Ανοδική</span>
-									<em>20Mbps</em>
-								</div>
-								<div class="info" style="border-left: 2px solid var(--content-border);">
-									<span>Καθοδική</span>
-									<em>57Mbps</em>
-								</div>
-							</div>
-
-
+						<div class="g_raph" style="display:contents; flex:1;" onclick="CPU1_t()" page="0">
+							<img class="graph" src="CPU_1.png"></img>
+							<aside class="heatmap">
+								<cpu style="--heatmap-usage:1;">1%</cpu>
+								<cpu style="--heatmap-usage:1;">1%</cpu>
+								<cpu style="--heatmap-usage:1;">1%</cpu>
+								<cpu style="--heatmap-usage:0;">0%</cpu>
+								<cpu style="--heatmap-usage:1;">1%</cpu>
+								<cpu style="--heatmap-usage:1;">1%</cpu>
+							</aside>
 						</div>
-						<div class="rightp">
-							<ul>
-							<li>
-							Πρότυπο Τεχνολογίας: <span>CartoonNow</span>
-							</li>
-							<li>
-							Μέγιστη Ανοδική Ταχύτητα: <span>21Mbps</span>
-							</li>
-							<li>
-							Μέγιστη Καθοδική Ταχύτητα: <span>60Mbps</span>
-							</li>
-							<li>
-							Μέσος Χρόνος Απόκρισης: <span>13ms</span>
-							</li>
-							</ul>
+						<div class="bottom">
+							<div class="leftp">
+								<div class="col">
+									<div class="info">
+										<span>Ενεργός Χρόνος</span>
+										<em>5%</em>
+									</div>
+									<div class="info">
+										<span>Μετάδοση</span>
+										<em>980MHz</em>
+									</div>
+								</div>
+
+								<div class="col">
+									<div class="info">
+										<span>Διεργασίες</span>
+										<em>100</em>
+									</div>
+									<div class="info">
+										<span>Νήματα</span>
+										<em>2180</em>
+									</div>
+									<div class="info">
+										<span>Θερμοκρασία</span>
+										<em>48°C</em>
+									</div>
+								</div>
+								
+								<div class="col">
+									<div class="info" style="border-left: 2px dotted yellow;">
+										<span>Πολλαπλοί Πυρήνες</span>
+										<em>16Kbps</em>
+									</div>
+									<div class="info" style="border-left: 2px solid #bf9000;">
+										<span>Μονός Πυρήνας</span>
+										<em>128Kbps</em>
+									</div>
+								</div>
+
+
+							</div>
+							<div class="rightp">
+								<ul>
+								<li>
+								Μάξιμουμ Ταχύτητα: <span>1,0GHz</span>
+								</li>
+								<li>
+								Πυρήνες: <span>6</span>
+								</li>
+								<li>
+								Λογικοί Επεξεργαστές: <span>6</span>
+								</li>
+								<li>
+								Κόμβοι NUMA: <span>1</span>
+								</li>
+								<li>
+								L1 Cache: <span>2,0Mb</span>
+								</li>
+								<li>
+								L2 Cache: <span>8,0Mb</span>
+								</li>
+								<li>
+								L3 Cache: <span>64Mb</span>
+								</li>
+								</ul>
+							</div>
 						</div>
+				</box>
+
+				<box class="right p1">
+					<div class="header">
+						<h3>Aurelis Processor</h3>
+						<h1>CPU</h1>
 					</div>
-			</box>
+						<img class="graph" src="CPU1_1.png"></img>
+						<div class="bottom">
+							<div class="leftp">
+								<div class="col">
+									<div class="info">
+										<span>Ενεργός Χρόνος</span>
+										<em>5%</em>
+									</div>
+									<div class="info">
+										<span>Μετάδοση</span>
+										<em>980MHz</em>
+									</div>
+								</div>
+
+								<div class="col">
+									<div class="info">
+										<span>Διεργασίες</span>
+										<em>100</em>
+									</div>
+									<div class="info">
+										<span>Νήματα</span>
+										<em>2180</em>
+									</div>
+									<div class="info">
+										<span>Θερμοκρασία</span>
+										<em>48°C</em>
+									</div>
+								</div>
+								
+								<div class="col">
+									<div class="info" style="border-left: 2px dotted yellow;">
+										<span>Πολλαπλοί Πυρήνες</span>
+										<em>16Kbps</em>
+									</div>
+									<div class="info" style="border-left: 2px solid #bf9000;">
+										<span>Μονός Πυρήνας</span>
+										<em>128Kbps</em>
+									</div>
+								</div>
+
+
+							</div>
+							<div class="rightp">
+								<ul>
+								<li>
+								Μάξιμουμ Ταχύτητα: <span>1,0GHz</span>
+								</li>
+								<li>
+								Πυρήνες: <span>6</span>
+								</li>
+								<li>
+								Λογικοί Επεξεργαστές: <span>6</span>
+								</li>
+								<li>
+								Κόμβοι NUMA: <span>1</span>
+								</li>
+								<li>
+								L1 Cache: <span>2,0Mb</span>
+								</li>
+								<li>
+								L2 Cache: <span>8,0Mb</span>
+								</li>
+								<li>
+								L3 Cache: <span>64Mb</span>
+								</li>
+								</ul>
+							</div>
+						</div>
+				</box>
+
+			</section>
+			<!--RAM-->
+			<section class="page ram" page="0">
+				<box class="left">
+					<a class="button p0"> <!--onclick="RAM0()"-->
+						<img class="graph" src="RAM.png"></img>
+						<div>
+							<big>RAM</big>
+							<br>
+							4,0/8,0GB (50%)
+							<br>
+							DDR3
+						</div>
+					</a>
+				</box>
+				<box class="right p0">
+					<div class="header">
+						<h3>DDR3 8,0GB</h3>
+						<h1>RAM</h1>
+					</div>
+						<img class="graph" src="RAM_1.png"></img>
+						<div class="bottom">
+							<div class="leftp">
+								<div class="col">
+									<div class="info">
+										<span>Ενεργός Χρόνος</span>
+										<em>50%</em>
+									</div>
+									<div class="info">
+										<span>Χρήση Μνήμης</span>
+										<em>4,0/8,0GB</em>
+									</div>
+								</div>
+
+								<div class="col">
+									<div class="info">
+										<span>Εικονική Μνήμη</span>
+										<em>6,1/9,9GB</em>
+									</div>
+									<div class="info">
+										<span>Ελεύθερη</span>
+										<em>4,0GB</em>
+									</div>
+								</div>
+								
+								<div class="col">
+									<div class="info">
+										<span>Χρόνος Καθυστέρισης</span>
+										<em>90ms</em>
+									</div>
+									<div class="info">
+										<span>Στα Κρυφά</span>
+										<em>1,1GB</em>
+									</div>
+								</div>
+
+
+							</div>
+							<div class="rightp">
+								<ul>
+								<li>
+								Μετάδοση: <span>1,3GHz</span>
+								</li>
+								<li>
+								Υποδοχές σε χρήση: <span>2/4 (-/4,0GB 1,3GHz/-/4,0GB 1,3GHz)</span>
+								</li>
+								<li>
+								Μνήμη αποκλειστικά για υλικό: <span>10,4MB</span>
+								</li>
+								</ul>
+							</div>
+						</div>
+				</box>
+
+			</section>
+			<!--Disk-->
+			<section class="page disk" page="0">
+				<box class="left">
+					<a class="button p0" onclick="Disk0()">
+						<img class="graph" src="Disk.png"></img>
+						<div>
+							<big>Δίσκος 0 (A:)</big>
+							<br>
+							W: 0,5 R: 1,5Mbps
+							<br>System (1%)
+						</div>
+					</a>
+					<a class="button p1" onclick="Disk1()">
+						<img class="graph" src="Disk1.png"></img>
+						<div>
+							<big>Δίσκος 1 (B:)</big>
+							<br>
+							W: 1,1 R: 0,5Gbps
+							<br>HDD (46%)
+						</div>
+					</a>
+					<a class="button p2" onclick="Disk2()">
+						<img class="graph" src="Disk2.png"></img>
+						<div>
+							<big>Δίσκος 2 (C:)</big>
+							<br>
+							W: 0 R: 1,1Gbps
+							<br>USB (92%)
+						</div>
+					</a>
+				</box>
+				<box class="right p0">
+					<div class="header">
+						<h3>Jinjina SSD Series 256GB</h3>
+						<h1>Δίσκος 0 (A:)</h1>
+					</div>
+						<img class="graph" src="Disk_1.png"></img>
+						<div class="bottom">
+							<div class="leftp">
+								<div class="col">
+									<div class="info">
+										<span>Ενεργός Χρόνος</span>
+										<em>1%</em>
+									</div>
+									<div class="info">
+										<span>Χρόνος απόκρισης</span>
+										<em>0,1ms</em>
+									</div>
+								</div>
+
+								<div class="col">
+									<div class="info" style="border-left: 2px dotted lime;">
+										<span>Εγγραφή</span>
+										<em>512Kbps</em>
+									</div>
+									<div class="info" style="border-left: 2px solid #38761d;">
+										<span>Ανάγνωση</span>
+										<em>1,5Mbps</em>
+									</div>
+								</div>
+								
+								<div class="col">
+									<div class="info" style="border-left: 2px double lime;">
+										<span>4K Εγγραφή</span>
+										<em>104Kbps</em>
+									</div>
+									<div class="info" style="border-left: 2px dashed #38761d;">
+										<span>4K Ανάγνωση</span>
+										<em>640Kbps</em>
+									</div>
+								</div>
+
+
+							</div>
+							<div class="rightp">
+								<ul>
+								<li>
+								Χωρητικότητα: <span>256GB</span>
+								</li>
+								<li>
+								Σε χρήση: <span>230GB</span>
+								</li>
+								<li>
+								Μορφοποιημένη: <span>230GB</span>
+								</li>
+								<li>
+								Είδος: <span>Δίσκος Συστήματος</span>
+								</li>
+								<li>
+								Δεσμευμένη στο Κονζτίντι: <span>3,9MB</span>
+								</li>
+								</ul>
+							</div>
+						</div>
+				</box>
+
+				<box class="right p1">
+					<div class="header">
+						<h3>WDC WD10EZEX-00RKKA0</h3>
+						<h1>Δίσκος 1 (B:)</h1>
+					</div>
+						<img class="graph" src="Disk1_1.png"></img>
+						<div class="bottom">
+							<div class="leftp">
+								<div class="col">
+									<div class="info">
+										<span>Ενεργός Χρόνος</span>
+										<em>46%</em>
+									</div>
+									<div class="info">
+										<span>Χρόνος απόκρισης</span>
+										<em>16,3ms</em>
+									</div>
+								</div>
+
+								<div class="col">
+									<div class="info" style="border-left: 2px dotted lime;">
+										<span>Εγγραφή</span>
+										<em>1,1Gbps</em>
+									</div>
+									<div class="info" style="border-left: 2px solid #38761d;">
+										<span>Ανάγνωση</span>
+										<em>508Mbps</em>
+									</div>
+								</div>
+								
+								<div class="col">
+									<div class="info" style="border-left: 2px double lime;">
+										<span>4K Εγγραφή</span>
+										<em>16Mbps</em>
+									</div>
+									<div class="info" style="border-left: 2px dashed #38761d;">
+										<span>4K Ανάγνωση</span>
+										<em>4,2Mbps</em>
+									</div>
+								</div>
+
+
+							</div>
+							<div class="rightp">
+								<ul>
+								<li>
+								Χωρητικότητα: <span>1TB</span>
+								</li>
+								<li>
+								Σε χρήση: <span>930GB</span>
+								</li>
+								<li>
+								Μορφοποιημένη: <span>930GB</span>
+								</li>
+								<li>
+								Είδος: <span>Μονάδα Σκληρού Δίσκου</span>
+								</li>
+								<li>
+								Δεσμευμένη στο Κονζτίντι: <span>5,1MB</span>
+								</li>
+								</ul>
+							</div>
+						</div>
+				</box>
+
+
+				<box class="right p2">
+					<div class="header">
+						<h3>YN3000000-USB3</h3>
+						<h1>Δίσκος 2 (C:)</h1>
+					</div>
+						<img class="graph" src="Disk2_1.png"></img>
+						<div class="bottom">
+							<div class="leftp">
+								<div class="col">
+									<div class="info">
+										<span>Ενεργός Χρόνος</span>
+										<em>92%</em>
+									</div>
+									<div class="info">
+										<span>Χρόνος απόκρισης</span>
+										<em>100,2ms</em>
+									</div>
+								</div>
+
+								<div class="col">
+									<div class="info" style="border-left: 2px dotted lime;">
+										<span>Εγγραφή</span>
+										<em>29Mbps</em>
+									</div>
+									<div class="info" style="border-left: 2px solid #38761d;">
+										<span>Ανάγνωση</span>
+										<em>1,1Gbps</em>
+									</div>
+								</div>
+								
+								<div class="col">
+									<div class="info" style="border-left: 2px double lime;">
+										<span>4K Εγγραφή</span>
+										<em>768Kbps</em>
+									</div>
+									<div class="info" style="border-left: 2px dashed #38761d;">
+										<span>4K Ανάγνωση</span>
+										<em>1,0Mbps</em>
+									</div>
+								</div>
+
+
+							</div>
+							<div class="rightp">
+								<ul>
+								<li>
+								Χωρητικότητα: <span>64GB</span>
+								</li>
+								<li>
+								Σε χρήση: <span>57,8GB</span>
+								</li>
+								<li>
+								Μορφοποιημένη: <span>57,8GB</span>
+								</li>
+								<li>
+								Είδος: <span>Μονάδα Αφαιρούμενου Μέσου</span>
+								</li>
+								<li>
+								Δεσμευμένη στο Κονζτίντι: <span>960KB</span>
+								</li>
+								</ul>
+							</div>
+						</div>
+				</box>
+
+
+			</section>
+			<!--Network-->
+			<section class="page network" page="0">
+				<box class="left">
+					<a class="button p0" onclick="Network0()">
+						<img class="graph" src="Network.png"></img>
+						<div>
+							<big>Wi-Fi</big>
+							<br>
+							4%
+							</br>
+							S: 0,9 R: 100Mbps
+							<br>
+						</div>
+					</a>
+					<a class="button p1" onclick="Network1()">
+						<img class="graph" src="Network1.png"></img>
+						<div>
+							<big>Ethernet</big>
+							<br>
+							1%
+							</br>
+							S: 16 R: 192Mbps
+							<br>
+						</div>
+					</a>
+				</box>
+				<box class="right p0">
+					<div class="header">
+						<h3>Paksama ConnectUp Network Adapter</h3>
+						<h1>Wi-Fi</h1>
+					</div>
+						<img class="graph" src="Network_1.png"></img>
+						<div class="bottom">
+							<div class="leftp">
+								<div class="col">
+									<div class="info">
+										<span>Ενεργός Χρόνος</span>
+										<em>4%</em>
+									</div>
+									<div class="info">
+										<span>Χρόνος απόκρισης</span>
+										<em>10ms</em>
+									</div>
+								</div>
+								<div class="col">
+									<div class="info">
+										<span>Ισχύς Σήματος</span>
+										<em>100%</em>
+									</div>
+									<div class="info">
+										<span>Ποιότητα Σήματος</span>
+										<em>60%</em>
+									</div>
+								</div>
+								<div class="col">
+									<div class="info" style="border-left: 2px dotted #ff9900;">
+										<span>Φόρτωση</span>
+										<em>944Kbps</em>
+									</div>
+									<div class="info" style="border-left: 2px solid #b45f06;">
+										<span>Λήψη</span>
+										<em>100Mbps</em>
+									</div>
+								</div>
+								
+
+
+							</div>
+							<div class="rightp">
+								<ul>
+								<li>
+								SSID: <span>Yorkbook Internet</span>
+								</li>
+								<li>
+								Πάροχος Υπηρεσίας Δικτύωσης: <span>YN100000-YI</span>
+								</li>
+								<li>
+								Μορφή Δικτύου: <span>ConnectUp</span>
+								</li>
+								<li>
+								Ντι Εν Ες: <span>---</span>
+								</li>
+								<li>
+								IPv4: <span>192.168.1.3</span>
+								</li>
+								<li>
+								IPv6: <span>2a02:587:a009:8191:48e0:e063:117a:4d18</span>
+								</li>
+								</ul>
+							</div>
+						</div>
+				</box>
+				<box class="right p1">
+					<div class="header">
+						<h3>Jinjina Ethernet 100Gb Adapter</h3>
+						<h1>Ethernet</h1>
+					</div>
+						<img class="graph" src="Network1_1.png"></img>
+						<div class="bottom">
+							<div class="leftp">
+								<div class="col">
+									<div class="info">
+										<span>Ενεργός Χρόνος</span>
+										<em>1%</em>
+									</div>
+									<div class="info">
+										<span>Χρόνος απόκρισης</span>
+										<em>15ms</em>
+									</div>
+								</div>
+								<div class="col">
+									<div class="info" >
+										<span>Ισχύς Σήματος</span>
+										<em>100%</em>
+									</div>
+									<div class="info">
+										<span>Ποιότητα Σήματος</span>
+										<em>92%</em>
+									</div>
+								</div>
+								<div class="col">
+									<div class="info" style="border-left: 2px dotted #ff9900;">
+										<span>Φόρτωση</span>
+										<em>16Mbps</em>
+									</div>
+									<div class="info" style="border-left: 2px solid #b45f06;">
+										<span>Λήψη</span>
+										<em>192Mbps</em>
+									</div>
+								</div>
+								
+
+
+							</div>
+							<div class="rightp">
+								<ul>
+								<li>
+								SSID: <span>COSMOTE-058487</span>
+								</li>
+								<li>
+								Πάροχος Υπηρεσίας Δικτύωσης: <span>Cosmote</span>
+								</li>
+								<li>
+								Μορφή Δικτύου: <span>Fiber</span>
+								</li>
+								<li>
+								Ντι Εν Ες: <span>---</span>
+								</li>
+								<li>
+								IPv4: <span>192.168.1.5</span>
+								</li>
+								<li>
+								IPv6: <span>2a02:587:a009:8191:48e0:e063:117a:4d18</span>
+								</li>
+								</ul>
+							</div>
+						</div>
+				</box>
+
+
+			</section>
+
+			<!--GPU-->
+			<section class="page gpu" page="0">
+				<box class="left">
+					<a class="button p0" onclick="GPU0()">
+						<img class="graph" src="GPU.png"></img>
+						<div>
+							<big>GPU 0</big>
+							<br>
+							<span>Aurelis Emulator Gold</span>
+							<br>72%
+						</div>
+					</a>
+					<a class="button p1" onclick="GPU1()">
+						<img class="graph" src="GPU1.png"></img>
+						<div>
+							<big>GPU 0</big>
+							<br>
+							<span>Aurelis Emulator Gold</span>
+							<br> 3D: 0 2D: 5,5Gbps
+						</div>
+					</a>
+				</box>
+				<box class="right p0">
+					<div class="header">
+						<h3>Aurelis Emulator Gold</h3>
+						<h1>GPU 0</h1>
+					</div>
+						<img class="graph" src="GPU_1.png"></img>
+						<div class="bottom">
+							<div class="leftp">
+								<div class="col">
+									<div class="info">
+										<span>Ενεργός Χρόνος</span>
+										<em>72%</em>
+									</div>
+									<div class="info">
+										<span>Μνήμη σε χρήση</span>
+										<em>0,4/4,0GB</em>
+									</div>
+									<div class="info">
+										<span>Κοινή Μνήμη σε Χρήση</span>
+										<em>0,0/5,0GΒ</em>
+									</div>
+								</div>
+
+								<div class="col">
+									<div class="info" style="border-left: 2px dotted magenta;">
+										<span>3Δ</span>
+										<em>54Mbps</em>
+									</div>
+									<div class="info" style="border-left: 2px solid #741b47;">
+										<span>2Δ</span>
+										<em>5,5Gbps</em>
+									</div>
+									<div class="info">
+										<span>Μετάδοση</span>
+										<em>800MHz</em>
+									</div>
+								</div>
+								
+								<div class="col">
+									<div class="info" style="border-left: 2px double magenta;">
+										<span>HDR</span>
+										<em>0Kbps</em>
+									</div>
+									<div class="info" style="border-left: 2px dashed #741b47;">
+										<span>M.Render</span>
+										<em>0Kbps</em>
+									</div>
+									<div class="info">
+										<span>Θερμοκρασία</span>
+										<em>54°C</em>
+									</div>
+								</div>
+
+
+							</div>
+							<div class="rightp">
+								<ul>
+								<li>
+								Μνήμη GPU: <span>4,0GB</span>
+								</li>
+								<li>
+								Εκδοχή DX: <span>12 Ultimate</span>
+								</li>
+								<li>
+								Κατασκευαστής: <span>Yorkbook Noodlechnologies</span>
+								</li>
+								<li>
+								Δεσμευμένη στο Κονζτίντι: <span>1,8MB</span>
+								</li>
+								</ul>
+							</div>
+						</div>
+				</box>
+				<box class="right p1">
+					<div class="header">
+						<h3>Aurelis Emulator Gold</h3>
+						<h1>GPU 0</h1>
+					</div>
+						<img class="graph" src="GPU1_1.png"></img>
+						<div class="bottom">
+							<div class="leftp">
+								<div class="col">
+									<div class="info">
+										<span>Ενεργός Χρόνος</span>
+										<em>72%</em>
+									</div>
+									<div class="info">
+										<span>Μνήμη σε χρήση</span>
+										<em>0,4/4,0GB</em>
+									</div>
+									<div class="info">
+										<span>Κοινή Μνήμη σε Χρήση</span>
+										<em>0,0/5,0GΒ</em>
+									</div>
+								</div>
+
+								<div class="col">
+									<div class="info" style="border-left: 2px dotted magenta;">
+										<span>3Δ</span>
+										<em>54Mbps</em>
+									</div>
+									<div class="info" style="border-left: 2px solid #741b47;">
+										<span>2Δ</span>
+										<em>5,5Gbps</em>
+									</div>
+									<div class="info">
+										<span>Μετάδοση</span>
+										<em>800MHz</em>
+									</div>
+								</div>
+								
+								<div class="col">
+									<div class="info" style="border-left: 2px double magenta;">
+										<span>HDR</span>
+										<em>0Kbps</em>
+									</div>
+									<div class="info" style="border-left: 2px dashed #741b47;">
+										<span>M.Render</span>
+										<em>0Kbps</em>
+									</div>
+									<div class="info">
+										<span>Θερμοκρασία</span>
+										<em>54°C</em>
+									</div>
+								</div>
+
+
+							</div>
+							<div class="rightp">
+								<ul>
+								<li>
+								Μνήμη GPU: <span>4,0GB</span>
+								</li>
+								<li>
+								Εκδοχή DX: <span>12 Ultimate</span>
+								</li>
+								<li>
+								Κατασκευαστής: <span>Yorkbook Noodlechnologies</span>
+								</li>
+								<li>
+								Δεσμευμένη στο Κονζτίντι: <span>1,8MB</span>
+								</li>
+								</ul>
+							</div>
+						</div>
+				</box>
+
+
+			</section>
+
+			<!--TV-->
+			<section class="page tv" page="0">
+				<box class="left">
+					<a class="button p0" onclick="TV0()">
+						<img class="graph" src="TV.png"></img>
+						<div>
+							<big>Παρουσιαστής</big>
+							<br>
+							<span>Αγγελική Νικολούλη</span>
+							<br>U: 144 D: 0Mbps (22%)
+						</div>
+					</a>
+					<a class="button p1" onclick="TV1()">
+						<img class="graph" src="TV1.png"></img>
+						<div>
+							<big>Παιδικό</big>
+							<br>
+							<span>Power Rangers Dino Charge</span>
+							<br>U: 9,6 D: 0Mbps (26%)
+						</div>
+					</a>
+					<a class="button p2" onclick="TV2()">
+						<img class="graph" src="TV2.png"></img>
+						<div>
+							<big>Παιδικό</big>
+							<br>
+							<span>Pac-Man and the Ghostly Adventures</span>
+							<br>U: 20 D: 57Mbps (51%)
+						</div>
+					</a>
+					<a class="button p3" onclick="TV3()">
+						<img class="graph" src="TV3.png"></img>
+						<div>
+							<big>Παρουσιαστής</big>
+							<br>
+							<span>Χρήστος Γιασκουλίδης</span>
+							<br>U: 9 D: 30Mbps (58%)
+						</div>
+					</a>
+				</box>
+				<box class="right p0">
+					<div class="header">
+						<h3>Αγγελική Νικολούλη</h3>
+						<h1>Παρουσιαστής</h1>
+					</div>
+						<img class="graph" src="TV_1.png"></img>
+						<div class="bottom">
+							<div class="leftp">
+								<div class="col">
+									<div class="info">
+										<span>Ενεργός Χρόνος</span>
+										<em>22%</em>
+									</div>
+									<div class="info">
+										<span>Ποιότητα Σήματος</span>
+										<em>48%</em>
+									</div>
+									<div class="info">
+										<span>Μετάδοση</span>
+										<em>1008MHz</em>
+									</div>
+								</div>
+
+								<div class="col">
+									<div class="info">
+										<span>Εξασθένιση</span>
+										<em>1%</em>
+									</div>
+									<div class="info">
+										<span>Αποκωδικοποιητές</span>
+										<em>5</em>
+									</div>
+									<div class="info">
+										<span>Μνήμη στα Κρυφά</span>
+										<em>0,7/2,0GΒ</em>
+									</div>
+								</div>
+								
+								<div class="col">
+									<div class="info" style="border-left: 2px dotted var(--content-color);">
+										<span>Ανοδική</span>
+										<em>144Mbps</em>
+									</div>
+									<div class="info" style="border-left: 2px solid var(--content-border);">
+										<span>Καθοδική</span>
+										<em>0Kbps</em>
+									</div>
+								</div>
+
+
+							</div>
+							<div class="rightp">
+								<ul>
+								<li>
+								Πρότυπο Τεχνολογίας: <span>NVS 2</span>
+								</li>
+								<li>
+								Μέγιστη Ανοδική Ταχύτητα: <span>144Mbps</span>
+								</li>
+								<li>
+								Μέγιστη Καθοδική Ταχύτητα: <span>220Mbps</span>
+								</li>
+								<li>
+								Μέσος Χρόνος Απόκρισης: <span>12ms</span>
+								</li>
+								</ul>
+							</div>
+						</div>
+				</box>
+				
+				<box class="right p1">
+					<div class="header">
+						<h3>Power Rangers Dino Charge</h3>
+						<h1>Παιδικό</h1>
+					</div>
+						<img class="graph" src="TV1_1.png"></img>
+						<div class="bottom">
+							<div class="leftp">
+								<div class="col">
+									<div class="info">
+										<span>Ενεργός Χρόνος</span>
+										<em>26%</em>
+									</div>
+									<div class="info">
+										<span>Ποιότητα Σήματος</span>
+										<em>25%</em>
+									</div>
+									<div class="info">
+										<span>Μετάδοση</span>
+										<em>1280MHz</em>
+									</div>
+								</div>
+
+								<div class="col">
+									<div class="info">
+										<span>Εξασθένιση</span>
+										<em>0%</em>
+									</div>
+									<div class="info">
+										<span>Αποκωδικοποιητές</span>
+										<em>14</em>
+									</div>
+									<div class="info">
+										<span>Μνήμη στα Κρυφά</span>
+										<em>288/1020ΜΒ</em>
+									</div>
+								</div>
+								
+								<div class="col">
+									<div class="info" style="border-left: 2px dotted var(--content-color);">
+										<span>Ανοδική</span>
+										<em>9,6Mbps</em>
+									</div>
+									<div class="info" style="border-left: 2px solid var(--content-border);">
+										<span>Καθοδική</span>
+										<em>0Kbps</em>
+									</div>
+								</div>
+
+
+							</div>
+							<div class="rightp">
+								<ul>
+								<li>
+								Πρότυπο Τεχνολογίας: <span>CartoonClassic</span>
+								</li>
+								<li>
+								Μέγιστη Ανοδική Ταχύτητα: <span>10Mbps</span>
+								</li>
+								<li>
+								Μέγιστη Καθοδική Ταχύτητα: <span>28Mbps</span>
+								</li>
+								<li>
+								Μέσος Χρόνος Απόκρισης: <span>14ms</span>
+								</li>
+								</ul>
+							</div>
+						</div>
+				</box>
+
+				<box class="right p2">
+					<div class="header">
+						<h3>Pac-Man and the Ghostly Adventures</h3>
+						<h1>Παιδικό</h1>
+					</div>
+						<img class="graph" src="TV2_1.png"></img>
+						<div class="bottom">
+							<div class="leftp">
+								<div class="col">
+									<div class="info">
+										<span>Ενεργός Χρόνος</span>
+										<em>51%</em>
+									</div>
+									<div class="info">
+										<span>Ποιότητα Σήματος</span>
+										<em>80%</em>
+									</div>
+									<div class="info">
+										<span>Μετάδοση</span>
+										<em>1024MHz</em>
+									</div>
+								</div>
+
+								<div class="col">
+									<div class="info">
+										<span>Εξασθένιση</span>
+										<em>6%</em>
+									</div>
+									<div class="info">
+										<span>Αποκωδικοποιητές</span>
+										<em>19</em>
+									</div>
+									<div class="info">
+										<span>Μνήμη στα Κρυφά</span>
+										<em>1,6/2,5GB</em>
+									</div>
+								</div>
+								
+								<div class="col">
+									<div class="info" style="border-left: 2px dotted var(--content-color);">
+										<span>Ανοδική</span>
+										<em>20Mbps</em>
+									</div>
+									<div class="info" style="border-left: 2px solid var(--content-border);">
+										<span>Καθοδική</span>
+										<em>57Mbps</em>
+									</div>
+								</div>
+
+
+							</div>
+							<div class="rightp">
+								<ul>
+								<li>
+								Πρότυπο Τεχνολογίας: <span>CartoonNow</span>
+								</li>
+								<li>
+								Μέγιστη Ανοδική Ταχύτητα: <span>21Mbps</span>
+								</li>
+								<li>
+								Μέγιστη Καθοδική Ταχύτητα: <span>60Mbps</span>
+								</li>
+								<li>
+								Μέσος Χρόνος Απόκρισης: <span>13ms</span>
+								</li>
+								</ul>
+							</div>
+						</div>
+				</box>
+				
+				<box class="right p3">
+					<div class="header">
+						<h3>Χρήστος Γιασκουλίδης</h3>
+						<h1>Παρουσιαστής</h1>
+					</div>
+						<img class="graph" src="TV3_1.png"></img>
+						<div class="bottom">
+							<div class="leftp">
+								<div class="col">
+									<div class="info">
+										<span>Ενεργός Χρόνος</span>
+										<em>58%</em>
+									</div>
+									<div class="info">
+										<span>Ποιότητα Σήματος</span>
+										<em>37%</em>
+									</div>
+									<div class="info">
+										<span>Μετάδοση</span>
+										<em>999MHz</em>
+									</div>
+								</div>
+
+								<div class="col">
+									<div class="info">
+										<span>Εξασθένιση</span>
+										<em>-27%</em>
+									</div>
+									<div class="info">
+										<span>Αποκωδικοποιητές</span>
+										<em>44</em>
+									</div>
+									<div class="info">
+										<span>Μνήμη στα Κρυφά</span>
+										<em>0,4/2,0GB</em>
+									</div>
+								</div>
+								
+								<div class="col">
+									<div class="info" style="border-left: 2px dotted var(--content-color);">
+										<span>Ανοδική</span>
+										<em>9Mbps</em>
+									</div>
+									<div class="info" style="border-left: 2px solid var(--content-border);">
+										<span>Καθοδική</span>
+										<em>30Mbps</em>
+									</div>
+								</div>
+
+
+							</div>
+							<div class="rightp">
+								<ul>
+								<li>
+								Πρότυπο Τεχνολογίας: <span>NVS 2</span>
+								</li>
+								<li>
+								Μέγιστη Ανοδική Ταχύτητα: <span>7,2Mbps</span>
+								</li>
+								<li>
+								Μέγιστη Καθοδική Ταχύτητα: <span>32Mbps</span>
+								</li>
+								<li>
+								Μέσος Χρόνος Απόκρισης: <span>8ms</span>
+								</li>
+								</ul>
+							</div>
+						</div>
+				</box>
+
+			</section>
+		</main>
+		<!--Users-->
+		<main class="users">
+			<div class="proc_page">
+				<section>
+					<article>
+						<header class="header upper">
+							<span class="name">
+								Όνομα Χρήστη
+							</span>
+							<span class="cpu">
+							<counter>5%</counter>
+								CPU
+							</span>
+							<span class="ram">
+							<counter>50%</counter>
+								RAM
+							</span>
+							<span class="disk">
+							<counter>46%</counter>
+								Δίσκος
+							</span>
+							<span class="network">
+							<counter>2%</counter>
+								Δικτύωση
+							</span>
+							<span class="gpu">
+							<counter>72%</counter>
+								GPU
+							</span>
+							<span class="ucpu">
+								Χρόνος CPU
+							</span>
+						</header>
+
+
+						<header alt="ΗΜ100" class="header item">
+							<span class="name">HM100</span>
+							<span class="cpu">5%</span>
+							<span class="ram">4000ΜΒ</span>
+							<span class="disk">2,2Gbps</span>
+							<span class="network">100Μbps</span>
+							<span class="gpu">72%</span>
+							<span class="ucpu">01:08:22</span>
+						</header>
 			
-			<box class="right p3">
-				<div class="header">
-					<h3>Χρήστος Γιασκουλίδης</h3>
-					<h1>Παρουσιαστής</h1>
-				</div>
-					<img class="graph" src="TV3_1.png"></img>
-					<div class="bottom">
-						<div class="leftp">
-							<div class="col">
-								<div class="info">
-									<span>Ενεργός Χρόνος</span>
-									<em>58%</em>
-								</div>
-								<div class="info">
-									<span>Ποιότητα Σήματος</span>
-									<em>37%</em>
-								</div>
-								<div class="info">
-									<span>Μετάδοση</span>
-									<em>999MHz</em>
-								</div>
-							</div>
+					</article>
+					<footer>
+						<button class="wds-button">Αποσύνδεση Χρήστη</button>
+					</footer>
 
-							<div class="col">
-								<div class="info">
-									<span>Εξασθένιση</span>
-									<em>-27%</em>
-								</div>
-								<div class="info">
-									<span>Αποκωδικοποιητές</span>
-									<em>44</em>
-								</div>
-								<div class="info">
-									<span>Μνήμη στα Κρυφά</span>
-									<em>0,4/2,0GB</em>
-								</div>
-							</div>
+				</section>
+			</div>
+		</main>
+		<!--Details-->
+		<main class="details">
+			<div class="proc_page">
+				<section>
+					<article>
+						<header class="header upper">
+							<span class="name">
+								Όνομα Διεργασίας
+							</span>
+							<span class="cpu">
+								CPU
+							</span>
+							<span class="ram">
+								RAM
+							</span>
+							<span class="disk">
+								Δίσκος
+							</span>
+							<span class="network">
+								Δικτύωση
+							</span>
+							<span class="gpu">
+								GPU
+							</span>
+							<span class="ucpu">
+								Χρήστης
+							</span>
+						</header>
+
+
+						<header appname="FileManager" class="header item">
+							<span class="name">manager.exe</span>
+							<span class="cpu">1%</span>
+							<span class="ram">700ΜΒ</span>
+							<span class="disk">2,2Gbps</span>
+							<span class="network">0Kbps</span>
+							<span class="gpu">1%</span>
+							<span class="ucpu">HM100</span>
+						</header>
+						<header appname="dolphin" class="header item">
+							<span class="name">dolphin.exe</span>
+							<span class="cpu">3%</span>
+							<span class="ram">816ΜΒ</span>
+							<span class="disk">1Mbps</span>
+							<span class="network">0Kbps</span>
+							<span class="gpu">68%</span>
+							<span class="ucpu">HM100</span>
+						</header>
+						<header appname="dolphin" class="header item">
+							<span class="name">RPGMV.exe</span>
+							<span class="cpu">1%</span>
+							<span class="ram">208ΜΒ</span>
+							<span class="disk">16Kbps</span>
+							<span class="network">0Kbps</span>
+							<span class="gpu">0%</span>
+							<span class="ucpu">HM100</span>
+						</header>
+						
+						<header appname="browser" class="header item">
+							<span class="name">qortex.exe</span>
+							<span class="cpu">0%</span>
+							<span class="ram">1536ΜΒ</span>
+							<span class="disk">4Mbps</span>
+							<span class="network">100Mbps</span>
+							<span class="gpu">3%</span>
+							<span class="ucpu">HM100</span>
+						</header>
 							
-							<div class="col">
-								<div class="info" style="border-left: 2px dotted var(--content-color);">
-									<span>Ανοδική</span>
-									<em>9Mbps</em>
-								</div>
-								<div class="info" style="border-left: 2px solid var(--content-border);">
-									<span>Καθοδική</span>
-									<em>30Mbps</em>
-								</div>
-							</div>
 
+						<header appname="browser" class="header item">
+							<span class="name">qortex.exe</span>
+							<span class="cpu">0%</span>
+							<span class="ram">768ΜΒ</span>
+							<span class="disk">4Mbps</span>
+							<span class="network">100Mbps</span>
+							<span class="gpu">2%</span>
+							<span class="ucpu">HM100</span>
+						</header>
+						<header appname="browser" class="header item">
+							<span class="name">qortex.exe</span>
+							<span class="cpu">0%</span>
+							<span class="ram">713ΜΒ</span>
+							<span class="disk">0Kbps</span>
+							<span class="network">0Mbps</span>
+							<span class="gpu">1%</span>
+							<span class="ucpu">HM100</span>
+						</header>
+						<header appname="browser" class="header item">
+							<span class="name">qortex.exe</span>
+							<span class="cpu">0%</span>
+							<span class="ram">55ΜΒ</span>
+							<span class="disk">640Kbps</span>
+							<span class="network">0Mbps</span>
+							<span class="gpu">0%</span>
+							<span class="ucpu">HM100</span>
+						</header>
+						<header appname="system" class="header item">
+							<span class="name">system.exem</span>
+							<span class="cpu">0%</span>
+							<span class="ram">738ΜΒ</span>
+							<span class="disk">8Kbps</span>
+							<span class="network">0Kbps</span>
+							<span class="gpu">0%</span>
+							<span class="ucpu">SYSTEM</span>
+						</header>
+						<header appname="windowproc" class="header item">
+							<span class="name">Wndproc.exem</span>
+							<span class="cpu">0%</span>
+							<span class="ram">0ΜΒ</span>
+							<span class="disk">8Kbps</span>
+							<span class="network">0Kbps</span>
+							<span class="gpu">0%</span>
+							<span class="ucpu">SYSTEM</span>
+						</header>
+						<header appname="services" class="header item">
+							<span class="name">MSrvc.exe</span>
+							<span class="cpu">0%</span>
+							<span class="ram">1,7ΜΒ</span>
+							<span class="disk">0Kbps</span>
+							<span class="network">0Kbps</span>
+							<span class="gpu">0%</span>
+							<span class="ucpu">SYSTEM</span>
+						</header>
+						<header appname="cosnole" class="header item">
+							<span class="name">cnsl.exe</span>
+							<span class="cpu">0%</span>
+							<span class="ram">0,1ΜΒ</span>
+							<span class="disk">0Kbps</span>
+							<span class="network">0Kbps</span>
+							<span class="gpu">0%</span>
+							<span class="ucpu">SYSTEM</span>
+						</header>
+						<header appname="cosnole" class="header item">
+							<span class="name">cnsl.exe</span>
+							<span class="cpu">0%</span>
+							<span class="ram">0,2ΜΒ</span>
+							<span class="disk">0Kbps</span>
+							<span class="network">0Kbps</span>
+							<span class="gpu">0%</span>
+							<span class="ucpu">SYSTEM</span>
+						</header>
+			
+					</article>
+					<footer>
+						<button class="wds-button">Τερματισμός Διεργασίας</button>
+					</footer>
 
-						</div>
-						<div class="rightp">
-							<ul>
-							<li>
-							Πρότυπο Τεχνολογίας: <span>NVS 2</span>
-							</li>
-							<li>
-							Μέγιστη Ανοδική Ταχύτητα: <span>7,2Mbps</span>
-							</li>
-							<li>
-							Μέγιστη Καθοδική Ταχύτητα: <span>32Mbps</span>
-							</li>
-							<li>
-							Μέσος Χρόνος Απόκρισης: <span>8ms</span>
-							</li>
-							</ul>
-						</div>
-					</div>
-			</box>
-
-		</section>
+				</section>
+			</div>
+		</main>
 
 
 	</body>
