@@ -688,7 +688,9 @@ circle[tv] {
 	padding:2px 0;
 	box-sizing:border-box;
 	display:flex;
+	flex-wrap:wrap;
 }
+
 
 .page box.right .bottom .leftp, 
 .page box.right .bottom .rightp {
@@ -708,6 +710,7 @@ circle[tv] {
 	color:var(--content-border-blend);
 	font-size:12px;
 	display:block;
+	white-space:nowrap;
 }
 
 .page box.right .bottom .leftp .info em {
