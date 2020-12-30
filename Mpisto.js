@@ -87,3 +87,21 @@ function TV2() {
 function TV3() {
 		$('.page.tv').attr("page", "3");
 }
+
+/* Section Changing Functions */
+
+function Tab0() {
+		$('body').attr("page", "processes");
+}
+
+function Tab1() {
+		$('body').attr("page", "performance");
+}
+
+function Tab2() {
+		$('body').attr("page", "user");
+}
+
+function Tab3() {
+		$('body').attr("page", "details");
+}
