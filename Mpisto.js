@@ -38,10 +38,37 @@ function CPU1() {
 function CPU1_t() {
 	if ($('.page.cpu .g_raph').attr("page") == 0) {
 		$('.page.cpu .g_raph').attr("page", "1");
+	} else if ($('.page.cpu .g_raph').attr("page") == 1) {
+		$('.page.cpu .g_raph').attr("page", "2");
 	} else {
 		$('.page.cpu .g_raph').attr("page", "0");
 	}
 }
+
+function Disk1_t() {
+	if ($('.page.disk .g_raph').attr("page") == 0) {
+		$('.page.disk .g_raph').attr("page", "1");
+	} else {
+		$('.page.disk .g_raph').attr("page", "0");
+	}
+}
+
+function Network1_t() {
+	if ($('.page.network .g_raph').attr("page") == 0) {
+		$('.page.network .g_raph').attr("page", "1");
+	} else {
+		$('.page.network .g_raph').attr("page", "0");
+	}
+}
+
+function GPU1_t() {
+	if ($('.page.gpu .g_raph').attr("page") == 0) {
+		$('.page.gpu .g_raph').attr("page", "1");
+	} else {
+		$('.page.gpu .g_raph').attr("page", "0");
+	}
+}
+
 
 function Disk0() {
 		$('.page.disk').attr("page", "0");

@@ -353,7 +353,7 @@
 						<h3>Aurelis Processor</h3>
 						<h1>CPU</h1>
 					</div>
-						<div class="g_raph" style="display:contents; flex:1;" onclick="CPU1_t()" page="0">
+						<div class="g_raph" onclick="CPU1_t()" page="0">
 							<img class="graph" src="CPU_1.png"></img>
 							<aside class="heatmap">
 								<cpu style="--heatmap-usage:1;">1%</cpu>
@@ -363,6 +363,7 @@
 								<cpu style="--heatmap-usage:1;">1%</cpu>
 								<cpu style="--heatmap-usage:1;">1%</cpu>
 							</aside>
+							<img class="graph graphT" src="CPU_2.png"></img>
 						</div>
 						<div class="bottom">
 							<div class="leftp">
@@ -372,7 +373,7 @@
 										<em>5%</em>
 									</div>
 									<div class="info">
-										<span>Transmission</span>
+										<span>Frequency</span>
 										<em>980MHz</em>
 									</div>
 								</div>
@@ -447,7 +448,7 @@
 										<em>5%</em>
 									</div>
 									<div class="info">
-										<span>Transmission</span>
+										<span>Frequency</span>
 										<em>980MHz</em>
 									</div>
 								</div>
@@ -569,7 +570,7 @@
 							<div class="rightp">
 								<ul>
 								<li>
-								Transmission: <span>1,3GHz</span>
+								Frequency: <span>1,3GHz</span>
 								</li>
 								<li>
 								Slots used: <span>2/4 (-/4,0GB 1,3GHz/-/4,0GB 1,3GHz)</span>
@@ -601,7 +602,7 @@
 							<big>Disk 1 (B:)</big>
 							<br>
 							W: 1,1 R: 0,5Gbps
-							<br>HDD (46%)
+							<br>HDD (99%)
 						</div>
 					</a>
 					<a class="button p2" onclick="Disk2()">
@@ -619,7 +620,10 @@
 						<h3>Jinjina SSD Series 256GB</h3>
 						<h1>Disk 0 (A:)</h1>
 					</div>
-						<img class="graph" src="Disk_1.png"></img>
+						<div class="g_raph" onclick="Disk1_t()" page="0">
+							<img class="graph" src="Disk_1.png"></img>
+							<img class="graph graphAT" src="Disk_2.png"></img>
+						</div>
 						<div class="bottom">
 							<div class="leftp">
 								<div class="col">
@@ -684,13 +688,16 @@
 						<h3>WDC WD10EZEX-00RKKA0</h3>
 						<h1>Disk 1 (B:)</h1>
 					</div>
-						<img class="graph" src="Disk1_1.png"></img>
+						<div class="g_raph" onclick="Disk1_t()" page="0">
+							<img class="graph" src="Disk1_1.png"></img>
+							<img class="graph graphAT" src="Disk1_2.png"></img>
+						</div>
 						<div class="bottom">
 							<div class="leftp">
 								<div class="col">
 									<div class="info">
 										<span>Utilization</span>
-										<em>46%</em>
+										<em>99%</em>
 									</div>
 									<div class="info">
 										<span>Ping Time</span>
@@ -750,7 +757,10 @@
 						<h3>YN3000000-USB3</h3>
 						<h1>Disk 2 (C:)</h1>
 					</div>
-						<img class="graph" src="Disk2_1.png"></img>
+						<div class="g_raph" onclick="Disk1_t()" page="0">
+							<img class="graph" src="Disk2_1.png"></img>
+							<img class="graph graphAT" src="Disk2_2.png"></img>
+						</div>
 						<div class="bottom">
 							<div class="leftp">
 								<div class="col">
@@ -820,7 +830,7 @@
 						<div>
 							<big>Wi-Fi</big>
 							<br>
-							4%
+							100%
 							</br>
 							S: 0,9 R: 100Mbps
 							<br>
@@ -843,13 +853,16 @@
 						<h3>Paksama ConnectUp Network Adapter</h3>
 						<h1>Wi-Fi</h1>
 					</div>
-						<img class="graph" src="Network_1.png"></img>
+						<div class="g_raph" onclick="Network1_t()" page="0">
+							<img class="graph" src="Network_1.png"></img>
+							<img class="graph graphAT" src="Network_2.png"></img>
+						</div>
 						<div class="bottom">
 							<div class="leftp">
 								<div class="col">
 									<div class="info">
 										<span>Utilization</span>
-										<em>4%</em>
+										<em>100%</em>
 									</div>
 									<div class="info">
 										<span>Ping Time</span>
@@ -909,7 +922,10 @@
 						<h3>Jinjina Ethernet 100Gb Adapter</h3>
 						<h1>Ethernet</h1>
 					</div>
-						<img class="graph" src="Network1_1.png"></img>
+						<div class="g_raph" onclick="Network1_t()" page="0">
+							<img class="graph" src="Network1_1.png"></img>
+							<img class="graph graphAT" src="Network1_2.png"></img>
+						</div>
 						<div class="bottom">
 							<div class="leftp">
 								<div class="col">
@@ -1001,7 +1017,10 @@
 						<h3>Aurelis Emulator Gold</h3>
 						<h1>GPU 0</h1>
 					</div>
-						<img class="graph" src="GPU_1.png"></img>
+						<div class="g_raph" onclick="GPU1_t()" page="0">
+							<img class="graph" src="GPU_1.png"></img>
+							<img class="graphT" src="GPU_2.png"></img>
+						</div>
 						<div class="bottom">
 							<div class="leftp">
 								<div class="col">
@@ -1029,7 +1048,7 @@
 										<em>5,5Gbps</em>
 									</div>
 									<div class="info">
-										<span>Transmission</span>
+										<span>Frequency</span>
 										<em>800MHz</em>
 									</div>
 								</div>
@@ -1102,7 +1121,7 @@
 										<em>5,5Gbps</em>
 									</div>
 									<div class="info">
-										<span>Transmission</span>
+										<span>Frequency</span>
 										<em>800MHz</em>
 									</div>
 								</div>
@@ -1203,7 +1222,7 @@
 										<em>48%</em>
 									</div>
 									<div class="info">
-										<span>Transmission</span>
+										<span>Frequency</span>
 										<em>1008MHz</em>
 									</div>
 								</div>
@@ -1273,7 +1292,7 @@
 										<em>25%</em>
 									</div>
 									<div class="info">
-										<span>Transmission</span>
+										<span>Frequency</span>
 										<em>1280MHz</em>
 									</div>
 								</div>
@@ -1343,7 +1362,7 @@
 										<em>80%</em>
 									</div>
 									<div class="info">
-										<span>Transmission</span>
+										<span>Frequency</span>
 										<em>1024MHz</em>
 									</div>
 								</div>
@@ -1413,7 +1432,7 @@
 										<em>37%</em>
 									</div>
 									<div class="info">
-										<span>Transmission</span>
+										<span>Frequency</span>
 										<em>999MHz</em>
 									</div>
 								</div>

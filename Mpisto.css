@@ -391,6 +391,10 @@ main {
 overflow:hidden!important;
 }
 
+button {
+	font-family:inherit
+}
+
 /* Dynamic Variables
  --button-color-blend-light:#18BBC6; 
  --button-color-blend:#149fa8; 
@@ -542,6 +546,7 @@ main {
 .proc_page article {
 	flex:1;
 	overflow-y:scroll; /* Fallback */
+	scrollbar-color:var(--content-border) var(--content-color);
 }
 
 
@@ -759,25 +764,34 @@ circle[tv] {
 	border:1px solid;
 }
 
-.page.cpu .g_raph[page*="0"] .heatmap {
-	display:none!important;
+.page box .g_raph {
+	display:contents;
+	flex:1;
 }
 
-.page.cpu .g_raph[page*="1"] .graph {
+.page.cpu .g_raph:not([page*="1"]) .heatmap,
+.page .g_raph:not([page*="0"]) .graph:not([class*="graphT"]):not([class*="graphAT"]),
+.page.cpu .g_raph:not([page*="2"]) .graphT,
+.page.gpu .g_raph:not([page*="1"]) .graphT,
+.page.disk .g_raph:not([page*="1"]) .graphAT, 
+.page.network .g_raph:not([page*="1"]) .graphAT {
 	display:none!important;
 }
 
 
 .page.cpu .g_raph .heatmap {
 	display:flex;
+	display:grid;
 	flex-wrap:wrap;
+	grid:auto-flow / repeat(var(--heatmap-rows, 2), 1fr);
 	flex:1;
 	overflow:auto;
 	background-color:black;
 	color:white;
 	height:100%;
 	min-height:26px;
-	border:1px solid #7f6000;	
+	border:1px solid #7f6000;
+	width:100%;
 }
 
 .page.cpu .g_raph .heatmap cpu{

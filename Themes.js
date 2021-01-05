@@ -1,6 +1,8 @@
 ﻿window.MW18auto = true;
 window.MW18autoDark = false;
 window.MW18darkmode = false;
+window.MW18LightThreshold = 50;
+window.MW18HoverThreshold = 0.25;
 
 (function () {
 document.querySelector('html').className += " theme-A"; // We begin with the first theme selected
@@ -9,12 +11,13 @@ ColorUpdate(true);
 		UpdateSet()
 	}
 		$("head").append(
-		'<meta name="theme-color" content="' + chroma(getComputedStyle(document.querySelector('body')).getPropertyValue("--emphasis-bg")) + '">'
+		'<meta name="theme-color" content="' + chroma(getComputedStyle(document.querySelector('html')).getPropertyValue("--emphasis-bg")) + '">'
 		);	
 		$('body').attr("cursor", "mpisto");
 		CursorT('auto');
 		colortheme('system-a');
 		SocialCompile();
+		ManagerRows(); // For Task Manager Only
 		
 		
 })();
@@ -24,7 +27,7 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-
+/* Changes Sitename */
 function UpdateSitename() {
     var x = document.getElementById("311");
     var y = $(".mpisto-input.sitename").val();
@@ -41,6 +44,7 @@ function UpdateSitename() {
 	}
 }
 
+/* Changes Cursor Theme */
 function CursorT(theme) {
 	if (theme === 'auto') {
 		window.MW18auto = true;
@@ -75,34 +79,31 @@ function CursorT(theme) {
 
 }
 
+/* Used for some wiki theme modes 
+	Called on body element only */
 function CheckTheme() {
-
-/* Dark Mode */
-
+/* Wiki theme */
  if (window.matchMedia('(prefers-color-scheme: dark)'))  {
-	if (($('body').attr("wikitheme") === 'system-a') && !(window.MW18darkmode)) {
+	if ($('body').attr("wikitheme") === 'system-a')  {
 		colortheme('system-a')
 	}
-	if (($('body').attr("wikitheme") === 'system') && !(window.MW18darkmode)) {
+	if ($('body').attr("wikitheme") === 'system-ar')  {
+		colortheme('system-ar')
+	}
+	if ($('body').attr("wikitheme") === 'system')  {
 		colortheme('system')
+	}
+	if ($('body').attr("wikitheme") === 'system-r')  {
+		colortheme('system-r')
 	}
  }
 
-/* Light Mode */
-
- if (window.matchMedia('(prefers-color-scheme: dark)'))  {
-	if (($('body').attr("wikitheme") === 'system-a') && (window.MW18darkmode)) {
-		colortheme('system-a')
-	}
-	if (($('body').attr("wikitheme") === 'system') && (window.MW18darkmode)) {
-		colortheme('system')
-	}
- }
+/* Top bar for Mobile Devices */
 
 if ($("html.contrast").length) {
-	$('meta[name*="theme-color"]').attr("content", chroma(getComputedStyle(document.querySelector('body')).getPropertyValue("--dropdown-bg")));
+	$('meta[name*="theme-color"]').attr("content", chroma(getComputedStyle(document.querySelector('html')).getPropertyValue("--dropdown-bg")));
 } else {
-	$('meta[name*="theme-color"]').attr("content", chroma(getComputedStyle(document.querySelector('body')).getPropertyValue("--emphasis-bg")));
+	$('meta[name*="theme-color"]').attr("content", chroma(getComputedStyle(document.querySelector('html')).getPropertyValue("--emphasis-bg")));
 /*
 	if ($(".headroom--not-top").length) {
 		$('meta[name*="theme-color"]').attr("content", chroma(getComputedStyle(document.querySelector('body')).getPropertyValue("--accent-bg")));
@@ -112,33 +113,69 @@ if ($("html.contrast").length) {
 */
 }
 
+ManagerRows();
+
 }
 
+
+/* Used only on Task Manager, ignored elsewhere */
+function ManagerRows() {
+
+/* For Task Manager */
+if ($("body.tskmngr").length) {
+	if ( ($("cpu").length) < 4) {
+		document.querySelector('aside.heatmap').style.setProperty("--heatmap-rows", $("cpu").length);
+	} else if ( ($("cpu").length) < 6 ) {
+		document.querySelector('aside.heatmap').style.setProperty("--heatmap-rows", 2);
+	} else if ( ($("cpu").length) < 13 ) {
+		document.querySelector('aside.heatmap').style.setProperty("--heatmap-rows", 3);
+	} else if ( ($("cpu").length) < 30 ) {
+		document.querySelector('aside.heatmap').style.setProperty("--heatmap-rows", 4);
+	} else if ( ($("cpu").length) < 64 ) {
+		document.querySelector('aside.heatmap').style.setProperty("--heatmap-rows", 6);
+	} else if ( ($("cpu").length) < 99 ) {
+		document.querySelector('aside.heatmap').style.setProperty("--heatmap-rows", 8);
+	} else {
+		document.querySelector('aside.heatmap').style.setProperty("--heatmap-rows", 10);
+	}
+}
+
+
+}
+
+/* Changes Wiki theme style
+   Supported values: auto, auto-r, light, dark, system-a, system-ar, system, system-r */
 function colortheme(theme) {
     var body_bg =	getComputedStyle(document.querySelector('html')).getPropertyValue("--content-bg");
-	if (theme === 'auto') {
+	if (theme === 'auto') { // Auto
 		window.MW18darkmode = false;
-	} 	else if (theme === 'auto-r') {
+	} 	else if (theme === 'auto-r') { // Auto-Dark
 		window.MW18darkmode = true;
-	} 	else if (theme === 'light') {
+	} 	else if (theme === 'light') { // Light
 		if (isLightColor(body_bg)) {
 		window.MW18darkmode = false;
 		} else {
 		window.MW18darkmode = true;
 		}
-	} 	else if (theme === 'dark') {
+	} 	else if (theme === 'dark') { // Dark
 		if (isLightColor(body_bg)) {
 		window.MW18darkmode = true;
 		} else {
 		window.MW18darkmode = false;
 		}
-	} 	else if (theme === 'system-a') {
+	} 	else if (theme === 'system-a') { // Auto-System
 		if ( window.matchMedia('(prefers-color-scheme: dark)').matches ) {
 		window.MW18darkmode = true;
 		} else {
 		window.MW18darkmode = false;
 		}
-	} 	else if (theme === 'system') {
+	} 	else if (theme === 'system-ar') { // Auto-System-Dark
+		if ( window.matchMedia('(prefers-color-scheme: dark)').matches ) {
+		window.MW18darkmode = false;
+		} else {
+		window.MW18darkmode = true;
+		}
+	} 	else if (theme === 'system') { // System
 		if (isLightColor(body_bg)) {
 			if ( window.matchMedia('(prefers-color-scheme: dark)').matches ) {
 			window.MW18darkmode = true;
@@ -150,6 +187,20 @@ function colortheme(theme) {
 			window.MW18darkmode = false;
 			} else {
 			window.MW18darkmode = true;
+			}
+		}
+	} 	else if (theme === 'system-r') { // System-Dark
+		if (isLightColor(body_bg)) {
+			if ( window.matchMedia('(prefers-color-scheme: dark)').matches ) {
+			window.MW18darkmode = false;
+			} else {
+			window.MW18darkmode = true;
+			}
+		} else {
+			if ( window.matchMedia('(prefers-color-scheme: dark)').matches ) {
+			window.MW18darkmode = true;
+			} else {
+			window.MW18darkmode = false;
 			}
 		}
 	} else {
@@ -171,6 +222,7 @@ function colortheme(theme) {
 
 }
 
+/* Changes body background image */
 function UploadPicture1(files) {
 window.URL = window.URL || window.webkitURL;
 const img = document.createElement("img");
@@ -215,10 +267,13 @@ if (files[0].size > 1024000) {
 	}
 
 }
-
-function UploadPicture1B() {
-img=prompt("Set Background Image (Leave empty for imageless)", "");
-
+/* Changes body background image with input */
+function UploadPicture1B(image="") {
+	if (image==="") {
+		img=prompt("Set Background Image (Leave empty for imageless)", "");
+	} else {
+		img=image;
+	}
 	if ($("html.theme-A").length) {
 		$("style.designer-style.theme-A").append(
 		'.theme-A:not(.win10) {' +
@@ -254,7 +309,7 @@ img=prompt("Set Background Image (Leave empty for imageless)", "");
 }
 
 
-
+/* Changes avatar image */
 function UploadPicture2(files) {
 window.URL = window.URL || window.webkitURL;
 const img = document.createElement("img");
@@ -271,6 +326,7 @@ $("img[alt='HM100']").attr("src", img.src);
 
 }
 
+/* Changes avatar image with input */
 function UploadPicture2B() {
 img=prompt("Set Avatar Image (Leave empty for default)", "");
 
@@ -282,6 +338,7 @@ if (img=='') {
 
 }
 
+/* Removes avatar image */
 function RemovePicture2() {
 if (confirm('Are you sure you want to reset your account\'s avatar to default? This action cannot be undone') === true) {
 	SetAvatar("0");
@@ -289,7 +346,7 @@ if (confirm('Are you sure you want to reset your account\'s avatar to default? T
 }
 
 
-
+/* Changes header background image */
 function UploadPicture3(files) {
 window.URL = window.URL || window.webkitURL;
 const img = document.createElement("img");
@@ -313,6 +370,7 @@ if (files[0].size > 1024000) {
 
 }
 
+/* Changes header background image with input */
 function UploadPicture3B() {
 img=prompt("Set Header Graphic Image (Leave empty for imageless)", "");
 
@@ -325,12 +383,11 @@ img=prompt("Set Header Graphic Image (Leave empty for imageless)", "");
 }
 
 
+/* Changes wiki wordmark image */
 function UploadPicture4(files) {
 window.URL = window.URL || window.webkitURL;
 const img = document.createElement("img");
 img.src = window.URL.createObjectURL(files[0]);
-img.width = 471;
-img.height = 115;
 
 
 if (files[0].size > 1024000) {
@@ -348,6 +405,7 @@ if (files[0].size > 1024000) {
 
 }
 
+/* Changes alt avatar image */
 function UploadPicture5(files) {
 window.URL = window.URL || window.webkitURL;
 const img = document.createElement("img");
@@ -364,6 +422,7 @@ $("img[alt='altavatar']").attr("src", img.src);
 
 }
 
+/* Changes alt avatar image with input */
 function UploadPicture5B() {
 img=prompt("Set Bot Avatar Image (Leave empty for default, can be the same as the ones from the main account)", "");
 
@@ -391,7 +450,10 @@ if (alt) {
 }
 
 
-
+/* These functions set random color 
+** Used in Preferences only
+** Possible Variations of RandomColor() 1 = Body Color | 2 = Header Color | 3 = Content Color | 4 = Content Text Color | 5 = Content Border Color | 6 = Link Color | 7 = Button Color
+*/
 function RandomColor1() {
 var x = chroma.random()
 $('input[type="range"][name="bg"].red').val(chroma(x).get('rgb.r'));
@@ -474,8 +536,155 @@ function RandomColor() {
 }
 
 
-function PickColor1() {
-var x= prompt("Body Background Color", chroma(getComputedStyle(document.querySelector('html')).getPropertyValue("--background-color")));
+/* Preset Themes 
+** Themes:
+**			0  = Oasis
+**			1  = Sapphire
+**			2  = Jade
+**			3  = Babygirl
+**			4  = Sky
+**			5  = Carbon
+**			6  = Moonlight
+**			7  = Rockgarden
+**			8  = Oppulence
+**			9 = Bluesteel
+**			10 = Obession
+**			11 = Creamsicle
+**			12 = Plated
+**			13 = Beach
+**			14 = Police
+**			15 = Dragstrip
+**			16 = Aliencrate
+*/
+function PresetTheme(theme="") {
+	if (theme==="") {
+		var theme2= $('select.preset_theme').val();
+	} else {
+		var theme2= theme;
+	}
+	var body_bg=[
+				'BACDD8', // Oasis
+				'2B54B5', // Sapphire
+				'003816', // Jade
+				'000000', // Babygirl
+				'BDEAFD', // Sky
+				'1A1A1A', // Carbon
+				'000000', // Moonlight
+				'525833', // Rockgarden
+				'AD3479', // Oppulence
+				'303641', // Bluesteel
+				'191919', // Obeession
+				'F8E9AE', // Creamsicle
+				'060606', // Plated
+				'97E4FE', // Beach
+				'000000', // Police
+				'353637', // Dragonstrip
+				'484534', // Aliencrate
+				][theme2];
+	var body_image=[
+				'Empty.png',				 // Oasis
+				'Preset Themes/Theme01.png', // Sapphire
+				'Empty.png',				 // Jade
+				'Preset Themes/Theme03.jpg', // Babygirl
+				'Preset Themes/Theme04.png', // Sky
+				'Preset Themes/Theme05.png', // Carbon
+				'Preset Themes/Theme06.jpg', // Moonlight
+				'Preset Themes/Theme07.jpg', // Rockgarden
+				'Preset Themes/Theme08.png', // Oppulence
+				'Preset Themes/Theme09.jpg', // Bluesteel
+				'Preset Themes/Theme10.jpg', // Obeession
+				'Preset Themes/Theme11.jpg', // Creamsicle
+				'Preset Themes/Theme12.jpg', // Plated
+				'Empty.png', 				 // Beach
+				'Preset Themes/Theme14.jpg', // Police
+				'Preset Themes/Theme15.jpg', // Dragonstrip
+				'Preset Themes/Theme16.jpg', // Aliencrate
+				][theme2];
+	var page_bg=[
+				'FFFFFF', // Oasis
+				'FFFFFF', // Sapphire
+				'FFFFFF', // Jade
+				'FFFFFF', // Babygirl
+				'DEF4FE', // Sky
+				'474646', // Carbon
+				'CCD9F9', // Moonlight
+				'DFDBC3', // Rockgarden
+				'FFFFFF', // Oppulence
+				'FFFFFF', // Bluesteel
+				'1C0400', // Obeession
+				'FBE7B5', // Creamsicle
+				'474646', // Plated
+				'FFFFFF', // Beach
+				'0F142F', // Police
+				'0C0C0C', // Dragonstrip
+				'DAD5CB', // Aliencrate
+				][theme2];
+	var button_bg=[
+				'006CB0', // Oasis
+				'0038D8', // Sapphire
+				'25883D', // Jade
+				'6F027C', // Babygirl
+				'F9CE3A', // Sky
+				'012E59', // Carbon
+				'6F027C', // Moonlight
+				'1F5D04', // Rockgarden
+				'DE1C4E', // Oppulence
+				'0A3073', // Bluesteel
+				'891100', // Obeession
+				'FE7E03', // Creamsicle
+				'092F71', // Plated
+				'C2D04D', // Beach
+				'1A52AC', // Police
+				'30A900', // Dragonstrip
+				'653F03', // Aliencrate
+				][theme2];
+	var link_bg=[
+				'006CB0', // Oasis
+				'0148C2', // Sapphire
+				'2B54B5', // Jade
+				'6F027C', // Babygirl
+				'285BAF', // Sky
+				'70B8FF', // Carbon
+				'6F027C', // Moonlight
+				'1F5D04', // Rockgarden
+				'810484', // Oppulence
+				'0A3073', // Bluesteel
+				'F97EC4', // Obeession
+				'AF4200', // Creamsicle
+				'FFD500', // Plated
+				'FE7801', // Beach
+				'1A52AC', // Police
+				'FFF000', // Dragonstrip
+				'02899D', // Aliencrate
+				][theme2];
+	/* Change Colors */
+	PickColor1(body_bg);
+	UploadPicture1B(body_image);
+	PickColor2(button_bg);
+	PickColor3(page_bg);
+	PickColor6(link_bg);
+	PickColor7(button_bg);
+	/* Make theme adaptive, if it isn't */
+	checkon = document.querySelector('input#ThmAdpt').checked
+	document.querySelector('input#ThmAdpt').checked = true;
+	if (checkon != document.querySelector('input#ThmAdpt').checked) {
+	ToggleAdapt();
+	}
+
+}
+
+/* These functions asks about what color should the user use if no value is set and sets it to an individual component such as Body Background color (The current color is used as initial answer in case of accidental use)
+** If a value is set directly in the function, it instead uses that color instead of asking the user to write a color
+** Used in Preferences only
+** Possible Variations of PickColor() 1 = Body Color | 2 = Header Color | 3 = Content Color | 4 = Content Text Color | 5 = Content Border Color | 6 = Link Color | 7 = Button Color
+*/
+function PickColor1(color="") {
+if (color==="") {
+	var x= prompt("Body Background Color", chroma(getComputedStyle(document.querySelector('html')).getPropertyValue("--background-color")));
+} else {
+	var x=color;
+}
+
 $('input[type="range"][name="bg"].red').val(chroma(x).get('rgb.r'));
 $('input[type="range"][name="bg"].green').val( chroma(x).get('rgb.g'));
 $('input[type="range"][name="bg"].blue').val( chroma(x).get('rgb.b'));
@@ -483,8 +692,12 @@ $('input[type="range"][name="bg"].blue').val( chroma(x).get('rgb.b'));
 UpdateValue()
 }
 
-function PickColor2() {
-var x= prompt("Header Background Color", chroma('rgb(' + getComputedStyle(document.querySelector('html')).getPropertyValue("--community-header-bg") + ')'));
+function PickColor2(color="") {
+if (color==="") {
+	var x= prompt("Header Background Color", chroma('rgb(' + getComputedStyle(document.querySelector('html')).getPropertyValue("--community-header-bg") + ')'));
+} else {
+	var x=color;
+}
 $('input[type="range"][name="header"].red').val(chroma(x).get('rgb.r') );
 $('input[type="range"][name="header"].green').val( chroma(x).get('rgb.g') );
 $('input[type="range"][name="header"].blue').val( chroma(x).get('rgb.b') );
@@ -492,8 +705,13 @@ $('input[type="range"][name="header"].blue').val( chroma(x).get('rgb.b') );
 UpdateValue()
 }
 
-function PickColor3() {
-var x= prompt("Page Background Color", chroma(getComputedStyle(document.querySelector('html')).getPropertyValue("--content-bg")));
+function PickColor3(color="") {
+if (color==="") {
+	var x= prompt("Page Background Color", chroma(getComputedStyle(document.querySelector('html')).getPropertyValue("--content-bg")));
+} else {
+	var x=color;
+}
+
 $('input[type="range"][name="contentbg"].red').val(chroma(x).get('rgb.r') );
 $('input[type="range"][name="contentbg"].green').val( chroma(x).get('rgb.g') );
 $('input[type="range"][name="contentbg"].blue').val( chroma(x).get('rgb.b') );
@@ -501,8 +719,13 @@ $('input[type="range"][name="contentbg"].blue').val( chroma(x).get('rgb.b') );
 UpdateValue()
 }
 
-function PickColor4() {
-var x= prompt("Page Text Color", chroma(getComputedStyle(document.querySelector('html')).getPropertyValue("--content-color")));
+function PickColor4(color="") {
+if (color==="") {
+	var x= prompt("Page Text Color", chroma(getComputedStyle(document.querySelector('html')).getPropertyValue("--content-color")));
+} else {
+	var x=color;
+}
+
 $('input[type="range"][name="contentcolor"].red').val(chroma(x).get('rgb.r') );
 $('input[type="range"][name="contentcolor"].green').val(chroma(x).get('rgb.g') );
 $('input[type="range"][name="contentcolor"].blue').val(chroma(x).get('rgb.b') );
@@ -510,8 +733,12 @@ $('input[type="range"][name="contentcolor"].blue').val(chroma(x).get('rgb.b') );
 UpdateValue()
 }
 
-function PickColor5() {
-var x= prompt("Page Border Color", );
+function PickColor5(color="") {
+if (color==="") {
+	var x= prompt("Page Border Color", chroma(getComputedStyle(document.querySelector('html')).getPropertyValue("--content-border")));
+} else {
+	var x=color;
+}
 
 $('input[type="range"][name="border"].red').val(chroma(x).get('rgb.r') );
 $('input[type="range"][name="border"].green').val(chroma(x).get('rgb.g') );
@@ -520,8 +747,12 @@ $('input[type="range"][name="border"].blue').val(chroma(x).get('rgb.b') );
 UpdateValue()
 }
 
-function PickColor6() {
-var x= prompt("Page Link Color", chroma('rgb(' + getComputedStyle(document.querySelector('html')).getPropertyValue("--link-color") + ')'));
+function PickColor6(color="") {
+if (color==="") {
+	var x= prompt("Page Link Color", chroma('rgb(' + getComputedStyle(document.querySelector('html')).getPropertyValue("--link-color") + ')'));
+} else {
+	var x=color;
+}
 
 $('input[type="range"][name="linkcolor"].red').val(chroma(x).get('rgb.r') );
 $('input[type="range"][name="linkcolor"].green').val(chroma(x).get('rgb.g') );
@@ -529,8 +760,12 @@ $('input[type="range"][name="linkcolor"].blue').val(chroma(x).get('rgb.b') );
 UpdateValue()
 }
 
-function PickColor7() {
-var x= prompt("Page Button Color", chroma(getComputedStyle(document.querySelector('html')).getPropertyValue("--button-color")));
+function PickColor7(color="") {
+if (color==="") {
+	var x= prompt("Page Button Color", chroma(getComputedStyle(document.querySelector('html')).getPropertyValue("--button-color")));
+} else {
+	var x=color;
+}
 
 $('input[type="range"][name="buttoncolor"].red').val(chroma(x).get('rgb.r') );
 $('input[type="range"][name="buttoncolor"].green').val(chroma(x).get('rgb.g') );
@@ -538,6 +773,7 @@ $('input[type="range"][name="buttoncolor"].blue').val(chroma(x).get('rgb.b') );
 UpdateValue()
 }
 
+/* Updates all Sliders values found in each theme designer color selection to the red, green and blue of each color (Each color editor menu in theme designer consists of 3 sliders) */
 function UpdateSet() {
 if  (!($("html.contrast.win10").length)) {
 /* Background */
@@ -583,7 +819,7 @@ $('input[type="range"][name="buttoncolor"].blue').val( chroma(getComputedStyle(d
 }
 }
 
-
+/* Updates all 7 required color variables for each theme to the values of the sliders */
 function UpdateValue() {
 var linkcolor1final = $('input[type="range"][name="linkcolor"].red').val() + ',' + $('input[type="range"][name="linkcolor"].green').val() + ',' + $('input[type="range"][name="linkcolor"].blue').val(); ; 
 var headercolorfinal = $('input[type="range"][name="header"].red').val() + ',' + $('input[type="range"][name="header"].green').val() + ',' + $('input[type="range"][name="header"].blue').val(); 
@@ -651,6 +887,7 @@ var headercolorfinal = $('input[type="range"][name="header"].red').val() + ',' +
 	ColorUpdate(true);
 }
 
+/* Resets the Theme to defaults */
 function ResetTheme() {
 if (confirm('Are you sure you want to reset this theme to the pre-set ones? This action cannot be undone') === true) {
 	if ($("html.theme-A").length) {
@@ -748,46 +985,58 @@ var x = $('input.filter_delay').val(0);
 }
 
 /* Begin Color Parsers */
-function ColorTest(color,text) {
+function ColorTest(color,text=false) {
 
 	if (isLightColor(color)) {
 		if (text === true) {
 			return '#000000';
 		} else {
-			return chroma.mix(color,'black',0.26, 'hsl');
+			return chroma.mix(color,'black',MW18HoverThreshold, 'hsl');
 		}
 	} else {
 		if (text === true) {
 			return '#ffffff';
 		} else {
-			return chroma.mix(color,'white',0.24, 'hsl');
+			return chroma.mix(color,'white',MW18HoverThreshold, 'hsl');
 		}
 	}
 
 
 }
+
+
+function SuperColorTest(color) {
+	if (isLightColor(color)) {
+		var mix = chroma.mix(color,'black',MW18HoverThreshold, 'hsl');
+		return chroma.mix(mix,'black',MW18HoverThreshold, 'hsl');
+	} else {
+		var mix = chroma.mix(color,'white',MW18HoverThreshold, 'hsl');
+		return chroma.mix(mix,'white',MW18HoverThreshold, 'hsl');
+	}
+}
+
 
 // Only used for link and header colors
-function ColorTest2(color,text) {
+function ColorTest2(color,text=false) {
 
-	if (isLightColor(color)) {
-		if (text === true) {
+	if (text === true) {
+		if (isLightColor(color)) {
 			return '0,0,0';
 		} else {
-			var color2 = chroma.mix(color,'black',0.26, 'hsl');
-			return Color2(color2);
+			return '255,255,255';
 		}
 	} else {
-		if (text === true) {
-			return '255,255,255';
-		} else {
-			var color2 = chroma.mix(color,'white',0.24, 'hsl');
-			return Color2(color2);
-		}
+		return Color2(ColorTest(color));
 	}
 
 
 }
+
+
+function SuperColorTest2(color) {
+return Color2(SuperColorTest(color));
+}
+
 
 // Conversion for R,G,B syntax
 function Color2(color) {
@@ -795,11 +1044,11 @@ function Color2(color) {
 }
 
 function isLightColor(color) {
-	return ((chroma(color).get('lab.l')) > 50);
+	return ((chroma(color).get('lab.l')) > window.MW18LightThreshold);
 }
 
 function isSuperLightColor(color) {
-	return ((chroma(color).get('lab.l')) > 75);
+	return ((chroma(color).get('lab.l')) > window.MW18LightThreshold*1.4);
 }
 
 
@@ -824,26 +1073,30 @@ function SocialCompile() {
 /* End Color Parsers */
 
 
+/* Used to udpate all dynamical variables */
 function ColorUpdate(refresh) {
 /** Button Color **/
 /* Set Vars */
 var button_color = getComputedStyle(document.querySelector('html')).getPropertyValue("--button-color");
 var buttoncolor1 = ColorTest(button_color,false);
 var buttoncolor2 = ColorTest(button_color,true);
+var buttoncolor3 = SuperColorTest(button_color); // Scrollbar
+
 
 if (isLightColor(button_color)) {
-document.querySelector('body').style.setProperty("--button-color-blend-light", button_color);
-document.querySelector('body').style.setProperty("--button-color-blend", buttoncolor1);
+document.querySelector('html').style.setProperty("--button-color-blend-light", button_color);
+document.querySelector('html').style.setProperty("--button-color-blend", buttoncolor1);
 } else {
-document.querySelector('body').style.setProperty("--button-color-blend-light", buttoncolor1);
-document.querySelector('body').style.setProperty("--button-color-blend", button_color);
+document.querySelector('html').style.setProperty("--button-color-blend-light", buttoncolor1);
+document.querySelector('html').style.setProperty("--button-color-blend", button_color);
 }
 
 
 
 /* Set Values */
-document.querySelector('body').style.setProperty("--button-color-dark", buttoncolor1);
-document.querySelector('body').style.setProperty("--button-color-text", buttoncolor2);
+document.querySelector('html').style.setProperty("--button-color-dark", buttoncolor1);
+document.querySelector('html').style.setProperty("--button-color-dark-super", buttoncolor3); // Scrollbar
+document.querySelector('html').style.setProperty("--button-color-text", buttoncolor2);
 
 
 /** Header Color **/
@@ -851,97 +1104,122 @@ document.querySelector('body').style.setProperty("--button-color-text", buttonco
 var header_color =	'rgb(' + getComputedStyle(document.querySelector('html')).getPropertyValue("--community-header-bg") + ')';
 var headercolor1 = ColorTest2(header_color,false);
 var headercolor2 = ColorTest2(header_color,true);
+var headercolor3 = SuperColorTest2(header_color); // Scrollbar
 
 if (isLightColor(header_color)) {
-document.querySelector('body').style.setProperty("--community-header-bg-blend-light", getComputedStyle(document.querySelector('html')).getPropertyValue("--community-header-bg"));
-document.querySelector('body').style.setProperty("--community-header-bg-blend", headercolor1);
+document.querySelector('html').style.setProperty("--community-header-bg-blend-light", getComputedStyle(document.querySelector('html')).getPropertyValue("--community-header-bg"));
+document.querySelector('html').style.setProperty("--community-header-bg-blend", headercolor1);
 } else {
-document.querySelector('body').style.setProperty("--community-header-bg-blend-light", headercolor1);
-document.querySelector('body').style.setProperty("--community-header-bg-blend", getComputedStyle(document.querySelector('html')).getPropertyValue("--community-header-bg"));
+document.querySelector('html').style.setProperty("--community-header-bg-blend-light", headercolor1);
+document.querySelector('html').style.setProperty("--community-header-bg-blend", getComputedStyle(document.querySelector('html')).getPropertyValue("--community-header-bg"));
 }
 
 
 
 /* Set Values */
-document.querySelector('body').style.setProperty("--community-header-dark", headercolor1);
-document.querySelector('body').style.setProperty("--community-header-text", headercolor2);
+document.querySelector('html').style.setProperty("--community-header-dark", headercolor1);
+document.querySelector('html').style.setProperty("--community-header-dark-super", headercolor3); // Scrollbar
+document.querySelector('html').style.setProperty("--community-header-text", headercolor2);
 
 /** Link Color **/
 /* Set Vars */
 var link_color = 'rgb(' + getComputedStyle(document.querySelector('html')).getPropertyValue("--link-color") + ')';
 var linkcolor1 = ColorTest2(link_color,false);
 var linkcolor2 = ColorTest(link_color,true);
+var linkcolor3 = SuperColorTest2(link_color); // Scrollbar
+
+
 
 if (isLightColor(link_color)) {
-document.querySelector('body').style.setProperty("--link-color-blend-light", getComputedStyle(document.querySelector('html')).getPropertyValue("--link-color"));
-document.querySelector('body').style.setProperty("--link-color-blend", linkcolor1);
+document.querySelector('html').style.setProperty("--link-color-blend-light", getComputedStyle(document.querySelector('html')).getPropertyValue("--link-color"));
+document.querySelector('html').style.setProperty("--link-color-blend", linkcolor1);
 } else {
-document.querySelector('body').style.setProperty("--link-color-blend-light", linkcolor1);
-document.querySelector('body').style.setProperty("--link-color-blend", getComputedStyle(document.querySelector('html')).getPropertyValue("--link-color"));
+document.querySelector('html').style.setProperty("--link-color-blend-light", linkcolor1);
+document.querySelector('html').style.setProperty("--link-color-blend", getComputedStyle(document.querySelector('html')).getPropertyValue("--link-color"));
 }
 
 
 
 /* Set Values */
-document.querySelector('body').style.setProperty("--link-color-dark", linkcolor1);
-document.querySelector('body').style.setProperty("--link-color-text", linkcolor2);
+document.querySelector('html').style.setProperty("--link-color-dark", linkcolor1);
+document.querySelector('html').style.setProperty("--link-color-dark-super", linkcolor3); // Scrollbar
+document.querySelector('html').style.setProperty("--link-color-text", linkcolor2);
 
 
 /** Page BG **/
 /* Set Vars */
-if (window.MW18darkmode === true) {
-	var content_color =	getComputedStyle(document.querySelector('html')).getPropertyValue("--content-color");
+if ( (window.MW18darkmode === true) ) {
 	var content_text =	getComputedStyle(document.querySelector('html')).getPropertyValue("--content-bg");
+// Adaptive
+	if (getComputedStyle(document.querySelector('html')).getPropertyValue("--adaptive-content-bg") === 'true') {
+		if (isLightColor(content_text)) {
+			var content_color = '#2b2b2b';	
+		} else {
+			var content_color = '#e2e2e2';
+		}
+	} else {
+		var content_color =	getComputedStyle(document.querySelector('html')).getPropertyValue("--content-color");
+	}
+//End Adaptive
 } else {
 	var content_color =	getComputedStyle(document.querySelector('html')).getPropertyValue("--content-bg");
 	var content_text =	getComputedStyle(document.querySelector('html')).getPropertyValue("--content-color");
 }
-var body_bg =	getComputedStyle(document.querySelector('html')).getPropertyValue("--background-color");
+
+var content_color2 = ColorTest(content_color);
+var content_color3 = SuperColorTest(content_color); // Scrollbar
+
+var content_text2 = ColorTest(content_text);
+var content_text3 = SuperColorTest(content_text); // Scrollbar
 
 if (isSuperLightColor(content_color)) {
 	var dropdowncolor = 'white';
 	if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--adaptive-content-bg") === 'true') && !($("html.contrast.win10").length)  ) {
-		var dropdowncolor2 = chroma.mix(content_color,'black',0.25, 'hsl');
-		var dropdowncolor3 = '#2b2b2b';		
+		var dropdowncolor2 = chroma.mix(content_color,'black',MW18HoverThreshold, 'hsl');
+		var dropdowncolor3 = '#2b2b2b';	
 	} else {
 		var dropdowncolor2 = 'inherit';
 		var dropdowncolor3 = 'inherit';
 	}
 	
 } else if (isLightColor(content_color)) {
-var dropdowncolor = chroma.mix(content_color,'black',0.25, 'hsl');
+var dropdowncolor = chroma.mix(content_color,'black',MW18HoverThreshold, 'hsl');
 	if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--adaptive-content-bg") === 'true') && !($("html.contrast.win10").length)  ) {
-		var dropdowncolor2 = chroma.mix(content_color,'black',0.5, 'hsl');
-		var dropdowncolor3 = '#2b2b2b';		
+		var dropdowncolor2 = chroma.mix(content_color,'black',MW18HoverThreshold*2, 'hsl');
+		var dropdowncolor3 = '#2b2b2b';	
 	} else {
 		var dropdowncolor2 = 'inherit';
 		var dropdowncolor3 = 'inherit';
 	}
 
 } else {
-var dropdowncolor = chroma.mix(content_color,'white',0.25, 'hsl');
+var dropdowncolor = chroma.mix(content_color,'white',MW18HoverThreshold, 'hsl');
 	if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--adaptive-content-bg") === 'true') && !($("html.contrast.win10").length)  ) {
-		var dropdowncolor2 = chroma.mix(content_color,'white',0.5, 'hsl');
-		var dropdowncolor3 = '#e2e2e2';		
+		var dropdowncolor2 = chroma.mix(content_color,'white',MW18HoverThreshold*2, 'hsl');
+		var dropdowncolor3 = '#e2e2e2';	
 	} else {
 		var dropdowncolor2 = 'inherit';
 		var dropdowncolor3 = 'inherit';
+		var dropdowncolor5 = 'inherit';
 	}
 
 }
 
 
-document.querySelector('body').style.setProperty("--dropdown-bg", dropdowncolor);
+
+document.querySelector('html').style.setProperty("--dropdown-bg", dropdowncolor);
 document.querySelector('body').style.setProperty("--content-border", dropdowncolor2);
-document.querySelector('body').style.setProperty("--content-color", dropdowncolor3);
+document.querySelector('body').style.setProperty("--content-color", content_text);
 if (window.MW18darkmode === true) {
 	document.querySelector('body').style.setProperty("--content-bg", content_color);
-	if (dropdowncolor3 === 'inherit') {
-		document.querySelector('body').style.setProperty("--content-color", content_text);
-	}
 } else {
 	document.querySelector('body').style.setProperty("--content-bg", 'inherit');
+	document.querySelector('body').style.setProperty("--content-color", dropdowncolor3);
 }
+document.querySelector('html').style.setProperty("--content-bg-dark", content_color2);
+document.querySelector('html').style.setProperty("--content-bg-dark-super", content_color3); // Scrollbar
+document.querySelector('html').style.setProperty("--content-color-dark", content_text2);
+document.querySelector('html').style.setProperty("--content-color-dark-super", content_text3); // Scrollbar
 
 
 /** Content Border **/
@@ -952,19 +1230,21 @@ if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--adapti
 	var border_color =	getComputedStyle(document.querySelector('html')).getPropertyValue("--content-border");
 }
 var bordercolor1 = ColorTest(border_color,false);
+var bordercolor3 = SuperColorTest(border_color); // Scrollbar
 var bordercolor2 = ColorTest(border_color,true);
 
 if (isLightColor(border_color)) {
-document.querySelector('body').style.setProperty("--content-border-blend-light", border_color);
-document.querySelector('body').style.setProperty("--content-border-blend", bordercolor1);
+document.querySelector('html').style.setProperty("--content-border-blend-light", border_color);
+document.querySelector('html').style.setProperty("--content-border-blend", bordercolor1);
 } else {
-document.querySelector('body').style.setProperty("--content-border-blend-light", bordercolor1);
-document.querySelector('body').style.setProperty("--content-border-blend", border_color);
+document.querySelector('html').style.setProperty("--content-border-blend-light", bordercolor1);
+document.querySelector('html').style.setProperty("--content-border-blend", border_color);
 }
 
 /* Set Values */
-document.querySelector('body').style.setProperty("--content-border-dark", bordercolor1);
-document.querySelector('body').style.setProperty("--content-border-text", bordercolor2);
+document.querySelector('html').style.setProperty("--content-border-dark", bordercolor1);
+document.querySelector('html').style.setProperty("--content-border-dark-super", bordercolor3); // Scrollbar
+document.querySelector('html').style.setProperty("--content-border-text", bordercolor2);
 
 
 
@@ -972,31 +1252,33 @@ document.querySelector('body').style.setProperty("--content-border-text", border
 /* Set Vars */
 var head_color =	getComputedStyle(document.querySelector('html')).getPropertyValue("--background-color");
 var headcolor1 = ColorTest(head_color,false);
+var headcolor3 = SuperColorTest(head_color); // Scrollbar
 var headcolor2 = ColorTest(head_color,true);
 
 if (isLightColor(head_color)) {
-document.querySelector('body').style.setProperty("--background-color-blend-light", head_color);
-document.querySelector('body').style.setProperty("--background-color-blend", headcolor1);
+document.querySelector('html').style.setProperty("--background-color-blend-light", head_color);
+document.querySelector('html').style.setProperty("--background-color-blend", headcolor1);
 } else {
-document.querySelector('body').style.setProperty("--background-color-blend-light", headcolor1);
-document.querySelector('body').style.setProperty("--background-color-blend", head_color);
+document.querySelector('html').style.setProperty("--background-color-blend-light", headcolor1);
+document.querySelector('html').style.setProperty("--background-color-blend", head_color);
 }
 
 /* Set Values */
-document.querySelector('body').style.setProperty("--background-color-dark", headcolor1);
-document.querySelector('body').style.setProperty("--background-color-text", headcolor2);
+document.querySelector('html').style.setProperty("--background-color-dark", headcolor1);
+document.querySelector('html').style.setProperty("--background-color-dark-super", headcolor3); // Scrollbar
+document.querySelector('html').style.setProperty("--background-color-text", headcolor2);
 
 
 /* Emphasis Themes */
-var emphasiscolor = chroma.mix(content_color, link_color, 0.7);
-var emphasiscolor2 = chroma.mix(border_color, button_color, 0.7);
-document.querySelector('body').style.setProperty("--emphasis-bg", emphasiscolor);
-document.querySelector('body').style.setProperty("--accent-bg", emphasiscolor2);
+var emphasiscolor = chroma.mix(content_color, link_color, MW18HoverThreshold*2.5);
+var emphasiscolor2 = chroma.mix(border_color, button_color, MW18HoverThreshold*2.5);
+document.querySelector('html').style.setProperty("--emphasis-bg", emphasiscolor);
+document.querySelector('html').style.setProperty("--accent-bg", emphasiscolor2);
 
 if ($("html.contrast").length) {
-	$('meta[name*="theme-color"]').attr("content", chroma(getComputedStyle(document.querySelector('body')).getPropertyValue("--dropdown-bg")));
+	$('meta[name*="theme-color"]').attr("content", chroma(getComputedStyle(document.querySelector('html')).getPropertyValue("--dropdown-bg")));
 } else {
-	$('meta[name*="theme-color"]').attr("content", chroma(getComputedStyle(document.querySelector('body')).getPropertyValue("--emphasis-bg")));
+	$('meta[name*="theme-color"]').attr("content", chroma(getComputedStyle(document.querySelector('html')).getPropertyValue("--emphasis-bg")));
 /*
 	if ($(".headroom--not-top").length) {
 		$('meta[name*="theme-color"]').attr("content", chroma(getComputedStyle(document.querySelector('body')).getPropertyValue("--accent-bg")));
@@ -1028,10 +1310,19 @@ function CheckAdapt() {
 	if ($("body.options").length   && !($("html.contrast.win10").length) ) {
 		if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--adaptive-content-bg") === 'true') && !($("html.contrast.win10").length)  ) {
 				document.querySelector('input#ThmAdpt').checked = true;
+				if (window.MW18darkmode === true) {
+					$(".adapt-off1").removeAttr('disabled');
+					$(".adapt-off2").attr('disabled', 'true');
+				} else {
+					$(".adapt-off1").attr('disabled', 'true');
+					$(".adapt-off2").removeAttr('disabled');
+				}	
 				$(".adapt-off").attr('disabled', 'true');
 		} else {
 				document.querySelector('input#ThmAdpt').checked = false;
 				$(".adapt-off").removeAttr('disabled');
+				$(".adapt-off1").removeAttr('disabled');
+				$(".adapt-off2").removeAttr('disabled');
 		}
 	}
 }
@@ -1110,6 +1401,7 @@ var x = document.querySelector('input#ThmAdpt');
 	ColorUpdate(true);
 }
 
+/* Toggles Theme */
 function HCa() {
     var x = document.querySelector('html');
     if (x.className.indexOf("theme-A") == -1) {
@@ -1154,6 +1446,7 @@ function HCd() {
 		ColorUpdate(true);
 }
 
+/* Remoes High Contrast */
 function HCclear() {
     var x = document.querySelector('html');
         x.className = x.className.replace(" contrast", "");
@@ -1168,6 +1461,7 @@ function HCclear() {
 
 }
 
+/* Enables Super High Contrast */
 function HCcustom0() {
     var x = document.querySelector('html');
     if (x.className.indexOf("contrast") == -1) {
@@ -1183,6 +1477,7 @@ function HCcustom0() {
 		}
 }
 
+/* Enables High Contrast */
 function HCcustom() {
     var x = document.querySelector('html');
     if (x.className.indexOf("contrast") == -1) {
@@ -1197,6 +1492,7 @@ function HCcustom() {
 
 }
 
+/* Enables Increased Contrast */
 function HCcustom2() {
     var x = document.querySelector('html');
     if (x.className.indexOf("basic") == -1) {
@@ -1332,4 +1628,18 @@ var x = $('input.filter_delay').val();
 		'}'
 		);	
 	}
+}
+
+function UpdateColorThreshold() {
+	var x = $('input.color_threshold').val();
+	window.MW18LightThreshold = x;
+	ColorUpdate(true);
+	SocialCompile();
+}
+
+function UpdateHoverRation() {
+	var x = $('input.hover_ration').val();
+	window.MW18HoverThreshold = x * 0.005;
+	ColorUpdate(true);
+	SocialCompile();
 }
