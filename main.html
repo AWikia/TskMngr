@@ -156,7 +156,7 @@
 							</span>
 							<span class="network">
 							<counter>2%</counter>
-								Δικτύωση
+								Δίκτυο
 							</span>
 							<span class="gpu">
 							<counter>72%</counter>
@@ -178,7 +178,7 @@
 						</header>
 
 						<header appname="FileManager" class="header item">
-							<span class="name">Εξερεύνηση Αρχείων</span>
+							<span class="name">Διαχείριση Αρχείων</span>
 							<span class="cpu">1%</span>
 							<span class="ram">700ΜΒ</span>
 							<span class="disk">2,2Gbps</span>
@@ -319,7 +319,7 @@
 					<circle disk></circle> Δίσκος
 				</a>
 				<a class="network" onclick="Network()">
-					<circle network></circle> Δικτύωση
+					<circle network></circle> Δίκτυο
 				</a>
 				<a class="gpu" onclick="GPU()">
 					<circle gpu></circle> GPU
@@ -355,14 +355,16 @@
 					</div>
 						<div class="g_raph" onclick="CPU1_t()" page="0">
 							<img class="graph" src="CPU_1.png"></img>
-							<aside class="heatmap">
-								<cpu style="--heatmap-usage:1;">1%</cpu>
-								<cpu style="--heatmap-usage:1;">1%</cpu>
-								<cpu style="--heatmap-usage:1;">1%</cpu>
-								<cpu style="--heatmap-usage:0;">0%</cpu>
-								<cpu style="--heatmap-usage:1;">1%</cpu>
-								<cpu style="--heatmap-usage:1;">1%</cpu>
-							</aside>
+							<div class="heatmaps">
+								<aside class="heatmap">
+									<cpu style="--heatmap-usage:1;">1%</cpu>
+									<cpu style="--heatmap-usage:1;">1%</cpu>
+									<cpu style="--heatmap-usage:1;">1%</cpu>
+									<cpu style="--heatmap-usage:0;">0%</cpu>
+									<cpu style="--heatmap-usage:1;">1%</cpu>
+									<cpu style="--heatmap-usage:1;">1%</cpu>
+								</aside>
+							</div>
 							<img class="graph graphT" src="CPU_2.png"></img>
 						</div>
 						<div class="bottom">
@@ -409,7 +411,7 @@
 							<div class="rightp">
 								<ul>
 								<li>
-								Μάξιμουμ Ταχύτητα: <span>1,0GHz</span>
+								Μέγιστη Ταχύτητα: <span>1,0GHz</span>
 								</li>
 								<li>
 								Πυρήνες: <span>6</span>
@@ -484,7 +486,7 @@
 							<div class="rightp">
 								<ul>
 								<li>
-								Μάξιμουμ Ταχύτητα: <span>1,0GHz</span>
+								Μέγιστη Ταχύτητα: <span>1,0GHz</span>
 								</li>
 								<li>
 								Πυρήνες: <span>6</span>
@@ -538,7 +540,7 @@
 										<em>50%</em>
 									</div>
 									<div class="info">
-										<span>Χρήση Μνήμης</span>
+										<span>Μνήμη σε χρήση</span>
 										<em>4,0/8,0GB</em>
 									</div>
 								</div>
@@ -576,7 +578,7 @@
 								Υποδοχές σε χρήση: <span>2/4 (-/4,0GB 1,3GHz/-/4,0GB 1,3GHz)</span>
 								</li>
 								<li>
-								Μνήμη αποκλειστικά για υλικό: <span>10,4MB</span>
+								Μνήμη αποκλειστικά για το υλικό: <span>10,4MB</span>
 								</li>
 								</ul>
 							</div>
@@ -673,7 +675,7 @@
 								Μορφοποιημένη: <span>230GB</span>
 								</li>
 								<li>
-								Είδος: <span>Δίσκος Συστήματος</span>
+								Τύπος: <span>Δίσκος Συστήματος</span>
 								</li>
 								<li>
 								Δεσμευμένη στο Κονζτίντι: <span>3,9MB</span>
@@ -741,7 +743,7 @@
 								Μορφοποιημένη: <span>930GB</span>
 								</li>
 								<li>
-								Είδος: <span>Μονάδα Σκληρού Δίσκου</span>
+								Τύπος: <span>Μονάδα Σκληρού Δίσκου</span>
 								</li>
 								<li>
 								Δεσμευμένη στο Κονζτίντι: <span>5,1MB</span>
@@ -810,7 +812,7 @@
 								Μορφοποιημένη: <span>57,8GB</span>
 								</li>
 								<li>
-								Είδος: <span>Μονάδα Αφαιρούμενου Μέσου</span>
+								Τύπος: <span>Μονάδα Αφαιρούμενου Μέσου</span>
 								</li>
 								<li>
 								Δεσμευμένη στο Κονζτίντι: <span>960KB</span>
@@ -881,7 +883,7 @@
 								</div>
 								<div class="col">
 									<div class="info" style="border-left: 2px dotted #ff9900;">
-										<span>Φόρτωση</span>
+										<span>Αποστολή</span>
 										<em>944Kbps</em>
 									</div>
 									<div class="info" style="border-left: 2px solid #b45f06;">
@@ -899,13 +901,13 @@
 								SSID: <span>Yorkbook Internet</span>
 								</li>
 								<li>
-								Πάροχος Υπηρεσίας Δικτύωσης: <span>YN100000-YI</span>
+								Πάροχος Υπηρεσίας Δικτύου: <span>YN100000-YI</span>
 								</li>
 								<li>
 								Μορφή Δικτύου: <span>ConnectUp</span>
 								</li>
 								<li>
-								Ντι Εν Ες: <span>---</span>
+								ΝτιΕνΕς: <span>---</span>
 								</li>
 								<li>
 								IPv4: <span>192.168.1.3</span>
@@ -950,7 +952,7 @@
 								</div>
 								<div class="col">
 									<div class="info" style="border-left: 2px dotted #ff9900;">
-										<span>Φόρτωση</span>
+										<span>Αποστολή</span>
 										<em>16Mbps</em>
 									</div>
 									<div class="info" style="border-left: 2px solid #b45f06;">
@@ -968,13 +970,13 @@
 								SSID: <span>COSMOTE-058487</span>
 								</li>
 								<li>
-								Πάροχος Υπηρεσίας Δικτύωσης: <span>Cosmote</span>
+								Πάροχος Υπηρεσίας Δικτύου: <span>Cosmote</span>
 								</li>
 								<li>
 								Μορφή Δικτύου: <span>Fiber</span>
 								</li>
 								<li>
-								Ντι Εν Ες: <span>---</span>
+								ΝτιΕνΕς: <span>---</span>
 								</li>
 								<li>
 								IPv4: <span>192.168.1.5</span>
@@ -1238,7 +1240,7 @@
 										<em>5</em>
 									</div>
 									<div class="info">
-										<span>Μνήμη στα Κρυφά</span>
+										<span>Κρυφή Μνήμη</span>
 										<em>0,7/2,0GΒ</em>
 									</div>
 								</div>
@@ -1308,7 +1310,7 @@
 										<em>14</em>
 									</div>
 									<div class="info">
-										<span>Μνήμη στα Κρυφά</span>
+										<span>Κρυφή Μνήμη</span>
 										<em>288/1020ΜΒ</em>
 									</div>
 								</div>
@@ -1378,7 +1380,7 @@
 										<em>19</em>
 									</div>
 									<div class="info">
-										<span>Μνήμη στα Κρυφά</span>
+										<span>Κρυφή Μνήμη</span>
 										<em>1,6/2,5GB</em>
 									</div>
 								</div>
@@ -1448,7 +1450,7 @@
 										<em>44</em>
 									</div>
 									<div class="info">
-										<span>Μνήμη στα Κρυφά</span>
+										<span>Κρυφή Μνήμη</span>
 										<em>0,4/2,0GB</em>
 									</div>
 								</div>
@@ -1510,7 +1512,7 @@
 							</span>
 							<span class="network">
 							<counter>2%</counter>
-								Δικτύωση
+								Δίκτυο
 							</span>
 							<span class="gpu">
 							<counter>72%</counter>
@@ -1559,7 +1561,7 @@
 								Δίσκος
 							</span>
 							<span class="network">
-								Δικτύωση
+								Δίκτυο
 							</span>
 							<span class="gpu">
 								GPU

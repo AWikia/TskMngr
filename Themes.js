@@ -123,22 +123,27 @@ function ManagerRows() {
 
 /* For Task Manager */
 if ($("body.tskmngr").length) {
-	if ( ($("cpu").length) < 4) {
-		document.querySelector('aside.heatmap').style.setProperty("--heatmap-rows", $("cpu").length);
-	} else if ( ($("cpu").length) < 6 ) {
+	if ( ($(".heatmap:last-child cpu").length) < 4) {
+		document.querySelector('aside.heatmap').style.setProperty("--heatmap-rows", $(".heatmap:last-child cpu").length);
+	} else if ( ($(".heatmap:last-child cpu").length) < 6 ) {
 		document.querySelector('aside.heatmap').style.setProperty("--heatmap-rows", 2);
-	} else if ( ($("cpu").length) < 13 ) {
+	} else if ( ($(".heatmap:last-child cpu").length) < 13 ) {
 		document.querySelector('aside.heatmap').style.setProperty("--heatmap-rows", 3);
-	} else if ( ($("cpu").length) < 30 ) {
+	} else if ( ($(".heatmap:last-child cpu").length) < 30 ) {
 		document.querySelector('aside.heatmap').style.setProperty("--heatmap-rows", 4);
-	} else if ( ($("cpu").length) < 64 ) {
+	} else if ( ($(".heatmap:last-child cpu").length) < 64 ) {
 		document.querySelector('aside.heatmap').style.setProperty("--heatmap-rows", 6);
-	} else if ( ($("cpu").length) < 99 ) {
+	} else if ( ($(".heatmap:last-child cpu").length) < 99 ) {
 		document.querySelector('aside.heatmap').style.setProperty("--heatmap-rows", 8);
 	} else {
 		document.querySelector('aside.heatmap').style.setProperty("--heatmap-rows", 10);
 	}
 }
+	if ( ($(".page.cpu .heatmap").length) > 1) {
+		$(".page.cpu .heatmaps").attr('more', 'true');
+	} else {
+		$(".page.cpu .heatmaps").removeAttr('more');
+	}
 
 
 }
