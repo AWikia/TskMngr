@@ -40,6 +40,8 @@ function CPU1_t() {
 		$('.page.cpu .g_raph').attr("page", "1");
 	} else if ($('.page.cpu .g_raph').attr("page") == 1) {
 		$('.page.cpu .g_raph').attr("page", "2");
+	} else if ($('.page.cpu .g_raph').attr("page") == 2) {
+		$('.page.cpu .g_raph').attr("page", "3");
 	} else {
 		$('.page.cpu .g_raph').attr("page", "0");
 	}
@@ -64,8 +66,27 @@ function Network1_t() {
 function GPU1_t() {
 	if ($('.page.gpu .g_raph').attr("page") == 0) {
 		$('.page.gpu .g_raph').attr("page", "1");
+	} else if ($('.page.gpu .g_raph').attr("page") == 1) {
+		$('.page.gpu .g_raph').attr("page", "2");
+	} else if ($('.page.gpu .g_raph').attr("page") == 2) {
+		$('.page.gpu .g_raph').attr("page", "3");
 	} else {
 		$('.page.gpu .g_raph').attr("page", "0");
+	}
+}
+
+
+function TV1_t() {
+	if ($('.page.tv .g_raph').attr("page") == 0) {
+		$('.page.tv .g_raph').attr("page", "1");
+	} else if ($('.page.tv .g_raph').attr("page") == 1) {
+		$('.page.tv .g_raph').attr("page", "2");
+	} else if ($('.page.tv .g_raph').attr("page") == 2) {
+		$('.page.tv .g_raph').attr("page", "3");
+	} else if ($('.page.tv .g_raph').attr("page") == 3) {
+		$('.page.tv .g_raph').attr("page", "4");
+	} else {
+		$('.page.tv .g_raph').attr("page", "0");
 	}
 }
 

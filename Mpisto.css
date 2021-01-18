@@ -769,13 +769,28 @@ circle[tv] {
 	flex:1;
 }
 
+/*
+T   = Temperature	  (Page 1 or 2)
+AT  = Utilization	  (Page 1)
+F   = Frequency 	  (Page 2)
+MEM = Discrete Memory (Page 3)
+PCR = PerfCap Reason  (Page 4)
+*/
+
 .page.cpu .g_raph:not([page*="1"]) .heatmap,
 .page.cpu .g_raph:not([page*="1"]) .heatmaps,
-.page .g_raph:not([page*="0"]) .graph:not([class*="graphT"]):not([class*="graphAT"]),
+.page .g_raph:not([page*="0"]) .graph:not([class*="graphT"]):not([class*="graphAT"]):not([class*="graphF"]):not([class*="graphMEM"]):not([class*="graphPCR"]),
 .page.cpu .g_raph:not([page*="2"]) .graphT,
 .page.gpu .g_raph:not([page*="1"]) .graphT,
 .page.disk .g_raph:not([page*="1"]) .graphAT, 
-.page.network .g_raph:not([page*="1"]) .graphAT {
+.page.tv .g_raph:not([page*="1"]) .graphAT, 
+.page.network .g_raph:not([page*="1"]) .graphAT, 
+.page.cpu .g_raph:not([page*="3"]) .graphF, 
+.page.gpu .g_raph:not([page*="3"]) .graphF, 
+.page.tv .g_raph:not([page*="3"]) .graphF, 
+.page.gpu .g_raph:not([page*="2"]) .graphMEM,
+.page.tv .g_raph:not([page*="2"]) .graphMEM,
+.page.tv .g_raph:not([page*="4"]) .graphPCR  {
 	display:none!important;
 }
 
@@ -874,6 +889,10 @@ circle[tv] {
 	background-color:black;
 	width:100%;
 	height:100%;
+}
+
+.page box.right .graph.graphPCR {
+	background-color:#b7b7b7;
 }
 
 .page box.right .bottom {
