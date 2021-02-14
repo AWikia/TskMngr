@@ -2,33 +2,45 @@
 /* 
 **
 Gothic A1 = Korean
-M PLUS 1p = Japana
+M PLUS 1p = Japanese
 Prompt = Thailandish
 Cairo = Arabic
 Ramabhadra = Telegu
 Catamaran = Tamil
-Source Sans Pro/Ubuntu = Rest
+Noto Sans = Devanagari and Chinese
+Hind Siliguri = Bengali
+M PLUS Rounded 1c = Hebrew
+Inter/Didact Gothic = Greek, Latin and Cyrillic
 **
 */
 @import url('https://fonts.googleapis.com/css?family=Gothic+A1:100,200,300,400,500,600,700,800,900|M+PLUS+1p:100,300,400,500,700,800,900|Prompt:100,200,300,400,500,600,700,800,900|Source+Sans+Pro:200,300,400,600,700,900&subset=cyrillic,cyrillic-ext,greek,greek-ext,hebrew,japanese,korean,latin-ext,thai,vietnamese');
 
 @import url('https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900|Catamaran:100,200,300,400,500,600,700,800,900|Ramabhadra|Ubuntu:300,400,500,700&subset=arabic,cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,tamil,telugu');
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700|Noto+Sans+SC:100,300,400,500,700,900|Noto+Sans+TC:100,300,400,500,700,900|Noto+Sans+HK:100,300,400,500,700,900|Hind+Siliguri:300,400,500,600,700|Didact+Gothic');
 /** Secondary Fonts **/
 /* 
 **
 Jua (Formerly Nanum Gothic) = Korean
-M PLUS Rounded 1c = Japana and Evraika
+M PLUS Rounded 1c = Japanese
 Mitr = Thailandish
-Mada = Arabich
+Mada = Arabic
 NTR = Telegu
 Pavanam = Tamil
-Jura = Greek and Kyrillic
-Raleway = Rest
+Mukta = Devanagari
+Noto Sans = Chinese
+Baloo Da 2 = Bengali
+Jura = Greek and Cyrillic (Old)
+Arimo = Greek
+Rubik = Latin, Cyrrilic and Hebrew
+Raleway = Latin (Old)
 **
 */
 @import url('https://fonts.googleapis.com/css?family=Jura:300,400,500,600,700|M+PLUS+Rounded+1c:100,300,400,500,700,800|Mitr:200,300,400,500,600,700|Nanum+Gothic:400,700,800|Raleway:100,200,300,400,500,600,700,800,900&subset=cyrillic,cyrillic-ext,greek,greek-ext,hebrew,japanese,korean,latin-ext,thai,vietnamese');
 
 @import url('https://fonts.googleapis.com/css?family=Jua|Mada:200,300,400,500,600,700,900|NTR|Pavanam&subset=arabic,korean,latin-ext,tamil,telugu');
+
+@import url('https://fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800|Baloo+Da+2');
 /* Arniki Forniki and former versions of MpistoMobile2 */
 @import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&subset=cyrillic,hebrew,latin-ext');
 /* Misc */
@@ -39,12 +51,31 @@ Raleway = Rest
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,500,600,700,800,900&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese");
 
 /* Serif */
+/* 
+**
+Song Myung = Korean
+Noto Serif = Japanese
+Pridi = Thailandish
+Amiri = Arabic
+Ramaraja = Telegu
+No font (Catamaran) = Tamil
+Martel = Devanagari
+Noto Serif = Chinese
+No font (Hind Siliguri) = Bengali
+David Libre = Hebrew
+Vollkorn = Greek and Cyrillic
+Aleo = Latin
+**
+*/
+
 @import url('https://fonts.googleapis.com/css?family=Amiri:400,700|Cambo|David+Libre:400,500,700|Lora:400,700|Merriweather:300,400,700,900|Neuton:200,300,400,400i,700,800|Noto+Serif+JP:200,300,400,500,600,700,900|Noto+Serif:400,700|Pridi:200,300,400,500,600,700|Ramaraja|Song+Myung|Source+Serif+Pro:400,600,700&subset=arabic,cyrillic,cyrillic-ext,greek,greek-ext,hebrew,japanese,korean,latin-ext,telugu,thai,vietnamese');
 @import url('https://fonts.googleapis.com/css?family=Arvo:400,700');
 @import url('https://fonts.googleapis.com/css?family=Merriweather+Sans:300,400,700,800|PT+Sans:400,700|PT+Serif:400,700|Roboto+Slab:100,300,400,700|Roboto:100,300,400,500,700,900|Varela&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese');
 @import url('https://fonts.googleapis.com/css?family=Aleo:300,400,700&subset=latin-ext');
 
 @import url('https://fonts.googleapis.com/css?family=Cutive|Gentium+Basic:400,700&subset=latin-ext');
+
+@import url('https://fonts.googleapis.com/css?family=Martel:200,300,400,600,700,800,900|Noto+Serif+SC:200,300,400,500,600,700,900|Noto+Serif+TC:200,300,400,500,600,700,900|Vollkorn:400,500,600,700,800,900');
 
 /* Mono Fonts */
 @import url('https://fonts.googleapis.com/css?family=Cutive+Mono|Fira+Mono:400,500,700&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext');
@@ -421,7 +452,7 @@ button {
 body { 
 /*font-family:Source Sans Pro, "Trebuchet MS", "Prompt",  "M PLUS 1p", "Gothic A1", sans-serif;
 */
-font-family:"Inter", -apple-system, BlinkMacSystemFont,  "Arial",  "Prompt",  "M PLUS 1p", "Gothic A1", "Cairo", "Catamaran", "Ramabhadra", sans-serif; /* Uses a font stack suitable for High Contrast Mode */
+font-family:"Inter", -apple-system, BlinkMacSystemFont, "Nanum Gothic", "M PLUS 1p", "Prompt", "Cairo", "Ramabhadra", "Catamaran", "Noto Sans", "Noto Sans SC", "Noto Sans TC", "Noto Sans HK", "Hind Siliguri", "M PLUS Rounded 1c", sans-serif; /* Uses a font stack suitable for High Contrast Mode */
 color:var(--content-color);
 background-repeat:no-repeat;
 background-attachment:local;
@@ -698,12 +729,12 @@ circle[tv] {
 }
 
 .page box.left {
-	width:264px;
-	min-width:264px;
+	width:274px;
+	min-width:274px;
 	max-width:50%;
 	border-right:1px solid;
 	resize:horizontal;
-	padding:0 10px;
+	padding:0 5px 0 0;
 	box-sizing:border-box;
 	overflow-y:auto;
 }
@@ -712,7 +743,7 @@ circle[tv] {
 	flex:1;
 	display:none;
 	flex-flow:column nowrap;
-	padding:0 10px;
+	padding:0 10px 0 15px;
 	overflow-y:auto;
 }
 
@@ -728,11 +759,11 @@ circle[tv] {
 	cursor:pointer;
 	font-size:13px;
 	font-weight:300;
-	height:64px;
+	height:78px;
 	padding:5px;
 	box-sizing:border-box;
 	display:flex;
-	margin:0 5px 5px;
+	margin:0 0px 5px;
 	border:1px solid transparent;
 }
 
@@ -836,8 +867,8 @@ PCR = PerfCap Reason  (Page 4)
 
 
 .page box.left .button .graph {
-	width:64px;
-	height:50px;
+	width:78px;
+	height:64px;
 	margin:0 5px 0 0;
 }
 

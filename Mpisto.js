@@ -119,6 +119,10 @@ function GPU1() {
 		$('.page.gpu').attr("page", "1");
 }
 
+function GPU2() {
+		$('.page.gpu').attr("page", "2");
+}
+
 
 function TV0() {
 		$('.page.tv').attr("page", "0");
