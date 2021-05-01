@@ -5,6 +5,11 @@ window.MW18LightThreshold = 50;
 window.MW18HoverThreshold = 0.25;
 window.MW18ContrastNotice = false;
 
+/* Visual Themes */
+var visualThemes = ['basic','contrast','contrast'];
+var visualColors = ['standard','standard','forcedcolors'];
+var visualThemeNames = ['Basic','High Contrast','High Contrast (Forced Colors)'];
+
 (function () {
 document.querySelector('html').className += " theme-A"; // We begin with the first theme selected
 ColorUpdate(true);
@@ -29,16 +34,52 @@ ColorUpdate(true);
 		$('body').attr("cursor", "mpisto");
 		CursorT('auto');
 		colortheme('system-a');
+		$("head").append('<style class="social-colors"></style>');
 		SocialCompile();
 		ManagerRows(); // For Task Manager Only
 		ContrastBanner(); // Notice
-		
+		VisualStyleCompile(); // Compiles the Contrast Options
+		VisualStyle(-1); // We start without any visual style
 		
 })();
 
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
+}
+
+
+/* Visual Styles */
+function VisualStyle(style) {
+	var oldvisual = $('html').attr("visualcolors", "standard");
+	if (style === -1) { // Standard Style
+		$('html').attr("visualtheme", "standard");
+		$('html').attr("visualcolors", "standard");
+	} else {
+		$('html').attr("visualtheme", visualThemes[style]);
+		$('html').attr("visualcolors", visualColors[style]);
+	}
+	if (oldvisual !==	$('html').attr("visualcolors")) { // If Visual Colors get changed, update automated variables
+		ColorUpdate(true);
+	}
+}
+
+function VisualStyleCompile() {
+// Puts new options
+// In the Visual Styles Dropdown
+	for (let i = 0; i < visualThemes.length; i++) {
+		if ($("body.options").length) {
+			str = '<br><input type="radio" name="CPEVisual" id="CPEVisual_' + i + '" onclick="VisualStyle(' + i + ')"></input> <label for="CPEVisual_' + i + '">' + visualThemeNames[i] + '</label>'
+			$(".highcontrastmodes.cpe-visual-styles").append(str);
+
+		} else { // Non options page
+			str = '<li><a onclick="VisualStyle(' + i + ')">' + visualThemeNames[i] + '</a></li>'
+			$(".cpe-dropdown .cpe-dropdown__content .cpe-list.cpe-visual-styles").append(str);
+		}
+	}
+
+
+// In the Visual Styles Options
 }
 
 /* Changes Sitename */
@@ -153,7 +194,7 @@ function ContrastBanner() {
 if  ($("body.mpisto-2018").length) {
 	if ( ( window.matchMedia('(forced-colors: active)').matches ) && (window.MW18ContrastNotice === false) ) {
 		window.MW18ContrastNotice = true;
-		AddFloatingBanner("You're currently using a high contrast theme on your device. You may want to enable high contrast here with either <a onclick='HCcustom()'>leaving the colors unchanged</a> or <a onclick='HCcustom0()'>putting some specialized colors</a> so as to have a consistent high contrast experience.",'message','contrastbanner')  
+		AddFloatingBanner("You're currently using a high contrast theme on your device. You may want to use the High Contrast visual style found in the <b>Visual Styles</b> dropdown in the page header so as to have a consistent high contrast experience.",'message','contrastbanner')  
 	} else {
 		if (!($(".top-gap #contrastbanner").length)) {
 			window.MW18ContrastNotice = false;
@@ -998,7 +1039,7 @@ function UpdateValue() {
 	/**/
 	UpdateSet();
 	/* Color Update */
-	ColorUpdate(true);
+	ColorUpdate(false);
 }
 
 /* Downloads all modificative values of the current selected theme to a file */
@@ -1049,7 +1090,9 @@ if (confirm('Are you sure you want to reset this theme to the pre-set ones? This
 function ResetThemeA() {
 if (confirm('Are you sure you want to reset this theme to the pre-set ones? This action cannot be undone') === true) {
 		$("style.designer-style.theme-A").text('/* This CSS left intentionally blank */');	
-	ColorUpdate(true);
+	if ($("html.theme-A").length) {
+		ColorUpdate(true);
+	}
 }
 }
 
@@ -1057,21 +1100,27 @@ if (confirm('Are you sure you want to reset this theme to the pre-set ones? This
 function ResetThemeB() {
 if (confirm('Are you sure you want to reset this theme to the pre-set ones? This action cannot be undone') === true) {
 		$("style.designer-style.theme-B").text('/* This CSS left intentionally blank */');	
-	ColorUpdate(true);
+	if ($("html.theme-B").length) {
+		ColorUpdate(true);
+	}
 }
 }
 
 function ResetThemeC() {
 if (confirm('Are you sure you want to reset this theme to the pre-set ones? This action cannot be undone') === true) {
 		$("style.designer-style.theme-C").text('/* This CSS left intentionally blank */');	
-	ColorUpdate(true);
+	if ($("html.theme-C").length) {
+		ColorUpdate(true);
+	}
 }
 }
 
 function ResetThemeD() {
 if (confirm('Are you sure you want to reset this theme to the pre-set ones? This action cannot be undone') === true) {
 		$("style.designer-style.theme-D").text('/* This CSS left intentionally blank */');	
-	ColorUpdate(true);
+	if ($("html.theme-D").length) {
+		ColorUpdate(true);
+	}
 }
 }
 
@@ -1120,35 +1169,41 @@ var x = $('input.filter_delay').val(0);
 }
 
 /* Begin Color Parsers */
+function ColorTestTwin(color,color2,intensity=1,inter='hsl') {
+	return chroma.mix(color,color2,MW18HoverThreshold*intensity, inter);
+}
+
+
 function ColorTest(color,text=false) {
 
 	if (isLightColor(color)) {
 		if (text === true) {
-			return '#000000';
+			return '#0a0a0a';
 		} else {
-			return chroma.mix(color,'black',MW18HoverThreshold, 'hsl');
+			return ColorTestTwin(color,'#0a0a0a');
 		}
 	} else {
 		if (text === true) {
-			return '#ffffff';
+			return '#fafafa';
 		} else {
-			return chroma.mix(color,'white',MW18HoverThreshold, 'hsl');
+			return ColorTestTwin(color,'#fafafa');
 		}
 	}
 
 
 }
 
-
 function SuperColorTest(color) {
 	if (isLightColor(color)) {
-		var mix = chroma.mix(color,'black',MW18HoverThreshold, 'hsl');
-		return chroma.mix(mix,'black',MW18HoverThreshold, 'hsl');
+		var mix = ColorTestTwin(color,'#0a0a0a');
+		return ColorTestTwin(mix,'#000000');
 	} else {
-		var mix = chroma.mix(color,'white',MW18HoverThreshold, 'hsl');
-		return chroma.mix(mix,'white',MW18HoverThreshold, 'hsl');
+		var mix = ColorTestTwin(color,'#fafafa');
+		return ColorTestTwin(mix,'#ffffff');
 	}
 }
+
+
 
 
 // Only used for link and header colors
@@ -1156,9 +1211,9 @@ function ColorTest2(color,text=false) {
 
 	if (text === true) {
 		if (isLightColor(color)) {
-			return '0,0,0';
+			return '10,10,10';
 		} else {
-			return '255,255,255';
+			return '250,250,250';
 		}
 	} else {
 		return Color2(ColorTest(color));
@@ -1197,7 +1252,7 @@ function CompileRecColors() {
 
 	for (let i = 0; i < socialAM; i++) {
 	  var color = Colors[i];
-	  var data = '<button class="wds-button wds-is-square color-button" onclick="PickColor1(' + "'#" + color + "'" + ')"> <div style="border:1px solid; width:inherit; height:inherit; pointer-events:none; border-radius:50%; background-color:' + "#" +  color + ';"></div> </button>'
+	  var data = '<button class="cpe-button cpe-is-square color-button" onclick="PickColor1(' + "'#" + color + "'" + ')"> <div style="border:1px solid; width:inherit; height:inherit; pointer-events:none; border-radius:50%; background-color:' + "#" +  color + ';"></div> </button>'
 	  str = str + data;
 	}
 
@@ -1212,7 +1267,7 @@ function CompileRecColors() {
 
 	for (let i = 0; i < socialAM; i++) {
 	  var color = Colors[i];
-	  var data = '<button class="wds-button wds-is-square color-button" onclick="PickColor8(' + "'#" + color + "'" + ')"> <div style="border:1px solid; width:inherit; height:inherit; pointer-events:none; border-radius:50%; background-color:' + "#" +  color + ';"></div> </button>'
+	  var data = '<button class="cpe-button cpe-is-square color-button" onclick="PickColor8(' + "'#" + color + "'" + ')"> <div style="border:1px solid; width:inherit; height:inherit; pointer-events:none; border-radius:50%; background-color:' + "#" +  color + ';"></div> </button>'
 	  str = str + data;
 	}
 
@@ -1227,7 +1282,7 @@ function CompileRecColors() {
 
 	for (let i = 0; i < socialAM; i++) {
 	  var color = Colors[i];
-	  var data = '<button class="wds-button wds-is-square color-button" onclick="PickColor2(' + "'#" + color + "'" + ')"> <div style="border:1px solid; width:inherit; height:inherit; pointer-events:none; border-radius:50%; background-color:' + "#" +  color + ';"></div> </button>'
+	  var data = '<button class="cpe-button cpe-is-square color-button" onclick="PickColor2(' + "'#" + color + "'" + ')"> <div style="border:1px solid; width:inherit; height:inherit; pointer-events:none; border-radius:50%; background-color:' + "#" +  color + ';"></div> </button>'
 	  str = str + data;
 	}
 
@@ -1241,7 +1296,7 @@ function CompileRecColors() {
 
 	for (let i = 0; i < socialAM; i++) {
 	  var color = Colors[i];
-	  var data = '<button class="wds-button wds-is-square color-button" onclick="PickColor3(' + "'#" + color + "'" + ')"> <div style="border:1px solid; width:inherit; height:inherit; pointer-events:none; border-radius:50%; background-color:' + "#" +  color + ';"></div> </button>'
+	  var data = '<button class="cpe-button cpe-is-square color-button" onclick="PickColor3(' + "'#" + color + "'" + ')"> <div style="border:1px solid; width:inherit; height:inherit; pointer-events:none; border-radius:50%; background-color:' + "#" +  color + ';"></div> </button>'
 	  str = str + data;
 	}
 
@@ -1255,7 +1310,7 @@ function CompileRecColors() {
 
 	for (let i = 0; i < socialAM; i++) {
 	  var color = Colors[i];
-	  var data = '<button class="wds-button wds-is-square color-button" onclick="PickColor4(' + "'#" + color + "'" + ')"> <div style="border:1px solid; width:inherit; height:inherit; pointer-events:none; border-radius:50%; background-color:' + "#" +  color + ';"></div> </button>'
+	  var data = '<button class="cpe-button cpe-is-square color-button" onclick="PickColor4(' + "'#" + color + "'" + ')"> <div style="border:1px solid; width:inherit; height:inherit; pointer-events:none; border-radius:50%; background-color:' + "#" +  color + ';"></div> </button>'
 	  str = str + data;
 	}
 
@@ -1269,7 +1324,7 @@ function CompileRecColors() {
 
 	for (let i = 0; i < socialAM; i++) {
 	  var color = Colors[i];
-	  var data = '<button class="wds-button wds-is-square color-button" onclick="PickColor5(' + "'#" + color + "'" + ')"> <div style="border:1px solid; width:inherit; height:inherit; pointer-events:none; border-radius:50%; background-color:' + "#" +  color + ';"></div> </button>'
+	  var data = '<button class="cpe-button cpe-is-square color-button" onclick="PickColor5(' + "'#" + color + "'" + ')"> <div style="border:1px solid; width:inherit; height:inherit; pointer-events:none; border-radius:50%; background-color:' + "#" +  color + ';"></div> </button>'
 	  str = str + data;
 	}
 
@@ -1285,7 +1340,7 @@ function CompileRecColors() {
 
 	for (let i = 0; i < socialAM; i++) {
 	  var color = Colors[i];
-	  var data = '<button class="wds-button wds-is-square color-button" onclick="PickColor6(' + "'#" + color + "'" + ')"> <div style="border:1px solid; width:inherit; height:inherit; pointer-events:none; border-radius:50%; background-color:' + "#" +  color + ';"></div> </button>'
+	  var data = '<button class="cpe-button cpe-is-square color-button" onclick="PickColor6(' + "'#" + color + "'" + ')"> <div style="border:1px solid; width:inherit; height:inherit; pointer-events:none; border-radius:50%; background-color:' + "#" +  color + ';"></div> </button>'
 	  str = str + data;
 	}
 
@@ -1300,7 +1355,7 @@ function CompileRecColors() {
 
 	for (let i = 0; i < socialAM; i++) {
 	  var color = Colors[i];
-	  var data = '<button class="wds-button wds-is-square color-button" onclick="PickColor7(' + "'#" + color + "'" + ')"> <div style="border:1px solid; width:inherit; height:inherit; pointer-events:none; border-radius:50%; background-color:' + "#" +  color + ';"></div> </button>'
+	  var data = '<button class="cpe-button cpe-is-square color-button" onclick="PickColor7(' + "'#" + color + "'" + ')"> <div style="border:1px solid; width:inherit; height:inherit; pointer-events:none; border-radius:50%; background-color:' + "#" +  color + ';"></div> </button>'
 	  str = str + data;
 	}
 
@@ -1311,20 +1366,39 @@ function CompileRecColors() {
 
 
 function SocialCompile() {
-
+	$("head .social-colors").text('');	
 	let str = '';
 	var socialV = ['facebook','googleplus','line','linkedin','instagram','meneame','nk','odnoklassniki','reddit','tumblr','twitter','vkontakte','wykop','weibo','youtube','discord','fandom','asecure','steam','spotify','twitch','qore','mpisto','splashhol','gamepedia']
 	var socialC = ['#3b5998','#dd4b39','#00c300','#0077b5','#e02d69','#ff6400','#4077a7','#f96900','#ff4500','#34465d','#1da1f2','#587ca3','#fb803f','#ff8140','#cd201f','#7289da','#00acac','#0009FF','#000','#1ed760','#563194','#ff4500','#18bbc5','#61448d','#f4801f']
 	var socialAM = socialC.length
+// Start Content BG
+		if ( (window.MW18darkmode === true) ) {
+		// Adaptive
+			if (getComputedStyle(document.querySelector('html')).getPropertyValue("--content-color") === 'auto') {
+				if (isLightColor(content_text)) {
+					var content_color = '#2e2e2e';	
+				} else {
+					var content_color = '#e2e2e2';
+				}
+			} else {
+				var content_color =	getComputedStyle(document.querySelector('html')).getPropertyValue("--content-color");
+			}
+		//End Adaptive
+		} else {
+			var content_color =	getComputedStyle(document.querySelector('html')).getPropertyValue("--content-bg");
+		}
+// End Content BG
 
 	for (let i = 0; i < socialAM; i++) {
 	  var color = socialC[i];
+	  var colormixl = ColorTestTwin(content_color,color,0.8,'rgb');
+      var colormix = ColorTestTwin(colormixl,color,0.8,'rgb');
 	  var name = socialV[i];
-	  var data = '.main .wds-button.wds-is-' + name + '-color{' +'--button-color:' + color + '!important;' + '--button-color-dark:' + ColorTest(color,false) + '!important;' + '--button-color-text:' + ColorTest(color,true) + '!important;' +'--content-border:' + color + '!important;' + '--content-border-dark:' + ColorTest(color,false) + '!important;' + '--content-border-text:' + ColorTest(color,true) + '!important;' +'--background-color:' + color + '!important;' + '--background-color-dark:' + ColorTest(color,false) + '!important;' + '--background-color-text:' + ColorTest(color,true) + '!important;' +'--link-color:' + Color2(color) + '!important;' + '--link-color-dark:' + ColorTest2(color,false) + '!important;' + '--link-color-text:' + ColorTest(color,true) + '!important;' + '}'
+	  var data = '.cpe-button.cpe-is-' + name + '-color{' +'--button-color:' + color + '!important;' + '--button-color-dark:' + ColorTest(color,false) + '!important;' + '--button-color-dark-super:' + SuperColorTest(color,false) + '!important;' + '--button-color-text:' + ColorTest(color,true) + '!important;' + '--button-color-content-bg-mix-light:' + colormixl + '!important;' + '--button-color-content-bg-mix:' + colormix + '!important;' + '}'
 	  str = str + data;
 	}
 
-	$("head").append('<style>' + str + '</style>');
+	$("head .social-colors").append(str);
 
 }
 
@@ -1333,77 +1407,6 @@ function SocialCompile() {
 
 /* Used to udpate all dynamical variables */
 function ColorUpdate(refresh) {
-/** Button Color **/
-/* Set Vars */
-var button_color = getComputedStyle(document.querySelector('html')).getPropertyValue("--button-color");
-var buttoncolor1 = ColorTest(button_color,false);
-var buttoncolor2 = ColorTest(button_color,true);
-var buttoncolor3 = SuperColorTest(button_color); // Scrollbar
-
-
-if (isLightColor(button_color)) {
-document.querySelector('html').style.setProperty("--button-color-blend-light", button_color);
-document.querySelector('html').style.setProperty("--button-color-blend", buttoncolor1);
-} else {
-document.querySelector('html').style.setProperty("--button-color-blend-light", buttoncolor1);
-document.querySelector('html').style.setProperty("--button-color-blend", button_color);
-}
-
-
-
-/* Set Values */
-document.querySelector('html').style.setProperty("--button-color-dark", buttoncolor1);
-document.querySelector('html').style.setProperty("--button-color-dark-super", buttoncolor3); // Scrollbar
-document.querySelector('html').style.setProperty("--button-color-text", buttoncolor2);
-
-
-/** Header Color **/
-/* Set Vars */
-var header_color =	'rgb(' + getComputedStyle(document.querySelector('html')).getPropertyValue("--community-header-bg") + ')';
-var headercolor1 = ColorTest2(header_color,false);
-var headercolor2 = ColorTest2(header_color,true);
-var headercolor3 = SuperColorTest2(header_color); // Scrollbar
-
-if (isLightColor(header_color)) {
-document.querySelector('html').style.setProperty("--community-header-bg-blend-light", getComputedStyle(document.querySelector('html')).getPropertyValue("--community-header-bg"));
-document.querySelector('html').style.setProperty("--community-header-bg-blend", headercolor1);
-} else {
-document.querySelector('html').style.setProperty("--community-header-bg-blend-light", headercolor1);
-document.querySelector('html').style.setProperty("--community-header-bg-blend", getComputedStyle(document.querySelector('html')).getPropertyValue("--community-header-bg"));
-}
-
-
-
-/* Set Values */
-document.querySelector('html').style.setProperty("--community-header-dark", headercolor1);
-document.querySelector('html').style.setProperty("--community-header-dark-super", headercolor3); // Scrollbar
-document.querySelector('html').style.setProperty("--community-header-text", headercolor2);
-
-/** Link Color **/
-/* Set Vars */
-var link_color = 'rgb(' + getComputedStyle(document.querySelector('html')).getPropertyValue("--link-color") + ')';
-var linkcolor1 = ColorTest2(link_color,false);
-var linkcolor2 = ColorTest(link_color,true);
-var linkcolor3 = SuperColorTest2(link_color); // Scrollbar
-
-
-
-if (isLightColor(link_color)) {
-document.querySelector('html').style.setProperty("--link-color-blend-light", getComputedStyle(document.querySelector('html')).getPropertyValue("--link-color"));
-document.querySelector('html').style.setProperty("--link-color-blend", linkcolor1);
-} else {
-document.querySelector('html').style.setProperty("--link-color-blend-light", linkcolor1);
-document.querySelector('html').style.setProperty("--link-color-blend", getComputedStyle(document.querySelector('html')).getPropertyValue("--link-color"));
-}
-
-
-
-/* Set Values */
-document.querySelector('html').style.setProperty("--link-color-dark", linkcolor1);
-document.querySelector('html').style.setProperty("--link-color-dark-super", linkcolor3); // Scrollbar
-document.querySelector('html').style.setProperty("--link-color-text", linkcolor2);
-
-
 /** Page BG **/
 /* Set Vars */
 if ( (window.MW18darkmode === true) ) {
@@ -1430,7 +1433,7 @@ var content_color3 = SuperColorTest(content_color); // Scrollbar
 
 
 if (isSuperLightColor(content_color)) {
-	var dropdowncolor = 'white';
+	var dropdowncolor = '#fafafa';
 	if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--content-color") === 'auto') && !($("html.contrast.win10").length)  ) {
 		var dropdowncolor3 = '#2e2e2e';	
 	} else {
@@ -1438,34 +1441,34 @@ if (isSuperLightColor(content_color)) {
 	}
 
 	if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--content-border") === 'auto') && !($("html.contrast.win10").length)  ) {
-		var dropdowncolor2 = chroma.mix(content_color,'black',MW18HoverThreshold, 'hsl');
+		var dropdowncolor2 = chroma.mix(content_color,'#0a0a0a',MW18HoverThreshold*1.2, 'hsv');
 	} else {
 		var dropdowncolor2 = 'inherit';
 	}
 
 	
 } else if (isLightColor(content_color)) {
-var dropdowncolor = chroma.mix(content_color,'black',MW18HoverThreshold, 'hsl');
+var dropdowncolor = chroma.mix(content_color,'#0a0a0a',MW18HoverThreshold*0.8, 'hsv');
 	if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--content-color") === 'auto') && !($("html.contrast.win10").length)  ) {
-		var dropdowncolor3 = '#2b2b2b';	
+		var dropdowncolor3 = '#0a0a0a';	
 	} else {
 		var dropdowncolor3 = 'inherit';
 	}
 	if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--content-border") === 'auto') && !($("html.contrast.win10").length)  ) {
-		var dropdowncolor2 = chroma.mix(content_color,'black',MW18HoverThreshold*2, 'hsl');
+		var dropdowncolor2 = chroma.mix(content_color,'#0a0a0a',MW18HoverThreshold*2.2, 'hsv');
 	} else {
 		var dropdowncolor2 = 'inherit';
 	}
 
 } else {
-var dropdowncolor = chroma.mix(content_color,'white',MW18HoverThreshold, 'hsl');
+var dropdowncolor = chroma.mix(content_color,'#fafafa',MW18HoverThreshold*0.8, 'hsv');
 	if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--content-color") === 'auto') && !($("html.contrast.win10").length)  ) {
-		var dropdowncolor3 = '#e2e2e2';	
+		var dropdowncolor3 = '#fafafa';	
 	} else {
 		var dropdowncolor3 = 'inherit';
 	}
 	if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--content-border") === 'auto') && !($("html.contrast.win10").length)  ) {
-		var dropdowncolor2 = chroma.mix(content_color,'white',MW18HoverThreshold*2, 'hsl');
+		var dropdowncolor2 = chroma.mix(content_color,'#fafafa',MW18HoverThreshold*2.2, 'hsv');
 	} else {
 		var dropdowncolor2 = 'inherit';
 	}
@@ -1495,6 +1498,90 @@ document.querySelector('html').style.setProperty("--content-color-dark", content
 document.querySelector('html').style.setProperty("--content-color-dark-super", content_text3); // Scrollbar
 
 
+/** Button Color **/
+/* Set Vars */
+var button_color = getComputedStyle(document.querySelector('html')).getPropertyValue("--button-color");
+var buttoncolor1 = ColorTest(button_color,false);
+var buttoncolor2 = ColorTest(button_color,true);
+var buttoncolor3 = SuperColorTest(button_color); // Scrollbar
+
+
+if (isLightColor(button_color)) {
+document.querySelector('html').style.setProperty("--button-color-blend-light", button_color);
+document.querySelector('html').style.setProperty("--button-color-blend", buttoncolor1);
+} else {
+document.querySelector('html').style.setProperty("--button-color-blend-light", buttoncolor1);
+document.querySelector('html').style.setProperty("--button-color-blend", button_color);
+}
+
+buttonmixl = ColorTestTwin(content_color,button_color,0.8,'rgb');
+buttonmix = ColorTestTwin(buttonmixl,button_color,0.8,'rgb');
+
+
+/* Set Values */
+document.querySelector('html').style.setProperty("--button-color-dark", buttoncolor1);
+document.querySelector('html').style.setProperty("--button-color-dark-super", buttoncolor3); // Scrollbar
+document.querySelector('html').style.setProperty("--button-color-text", buttoncolor2);
+document.querySelector('html').style.setProperty("--button-color-content-bg-mix-light", buttonmixl);
+document.querySelector('html').style.setProperty("--button-color-content-bg-mix", buttonmix);
+
+
+/** Header Color **/
+/* Set Vars */
+var header_color =	'rgb(' + getComputedStyle(document.querySelector('html')).getPropertyValue("--community-header-bg") + ')';
+var headercolor1 = ColorTest2(header_color,false);
+var headercolor2 = ColorTest2(header_color,true);
+var headercolor3 = SuperColorTest2(header_color); // Scrollbar
+
+if (isLightColor(header_color)) {
+document.querySelector('html').style.setProperty("--community-header-bg-blend-light", getComputedStyle(document.querySelector('html')).getPropertyValue("--community-header-bg"));
+document.querySelector('html').style.setProperty("--community-header-bg-blend", headercolor1);
+} else {
+document.querySelector('html').style.setProperty("--community-header-bg-blend-light", headercolor1);
+document.querySelector('html').style.setProperty("--community-header-bg-blend", getComputedStyle(document.querySelector('html')).getPropertyValue("--community-header-bg"));
+}
+
+headermixl = ColorTestTwin(content_color,header_color,0.8,'rgb');
+headermix = ColorTestTwin(headermixl,header_color,0.8,'rgb');
+
+
+
+/* Set Values */
+document.querySelector('html').style.setProperty("--community-header-dark", headercolor1);
+document.querySelector('html').style.setProperty("--community-header-dark-super", headercolor3); // Scrollbar
+document.querySelector('html').style.setProperty("--community-header-text", headercolor2);
+document.querySelector('html').style.setProperty("--community-header-bg-content-bg-mix-light", headermixl);
+document.querySelector('html').style.setProperty("--community-header-bg-content-bg-mix", headermix);
+
+
+/** Link Color **/
+/* Set Vars */
+var link_color = 'rgb(' + getComputedStyle(document.querySelector('html')).getPropertyValue("--link-color") + ')';
+var linkcolor1 = ColorTest2(link_color,false);
+var linkcolor2 = ColorTest(link_color,true);
+var linkcolor3 = SuperColorTest2(link_color); // Scrollbar
+
+
+
+if (isLightColor(link_color)) {
+document.querySelector('html').style.setProperty("--link-color-blend-light", getComputedStyle(document.querySelector('html')).getPropertyValue("--link-color"));
+document.querySelector('html').style.setProperty("--link-color-blend", linkcolor1);
+} else {
+document.querySelector('html').style.setProperty("--link-color-blend-light", linkcolor1);
+document.querySelector('html').style.setProperty("--link-color-blend", getComputedStyle(document.querySelector('html')).getPropertyValue("--link-color"));
+}
+
+linkmixl = ColorTestTwin(content_color,link_color,0.8,'rgb');
+linkmix = ColorTestTwin(linkmixl,link_color,0.8,'rgb');
+
+
+/* Set Values */
+document.querySelector('html').style.setProperty("--link-color-dark", linkcolor1);
+document.querySelector('html').style.setProperty("--link-color-dark-super", linkcolor3); // Scrollbar
+document.querySelector('html').style.setProperty("--link-color-text", linkcolor2);
+document.querySelector('html').style.setProperty("--link-color-content-bg-mix-light", linkmixl);
+document.querySelector('html').style.setProperty("--link-color-content-bg-mix", linkmix);
+
 /** Content Border **/
 /* Set Vars */
 if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--content-border") === 'auto') && !($("html.contrast.win10").length)  ) {
@@ -1516,11 +1603,15 @@ document.querySelector('html').style.setProperty("--content-border-blend-light",
 document.querySelector('html').style.setProperty("--content-border-blend", border_color);
 }
 
+bordermixl = ColorTestTwin(content_color,border_color,0.8,'rgb');
+bordermix = ColorTestTwin(bordermixl,border_color,0.8,'rgb');
+
 /* Set Values */
 document.querySelector('html').style.setProperty("--content-border-dark", bordercolor1);
 document.querySelector('html').style.setProperty("--content-border-dark-super", bordercolor3); // Scrollbar
 document.querySelector('html').style.setProperty("--content-border-text", bordercolor2);
-
+document.querySelector('html').style.setProperty("--content-border-content-bg-mix-light", bordermixl);
+document.querySelector('html').style.setProperty("--content-border-content-bg-mix", bordermix);
 
 
 /** Body Bg **/
@@ -1538,10 +1629,15 @@ document.querySelector('html').style.setProperty("--background-color-blend-light
 document.querySelector('html').style.setProperty("--background-color-blend", head_color);
 }
 
+headmixl = ColorTestTwin(content_color,head_color,0.8,'rgb');
+headmix = ColorTestTwin(headmixl,button_color,0.8,'rgb');
+
 /* Set Values */
 document.querySelector('html').style.setProperty("--background-color-dark", headcolor1);
 document.querySelector('html').style.setProperty("--background-color-dark-super", headcolor3); // Scrollbar
 document.querySelector('html').style.setProperty("--background-color-text", headcolor2);
+document.querySelector('html').style.setProperty("--background-color-content-bg-mix-light", headmixl);
+document.querySelector('html').style.setProperty("--background-color-content-bg-mix", headmix);
 
 
 /* Overlay Bg (For Adatpive mode) */
@@ -1578,16 +1674,17 @@ CheckBG()
 if (refresh === true) {
 	CheckAdapt()
 	colortheme($('body').attr("wikitheme"))
+	if ($("body.options").length) {
+		UpdateSet()
+	}
 }
+SocialCompile();
 if (window.MW18auto === true) {
 CursorT('auto');
 }
 if (window.MW18autoDark === true) {
 CursorT('auto-r');
 }
-	if ($("body.options").length) {
-		UpdateSet()
-	}
 
 }
 
@@ -1613,7 +1710,7 @@ function CheckAdapt() {
 /* Different with the ToggleBG function, only one is present for all three */
 function CheckBG() {
 	if ($("body.options").length   && !($("html.contrast.win10").length) ) { // Don't run if not on Preferences Page
-	/* BG */
+	/* BG */ // Background Style
 		if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--body-display") === 'legacy') && !($("html.contrast.win10").length)  ) {
 				document.querySelector('input#BG_2').checked = true;
 				document.querySelector('input#BG_1').checked = false;
@@ -1625,7 +1722,7 @@ function CheckBG() {
 				document.querySelector('input#BG_1').checked = true;
 				document.querySelector('input#BG_2').checked = false;
 		}
-	/* BG1 */
+	/* BG1 */ // Background Vertical Alingment
 		if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--background-va") === 'center') && !($("html.contrast.win10").length)  ) {
 				document.querySelector('input#BG1_2').checked = true;
 				document.querySelector('input#BG1_1').checked = false;
@@ -1639,13 +1736,21 @@ function CheckBG() {
 				document.querySelector('input#BG1_2').checked = false;
 				document.querySelector('input#BG1_3').checked = false;
 		}
-	/* BG2 */
+	/* BG2 */ // Background Tiling
 		if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--background-no-tiling") === 'true') && !($("html.contrast.win10").length)  ) {
 				document.querySelector('input#BG2').checked = true;
 		} else {
 				document.querySelector('input#BG2').checked = false;
 		}
 	/* BG3 */
+	/*
+	**
+	cover-off items are disabled when background-size is on Cover
+	stretch-off items are disabled when background-size is on Stretched
+	noncover-off items are enabled only if background-size is on Cover
+	noncover-off items are enabled only if background-size is on Cover
+	**
+	*/
 		if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--background-size") === 'contain') && !($("html.contrast.win10").length)  ) {
 				document.querySelector('input#BG3_2').checked = true;
 				document.querySelector('input#BG3_1').checked = false;
@@ -1670,7 +1775,7 @@ function CheckBG() {
 				$(".cover-off").removeAttr('disabled');
 				$(".stretch-off").removeAttr('disabled');
 				$(".noncover-off").attr('disabled', 'true');
-		} else {
+		} else { // Cover
 				document.querySelector('input#BG3_1').checked = true;
 				document.querySelector('input#BG3_2').checked = false;
 				document.querySelector('input#BG3_3').checked = false;
@@ -1981,98 +2086,19 @@ function HCd() {
 		ColorUpdate(true);
 }
 
-/* Remoes High Contrast */
-function HCclear() {
-    var x = document.querySelector('html');
-        x.className = x.className.replace(" contrast", "");
-        x.className = x.className.replace(" basic", "");
-       
-       
-        x.className = x.className.replace(" win10", "");
-		ColorUpdate(true);
-		if ($("body.options").length) {
-			$(".win10-off").removeAttr('disabled');
-			CheckBG();
-		}
-
-}
-
-/* Enables Super High Contrast */
-function HCcustom0() {
-    var x = document.querySelector('html');
-    if (x.className.indexOf("contrast") == -1) {
-        x.className += " contrast";
-    }
-    if (x.className.indexOf("win10") == -1) {
-        x.className += " win10";
-    }
-        x.className = x.className.replace(" basic", "");
-		ColorUpdate(true);
-		if ($("body.options").length) {
-			$(".win10-off").attr('disabled', 'true');
-		}
-}
-
-/* Enables High Contrast */
-function HCcustom() {
-    var x = document.querySelector('html');
-    if (x.className.indexOf("contrast") == -1) {
-        x.className += " contrast";
-    }
-        x.className = x.className.replace(" win10", "");
-        x.className = x.className.replace(" basic", "");
-		ColorUpdate(true);
-		if ($("body.options").length) {
-			$(".win10-off").removeAttr('disabled');
-			CheckBG();
-		}
-
-}
-
-/* Enables Increased Contrast */
-function HCcustom2() {
-    var x = document.querySelector('html');
-    if (x.className.indexOf("basic") == -1) {
-        x.className += " basic";
-    }
-        x.className = x.className.replace(" contrast", "");
-        x.className = x.className.replace(" win10", "");
-		ColorUpdate(true);
-		if ($("body.options").length) {
-			$(".win10-off").removeAttr('disabled');
-			CheckBG();
-		}
-}
-
-function UpdateContrast() {
-var x = $('input[type="range"][name="contrasts"].big').val();
-	if (x==0) {
-		HCclear();
-	}
-	if (x==1) {
-		HCcustom2();
-	}
-	if (x==2) {
-		HCcustom();
-	}
-	if (x==3) {
-		HCcustom0();
-	}
-}
-
 function UpdateFont() {
 var x = $('input.font_2nd').val();
 	if (x=="") {
 		$("style.designer-style.theme-Miscellaneous").append(
 		'html {' +
-		'--secondary-font:"Rubik", "Arimo", "Liberation Sans", var(--secondary-foreign-fonts)!important;' +
+		'--custom-secondary-font:""!important;' +
 		'}'
 		);	
 		
 	} else {
 		$("style.designer-style.theme-Miscellaneous").append(
 		'html {' +
-		'--secondary-font:' + x + ', "Rubik", "Arimo", "Liberation Sans", var(--secondary-foreign-fonts)!important;' +
+		'--custom-secondary-font:' + x + '!important;' +
 		'}'
 		);	
 	}
@@ -2172,12 +2198,10 @@ function UpdateColorThreshold() {
 	var x = $('input.color_threshold').val();
 	window.MW18LightThreshold = x;
 	ColorUpdate(true);
-	SocialCompile();
 }
 
 function UpdateHoverRation() {
 	var x = $('input.hover_ration').val();
 	window.MW18HoverThreshold = x * 0.005;
 	ColorUpdate(true);
-	SocialCompile();
 }
