@@ -1,4 +1,4 @@
-.theme-A { /* Standard */
+theme-A { /* Standard */
 --background-image:url("loadbg_dev.png");
 --background-color:#ffa500;
 --link-color:250,128,114;
@@ -9,7 +9,7 @@
 --community-header-bg:255,99,71;
 }
 
-.theme-B { /* Standard Gloved */
+theme-B { /* Standard Gloved */
 --background-image:url("headbg.jpg");
 --background-color:#39bae6;
 --link-color:153,15,153;
@@ -21,7 +21,7 @@
 }
 
 
-.theme-C { /* Standard Dark */
+theme-C { /* Standard Dark */
 --background-image:url("headbg3.jpg");
 --background-color:#66144b;
 --link-color:0,85,255;
@@ -33,7 +33,7 @@
 }
 
 
-.theme-D { /* Sagent */
+theme-D { /* Sagent */
 --background-image:url("headbg4.jpg");
 --background-color:#e95500;
 --link-color:148,24,197;
@@ -100,6 +100,7 @@ background-attachment:local;
 background-attachment:fixed;
 background-position:center;
 background-size:cover;
+background-image:none;
 border-radius:1px; /* mInerva and some other browsers do not render local attachment without this */
 overscroll-behavior:none;
 position:relative;
@@ -477,7 +478,8 @@ PCR = PerfCap Reason  (Page 4)
 .page.tv .g_raph:not([page*="3"]) .graphF, 
 .page.gpu .g_raph:not([page*="2"]) .graphMEM,
 .page.tv .g_raph:not([page*="2"]) .graphMEM,
-.page.tv .g_raph:not([page*="4"]) .graphPCR  {
+.page.tv .g_raph:not([page*="4"]) .graphPCR,
+.page.tv .g_raph:not([page*="5"]) .graphFVPS  {
 	display:none!important;
 }
 

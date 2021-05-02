@@ -85,6 +85,8 @@ function TV1_t() {
 		$('.page.tv .g_raph').attr("page", "3");
 	} else if ($('.page.tv .g_raph').attr("page") == 3) {
 		$('.page.tv .g_raph').attr("page", "4");
+	} else if ($('.page.tv .g_raph').attr("page") == 4) {
+		$('.page.tv .g_raph').attr("page", "5");
 	} else {
 		$('.page.tv .g_raph').attr("page", "0");
 	}
