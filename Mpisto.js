@@ -159,3 +159,7 @@ function Tab2() {
 function Tab3() {
 		$('body').attr("page", "details");
 }
+
+function Tab4() {
+		$('body').attr("page", "history");
+}
