@@ -72,6 +72,8 @@ function DropDownUpdate() {
 					
 }
 
+
+/* Range Inputs and Selects */
 function UpdateSelectValue() { // Handles Blurring
 		setTimeout(
 		(function() { document.querySelector(' .cpe-dropdown.cpe-select:focus-within').blur(); 	document.querySelector('.focus-overlay').focus(); } )
@@ -111,8 +113,12 @@ function UpdateRangeInputs() {
 	if (getKey('right-rail-full') === '-1') {
 		insertKey('right-rail-full', 'true' );
 	}
+	if (getKey('left-nav-full') === '-1') {
+		insertKey('left-nav-full', 'true' );
+	}
 	var content_full = getKey('content-full')
 	var right_rail_full = getKey('right-rail-full');
+	var left_nav_full = getKey('left-nav-full');
     getParams().forEach(function (param) {
         var key = param.split("=")[0];
         var value = param.split("=")[1];
@@ -138,6 +144,14 @@ function UpdateRangeInputs() {
 				}
 				console.info('Right pane visibility settings overriden')
                 break;
+            case 'hideleftnav':
+				if (value === 'true') {
+					left_nav_full = 'false';
+				} else {
+					left_nav_full = 'true';
+				}
+				console.info('Left navigation for large screens visibility settings overriden')
+                break;
 
         }
     });
@@ -147,6 +161,10 @@ function UpdateRangeInputs() {
     if (right_rail_full === 'true') {
 		document.querySelector(' body ').classList.add('has-right-rail');
 	}
+    if (left_nav_full === 'true') {
+		document.querySelector(' body ').classList.add('has-left-nav');
+	}
+
 	UpdateRangeInputs();
 	DropDownUpdate();
 	var y = document.querySelector('.evelution-taskbar .cpe-dropdown.search:not(:focus) .link');
@@ -157,6 +175,13 @@ function UpdateRangeInputs() {
 						y2.focus();
         }) );
 	}
+
+
+	/* DITTO */
+	document.querySelector("body").addEventListener("mouseenter", ( function(e) { CheckTheme(); } ) );
+	document.querySelector("body").addEventListener("mouseleave", ( function(e) { DropDownUpdate(); CheckTheme(); } ) );
+
+
 })();
 
 /* Aliases all components with the .wds prefix to the ones from .cpe ones */

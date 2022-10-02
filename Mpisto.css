@@ -1,106 +1,611 @@
-.theme-A.visualcolors-standard {
---desktop-background-image:url("");
---desktop-background-color:#ffcba4;
---desktop-text-background-color:#2d383a;
---canvas-background-color:#ffffff;
---inactive-text-background-color:#c8c8cd;
---canvas-text-background-color:#2d383a;
---highlight-background-color:#93ccea;
---hyperlink-background-color:#1e5aa8;
---active-title-background-color:#00755e;
---inactive-title-background-color:#01786f;
+.theme-A.colorscheme-light.visualcolors-standard {
+  --desktop-background-image:"none";
+  --desktop-background-image-filter:opacity(100%);
+  --desktop-background-image-blend-mode:normal;
+  --desktop-background-color:#ffcba4;
+  --desktop-background-size:cover;
+  --desktop-background-horizontal-alignment:left;
+  --desktop-background-vertical-alignment:top;
+  --desktop-background-no-horizontal-tiling:false;
+  --desktop-background-no-vertical-tiling:false;
+  --desktop-text-background-color:#2d383a;
+  --canvas-background-color:#ffffff;
+  --canvas-secondary-background-color:auto;
+  --inactive-text-background-color:#c8c8cd;
+  --active-text-background-color:#c62d42;
+  --canvas-text-background-color:#2d383a;
+  --canvas-text-secondary-background-color:auto;
+  --highlight-background-color:#93ccea;
+  --highlight-text-background-color:auto;
+  --hyperlink-background-color:#1560bd;
+  --visited-hyperlink-background-color:#733380;
+  --active-title-background-color:#00755e;
+  --active-title-text-background-color:auto;
+  --inactive-title-background-color:#01786f;
+  --inactive-title-text-background-color:auto;
+  --custom-font:"<Roboto Flex>";
+  --custom-secondary-font:"<Rubik>";
+  --custom-code-font:"<Inconsolata>";
+  --border-radius:5px;
+  --icon-filter:opacity(1);
+  --icon-filter-hover:opacity(0.8);
+  --icon-filter-duration:300ms;
+  --icon-filter-delay:0ms;
+  --system-acryllic-opacity:0.6;
+  --system-generic-color-hue-shift:0;
+  --system-generic-color-saturation:100%;
 }
 
-.theme-B.visualcolors-standard {
---desktop-background-image:url("");
---desktop-background-color:#ffcba4;
---desktop-text-background-color:#2d383a;
---canvas-background-color:#eed9c4;
---inactive-text-background-color:#c88a65;
---canvas-text-background-color:#2d383a;
---highlight-background-color:#ff8833;
---hyperlink-background-color:#664228;
---active-title-background-color:#fe6f5e;
---inactive-title-background-color:#ff7034;
+.theme-B.colorscheme-light.visualcolors-standard {
+  --desktop-background-image:"none";
+  --desktop-background-image-filter:opacity(100%);
+  --desktop-background-image-blend-mode:normal;
+  --desktop-background-color:#ffcba4;
+  --desktop-background-size:cover;
+  --desktop-background-horizontal-alignment:left;
+  --desktop-background-vertical-alignment:top;
+  --desktop-background-no-horizontal-tiling:false;
+  --desktop-background-no-vertical-tiling:false;
+  --desktop-text-background-color:#2d383a;
+  --canvas-background-color:#eed9c4;
+  --canvas-secondary-background-color:auto;
+  --inactive-text-background-color:#c88a65;
+  --active-text-background-color:#3f26bf;
+  --canvas-text-background-color:#2d383a;
+  --canvas-text-secondary-background-color:auto;
+  --highlight-background-color:#ff8833;
+  --highlight-text-background-color:auto;
+  --hyperlink-background-color:#664228;
+  --visited-hyperlink-background-color:#cc474b;
+  --active-title-background-color:#fe6f5e;
+  --active-title-text-background-color:auto;
+  --inactive-title-background-color:#ff7034;
+  --inactive-title-text-background-color:auto;
+  --custom-font:"<Roboto Flex>";
+  --custom-secondary-font:"<Rubik>";
+  --custom-code-font:"<Inconsolata>";
+  --border-radius:5px;
+  --icon-filter:opacity(1);
+  --icon-filter-hover:opacity(0.8);
+  --icon-filter-duration:300ms;
+  --icon-filter-delay:0ms;
+  --system-acryllic-opacity:0.6;
+  --system-generic-color-hue-shift:0;
+  --system-generic-color-saturation:100%;
 }
 
-.theme-C.visualcolors-standard {
---desktop-background-image:url("");
---desktop-background-color:#fbe7b2;
---desktop-text-background-color:#614051;
---canvas-background-color:#ffffff;
---inactive-text-background-color:#8b8680;
---canvas-text-background-color:#614051;
---highlight-background-color:#6456b7;
---hyperlink-background-color:#7070cc;
---active-title-background-color:#0066ff;
---inactive-title-background-color:#4570e6;
+.theme-C.colorscheme-light.visualcolors-standard {
+  --desktop-background-image:"none";
+  --desktop-background-image-filter:opacity(100%);
+  --desktop-background-image-blend-mode:normal;
+  --desktop-background-color:#fbe7b2;
+  --desktop-background-size:cover;
+  --desktop-background-horizontal-alignment:left;
+  --desktop-background-vertical-alignment:top;
+  --desktop-background-no-horizontal-tiling:false;
+  --desktop-background-no-vertical-tiling:false;
+  --desktop-text-background-color:#614051;
+  --canvas-background-color:#ffffff;
+  --canvas-secondary-background-color:auto;
+  --inactive-text-background-color:#8b8680;
+  --active-text-background-color:#cc553d;
+  --canvas-text-background-color:#614051;
+  --canvas-text-secondary-background-color:auto;
+  --highlight-background-color:#6456b7;
+  --highlight-text-background-color:auto;
+  --hyperlink-background-color:#7070cc;
+  --visited-hyperlink-background-color:#2887c8;
+  --active-title-background-color:#0066ff;
+  --active-title-text-background-color:auto;
+  --inactive-title-background-color:#4570e6;
+  --inactive-title-text-background-color:auto;
+  --custom-font:"<Roboto Flex>";
+  --custom-secondary-font:"<Rubik>";
+  --custom-code-font:"<Inconsolata>";
+  --border-radius:5px;
+  --icon-filter:opacity(1);
+  --icon-filter-hover:opacity(0.8);
+  --icon-filter-duration:300ms;
+  --icon-filter-delay:0ms;
+  --system-acryllic-opacity:0.6;
+  --system-generic-color-hue-shift:0;
+  --system-generic-color-saturation:100%;
 }
 
-.theme-D.visualcolors-standard {
---desktop-background-image:url("");
---desktop-background-color:#fbe7b2;
---desktop-text-background-color:#614051;
---canvas-background-color:#eed9c4;
---inactive-text-background-color:#8d90a1;
---canvas-text-background-color:#614051;
---highlight-background-color:#664228;
---hyperlink-background-color:#003366;
---active-title-background-color:#926f5b;
---inactive-title-background-color:#c88a65;
+.theme-D.colorscheme-light.visualcolors-standard {
+  --desktop-background-image:"none";
+  --desktop-background-image-filter:opacity(100%);
+  --desktop-background-image-blend-mode:normal;
+  --desktop-background-color:#fbe7b2;
+  --desktop-background-size:cover;
+  --desktop-background-horizontal-alignment:left;
+  --desktop-background-vertical-alignment:top;
+  --desktop-background-no-horizontal-tiling:false;
+  --desktop-background-no-vertical-tiling:false;
+  --desktop-text-background-color:#614051;
+  --canvas-background-color:#eed9c4;
+  --canvas-secondary-background-color:auto;
+  --inactive-text-background-color:#8d90a1;
+  --active-text-background-color:#665233;
+  --canvas-text-background-color:#614051;
+  --canvas-text-secondary-background-color:auto;
+  --highlight-background-color:#664228;
+  --highlight-text-background-color:auto;
+  --hyperlink-background-color:#003366;
+  --visited-hyperlink-background-color:#732e6c;
+  --active-title-background-color:#926f5b;
+  --active-title-text-background-color:auto;
+  --inactive-title-background-color:#c88a65;
+  --inactive-title-text-background-color:auto;
+  --custom-font:"<Roboto Flex>";
+  --custom-secondary-font:"<Rubik>";
+  --custom-code-font:"<Inconsolata>";
+  --border-radius:5px;
+  --icon-filter:opacity(1);
+  --icon-filter-hover:opacity(0.8);
+  --icon-filter-duration:300ms;
+  --icon-filter-delay:0ms;
+  --system-acryllic-opacity:0.6;
+  --system-generic-color-hue-shift:0;
+  --system-generic-color-saturation:100%;
 }
 
-.theme-E.visualcolors-standard {
---desktop-background-image:url("");
---desktop-background-color:#af593e;
---desktop-text-background-color:#eed9c4;
---canvas-background-color:#000000;
---inactive-text-background-color:#614051;
---canvas-text-background-color:#eed9c4;
---highlight-background-color:#1e5aa8;
---hyperlink-background-color:#95e0e8;
---active-title-background-color:#7ba05b;
---inactive-title-background-color:#63b76c;
+.theme-E.colorscheme-light.visualcolors-standard {
+  --desktop-background-image:"none";
+  --desktop-background-image-filter:opacity(100%);
+  --desktop-background-image-blend-mode:normal;
+  --desktop-background-color:#ffbf99;
+  --desktop-background-size:cover;
+  --desktop-background-horizontal-alignment:left;
+  --desktop-background-vertical-alignment:top;
+  --desktop-background-no-horizontal-tiling:false;
+  --desktop-background-no-vertical-tiling:false;
+  --desktop-text-background-color:#474646;
+  --canvas-background-color:#ffffff;
+  --canvas-secondary-background-color:auto;
+  --inactive-text-background-color:#a5b5c6;
+  --active-text-background-color:#dd360a;
+  --canvas-text-background-color:#474646;
+  --canvas-text-secondary-background-color:auto;
+  --highlight-background-color:#6699ff;
+  --highlight-text-background-color:auto;
+  --hyperlink-background-color:#006cb0;
+  --visited-hyperlink-background-color:#6f017b;
+  --active-title-background-color:#337800;
+  --active-title-text-background-color:auto;
+  --inactive-title-background-color:#53835d;
+  --inactive-title-text-background-color:auto;
+  --custom-font:"<Roboto Flex>";
+  --custom-secondary-font:"<Rubik>";
+  --custom-code-font:"<Inconsolata>";
+  --border-radius:5px;
+  --icon-filter:opacity(1);
+  --icon-filter-hover:opacity(0.8);
+  --icon-filter-duration:300ms;
+  --icon-filter-delay:0ms;
+  --system-acryllic-opacity:0.6;
+  --system-generic-color-hue-shift:0;
+  --system-generic-color-saturation:100%;
 }
 
-.theme-F.visualcolors-standard {
---desktop-background-image:url("");
---desktop-background-color:#af593e;
---desktop-text-background-color:#eed9c4;
---canvas-background-color:#2d383a;
---inactive-text-background-color:#8b8680;
---canvas-text-background-color:#eed9c4;
---highlight-background-color:#664228;
---hyperlink-background-color:#ff8833;
---active-title-background-color:#b33b24;
---inactive-title-background-color:#d982b5;
+.theme-F.colorscheme-light.visualcolors-standard {
+  --desktop-background-image:"none";
+  --desktop-background-image-filter:opacity(100%);
+  --desktop-background-image-blend-mode:normal;
+  --desktop-background-color:#ffbf99;
+  --desktop-background-size:cover;
+  --desktop-background-horizontal-alignment:left;
+  --desktop-background-vertical-alignment:top;
+  --desktop-background-no-horizontal-tiling:false;
+  --desktop-background-no-vertical-tiling:false;
+  --desktop-text-background-color:#474646;
+  --canvas-background-color:#f7e1d4;
+  --canvas-secondary-background-color:auto;
+  --inactive-text-background-color:#6b93b1;
+  --active-text-background-color:#6f017b;
+  --canvas-text-background-color:#474646;
+  --canvas-text-secondary-background-color:auto;
+  --highlight-background-color:#d09632;
+  --highlight-text-background-color:auto;
+  --hyperlink-background-color:#a34112;
+  --visited-hyperlink-background-color:#f14800;
+  --active-title-background-color:#dd4702;
+  --active-title-text-background-color:auto;
+  --inactive-title-background-color:#ffbf99;
+  --inactive-title-text-background-color:auto;
+  --custom-font:"<Roboto Flex>";
+  --custom-secondary-font:"<Rubik>";
+  --custom-code-font:"<Inconsolata>";
+  --border-radius:5px;
+  --icon-filter:opacity(1);
+  --icon-filter-hover:opacity(0.8);
+  --icon-filter-duration:300ms;
+  --icon-filter-delay:0ms;
+  --system-acryllic-opacity:0.6;
+  --system-generic-color-hue-shift:0;
+  --system-generic-color-saturation:100%;
 }
 
-.theme-G.visualcolors-standard {
---desktop-background-image:url("");
---desktop-background-color:#805533;
---desktop-text-background-color:#fdd5b1;
---canvas-background-color:#000000;
---inactive-text-background-color:#736a62;
---canvas-text-background-color:#fdd5b1;
---highlight-background-color:#7070cc;
---hyperlink-background-color:#6456b7;
---active-title-background-color:#1560bd;
---inactive-title-background-color:#0066cc;
+.theme-G.colorscheme-light.visualcolors-standard {
+  --desktop-background-image:"none";
+  --desktop-background-image-filter:opacity(100%);
+  --desktop-background-image-blend-mode:normal;
+  --desktop-background-color:#f9ebc3;
+  --desktop-background-size:cover;
+  --desktop-background-horizontal-alignment:left;
+  --desktop-background-vertical-alignment:top;
+  --desktop-background-no-horizontal-tiling:false;
+  --desktop-background-no-vertical-tiling:false;
+  --desktop-text-background-color:#4a4612;
+  --canvas-background-color:#ffffff;
+  --canvas-secondary-background-color:auto;
+  --inactive-text-background-color:#a5b5c5;
+  --active-text-background-color:#dd3509;
+  --canvas-text-background-color:#4a4612;
+  --canvas-text-secondary-background-color:auto;
+  --highlight-background-color:#a301b4;
+  --highlight-text-background-color:auto;
+  --hyperlink-background-color:#7f6f9f;
+  --visited-hyperlink-background-color:#006cb0;
+  --active-title-background-color:#0148c2;
+  --active-title-text-background-color:auto;
+  --inactive-title-background-color:#6b93b1;
+  --inactive-title-text-background-color:auto;
+  --custom-font:"<Roboto Flex>";
+  --custom-secondary-font:"<Rubik>";
+  --custom-code-font:"<Inconsolata>";
+  --border-radius:5px;
+  --icon-filter:opacity(1);
+  --icon-filter-hover:opacity(0.8);
+  --icon-filter-duration:300ms;
+  --icon-filter-delay:0ms;
+  --system-acryllic-opacity:0.6;
+  --system-generic-color-hue-shift:0;
+  --system-generic-color-saturation:100%;
 }
 
-.theme-H.visualcolors-standard {
---desktop-background-image:url("");
---desktop-background-color:#805533;
---desktop-text-background-color:#fdd5b1;
---canvas-background-color:#2d383a;
---inactive-text-background-color:#926f5b;
---canvas-text-background-color:#fdd5b1;
---highlight-background-color:#000000;
---hyperlink-background-color:#c88a65;
---active-title-background-color:#7070cc;
---inactive-title-background-color:#9999cc;
+.theme-H.colorscheme-light.visualcolors-standard {
+  --desktop-background-image:"none";
+  --desktop-background-image-filter:opacity(100%);
+  --desktop-background-image-blend-mode:normal;
+  --desktop-background-color:#f9ebc3;
+  --desktop-background-size:cover;
+  --desktop-background-horizontal-alignment:left;
+  --desktop-background-vertical-alignment:top;
+  --desktop-background-no-horizontal-tiling:false;
+  --desktop-background-no-vertical-tiling:false;
+  --desktop-text-background-color:#4a4612;
+  --canvas-background-color:#f7e1d4;
+  --canvas-secondary-background-color:auto;
+  --inactive-text-background-color:#808080;
+  --active-text-background-color:#a34112;
+  --canvas-text-background-color:#4a4612;
+  --canvas-text-secondary-background-color:auto;
+  --highlight-background-color:#7b3b0a;
+  --highlight-text-background-color:auto;
+  --hyperlink-background-color:#0148c2;
+  --visited-hyperlink-background-color:#a301b4;
+  --active-title-background-color:#846d35;
+  --active-title-text-background-color:auto;
+  --inactive-title-background-color:#d5a593;
+  --inactive-title-text-background-color:auto;
+  --custom-font:"<Roboto Flex>";
+  --custom-secondary-font:"<Rubik>";
+  --custom-code-font:"<Inconsolata>";
+  --border-radius:5px;
+  --icon-filter:opacity(1);
+  --icon-filter-hover:opacity(0.8);
+  --icon-filter-duration:300ms;
+  --icon-filter-delay:0ms;
+  --system-acryllic-opacity:0.6;
+  --system-generic-color-hue-shift:0;
+  --system-generic-color-saturation:100%;
 }
+
+.theme-A.colorscheme-dark.visualcolors-standard {
+  --desktop-background-image:"none";
+  --desktop-background-image-filter:opacity(100%);
+  --desktop-background-image-blend-mode:normal;
+  --desktop-background-color:#af593e;
+  --desktop-background-size:cover;
+  --desktop-background-horizontal-alignment:left;
+  --desktop-background-vertical-alignment:top;
+  --desktop-background-no-horizontal-tiling:false;
+  --desktop-background-no-vertical-tiling:false;
+  --desktop-text-background-color:#eed9c4;
+  --canvas-background-color:#000000;
+  --canvas-secondary-background-color:auto;
+  --inactive-text-background-color:#614051;
+  --active-text-background-color:#fc80a5;
+  --canvas-text-background-color:#eed9c4;
+  --canvas-text-secondary-background-color:auto;
+  --highlight-background-color:#1560bd;
+  --highlight-text-background-color:auto;
+  --hyperlink-background-color:#95e0e8;
+  --visited-hyperlink-background-color:#e29cd2;
+  --active-title-background-color:#7ba05b;
+  --active-title-text-background-color:auto;
+  --inactive-title-background-color:#63b76c;
+  --inactive-title-text-background-color:auto;
+  --custom-font:"<Roboto Flex>";
+  --custom-secondary-font:"<Rubik>";
+  --custom-code-font:"<Inconsolata>";
+  --border-radius:5px;
+  --icon-filter:opacity(1);
+  --icon-filter-hover:opacity(0.8);
+  --icon-filter-duration:300ms;
+  --icon-filter-delay:0ms;
+  --system-acryllic-opacity:0.6;
+  --system-generic-color-hue-shift:0;
+  --system-generic-color-saturation:100%;
+}
+
+.theme-B.colorscheme-dark.visualcolors-standard {
+  --desktop-background-image:"none";
+  --desktop-background-image-filter:opacity(100%);
+  --desktop-background-image-blend-mode:normal;
+  --desktop-background-color:#af593e;
+  --desktop-background-size:cover;
+  --desktop-background-horizontal-alignment:left;
+  --desktop-background-vertical-alignment:top;
+  --desktop-background-no-horizontal-tiling:false;
+  --desktop-background-no-vertical-tiling:false;
+  --desktop-text-background-color:#eed9c4;
+  --canvas-background-color:#2d383a;
+  --canvas-secondary-background-color:auto;
+  --inactive-text-background-color:#8b8680;
+  --active-text-background-color:#c9a0dc;
+  --canvas-text-background-color:#eed9c4;
+  --canvas-text-secondary-background-color:auto;
+  --highlight-background-color:#664228;
+  --highlight-text-background-color:auto;
+  --hyperlink-background-color:#ff8833;
+  --visited-hyperlink-background-color:#e8836e;
+  --active-title-background-color:#b33b24;
+  --active-title-text-background-color:auto;
+  --inactive-title-background-color:#d982b5;
+  --inactive-title-text-background-color:auto;
+  --custom-font:"<Roboto Flex>";
+  --custom-secondary-font:"<Rubik>";
+  --custom-code-font:"<Inconsolata>";
+  --border-radius:5px;
+  --icon-filter:opacity(1);
+  --icon-filter-hover:opacity(0.8);
+  --icon-filter-duration:300ms;
+  --icon-filter-delay:0ms;
+  --system-acryllic-opacity:0.6;
+  --system-generic-color-hue-shift:0;
+  --system-generic-color-saturation:100%;
+}
+
+.theme-C.colorscheme-dark.visualcolors-standard {
+  --desktop-background-image:"none";
+  --desktop-background-image-filter:opacity(100%);
+  --desktop-background-image-blend-mode:normal;
+  --desktop-background-color:#805533;
+  --desktop-background-size:cover;
+  --desktop-background-horizontal-alignment:left;
+  --desktop-background-vertical-alignment:top;
+  --desktop-background-no-horizontal-tiling:false;
+  --desktop-background-no-vertical-tiling:false;
+  --desktop-text-background-color:#fdd5b1;
+  --canvas-background-color:#000000;
+  --canvas-secondary-background-color:auto;
+  --inactive-text-background-color:#736a62;
+  --active-text-background-color:#ffb97b;
+  --canvas-text-background-color:#fdd5b1;
+  --canvas-text-secondary-background-color:auto;
+  --highlight-background-color:#7070cc;
+  --highlight-text-background-color:auto;
+  --hyperlink-background-color:#6456b7;
+  --visited-hyperlink-background-color:#8dd9cc;
+  --active-title-background-color:#1560bd;
+  --active-title-text-background-color:auto;
+  --inactive-title-background-color:#0066cc;
+  --inactive-title-text-background-color:auto;
+  --custom-font:"<Roboto Flex>";
+  --custom-secondary-font:"<Rubik>";
+  --custom-code-font:"<Inconsolata>";
+  --border-radius:5px;
+  --icon-filter:opacity(1);
+  --icon-filter-hover:opacity(0.8);
+  --icon-filter-duration:300ms;
+  --icon-filter-delay:0ms;
+  --system-acryllic-opacity:0.6;
+  --system-generic-color-hue-shift:0;
+  --system-generic-color-saturation:100%;
+}
+
+.theme-D.colorscheme-dark.visualcolors-standard {
+  --desktop-background-image:"none";
+  --desktop-background-image-filter:opacity(100%);
+  --desktop-background-image-blend-mode:normal;
+  --desktop-background-color:#805533;
+  --desktop-background-size:cover;
+  --desktop-background-horizontal-alignment:left;
+  --desktop-background-vertical-alignment:top;
+  --desktop-background-no-horizontal-tiling:false;
+  --desktop-background-no-vertical-tiling:false;
+  --desktop-text-background-color:#fdd5b1;
+  --canvas-background-color:#2d383a;
+  --canvas-secondary-background-color:auto;
+  --inactive-text-background-color:#926f5b;
+  --active-text-background-color:#ffb7d5;
+  --canvas-text-background-color:#fdd5b1;
+  --canvas-text-secondary-background-color:auto;
+  --highlight-background-color:#000000;
+  --highlight-text-background-color:auto;
+  --hyperlink-background-color:#c88a65;
+  --visited-hyperlink-background-color:#f1e788;
+  --active-title-background-color:#7070cc;
+  --active-title-text-background-color:auto;
+  --inactive-title-background-color:#9999cc;
+  --inactive-title-text-background-color:auto;
+  --custom-font:"<Roboto Flex>";
+  --custom-secondary-font:"<Rubik>";
+  --custom-code-font:"<Inconsolata>";
+  --border-radius:5px;
+  --icon-filter:opacity(1);
+  --icon-filter-hover:opacity(0.8);
+  --icon-filter-duration:300ms;
+  --icon-filter-delay:0ms;
+  --system-acryllic-opacity:0.6;
+  --system-generic-color-hue-shift:0;
+  --system-generic-color-saturation:100%;
+}
+
+.theme-E.colorscheme-dark.visualcolors-standard {
+  --desktop-background-image:"none";
+  --desktop-background-image-filter:opacity(100%);
+  --desktop-background-image-blend-mode:normal;
+  --desktop-background-color:#7b3b0a;
+  --desktop-background-size:cover;
+  --desktop-background-horizontal-alignment:left;
+  --desktop-background-vertical-alignment:top;
+  --desktop-background-no-horizontal-tiling:false;
+  --desktop-background-no-vertical-tiling:false;
+  --desktop-text-background-color:#f9ecc3;
+  --canvas-background-color:#000000;
+  --canvas-secondary-background-color:auto;
+  --inactive-text-background-color:#7a0146;
+  --active-text-background-color:#f14700;
+  --canvas-text-background-color:#f9ecc3;
+  --canvas-text-secondary-background-color:auto;
+  --highlight-background-color:#006cb0;
+  --highlight-text-background-color:auto;
+  --hyperlink-background-color:#6699ff;
+  --visited-hyperlink-background-color:#dfbddd;
+  --active-title-background-color:#c3d167;
+  --active-title-text-background-color:auto;
+  --inactive-title-background-color:#337700;
+  --inactive-title-text-background-color:auto;
+  --custom-font:"<Roboto Flex>";
+  --custom-secondary-font:"<Rubik>";
+  --custom-code-font:"<Inconsolata>";
+  --border-radius:5px;
+  --icon-filter:opacity(1);
+  --icon-filter-hover:opacity(0.8);
+  --icon-filter-duration:300ms;
+  --icon-filter-delay:0ms;
+  --system-acryllic-opacity:0.6;
+  --system-generic-color-hue-shift:0;
+  --system-generic-color-saturation:100%;
+}
+
+.theme-F.colorscheme-dark.visualcolors-standard {
+  --desktop-background-image:"none";
+  --desktop-background-image-filter:opacity(100%);
+  --desktop-background-image-blend-mode:normal;
+  --desktop-background-color:#7b3b0a;
+  --desktop-background-size:cover;
+  --desktop-background-horizontal-alignment:left;
+  --desktop-background-vertical-alignment:top;
+  --desktop-background-no-horizontal-tiling:false;
+  --desktop-background-no-vertical-tiling:false;
+  --desktop-text-background-color:#f9ecc3;
+  --canvas-background-color:#2d2b17;
+  --canvas-secondary-background-color:auto;
+  --inactive-text-background-color:#3a5766;
+  --active-text-background-color:#dfbddd;
+  --canvas-text-background-color:#f9ecc3;
+  --canvas-text-secondary-background-color:auto;
+  --highlight-background-color:#ba3800;
+  --highlight-text-background-color:auto;
+  --hyperlink-background-color:#d09632;
+  --visited-hyperlink-background-color:#ffbf99;
+  --active-title-background-color:#a34112;
+  --active-title-text-background-color:auto;
+  --inactive-title-background-color:#6d0d00;
+  --inactive-title-text-background-color:auto;
+  --custom-font:"<Roboto Flex>";
+  --custom-secondary-font:"<Rubik>";
+  --custom-code-font:"<Inconsolata>";
+  --border-radius:5px;
+  --icon-filter:opacity(1);
+  --icon-filter-hover:opacity(0.8);
+  --icon-filter-duration:300ms;
+  --icon-filter-delay:0ms;
+  --system-acryllic-opacity:0.6;
+  --system-generic-color-hue-shift:0;
+  --system-generic-color-saturation:100%;
+}
+
+.theme-G.colorscheme-dark.visualcolors-standard {
+  --desktop-background-image:"none";
+  --desktop-background-image-filter:opacity(100%);
+  --desktop-background-image-blend-mode:normal;
+  --desktop-background-color:#611e03;
+  --desktop-background-size:cover;
+  --desktop-background-horizontal-alignment:left;
+  --desktop-background-vertical-alignment:top;
+  --desktop-background-no-horizontal-tiling:false;
+  --desktop-background-no-vertical-tiling:false;
+  --desktop-text-background-color:#ffbf99;
+  --canvas-background-color:#000000;
+  --canvas-secondary-background-color:auto;
+  --inactive-text-background-color:#786c42;
+  --active-text-background-color:#fec356;
+  --canvas-text-background-color:#ffbf99;
+  --canvas-text-secondary-background-color:auto;
+  --highlight-background-color:#7f6f9f;
+  --highlight-text-background-color:auto;
+  --hyperlink-background-color:#d335f7;
+  --visited-hyperlink-background-color:#c3d167;
+  --active-title-background-color:#006cb0;
+  --active-title-text-background-color:auto;
+  --inactive-title-background-color:#0148c2;
+  --inactive-title-text-background-color:auto;
+  --custom-font:"<Roboto Flex>";
+  --custom-secondary-font:"<Rubik>";
+  --custom-code-font:"<Inconsolata>";
+  --border-radius:5px;
+  --icon-filter:opacity(1);
+  --icon-filter-hover:opacity(0.8);
+  --icon-filter-duration:300ms;
+  --icon-filter-delay:0ms;
+  --system-acryllic-opacity:0.6;
+  --system-generic-color-hue-shift:0;
+  --system-generic-color-saturation:100%;
+}
+
+.theme-H.colorscheme-dark.visualcolors-standard {
+  --desktop-background-image:"none";
+  --desktop-background-image-filter:opacity(100%);
+  --desktop-background-image-blend-mode:normal;
+  --desktop-background-color:#611e03;
+  --desktop-background-size:cover;
+  --desktop-background-horizontal-alignment:left;
+  --desktop-background-vertical-alignment:top;
+  --desktop-background-no-horizontal-tiling:false;
+  --desktop-background-no-vertical-tiling:false;
+  --desktop-text-background-color:#ffbf99;
+  --canvas-background-color:#2d2b17;
+  --canvas-secondary-background-color:auto;
+  --inactive-text-background-color:#d09632;
+  --active-text-background-color:#d335f7;
+  --canvas-text-background-color:#ffbf99;
+  --canvas-text-secondary-background-color:auto;
+  --highlight-background-color:#cebe8a;
+  --highlight-text-background-color:auto;
+  --hyperlink-background-color:#836d35;
+  --visited-hyperlink-background-color:#fce300;
+  --active-title-background-color:#dfbddd;
+  --active-title-text-background-color:auto;
+  --inactive-title-background-color:#7f6f9f;
+  --inactive-title-text-background-color:auto;
+  --custom-font:"<Roboto Flex>";
+  --custom-secondary-font:"<Rubik>";
+  --custom-code-font:"<Inconsolata>";
+  --border-radius:5px;
+  --icon-filter:opacity(1);
+  --icon-filter-hover:opacity(0.8);
+  --icon-filter-duration:300ms;
+  --icon-filter-delay:0ms;
+  --system-acryllic-opacity:0.6;
+  --system-generic-color-hue-shift:0;
+  --system-generic-color-saturation:100%;
+}
+
 
 
 
@@ -175,6 +680,8 @@ display:contents;
 
 main {
 	display:none;
+	border-top:1px solid var(--inactive-text-background-color);
+	border-left:1px solid var(--inactive-text-background-color);
 }
 
 .tabs {
@@ -183,9 +690,9 @@ main {
 	width:192px;
 	flex-flow:column;
 	color:rgba(var(--canvas-text-secondary-background-color-rgb),1);
-	border-right:1px solid;
 	padding:5px;
 	margin:0;
+	position:relative;
 }
 
 .graphs-with-page {
@@ -215,13 +722,13 @@ main {
 	color:inherit;
 	border:1px solid transparent;
 	padding:10px;
-	transition:all 400ms var(--transitioner);
+	transition:color 400ms var(--transitioner), background-color 400ms var(--transitioner);
 	color:inherit;
 	border-radius:var(--border-radius);
 }
 .tabs a:hover {
-	background-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.3);
-	border-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.15);
+	background-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.2);
+	border-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.1);
 	color:var(--canvas-text-secondary-background-color-hover);
 }
 
@@ -230,9 +737,9 @@ main {
 [page*="history"] .tabs .history,
 [page*="user"] .tabs .users,
 [page*="details"] .tabs .details {
-	background-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.5);
-	border-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.15);
-	color:var(--canvas-secondary-foreground-color);
+	background-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.4);
+	border-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.2);
+	color:var(--hyperlink-secondary-background-color);
 	font-variation-settings: 'FILL' 1;
 }
 
@@ -270,16 +777,16 @@ main {
 .proc_page {
 	width:100%;
 	color:var(--canvas-text-background-color);
-	background-color:var(--canvas-background-color);
-	height:100vh;
+	height:calc(100vh - 1px);
 	display:flex;
+	position:relative;
 }
 
 .proc_page section {
 	display:flex;
 	flex-direction:column;
 	flex:1;
-	background-color:var(--canvas-background-color);
+	position:relative;
 }
 
 .proc_page .header{
@@ -300,12 +807,40 @@ main {
 	display:flex;
 }
 
+.proc_page .cpe-button span {
+    border-right:0;
+    font-weight:inherit;
+    vertical-align:middle;
+    padding:0;
+    height:auto!important;
+    font-size:inherit;
+    display:inherit;
+    text-align:left;
+    width:auto;	
+}
+
+.proc_page .cpe-button .cpe-icon {
+    height:1em!important;
+}
+
+
 .proc_page .upper {
-	background-color:var(--canvas-secondary-background-color);
+	background-color:rgba(var(--canvas-secondary-background-color-rgb),var(--mica-opacity-2));
 	color:var(--canvas-text-secondary-background-color);
 	top:0;
-	position:-webkit-sticky;
-	position:sticky;
+	position:relative;
+	padding-right:var(--scrollbar-width);
+	transition:background-color 400ms var(--transitioner);
+	scrollbar-color:transparent transparent;
+	/* Track */
+	--scrollbar-track-color-1:transparent;
+	--scrollbar-track-color-2:transparent;
+	--scrollbar-track-text:transparent;
+	/* Thumb */
+	--scrollbar-thumb-color-1:transparent;
+	--scrollbar-thumb-color-2:transparent;
+	--scrollbar-thumb-text:transparent;
+
 }
 
 .proc_page .upper span {
@@ -324,7 +859,7 @@ main {
 
 .proc_page article {
 	flex:1;
-	overflow-y:scroll; /* Fallback */
+	overflow-y:scroll; /* Not auto, as it will cause isses when container is not scrollable */
 	background-color:var(--canvas-background-color);
 	color:var(--canvas-text-background-color);
 	scrollbar-color:var(--canvas-background-color) var(--canvas-text-background-color);
@@ -343,12 +878,14 @@ main {
 
 
 .proc_page footer {
+	background-color:rgba(var(--canvas-secondary-background-color-rgb),var(--mica-opacity-2));
 	padding:10px;
 	display:flex;
 	border-top:1px solid var(--inactive-text-background-color);
 	align-items:center;
 	justify-content:flex-end;
 	margin-top:-1px;
+	transition:background-color 400ms var(--transitioner);
 }
 
 
@@ -408,10 +945,12 @@ main {
 	flex-flow:column;
 	width:128px;
 	color:var(--canvas-text-secondary-background-color);
-	background-color:var(--canvas-secondary-background-color);
+	background-color:rgba(var(--canvas-secondary-background-color-rgb),var(--mica-opacity-2));
 	padding:5px;
 	margin:0;
-	height:100vh;
+	height:calc(100vh - 1px);
+	position:relative;
+	transition:background-color 400ms var(--transitioner);
 }
 
 .graphs a {
@@ -421,7 +960,7 @@ main {
 	color:inherit;
 	border:1px solid transparent;
 	padding:10px;
-	transition:all 400ms var(--transitioner);
+	transition:color 400ms var(--transitioner), background-color 400ms var(--transitioner);
 	color:inherit;
 	border-radius:var(--border-radius);
 }
@@ -448,8 +987,8 @@ main {
 
 
 .graphs a:hover {
-	background-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.3);
-	border-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.15);
+	background-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.2);
+	border-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.1);
 	color:var(--canvas-text-secondary-background-color-hover);
 }
 
@@ -459,9 +998,9 @@ main {
 [tab*="NET"] .graphs .network,
 [tab*="GPU"] .graphs .gpu,
 [tab*="TV"]  .graphs .tv {
-	background-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.5);
-	border-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.15);
-	color:var(--canvas-secondary-foreground-color);
+	background-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.4);
+	border-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.2);
+	color:var(--hyperlink-secondary-background-color);
 	font-variation-settings: 'FILL' 1;
 }
 
@@ -494,7 +1033,7 @@ main {
 	display:none;
 	background-color:var(--canvas-background-color);
 	color:var(--canvas-text-background-color);
-	height:100vh;
+	height:calc(100vh - 1px);
 	box-sizing:border-box;
 	padding:10px;
 	margin:0;
@@ -546,7 +1085,7 @@ main {
 	margin:0 0px 5px;
 	border:1px solid transparent;
 	color:inherit;
-	transition:all 400ms var(--transitioner);
+	transition:color 400ms var(--transitioner), background-color 400ms var(--transitioner);
 	border-radius:var(--border-radius);
 }
 
@@ -560,8 +1099,8 @@ main {
 
 
 .page box.left .button:hover {
-	background-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.3);
-	border-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.15);
+	background-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.2);
+	border-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.1);
 	color:var(--canvas-text-secondary-background-color-hover);
 }
 
@@ -569,9 +1108,9 @@ main {
 .page[page*="1"] box.left .button.p1,
 .page[page*="2"] box.left .button.p2,
 .page[page*="3"] box.left .button.p3 {
-	background-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.5);
-	border-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.15);
-	color:var(--canvas-secondary-foreground-color);
+	background-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.4);
+	border-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.2);
+	color:var(--hyperlink-secondary-background-color);
 	font-variation-settings: 'FILL' 1;
 }
 
@@ -791,4 +1330,34 @@ PCR = PerfCap Reason  (Page 4)
 
 .page box.right .bottom .rightp li span {
 	color:var(--canvas-text-background-color);
+}
+
+
+/* High Contrast Styling */
+.visualmode-contrast .tabs a:hover,
+.visualmode-contrast .graphs a:hover,
+.visualmode-contrast .page box.left .button:hover {
+	background-color:var(--highlight-text-background-color);
+	border-color:var(--highlight-background-color);
+	color:var(--highlight-background-color);
+}
+
+.visualmode-contrast [page*="processes"] .tabs .processes,
+.visualmode-contrast [page*="performance"] .tabs .performance,
+.visualmode-contrast [page*="history"] .tabs .history,
+.visualmode-contrast [page*="user"] .tabs .users,
+.visualmode-contrast [page*="details"] .tabs .details,
+.visualmode-contrast [tab*="CPU"] .graphs .cpu,
+.visualmode-contrast [tab*="MEM"] .graphs .ram,
+.visualmode-contrast [tab*="DSK"] .graphs .disk,
+.visualmode-contrast [tab*="NET"] .graphs .network,
+.visualmode-contrast [tab*="GPU"] .graphs .gpu,
+.visualmode-contrast [tab*="TV"]  .graphs .tv,
+.visualmode-contrast .page[page*="0"] box.left .button.p0,
+.visualmode-contrast .page[page*="1"] box.left .button.p1,
+.visualmode-contrast .page[page*="2"] box.left .button.p2,
+.visualmode-contrast .page[page*="3"] box.left .button.p3 {
+	background-color:var(--highlight-background-color);
+	border-color:var(--highlight-background-color);
+	color:var(--highlight-text-background-color);
 }
