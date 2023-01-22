@@ -1,3 +1,13 @@
+(function () {
+
+		document.querySelector("head").insertAdjacentHTML('afterbegin', 
+		'<link rel="manifest" href="manifest.json" crossorigin="use-credentials">' +
+		'<link rel="shortcut icon" href="favicon.ico">' +
+		'<link rel="icon" href="favicon.ico">' +
+		'<link rel="favicon" href="favicon.ico">'
+		);	
+})();
+
 /* Tab Changing Functions */
 
 function CPU() {

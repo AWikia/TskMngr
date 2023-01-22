@@ -13,7 +13,7 @@ window.MW18ActiveTheme = 'A';
 window.MW18ActiveThemeMode = 'none';
 /* Visual Colors */
 window.MW18ActiveColors = 'standard';
-window.MW18ActiveColorScheme = 'auto'; // This defaults to light in CPE Language
+window.MW18ActiveColorScheme = 'auto';
 /* Visual Styles */
 window.MW18ActiveStyle = '-';
 window.MW18ActiveStyleMode = '-';
@@ -41,17 +41,17 @@ window.MW18highContrast = 4.50;
 ** First item of a subarray should be the visualcolor class name to be used.
 ** Second item should be the narrative name done in Yorkbook Digital Professional (title) 
 ** Third item should be an arry of three items with material icons to be used
-**** First item should be the icon for the Standard Visual Mode
-**** Second item should be the icon for the Lite Visual Mode
-**** Third item should be the icon for the Contrast Visual Mode
+**** First item should be the icon for the 3D Visual Mode
+**** Second item should be the icon for the Standard Visual Mode
+**** Third item should be the icon for the Lite Visual Mode
+**** Fourth item should be the icon for the Contrast Visual Mode
 **
 */
 
 var visualStyles = [
-					['general', '{{msg-evelution-style-general}}', ['computer', 'smartphone','monochrome_photos']],
-					['basic', '{{msg-evelution-style-basic}}', ['home', 'inbox', 'invert_colors']],
-					['simple', '{{msg-evelution-style-simple}}', ['opacity', 'brush', 'filter_alt']],
-					['retro', '{{msg-evelution-color-retro}}', ['gradient', 'smart_toy', 'filter_b_and_w']]
+					['general', '{{msg-evelution-style-general}}', ['camera_enhance' ,'computer', 'smartphone','monochrome_photos']],
+					['basic', '{{msg-evelution-style-basic}}', ['memory', 'home', 'inbox', 'invert_colors']],
+					['simple', '{{msg-evelution-style-simple}}', ['speed', 'opacity', 'brush', 'filter_alt']],
 				    ];
 
 /*
@@ -92,7 +92,7 @@ var visualColorNames = ['standard', 'nocolormanagement'];
 		insertKey('visual-appearance-style', 'standard' );
 	}
 	if (getKey('color-scheme') === '-1') {
-		insertKey('color-scheme', 'auto' ); // Was Light
+		insertKey('color-scheme', 'auto' );
 	}
 	if (getKey('visual-color') === '-1') {
 		insertKey('visual-color', 'standard' );
@@ -119,6 +119,9 @@ var visualColorNames = ['standard', 'nocolormanagement'];
 	if (getKey('accent-active') === '-1') {
 		insertKey('accent-active', 'false' );
 	}
+	if (getKey('serif-font') === '-1') {
+		insertKey('serif-font', 'false' );
+	}
 	if (getKey('dcm-mode') === '-1') {
 		insertKey('dcm-mode', 'standard' );
 	}
@@ -138,6 +141,7 @@ var visualColorNames = ['standard', 'nocolormanagement'];
 	var color_sat = getKey('color-sat');
 	var contrast_mode = getKey('contrast-mode');
 	var accent_active = getKey('accent-active');
+	var serif_font = getKey('serif-font');
 	var dcm_mode = getKey('dcm-mode');
 	var dcm_type = getKey('dcm-type');
     getParams().forEach(function (param) {
@@ -243,6 +247,10 @@ var visualColorNames = ['standard', 'nocolormanagement'];
 				accent_active = value;
 				console.info('Accent mode settings overriden');
                 break;
+            case 'useseriffont':
+				serif_font = value;
+				console.info('Serif Font settings overriden');
+                break;
             case 'usedcmmode':
 				dcm_mode = value;
 				console.info('DCM mode settings overriden');
@@ -253,7 +261,7 @@ var visualColorNames = ['standard', 'nocolormanagement'];
                 break;
         }
     });
-    var themes = '' // @REMOVEME: In Ivilution, Parmalution and CPE Language (Change to Empty String instead)
+    var themes = ''; // @REMOVEME: In Ivilution, Parmalution and CPE Language (Change to Empty String instead)
 	document.querySelector("head").insertAdjacentHTML('afterbegin','<style class="devicetheme"></style><style class="themes">' + themes + '</style><style class="theming"></style>');
 	ToggleTheme(theme_selected,false,false);
 	colortheme(color_style,device_theme,color_hue,color_sat,color_style_behavior,false,false);
@@ -265,6 +273,7 @@ var visualColorNames = ['standard', 'nocolormanagement'];
 
 /* The Following were prior to the Theme Compiling but were moved to improve performance */
 	SetAccent(accent_active,false);
+	SetSerifFont(serif_font,false);
 	ManagerRows(); // For Task Manager Only
 	VisualStyleCompile(); // Compiles the Contrast Options
 	VisualMode(visual_mode,false);
@@ -319,7 +328,7 @@ function SupportsColorContrast() {
 }
 
 function DisabledColorManagement() {
-	return ( (ForcedColors()) || (document.querySelector("container.no-color-management") ) ||  (window.MW18ActiveColors === 'nocolormanagement') )
+	return ( (ForcedColors()) || (document.querySelector("body.no-color-management") ) ||  (window.MW18ActiveColors === 'nocolormanagement') )
 }
 
 function ForcedColors() {
@@ -528,9 +537,10 @@ function VisualStyleCompile() {
 	for (let i = 0; i < visualStyles.length; i++) {
 		str = 	'<li data-visual-style="' + visualStyles[i][0] + '" title="' + visualStyles[i][1] + '">' +
 					'<a onclick="VisualStyle(' + "'" + visualStyles[i][0]  + "'" + ')">' +
-						'<span class="cpe-icon material-icons standard-on">' + visualStyles[i][2][0] + '</span>' +
-						'<span class="cpe-icon material-icons lite-on">' + visualStyles[i][2][1] + '</span>' +
-						'<span class="cpe-icon material-icons contrast-on">' + visualStyles[i][2][2] + '</span>' +
+						'<span class="cpe-icon material-icons threeD-on">' + visualStyles[i][2][0] + '</span>' +
+						'<span class="cpe-icon material-icons standard-on">' + visualStyles[i][2][1] + '</span>' +
+						'<span class="cpe-icon material-icons lite-on">' + visualStyles[i][2][2] + '</span>' +
+						'<span class="cpe-icon material-icons contrast-on">' + visualStyles[i][2][3] + '</span>' +
 					'</a>' +
 				'</li>'
 		var x = document.querySelector(".cpe-dropdown .cpe-dropdown__content .cpe-list.cpe-visual-styles > .base-visual-style");
@@ -548,7 +558,7 @@ function VisualStyleCompile() {
 function VisualColorCompile() {
 // Puts new options
 /* Visual Colors */
-	if (! (document.querySelector("container.no-color-management") ) ) {
+	if (! (document.querySelector("body.no-color-management") ) ) {
 		var length = visualColorNames.length
 		for (let i = 0; i < visualColors.length; i++) {
 			visualColorNames[i+length] =  visualColors[i][0];
@@ -869,17 +879,22 @@ function GetMessage() {
 }
 
 function GetCustomFont() {
-	var img = getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--custom-font").trim();
+	var img = getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--custom-sans-serif-font").trim();
 		return img.replace('"<', '').replace('>"', '').split('\\').join('').split("&amp;").join("&").split("&quot;").join("\"");
 }
 
 function GetCustomFont2() {
-	var img = getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--custom-secondary-font").trim();
+	var img = getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--custom-rounded-font").trim();
 		return img.replace('"<', '').replace('>"', '').split('\\').join('').split("&amp;").join("&").split("&quot;").join("\"");
 }
 
 function GetCustomFont3() {
-	var img = getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--custom-code-font").trim();
+	var img = getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--custom-monospace-font").trim();
+		return img.replace('"<', '').replace('>"', '').split('\\').join('').split("&amp;").join("&").split("&quot;").join("\"");
+}
+
+function GetCustomFont4() {
+	var img = getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--custom-serif-font").trim();
 		return img.replace('"<', '').replace('>"', '').split('\\').join('').split("&amp;").join("&").split("&quot;").join("\"");
 }
 
@@ -1391,6 +1406,29 @@ function ToggleAccent() {
 	}
 }
 
+
+
+function SetSerifFont(tick='false',save='true') {
+		if (save) {
+			insertKey('serif-font', tick );
+		}
+		if (tick === 'true') {
+			document.querySelector('html').classList.add('has-serif-font');
+		} else {
+			document.querySelector('html').classList.remove('has-serif-font');
+		}
+}
+
+
+function ToggleSerifFont() {
+	if (document.querySelector('html.has-serif-font')) {
+		SetSerifFont( 'false' )
+	} else {
+		SetSerifFont( 'true' )
+	}
+}
+
+
 function SetDCM(type='match-parent',tick='match-parent',save='true',repaint='true') {
 	if (type === 'match-parent') {
 		type = window.MW18DCMType;
@@ -1454,13 +1492,13 @@ function DownloadTheme(full=false) {
 				 '--desktop-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--desktop-foreground-color")  + ';\n' +
 				 '--desktop-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--desktop-foreground-color-hover")  + ';\n' +
 				 '--desktop-foreground-color-inverted:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--desktop-foreground-color-inverted")  + ';\n' +
-				 '--desktop-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--desktop-foreground-color-inverted-rgb")  + ';\n' +
 				 '--desktop-alternative-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--desktop-alternative-foreground-color")  + ';\n' +
 				 '--desktop-alternative-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--desktop-alternative-foreground-color-hover")  + ';\n' +
 				 '--desktop-background-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--desktop-background-color-rgb")  + ';\n' +
 				 '--desktop-background-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--desktop-background-color-hover-rgb")  + ';\n' +
 				 '--desktop-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--desktop-foreground-color-rgb")  + ';\n' +
 				 '--desktop-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--desktop-foreground-color-hover-rgb")  + ';\n' +
+				 '--desktop-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--desktop-foreground-color-inverted-rgb")  + ';\n' +
 				 '--desktop-alternative-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--desktop-alternative-foreground-color-rgb")  + ';\n' +
 				 '--desktop-alternative-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--desktop-alternative-foreground-color-hover-rgb")  + ';\n' +
 				// Superbar Text Color
@@ -1495,13 +1533,13 @@ function DownloadTheme(full=false) {
 				 '--canvas-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-foreground-color")  + ';\n' +
 				 '--canvas-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-foreground-color-hover")  + ';\n' +
 				 '--canvas-foreground-color-inverted:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-foreground-color-inverted")  + ';\n' +
-				 '--canvas-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-foreground-color-inverted-rgb")  + ';\n' +
 				 '--canvas-alternative-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-alternative-foreground-color")  + ';\n' +
 				 '--canvas-alternative-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-alternative-foreground-color-hover")  + ';\n' +
 				 '--canvas-background-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-background-color-rgb")  + ';\n' +
 				 '--canvas-background-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-background-color-hover-rgb")  + ';\n' +
 				 '--canvas-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-foreground-color-rgb")  + ';\n' +
 				 '--canvas-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-foreground-color-hover-rgb")  + ';\n' +
+				 '--canvas-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-foreground-color-inverted-rgb")  + ';\n' +
 				 '--canvas-alternative-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-alternative-foreground-color-rgb")  + ';\n' +
 				 '--canvas-alternative-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-alternative-foreground-color-hover-rgb")  + ';\n' +
 				 // 2nd Page Color
@@ -1515,13 +1553,13 @@ function DownloadTheme(full=false) {
 				 '--canvas-secondary-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-secondary-foreground-color")  + ';\n' +
 				 '--canvas-secondary-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-secondary-foreground-color-hover")  + ';\n' +
 				 '--canvas-secondary-foreground-color-inverted:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-secondary-foreground-color-inverted")  + ';\n' +
-				 '--canvas-secondary-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-secondary-foreground-color-inverted-rgb")  + ';\n' +
 				 '--canvas-secondary-alternative-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-secondary-alternative-foreground-color")  + ';\n' +
 				 '--canvas-secondary-alternative-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-secondary-alternative-foreground-color-hover")  + ';\n' +
 				 '--canvas-secondary-background-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-secondary-background-color-rgb")  + ';\n' +
 				 '--canvas-secondary-background-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-secondary-background-color-hover-rgb")  + ';\n' +
 				 '--canvas-secondary-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-secondary-foreground-color-rgb")  + ';\n' +
 				 '--canvas-secondary-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-secondary-foreground-color-hover-rgb")  + ';\n' +
+				 '--canvas-secondary-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-secondary-foreground-color-inverted-rgb")  + ';\n' +
 				 '--canvas-secondary-alternative-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-secondary-alternative-foreground-color-rgb")  + ';\n' +
 				 '--canvas-secondary-alternative-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-secondary-alternative-foreground-color-hover-rgb")  + ';\n' +
 
@@ -1533,7 +1571,6 @@ function DownloadTheme(full=false) {
 				 '--inactive-text-gradient-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-text-gradient-color-hover")  + ';\n' +
 				 '--inactive-text-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-text-foreground-color")  + ';\n' +
 				 '--inactive-text-foreground-color-inverted:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-text-foreground-color-inverted")  + ';\n' +
-				 '--inactive-text-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-text-foreground-color-inverted-rgb")  + ';\n' +
 				 '--inactive-text-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-text-foreground-color-hover")  + ';\n' +
 				 '--inactive-text-alternative-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-text-alternative-foreground-color")  + ';\n' +
 				 '--inactive-text-alternative-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-text-alternative-foreground-color-hover")  + ';\n' +
@@ -1541,6 +1578,7 @@ function DownloadTheme(full=false) {
 				 '--inactive-text-background-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-text-background-color-hover-rgb")  + ';\n' +
 				 '--inactive-text-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-text-foreground-color-rgb")  + ';\n' +
 				 '--inactive-text-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-text-foreground-color-hover-rgb")  + ';\n' +
+				 '--inactive-text-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-text-foreground-color-inverted-rgb")  + ';\n' +
 				 '--inactive-text-alternative-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-text-alternative-foreground-color-rgb")  + ';\n' +
 				 '--inactive-text-alternative-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-text-alternative-foreground-color-hover-rgb")  + ';\n' +
 				 // 2nd Page Border Color
@@ -1565,13 +1603,13 @@ function DownloadTheme(full=false) {
 				 '--active-text-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-text-foreground-color")  + ';\n' +
 				 '--active-text-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-text-foreground-color-hover")  + ';\n' +
 				 '--active-text-foreground-color-inverted:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-text-foreground-color-inverted")  + ';\n' +
-				 '--active-text-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-text-foreground-color-inverted-rgb")  + ';\n' +
 				 '--active-text-alternative-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-text-alternative-foreground-color")  + ';\n' +
 				 '--active-text-alternative-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-text-alternative-foreground-color-hover")  + ';\n' +
 				 '--active-text-background-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-text-background-color-rgb")  + ';\n' +
 				 '--active-text-background-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-text-background-color-hover-rgb")  + ';\n' +
 				 '--active-text-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-text-foreground-color-rgb")  + ';\n' +
 				 '--active-text-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-text-foreground-color-hover-rgb")  + ';\n' +
+				 '--active-text-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-text-foreground-color-inverted-rgb")  + ';\n' +
 				 '--active-text-alternative-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-text-alternative-foreground-color-rgb")  + ';\n' +
 				 '--active-text-alternative-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-text-alternative-foreground-color-hover-rgb")  + ';\n' +
 				 // 2nd Secondary Page Border Color
@@ -1596,13 +1634,13 @@ function DownloadTheme(full=false) {
 				 '--canvas-text-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-foreground-color")  + ';\n' +
 				 '--canvas-text-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-foreground-color-hover")  + ';\n' +
 				 '--canvas-text-foreground-color-inverted:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-foreground-color-inverted")  + ';\n' +
-				 '--canvas-text-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-foreground-color-inverted-rgb")  + ';\n' +
 				 '--canvas-text-alternative-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-alternative-foreground-color")  + ';\n' +
 				 '--canvas-text-alternative-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-alternative-foreground-color-hover")  + ';\n' +
 				 '--canvas-text-background-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-background-color-rgb")  + ';\n' +
 				 '--canvas-text-background-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-background-color-hover-rgb")  + ';\n' +
 				 '--canvas-text-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-foreground-color-rgb")  + ';\n' +
 				 '--canvas-text-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-foreground-color-hover-rgb")  + ';\n' +
+				 '--canvas-text-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-foreground-color-inverted-rgb")  + ';\n' +
 				 '--canvas-text-alternative-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-alternative-foreground-color-rgb")  + ';\n' +
 				 '--canvas-text-alternative-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-alternative-foreground-color-hover-rgb")  + ';\n' +
 				 // 2nd Page Text Color
@@ -1614,13 +1652,13 @@ function DownloadTheme(full=false) {
 				 '--canvas-text-secondary-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-secondary-foreground-color")  + ';\n' +
 				 '--canvas-text-secondary-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-secondary-foreground-color-hover")  + ';\n' +
 				 '--canvas-text-secondary-foreground-color-inverted:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-secondary-foreground-color-inverted")  + ';\n' +
-				 '--canvas-text-secondary-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-secondary-foreground-color-inverted-rgb")  + ';\n' +
 				 '--canvas-text-secondary-alternative-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-secondary-alternative-foreground-color")  + ';\n' +
 				 '--canvas-text-secondary-alternative-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-secondary-alternative-foreground-color-hover")  + ';\n' +
 				 '--canvas-text-secondary-background-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-secondary-background-color-rgb")  + ';\n' +
 				 '--canvas-text-secondary-background-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-secondary-background-color-hover-rgb")  + ';\n' +
 				 '--canvas-text-secondary-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-secondary-foreground-color-rgb")  + ';\n' +
 				 '--canvas-text-secondary-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-secondary-foreground-color-hover-rgb")  + ';\n' +
+				 '--canvas-text-secondary-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-secondary-foreground-color-inverted-rgb")  + ';\n' +
 				 '--canvas-text-secondary-alternative-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-secondary-alternative-foreground-color-rgb")  + ';\n' +
 				 '--canvas-text-secondary-alternative-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--canvas-text-secondary-alternative-foreground-color-hover-rgb")  + ';\n' +
 
@@ -1633,13 +1671,13 @@ function DownloadTheme(full=false) {
 				 '--highlight-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-foreground-color")  + ';\n' +
 				 '--highlight-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-foreground-color-hover")  + ';\n' +
 				 '--highlight-foreground-color-inverted:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-foreground-color-inverted")  + ';\n' +
-				 '--highlight-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-foreground-color-inverted-rgb")  + ';\n' +
 				 '--highlight-alternative-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-alternative-foreground-color")  + ';\n' +
 				 '--highlight-alternative-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-alternative-foreground-color-hover")  + ';\n' +
 				 '--highlight-background-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-background-color-rgb")  + ';\n' +
 				 '--highlight-background-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-background-color-hover-rgb")  + ';\n' +
 				 '--highlight-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-foreground-color-rgb")  + ';\n' +
 				 '--highlight-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-foreground-color-hover-rgb")  + ';\n' +
+				 '--highlight-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-foreground-color-inverted-rgb")  + ';\n' +
 				 '--highlight-alternative-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-alternative-foreground-color-rgb")  + ';\n' +
 				 '--highlight-alternative-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-alternative-foreground-color-hover-rgb")  + ';\n' +
 				 // Accent Text Color
@@ -1651,13 +1689,13 @@ function DownloadTheme(full=false) {
 				 '--highlight-text-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-text-foreground-color")  + ';\n' +
 				 '--highlight-text-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-text-foreground-color-hover")  + ';\n' +
 				 '--highlight-text-foreground-color-inverted:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-text-foreground-color-inverted")  + ';\n' +
-				 '--highlight-text-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-text-foreground-color-inverted-rgb")  + ';\n' +
 				 '--highlight-text-alternative-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-text-alternative-foreground-color")  + ';\n' +
 				 '--highlight-text-alternative-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-text-alternative-foreground-color-hover")  + ';\n' +
 				 '--highlight-text-background-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-text-background-color-rgb")  + ';\n' +
 				 '--highlight-text-background-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-text-background-color-hover-rgb")  + ';\n' +
 				 '--highlight-text-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-text-foreground-color-rgb")  + ';\n' +
 				 '--highlight-text-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-text-foreground-color-hover-rgb")  + ';\n' +
+				 '--highlight-text-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-text-foreground-color-inverted-rgb")  + ';\n' +
 				 '--highlight-text-alternative-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-text-alternative-foreground-color-rgb")  + ';\n' +
 				 '--highlight-text-alternative-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--highlight-text-alternative-foreground-color-hover-rgb")  + ';\n' +
 				 // 2nd Accent Color
@@ -1682,27 +1720,31 @@ function DownloadTheme(full=false) {
 				 '--hyperlink-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-foreground-color")  + ';\n' +
 				 '--hyperlink-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-foreground-color-hover")  + ';\n' +
 				 '--hyperlink-foreground-color-inverted:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-foreground-color-inverted")  + ';\n' +
-				 '--hyperlink-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-foreground-color-inverted-rgb")  + ';\n' +
 				 '--hyperlink-alternative-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-alternative-foreground-color")  + ';\n' +
 				 '--hyperlink-alternative-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-alternative-foreground-color-hover")  + ';\n' +
 				 '--hyperlink-background-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-background-color-rgb")  + ';\n' +
 				 '--hyperlink-background-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-background-color-hover-rgb")  + ';\n' +
 				 '--hyperlink-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-foreground-color-rgb")  + ';\n' +
 				 '--hyperlink-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-foreground-color-hover-rgb")  + ';\n' +
+				 '--hyperlink-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-foreground-color-inverted-rgb")  + ';\n' +
 				 '--hyperlink-alternative-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-alternative-foreground-color-rgb")  + ';\n' +
 				 '--hyperlink-alternative-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-alternative-foreground-color-hover-rgb")  + ';\n' +
+				 '--hyperlink-default-text-decoration:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-default-text-decoration")  + ';\n' +
 				 // 2nd Secondary Accent Color
 				 '--hyperlink-secondary-background-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-secondary-background-color")  + ';\n' +
 				 '--hyperlink-secondary-background-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-secondary-background-color-hover")  + ';\n' +
 				 '--hyperlink-secondary-background-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-secondary-background-color-rgb")  + ';\n' +
+				 '--hyperlink-secondary-default-text-decoration:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-secondary-default-text-decoration")  + ';\n' +
 				 // 3rd Secondary Accent Color
 				 '--hyperlink-tertiary-background-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-tertiary-background-color")  + ';\n' +
 				 '--hyperlink-tertiary-background-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-tertiary-background-color-hover")  + ';\n' +
 				 '--hyperlink-tertiary-background-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-tertiary-background-color-rgb")  + ';\n' +
+				 '--hyperlink-tertiary-default-text-decoration:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-tertiary-default-text-decoration")  + ';\n' +
 				 // 4th Secondary Accent Color
-				 '--hyperlink-tertiary-background-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-tertiary-background-color")  + ';\n' +
-				 '--hyperlink-tertiary-background-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-tertiary-background-color-hover")  + ';\n' +
-				 '--hyperlink-tertiary-background-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-tertiary-background-color-rgb")  + ';\n' +
+				 '--hyperlink-quaternary-background-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-quaternary-background-color")  + ';\n' +
+				 '--hyperlink-quaternary-background-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-quaternary-background-color-hover")  + ';\n' +
+				 '--hyperlink-quaternary-background-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-quaternary-background-color-rgb")  + ';\n' +
+				 '--hyperlink-quaternary-default-text-decoration:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--hyperlink-quaternary-default-text-decoration")  + ';\n' +
 
 				 // Secondary Visited Accent Color
 				 '--visited-hyperlink-background-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--visited-hyperlink-background-color")  + ';\n' +
@@ -1713,13 +1755,13 @@ function DownloadTheme(full=false) {
 				 '--visited-hyperlink-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--visited-hyperlink-foreground-color")  + ';\n' +
 				 '--visited-hyperlink-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--visited-hyperlink-foreground-color-hover")  + ';\n' +
 				 '--visited-hyperlink-foreground-color-inverted:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--visited-hyperlink-foreground-color-inverted")  + ';\n' +
-				 '--visited-hyperlink-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--visited-hyperlink-foreground-color-inverted-rgb")  + ';\n' +
 				 '--visited-hyperlink-alternative-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--visited-hyperlink-alternative-foreground-color")  + ';\n' +
 				 '--visited-hyperlink-alternative-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--visited-hyperlink-alternative-foreground-color-hover")  + ';\n' +
 				 '--visited-hyperlink-background-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--visited-hyperlink-background-color-rgb")  + ';\n' +
 				 '--visited-hyperlink-background-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--visited-hyperlink-background-color-hover-rgb")  + ';\n' +
 				 '--visited-hyperlink-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--visited-hyperlink-foreground-color-rgb")  + ';\n' +
 				 '--visited-hyperlink-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--visited-hyperlink-foreground-color-hover-rgb")  + ';\n' +
+				 '--visited-hyperlink-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--visited-hyperlink-foreground-color-inverted-rgb")  + ';\n' +
 				 '--visited-hyperlink-alternative-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--visited-hyperlink-alternative-foreground-color-rgb")  + ';\n' +
 				 '--visited-hyperlink-alternative-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--visited-hyperlink-alternative-foreground-color-hover-rgb")  + ';\n' +
 				 // 2nd Secondary Visited Accent Color
@@ -1744,7 +1786,6 @@ function DownloadTheme(full=false) {
 				 '--active-title-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-foreground-color")  + ';\n' +
 				 '--active-title-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-foreground-color-hover")  + ';\n' +
 				 '--active-title-foreground-color-inverted:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-foreground-color-inverted")  + ';\n' +
-				 '--active-title-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-foreground-color-inverted-rgb")  + ';\n' +
 				 '--active-title-alternative-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-alternative-foreground-color")  + ';\n' +
 				 '--active-title-alternative-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-alternative-foreground-color-hover")  + ';\n' +
 
@@ -1752,6 +1793,7 @@ function DownloadTheme(full=false) {
 				 '--active-title-background-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-background-color-hover-rgb")  + ';\n' +
 				 '--active-title-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-foreground-color-rgb")  + ';\n' +
 				 '--active-title-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-foreground-color-hover-rgb")  + ';\n' +
+				 '--active-title-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-foreground-color-inverted-rgb")  + ';\n' +
 				 '--active-title-alternative-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-alternative-foreground-color-rgb")  + ';\n' +
 				 '--active-title-alternative-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-alternative-foreground-color-hover-rgb")  + ';\n' +
 				 // Tertiary Accent Text Color
@@ -1763,7 +1805,6 @@ function DownloadTheme(full=false) {
 				 '--active-title-text-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-text-foreground-color")  + ';\n' +
 				 '--active-title-text-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-text-foreground-color-hover")  + ';\n' +
 				 '--active-title-text-foreground-color-inverted:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-text-foreground-color-inverted")  + ';\n' +
-				 '--active-title-text-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-text-foreground-color-inverted-rgb")  + ';\n' +
 				 '--active-title-text-alternative-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-text-alternative-foreground-color")  + ';\n' +
 				 '--active-title-text-alternative-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-text-alternative-foreground-color-hover")  + ';\n' +
 
@@ -1771,6 +1812,7 @@ function DownloadTheme(full=false) {
 				 '--active-title-text-background-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-text-background-color-hover-rgb")  + ';\n' +
 				 '--active-title-text-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-text-foreground-color-rgb")  + ';\n' +
 				 '--active-title-text-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-text-foreground-color-hover-rgb")  + ';\n' +
+				 '--active-title-text-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-text-foreground-color-inverted-rgb")  + ';\n' +
 				 '--active-title-text-alternative-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-text-alternative-foreground-color-rgb")  + ';\n' +
 				 '--active-title-text-alternative-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--active-title-text-alternative-foreground-color-hover-rgb")  + ';\n' +
 				 // 2nd Tertiary Accent Color
@@ -1795,13 +1837,13 @@ function DownloadTheme(full=false) {
 				 '--inactive-title-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-foreground-color")  + ';\n' +
 				 '--inactive-title-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-foreground-color-hover")  + ';\n' +
 				 '--inactive-title-foreground-color-inverted:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-foreground-color-inverted")  + ';\n' +
-				 '--inactive-title-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-foreground-color-inverted-rgb")  + ';\n' +
 				 '--inactive-title-alternative-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-alternative-foreground-color")  + ';\n' +
 				 '--inactive-title-alternative-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-alternative-foreground-color-hover")  + ';\n' +
 				 '--inactive-title-background-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-background-color-rgb")  + ';\n' +
 				 '--inactive-title-background-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-background-color-hover-rgb")  + ';\n' +
 				 '--inactive-title-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-foreground-color-rgb")  + ';\n' +
 				 '--inactive-title-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-foreground-color-hover-rgb")  + ';\n' +
+				 '--inactive-title-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-foreground-color-inverted-rgb")  + ';\n' +
 				 '--inactive-title-alternative-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-alternative-foreground-color-rgb")  + ';\n' +
 				 '--inactive-title-alternative-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-alternative-foreground-color-hover-rgb")  + ';\n' +
 				 // Quaternary Accent Text Color
@@ -1813,13 +1855,13 @@ function DownloadTheme(full=false) {
 				 '--inactive-title-text-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-text-foreground-color")  + ';\n' +
 				 '--inactive-title-text-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-text-foreground-color-hover")  + ';\n' +
 				 '--inactive-title-text-foreground-color-inverted:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-text-foreground-color-inverted")  + ';\n' +
-				 '--inactive-title-text-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-text-foreground-color-inverted-rgb")  + ';\n' +
 				 '--inactive-title-text-alternative-foreground-color:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-text-alternative-foreground-color")  + ';\n' +
 				 '--inactive-title-text-alternative-foreground-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-text-alternative-foreground-color-hover")  + ';\n' +
 				 '--inactive-title-text-background-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-text-background-color-rgb")  + ';\n' +
 				 '--inactive-title-text-background-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-text-background-color-hover-rgb")  + ';\n' +
 				 '--inactive-title-text-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-text-foreground-color-rgb")  + ';\n' +
 				 '--inactive-title-text-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-text-foreground-color-hover-rgb")  + ';\n' +
+				 '--inactive-title-text-foreground-color-inverted-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-text-foreground-color-inverted-rgb")  + ';\n' +
 				 '--inactive-title-text-alternative-foreground-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-text-alternative-foreground-color-rgb")  + ';\n' +
 				 '--inactive-title-text-alternative-foreground-color-hover-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--inactive-title-text-alternative-foreground-color-hover-rgb")  + ';\n' +
 				 // Alert
@@ -2005,9 +2047,10 @@ function DownloadTheme(full=false) {
 				 '--message-quaternary-background-color-hover:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--message-quaternary-background-color-hover")  + ';\n' +
 				 '--message-quaternary-background-color-rgb:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--message-quaternary-background-color-rgb")  + ';\n' +
 				 // Font
-				 '--custom-font:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--custom-font")  + ';\n' +
-				 '--custom-secondary-font:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--custom-secondary-font")  + ';\n' +
-				 '--custom-code-font:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--custom-code-font")  + ';\n' +
+				 '--custom-sans-serif-font:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--custom-sans-serif-font")  + ';\n' +
+				 '--custom-serif-font:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--custom-serif-font")  + ';\n' +
+				 '--custom-rounded-font:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--custom-rounded-font")  + ';\n' +
+				 '--custom-monospace-font:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--custom-monospace-font")  + ';\n' +
 				 // Border Radius
 				 '--border-radius:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--border-radius")  + ';\n' +
 				 '--window-border-radius:' + getComputedStyle(document.querySelector('body')).getPropertyValue("--window-border-radius")  + ';\n' +
@@ -2053,9 +2096,10 @@ function DownloadTheme(full=false) {
 				 '--active-title-text-background-color:' + getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--active-title-text-background-color")  + ';\n' +
 				 '--inactive-title-background-color:' + getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--inactive-title-background-color")  + ';\n' +
 				 '--inactive-title-text-background-color:' + getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--inactive-title-text-background-color")  + ';\n' +
-				 '--custom-font:' + GetCustomFont()  + ';\n' +
-				 '--custom-secondary-font:' + GetCustomFont2()  + ';\n' +
-				 '--custom-code-font:' + GetCustomFont3()  + ';\n' +
+				 '--custom-sans-serif-font:' + GetCustomFont()  + ';\n' +
+				 '--custom-serif-font:' + GetCustomFont4()  + ';\n' +
+				 '--custom-rounded-font:' + GetCustomFont2()  + ';\n' +
+				 '--custom-monospace-font:' + GetCustomFont3()  + ';\n' +
 				 '--border-radius:' + getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--border-radius")  + ';\n' +
 				 '--icon-filter:' + getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--icon-filter")  + ';\n' +
 				 '--icon-filter-hover:' + wordfilter2  + ';\n' +
@@ -2217,6 +2261,11 @@ return ((chroma.contrast(color, color2)) >= contrast)
 function isSuitableColorFormControls(color,color2) {
 var contrast = window.MW18lowContrast*ContrastRatio3()
 return ((chroma.contrast(color, color2)) >= contrast) // For Border Color
+}
+
+function getDefaultHyperlinkTextDecoration(color,color2) {
+var contrast = window.MW18lowContrast / 2.0
+return ((chroma.contrast(color, color2)) >= contrast) ? 'none' : 'underline' // For Border Color
 }
 
 
@@ -3109,15 +3158,19 @@ var invfilters = [
 						  "--hyperlink-foreground-color-rgb:" + link_fg[2] + ";\n" +
 						  "--hyperlink-foreground-color-hover-rgb:" + link_fg[3] + ";\n" +
 						  "--hyperlink-foreground-color-inverted-rgb:" + link_2fg[2] + ";\n" +
+						  "--hyperlink-default-text-decoration:" + getDefaultHyperlinkTextDecoration(link_color,content_text) + ";\n" +
 						  "--hyperlink-secondary-background-color:" + link2_color + ";\n" +
 						  "--hyperlink-secondary-background-color-hover:" + link2color1 + ";\n" +
 						  "--hyperlink-secondary-background-color-rgb:" + ColorRGB(link2_color) + ";\n" +
+						  "--hyperlink-secondary-default-text-decoration:" + getDefaultHyperlinkTextDecoration(link2_color,content2_text) + ";\n" +
 						  "--hyperlink-tertiary-background-color:" + link3_color + ";\n" +
 						  "--hyperlink-tertiary-background-color-hover:" + link3color1 + ";\n" +
 						  "--hyperlink-tertiary-background-color-rgb:" + ColorRGB(link3_color) + ";\n" +
+						  "--hyperlink-tertiary-default-text-decoration:" + getDefaultHyperlinkTextDecoration(link3_color,carettext_color) + ";\n" +
 						  "--hyperlink-quaternary-background-color:" + link4_color + ";\n" +
 						  "--hyperlink-quaternary-background-color-hover:" + link4color1 + ";\n" +
 						  "--hyperlink-quaternary-background-color-rgb:" + ColorRGB(link4_color) + ";\n" +
+						  "--hyperlink-quaternary-default-text-decoration:" + getDefaultHyperlinkTextDecoration(link4_color,headertext_color) + ";\n" +
 						  "--visited-hyperlink-background-color:" + vlink_color + ";\n" +
 						  "--visited-hyperlink-background-color-hover:" + vlinkcolor1 + ";\n" +
 						  "--visited-hyperlink-gradient-color:" + vlink_gradient[0] + ";\n" +
@@ -3396,9 +3449,10 @@ var invfilters = [
 						'--desktop-background-image-blend-mode:' + getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--desktop-background-image-blend-mode")  + ';\n' +
 						'--desktop-background-horizontal-alignment:' + getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--desktop-background-horizontal-alignment")  + ';\n' +
 						'--desktop-background-vertical-alignment:' + getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--desktop-background-vertical-alignment")  + ';\n' +
-						 '--custom-font:' + GetCustomFont()  + ';\n' +
-						 '--custom-secondary-font:' + GetCustomFont2()  + ';\n' +
-						 '--custom-code-font:' + GetCustomFont3()  + ';\n' +
+						 '--custom-sans-serif-font:' + GetCustomFont()  + ';\n' +
+						 '--custom-serif-font:' + GetCustomFont4()  + ';\n' +
+						 '--custom-rounded-font:' + GetCustomFont2()  + ';\n' +
+						 '--custom-monospace-font:' + GetCustomFont3()  + ';\n' +
 						 '--border-radius:' + brad  + 'px;\n' +
 						 '--window-border-radius:' + (brad * 2)  + 'px;\n' +
 						 '--menu-border-radius:' + (brad * 0.6)  + 'px;\n' +

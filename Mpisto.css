@@ -23,9 +23,9 @@
   --active-title-text-background-color:auto;
   --inactive-title-background-color:#01786f;
   --inactive-title-text-background-color:auto;
-  --custom-font:"<Roboto Flex>";
-  --custom-secondary-font:"<Rubik>";
-  --custom-code-font:"<Inconsolata>";
+  --custom-sans-serif-font:"<Roboto Flex>";
+  --custom-rounded-font:"<Rubik>";
+  --custom-monospace-font:"<Inconsolata>";
   --border-radius:5px;
   --icon-filter:opacity(1);
   --icon-filter-hover:opacity(0.8);
@@ -61,9 +61,9 @@
   --active-title-text-background-color:auto;
   --inactive-title-background-color:#ff7034;
   --inactive-title-text-background-color:auto;
-  --custom-font:"<Roboto Flex>";
-  --custom-secondary-font:"<Rubik>";
-  --custom-code-font:"<Inconsolata>";
+  --custom-sans-serif-font:"<Roboto Flex>";
+  --custom-rounded-font:"<Rubik>";
+  --custom-monospace-font:"<Inconsolata>";
   --border-radius:5px;
   --icon-filter:opacity(1);
   --icon-filter-hover:opacity(0.8);
@@ -99,9 +99,9 @@
   --active-title-text-background-color:auto;
   --inactive-title-background-color:#4570e6;
   --inactive-title-text-background-color:auto;
-  --custom-font:"<Roboto Flex>";
-  --custom-secondary-font:"<Rubik>";
-  --custom-code-font:"<Inconsolata>";
+  --custom-sans-serif-font:"<Roboto Flex>";
+  --custom-rounded-font:"<Rubik>";
+  --custom-monospace-font:"<Inconsolata>";
   --border-radius:5px;
   --icon-filter:opacity(1);
   --icon-filter-hover:opacity(0.8);
@@ -137,9 +137,9 @@
   --active-title-text-background-color:auto;
   --inactive-title-background-color:#c88a65;
   --inactive-title-text-background-color:auto;
-  --custom-font:"<Roboto Flex>";
-  --custom-secondary-font:"<Rubik>";
-  --custom-code-font:"<Inconsolata>";
+  --custom-sans-serif-font:"<Roboto Flex>";
+  --custom-rounded-font:"<Rubik>";
+  --custom-monospace-font:"<Inconsolata>";
   --border-radius:5px;
   --icon-filter:opacity(1);
   --icon-filter-hover:opacity(0.8);
@@ -175,9 +175,9 @@
   --active-title-text-background-color:auto;
   --inactive-title-background-color:#53835d;
   --inactive-title-text-background-color:auto;
-  --custom-font:"<Roboto Flex>";
-  --custom-secondary-font:"<Rubik>";
-  --custom-code-font:"<Inconsolata>";
+  --custom-sans-serif-font:"<Roboto Flex>";
+  --custom-rounded-font:"<Rubik>";
+  --custom-monospace-font:"<Inconsolata>";
   --border-radius:5px;
   --icon-filter:opacity(1);
   --icon-filter-hover:opacity(0.8);
@@ -213,9 +213,9 @@
   --active-title-text-background-color:auto;
   --inactive-title-background-color:#ffbf99;
   --inactive-title-text-background-color:auto;
-  --custom-font:"<Roboto Flex>";
-  --custom-secondary-font:"<Rubik>";
-  --custom-code-font:"<Inconsolata>";
+  --custom-sans-serif-font:"<Roboto Flex>";
+  --custom-rounded-font:"<Rubik>";
+  --custom-monospace-font:"<Inconsolata>";
   --border-radius:5px;
   --icon-filter:opacity(1);
   --icon-filter-hover:opacity(0.8);
@@ -251,9 +251,9 @@
   --active-title-text-background-color:auto;
   --inactive-title-background-color:#6b93b1;
   --inactive-title-text-background-color:auto;
-  --custom-font:"<Roboto Flex>";
-  --custom-secondary-font:"<Rubik>";
-  --custom-code-font:"<Inconsolata>";
+  --custom-sans-serif-font:"<Roboto Flex>";
+  --custom-rounded-font:"<Rubik>";
+  --custom-monospace-font:"<Inconsolata>";
   --border-radius:5px;
   --icon-filter:opacity(1);
   --icon-filter-hover:opacity(0.8);
@@ -289,9 +289,9 @@
   --active-title-text-background-color:auto;
   --inactive-title-background-color:#d5a593;
   --inactive-title-text-background-color:auto;
-  --custom-font:"<Roboto Flex>";
-  --custom-secondary-font:"<Rubik>";
-  --custom-code-font:"<Inconsolata>";
+  --custom-sans-serif-font:"<Roboto Flex>";
+  --custom-rounded-font:"<Rubik>";
+  --custom-monospace-font:"<Inconsolata>";
   --border-radius:5px;
   --icon-filter:opacity(1);
   --icon-filter-hover:opacity(0.8);
@@ -327,9 +327,9 @@
   --active-title-text-background-color:auto;
   --inactive-title-background-color:#63b76c;
   --inactive-title-text-background-color:auto;
-  --custom-font:"<Roboto Flex>";
-  --custom-secondary-font:"<Rubik>";
-  --custom-code-font:"<Inconsolata>";
+  --custom-sans-serif-font:"<Roboto Flex>";
+  --custom-rounded-font:"<Rubik>";
+  --custom-monospace-font:"<Inconsolata>";
   --border-radius:5px;
   --icon-filter:opacity(1);
   --icon-filter-hover:opacity(0.8);
@@ -365,9 +365,9 @@
   --active-title-text-background-color:auto;
   --inactive-title-background-color:#d982b5;
   --inactive-title-text-background-color:auto;
-  --custom-font:"<Roboto Flex>";
-  --custom-secondary-font:"<Rubik>";
-  --custom-code-font:"<Inconsolata>";
+  --custom-sans-serif-font:"<Roboto Flex>";
+  --custom-rounded-font:"<Rubik>";
+  --custom-monospace-font:"<Inconsolata>";
   --border-radius:5px;
   --icon-filter:opacity(1);
   --icon-filter-hover:opacity(0.8);
@@ -403,9 +403,9 @@
   --active-title-text-background-color:auto;
   --inactive-title-background-color:#0066cc;
   --inactive-title-text-background-color:auto;
-  --custom-font:"<Roboto Flex>";
-  --custom-secondary-font:"<Rubik>";
-  --custom-code-font:"<Inconsolata>";
+  --custom-sans-serif-font:"<Roboto Flex>";
+  --custom-rounded-font:"<Rubik>";
+  --custom-monospace-font:"<Inconsolata>";
   --border-radius:5px;
   --icon-filter:opacity(1);
   --icon-filter-hover:opacity(0.8);
@@ -441,9 +441,9 @@
   --active-title-text-background-color:auto;
   --inactive-title-background-color:#9999cc;
   --inactive-title-text-background-color:auto;
-  --custom-font:"<Roboto Flex>";
-  --custom-secondary-font:"<Rubik>";
-  --custom-code-font:"<Inconsolata>";
+  --custom-sans-serif-font:"<Roboto Flex>";
+  --custom-rounded-font:"<Rubik>";
+  --custom-monospace-font:"<Inconsolata>";
   --border-radius:5px;
   --icon-filter:opacity(1);
   --icon-filter-hover:opacity(0.8);
@@ -479,9 +479,9 @@
   --active-title-text-background-color:auto;
   --inactive-title-background-color:#337700;
   --inactive-title-text-background-color:auto;
-  --custom-font:"<Roboto Flex>";
-  --custom-secondary-font:"<Rubik>";
-  --custom-code-font:"<Inconsolata>";
+  --custom-sans-serif-font:"<Roboto Flex>";
+  --custom-rounded-font:"<Rubik>";
+  --custom-monospace-font:"<Inconsolata>";
   --border-radius:5px;
   --icon-filter:opacity(1);
   --icon-filter-hover:opacity(0.8);
@@ -517,9 +517,9 @@
   --active-title-text-background-color:auto;
   --inactive-title-background-color:#6d0d00;
   --inactive-title-text-background-color:auto;
-  --custom-font:"<Roboto Flex>";
-  --custom-secondary-font:"<Rubik>";
-  --custom-code-font:"<Inconsolata>";
+  --custom-sans-serif-font:"<Roboto Flex>";
+  --custom-rounded-font:"<Rubik>";
+  --custom-monospace-font:"<Inconsolata>";
   --border-radius:5px;
   --icon-filter:opacity(1);
   --icon-filter-hover:opacity(0.8);
@@ -555,9 +555,9 @@
   --active-title-text-background-color:auto;
   --inactive-title-background-color:#0148c2;
   --inactive-title-text-background-color:auto;
-  --custom-font:"<Roboto Flex>";
-  --custom-secondary-font:"<Rubik>";
-  --custom-code-font:"<Inconsolata>";
+  --custom-sans-serif-font:"<Roboto Flex>";
+  --custom-rounded-font:"<Rubik>";
+  --custom-monospace-font:"<Inconsolata>";
   --border-radius:5px;
   --icon-filter:opacity(1);
   --icon-filter-hover:opacity(0.8);
@@ -593,9 +593,9 @@
   --active-title-text-background-color:auto;
   --inactive-title-background-color:#7f6f9f;
   --inactive-title-text-background-color:auto;
-  --custom-font:"<Roboto Flex>";
-  --custom-secondary-font:"<Rubik>";
-  --custom-code-font:"<Inconsolata>";
+  --custom-sans-serif-font:"<Roboto Flex>";
+  --custom-rounded-font:"<Rubik>";
+  --custom-monospace-font:"<Inconsolata>";
   --border-radius:5px;
   --icon-filter:opacity(1);
   --icon-filter-hover:opacity(0.8);
@@ -730,6 +730,11 @@ main {
 	background-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.2);
 	border-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.1);
 	color:var(--canvas-text-secondary-background-color-hover);
+    box-shadow:var(--threeD-shadow);
+}
+
+.tabs a:active {
+    box-shadow:var(--threeD-shadow-active);
 }
 
 [page*="processes"] .tabs .processes,
@@ -741,6 +746,7 @@ main {
 	border-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.2);
 	color:var(--hyperlink-secondary-background-color);
 	font-variation-settings: 'FILL' 1;
+    box-shadow:var(--threeD-shadow-active);
 }
 
 .tabs .processes:before {
@@ -990,6 +996,11 @@ main {
 	background-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.2);
 	border-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.1);
 	color:var(--canvas-text-secondary-background-color-hover);
+    box-shadow:var(--threeD-shadow);
+}
+
+.graphs a:active {
+    box-shadow:var(--threeD-shadow-active);
 }
 
 [tab*="CPU"] .graphs .cpu,
@@ -1001,6 +1012,7 @@ main {
 	background-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.4);
 	border-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.2);
 	color:var(--hyperlink-secondary-background-color);
+    box-shadow:var(--threeD-shadow-active);
 	font-variation-settings: 'FILL' 1;
 }
 
@@ -1090,7 +1102,6 @@ main {
 }
 
 
-
 .page box.left .button > div {
 	white-space:nowrap; 
 	text-overflow:ellipsis;
@@ -1102,6 +1113,11 @@ main {
 	background-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.2);
 	border-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.1);
 	color:var(--canvas-text-secondary-background-color-hover);
+    box-shadow:var(--threeD-shadow);
+}
+
+.page box.left .button:active {
+    box-shadow:var(--threeD-shadow-active);
 }
 
 .page[page*="0"] box.left .button.p0,
@@ -1111,6 +1127,7 @@ main {
 	background-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.4);
 	border-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.2);
 	color:var(--hyperlink-secondary-background-color);
+    box-shadow:var(--threeD-shadow-active);
 	font-variation-settings: 'FILL' 1;
 }
 
