@@ -171,6 +171,7 @@ Aleo = Latin
 --system-acryllic-opacity:0.6;
 --system-generic-color-hue-shift:0;
 --system-generic-color-saturation:100%;
+--system-icon-style:round;
 --system-visual-mode:standard;
 --system-visual-style:standard;
 
@@ -337,6 +338,9 @@ body [force-unaccented] {
 	--luna-message-background-color:var(--message-secondary-background-color);
 	--luna-message-background-color-hover:var(--message-secondary-background-color-hover);
 	--luna-message-background-color-rgb:var(--message-secondary-background-color-rgb);
+	--luna-tabs-background-color:var(--canvas-tabs-background-color);
+	--luna-tabs-opacity:var(--canvas-tabs-opacity);
+	--luna-active-tabs-opacity:var(--canvas-active-tabs-opacity);
 }
 
 /* Unaccented (Unfocused) */
@@ -363,6 +367,9 @@ body:not(:focus):not(:focus-within) [force-unaccented] {
 	--luna-foreground-color-hover-rgb:var(--canvas-secondary-foreground-color-hover-rgb);
 	--luna-alternative-foreground-color:var(--canvas-secondary-alternative-foreground-color);
 	--luna-alternative-foreground-color-hover:var(--canvas-secondary-alternative-foreground-color-hover);
+	--luna-tabs-background-color:var(--canvas-tabs-background-color);
+	--luna-tabs-opacity:var(--canvas-tabs-opacity);
+	--luna-active-tabs-opacity:var(--canvas-active-tabs-opacity);
 }
 
 /* Accented (Focused) */
@@ -424,6 +431,9 @@ body:not(:focus):not(:focus-within) [force-unaccented] {
 	--luna-message-background-color:var(--message-tertiary-background-color);
 	--luna-message-background-color-hover:var(--message-tertiary-background-color-hover);
 	--luna-message-background-color-rgb:var(--message-tertiary-background-color-rgb);
+	--luna-tabs-background-color:var(--active-title-tabs-background-color);
+	--luna-tabs-opacity:var(--active-title-tabs-opacity);
+	--luna-active-tabs-opacity:var(--active-title-active-tabs-opacity);
 }
 
 /* Accented (Unfocused) */
@@ -448,6 +458,9 @@ body:not(:focus):not(:focus-within) [force-unaccented] {
 	--luna-alternative-foreground-color:var(--inactive-title-alternative-foreground-color);
 	--luna-alternative-foreground-color-hover:var(--inactive-title-alternative-foreground-color-hover);
 	--luna-alternative-foreground-color-rgb:var(--inactive-title-alternative-foreground-color-rgb);
+	--luna-tabs-background-color:var(--inactive-title-tabs-background-color);
+	--luna-tabs-opacity:var(--inactive-title-tabs-opacity);
+	--luna-active-tabs-opacity:var(--inactive-title-active-tabs-opacity);
 }
 
 
@@ -524,8 +537,9 @@ body {
 	--theme-community-header-color:var(--desktop-text-background-color);
 	--theme-community-header-color--hover:var(--desktop-text-background-color-hover);
 	--theme-background-image-opacity:100%;
-    --theme-page-text-opacity-factor: 0.85;
-    --theme-body-text-opacity-factor: 0.85;
+    --theme-page-text-opacity-factor:var(--disabled-elements-opacity);
+    --theme-body-text-opacity-factor:var(--disabled-elements-opacity);
+    --theme-link-decoration: var(--hyperlink-default-text-decoration);
 }
 
 
@@ -536,6 +550,15 @@ body {
 
 /* Forced Colors */
 @media (forced-colors: active) {
+	:root .visualcolors-nocolormanagement {
+		--desktop-background-image:url("")!important;
+		--icon-filter:opacity(1)!important;
+		--icon-filter-hover:opacity(1)!important;
+		--icon-filter-duration:0ms!important;
+		--icon-filter-delay:0ms!important;
+		--system-visual-mode:contrast!important;
+	}
+
 	.forced-colors-off {
 		display:none!important;
 	}
@@ -543,45 +566,7 @@ body {
 	.forced-colors-styles.cpe-dropdown__content {
 		top:-50%!important; /* Override Inline Style */
 	}
-	
-	.theme-A, .theme-B, .theme-C, .theme-D, .theme-E, .theme-F, .theme-G, .theme-H {
-		--desktop-background-image:url("")!important;
-		--desktop-background-image-filter:none!important;
-		--desktop-background-color:background!important;
-		--desktop-text-background-color:auto!important;
-		--desktop-background-horizontal-alignment:center!important;
-		--desktop-background-vertical-alignment:center!important;
-		--desktop-background-size:cover!important;
-		--desktop-background-no-horizontal-tiling:false!important;
-		--desktop-background-no-vertical-tiling:false!important;
-		--hyperlink-background-color:linktext!important;
-		--canvas-background-color:canvas!important;
-		--canvas-secondary-background-color:buttonface!important;
-		--inactive-text-background-color:graytext!important;
-		--canvas-text-background-color:canvastext!important;
-		--canvas-text-secondary-background-color:buttontext!important;
-		--highlight-background-color:highlight!important;
-		--highlight-text-background-color:highlighttext!important;
-		--active-title-background-color:activecaption!important;
-		--active-title-text-background-color:captiontext!important;
-		--inactive-title-background-color:inactivecaption!important;
-		--inactive-title-text-background-color:inactivecaptiontext!important;
-		--custom-sans-serif-font:""!important;
-		--custom-serif-font:""!important;
-		--custom-rounded-font:""!important;
-		--custom-monospace-font:""!important;
-		--border-radius:5px!important;
-		--icon-filter:opacity(1)!important;
-		--icon-filter-hover:opacity(1)!important;
-		--icon-filter-duration:0ms!important;
-		--icon-filter-delay:0ms!important;
-		--system-acryllic-opacity:0.6!important;
-		--system-generic-color-hue-shift:0!important;
-		--system-generic-color-saturation:100%!important;
-		--system-visual-mode:contrast;
-		--system-visual-style:standard;
-	}
-	
+		
 	.fc-selecteditem,
 	.fc-accentcolor {
 		color:highlight!important
@@ -594,7 +579,7 @@ body {
 
 	
 	.cpe-system-colors {
-		color-scheme:normal!important;
+		color-scheme:light dark!important;
 	}
 }
 
@@ -602,49 +587,37 @@ body {
 
 /* Base */
 
-	:root .visualcolors-nocolormanagement.theme-A, 
-	:root .visualcolors-nocolormanagement.theme-B, 
-	:root .visualcolors-nocolormanagement.theme-C, 
-	:root .visualcolors-nocolormanagement.theme-D, 
-	:root .visualcolors-nocolormanagement.theme-E, 
-	:root .visualcolors-nocolormanagement.theme-F, 
-	:root .visualcolors-nocolormanagement.theme-G, 
-	:root .visualcolors-nocolormanagement.theme-H {
-		--desktop-background-image:url("")!important;
-		--desktop-background-image-filter:none!important;
-		--desktop-background-color:background!important;
-		--desktop-text-background-color:auto!important;
-		--desktop-background-horizontal-alignment:center!important;
-		--desktop-background-vertical-alignment:center!important;
-		--desktop-background-size:cover!important;
-		--desktop-background-no-horizontal-tiling:false!important;
-		--desktop-background-no-vertical-tiling:false!important;
-		--hyperlink-background-color:linktext!important;
-		--canvas-background-color:canvas!important;
-		--canvas-secondary-background-color:buttonface!important;
-		--inactive-text-background-color:graytext!important;
-		--canvas-text-background-color:canvastext!important;
-		--canvas-text-secondary-background-color:buttontext!important;
-		--highlight-background-color:highlight!important;
-		--highlight-text-background-color:highlighttext!important;
-		--active-title-background-color:activecaption!important;
-		--active-title-text-background-color:captiontext!important;
-		--inactive-title-background-color:inactivecaption!important;
-		--inactive-title-text-background-color:inactivecaptiontext!important;
-		--custom-sans-serif-font:""!important;
-		--custom-serif-font:""!important;
-		--custom-rounded-font:""!important;
-		--custom-monospace-font:""!important;
-		--border-radius:5px!important;
-		--icon-filter:opacity(1)!important;
-		--icon-filter-hover:opacity(0.8)!important;
-		--icon-filter-duration:0ms!important;
-		--icon-filter-delay:0ms!important;
-		--system-acryllic-opacity:0.6!important;
-		--system-generic-color-hue-shift:0!important;
-		--system-generic-color-saturation:100%!important;
+	:root .visualcolors-nocolormanagement {
+		--desktop-background-image:url("");
+		--desktop-background-image-filter:none;
+		--desktop-background-horizontal-alignment:center;
+		--desktop-background-vertical-alignment:center;
+		--desktop-background-size:cover;
+		--desktop-background-no-horizontal-tiling:false;
+		--desktop-background-no-vertical-tiling:false;
+		--custom-sans-serif-font:"";
+		--custom-serif-font:"";
+		--custom-rounded-font:"";
+		--custom-monospace-font:"";
+		--border-radius:5px;
+		--icon-filter:opacity(1);
+		--icon-filter-hover:opacity(0.8);
+		--icon-filter-duration:0ms;
+		--icon-filter-delay:0ms;
+		--system-acryllic-opacity:0.6;
+		--system-generic-color-hue-shift:0;
+		--system-generic-color-saturation:100%;
+		--system-icon-style:round;
 		--system-visual-mode:standard;
 		--system-visual-style:standard;
+	}
+	
+	body.no-color-management .colors .cpe-dropdown__content {
+		top:0%!important; /* Override Inline Style */
+	}
+
+	body.no-color-management .colors .cpe-dropdown__content .fcm-off {
+		display:none!important;
 	}
 	
 /* Custom */
@@ -880,7 +853,7 @@ body {
 	--mica-opacity:var(--system-mica-opacity);
 	--mica-opacity-2:var(--system-acryllic-opacity);
 	accent-color:var(--highlight-background-color);
-	--icon-font-family:'Material Icons Round';
+	--icon-font-family:var(--system-icon-font-family);
 	--mica-content:"";
 /** Dropdown Theming **/	
 /* Base Styling */
@@ -905,9 +878,11 @@ body {
 --dropdown-active-hyperlink-border-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.2);
 --dropdown-active-hyperlink-text-color:var(--hyperlink-secondary-background-color);
 /** Checkbox Styling **/
-	--checkbox-unchecked-bg:transparent;
+	--checkbox-tabs-opacity:var(--canvas-active-tabs-opacity);
+	--checkbox-tabs-background-color:var(--canvas-tabs-background-color);
+	--checkbox-unchecked-bg:rgba(var(--checkbox-tabs-background-color),var(--checkbox-tabs-opacity));
 	--checkbox-unchecked-shadow:var(--inactive-text-background-color);
-	--checkbox-unchecked-hover:var(--checkbox-unchecked-bg);
+	--checkbox-unchecked-bg-hover:var(--checkbox-unchecked-bg);
 	--checkbox-unchecked-shadow-hover:var(--checkbox-active-bg);
 	--checkbox-active-bg:var(--highlight-background-color);
 	--checkbox-checked-bg:var(--highlight-background-color);
@@ -1601,9 +1576,7 @@ body #mw-content-text img {
 :not(.unset)[disabled], 
 :not(.unset):disabled, 
 html:not([visualcolors="standard"]) .forcedcolors-off {
--webkit-filter:grayscale(100%)!important;
-filter:grayscale(100%)!important;
-opacity:1!important;
+opacity:var(--disabled-elements-opacity)!important;
 pointer-events:none!important;
 -webkit-user-select:none!important;
 -moz-user-select:none!important;
@@ -1848,7 +1821,10 @@ body .wikitable > * > tr > td {
 
 /* Input Boxes */
 .cpe-input {
-	--input-box-color:var(--canvas-background-color);
+	--tabs-color:var(--canvas-tabs-background-color);
+	--tabs-opacity:var(--canvas-active-tabs-opacity);
+	--input-box-color:rgba(var(--tabs-color),var(--tabs-opacity));
+	--input-box-color-contrast:var(--canvas-background-color);
 	--input-box-text:var(--canvas-text-background-color);
 	--input-box-border:currentColor;
 	--input-box-focus:var(--highlight-background-color-rgb);
@@ -1858,8 +1834,8 @@ body .wikitable > * > tr > td {
     font-family:var(--rounded-font-stack);
     font-weight:600;
     color:var(--input-box-text);
-    padding:8px 11px;
-    border:2px solid var(--input-box-border);
+    padding:8.5px 11.5px;
+    border:1px solid var(--input-box-border);
     border-radius:var(--border-radius);
     display:inline-flex;
     align-items:center;
@@ -1981,6 +1957,8 @@ select.cpe-input {
 /** Buttons **/
 /* Primary */
 .cpe-button {
+	--tabs-color:var(--canvas-tabs-background-color);
+	--tabs-opacity:var(--canvas-active-tabs-opacity);
 	--button-background-color:var(--highlight-background-color);
 	--button-background-color-rgb:var(--highlight-background-color-rgb);
 	--button-background-color-hover:var(--highlight-background-color-hover);
@@ -1990,7 +1968,7 @@ select.cpe-input {
 	--button-foreground-color-rgb:var(--highlight-foreground-color-rgb);
 	--button-border-color:var(--button-background-color);
 	--button-border-color-hover:var(--button-background-color-hover);
-	--secondary-button-background-color:transparent;
+	--secondary-button-background-color:rgba(var(--tabs-color),var(--tabs-opacity));
 	--secondary-button-foreground-color:var(--hyperlink-background-color);
 	--secondary-button-foreground-color-hover:var(--hyperlink-background-color-hover);
 	--tertiary-button-background-color:var(--hyperlink-fadeout-color);
@@ -2000,14 +1978,14 @@ select.cpe-input {
     font-family:var(--rounded-font-stack);
     font-weight:600;
     color:var(--button-foreground-color);
-    padding:7px 11px;
+    padding:7.5px 11.5px;
     border-radius:var(--border-radius);
     display:inline-flex;
     align-items:center;
     justify-content:center;
     vertical-align:middle;
     line-height:16px;
-    border:2px solid;
+    border:1px solid;
     border-color:var(--button-border-color);
     background-color:var(--button-background-color);
     outline:1px solid transparent;
@@ -2577,7 +2555,7 @@ body * > .selected > :first-child,
 body * > .selected > .cpe-icon,
 body .has-icon-labels > .selected > :focus:before,
 body .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-buttonElement-active > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon:before,
-body .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-buttonElement-active > .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator:before {
+body .oo-ui-indicatorElement-indicator:before {
   font-variation-settings:'FILL' 1;
 }
 
@@ -2858,7 +2836,7 @@ flex:1 1 0;
 	height:1.66em;
 	left:0em;
 	width:2.90em;
-	border:2px solid;
+	border:1px solid;
 	border-color:var(--checkbox-unchecked-shadow);
 	box-sizing:border-box;
 }
@@ -2867,9 +2845,9 @@ flex:1 1 0;
 	height:1.2em;
 	min-width:1.2em;
 	width:1.2em;
-	background-color:var(--checkbox-unchecked-bg);
+	background-color:transparent;
 	border-radius:50%;
-	border:2px solid var(--checkbox-unchecked-shadow);
+	border:1px solid var(--checkbox-unchecked-shadow);
 	left:0.35714286em;
 	box-sizing:border-box;
 	transform:translate(0%,-50%);
@@ -2880,6 +2858,11 @@ flex:1 1 0;
 	background-color:var(--checkbox-unchecked-bg-hover);
 	border-color:var(--checkbox-unchecked-shadow-hover);
 }
+
+.cpe-toggle__label:hover::after {
+	background-color:transparent;
+}
+
 
 .cpe-toggle__label:active::before,
 .cpe-toggle__label:active::after,
@@ -3210,18 +3193,18 @@ max-height:152px;
 }
 
 
-@media only screen and (max-height:499px) {
+@media only screen and (max-height:479px) {
 	.is-fixed-positioned .cpe-dropdown__content.has-small-content .cpe-list>li > a:not(.cpe-button){
-		padding-top:9px;
-		padding-bottom:9px;
+		padding-top:8px;
+		padding-bottom:8px;
 	}
 }
 
-@media only screen and (max-height:459px) {
+@media only screen and (max-height:439px) {
 	 .is-fixed-positioned .cpe-dropdown__content.has-small-content .cpe-list>li > a:not(.cpe-button){
 		font-size:12px;
-		padding-top:6.5px;
-		padding-bottom:6.5px;
+		padding-top:6px;
+		padding-bottom:6px;
 	}
 }
 
@@ -3858,7 +3841,7 @@ top:0;
 
 .cpe-list.is-linked>li>a:not(.cpe-button) {
 	display:block;
-	padding:11px 0;
+	padding:10px 0;
 } /* Was 12px 0 */
 
 
@@ -4363,7 +4346,7 @@ input[type="checkbox"], input[type="radio"] {
   -moz-appearance:none;
   -webkit-appearance:none;
   appearance:none;
-  border:2px solid;
+  border:1px solid;
   border-color:var(--checkbox-unchecked-shadow);
   margin:4px;
 }
@@ -4699,10 +4682,10 @@ html:not(.visualmode-threeD) .threeD-on {
 /* ThreeD */
 .visualmode-threeD {
 /* ThreeD */
---threeD-shadow:inset 2px 2px 5px 0 #fff5, inset -2px -2px 5px 0px #0005;
---threeD-shadow-active:inset 2px 2px 5px 0 #0005, inset -2px -2px 5px 0px #fff5;
---threeD-shadow-small:inset 1px 1px 2.5px 0 #fff5, inset -1px -1px 2.5px 0px #0005;
---threeD-shadow-small-active:inset 1px 1px 2.5px 0 #0005, inset -1px -1px 5px 0px #fff5;
+--threeD-shadow:inset 2px 2px 4px 0 #fff5, inset -2px -2px 5px 0px #0005;
+--threeD-shadow-active:inset 2px 2px 4px 0 #0005, inset -2px -2px 5px 0px #fff5;
+--threeD-shadow-small:inset 1px 1px 2px 0 #fff5, inset -1px -1px 2.5px 0px #0005;
+--threeD-shadow-small-active:inset 1px 1px 2px 0 #0005, inset -1px -1px 5px 0px #fff5;
 }
 
 /* Lite */
@@ -5150,6 +5133,17 @@ html:not(.visualmode-threeD) .threeD-on {
   box-shadow:none!important;
 }
 
+.visualmode-contrast .cpe-input,
+.visualmode-contrast body .oo-ui-textInputWidget .oo-ui-inputWidget-input,
+.visualmode-contrast body .oo-ui-textInputWidget.oo-ui-widget-enabled .oo-ui-inputWidget-input,
+.visualmode-contrast body .oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle,
+.visualmode-contrast body .oo-ui-textInputWidget.oo-ui-widget-disabled .oo-ui-inputWidget-input,
+.visualmode-contrast body .mw-widget-dateInputWidget-handle,
+.visualmode-contrast body .mw-widgets-datetime-dateTimeInputWidget-handle,
+.visualmode-contrast body .mw-ui-input {
+    background-color:var(--input-box-color-contrast);
+}
+
 
 .visualmode-contrast [cpe-tooltip]:before {
 	border-color:var(--canvas-text-background-color);
@@ -5227,6 +5221,15 @@ box-shadow:2px 0 0 6px rgba(var(--canvas-text-background-color-rgb),.4), 2px 0 0
 .visualmode-contrast mark {
 color:var(--highlight-text-background-color);
 background-color:var(--highlight-background-color);
+}
+
+.visualmode-contrast .cpe-button,
+.visualmode-contrast body .oo-ui-buttonElement > .oo-ui-buttonElement-button,
+.visualmode-contrast body .mw-ui-button,
+.visualmode-contrast body .mw-ui-button:not(:disabled),
+.visualmode-contrast body .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-tool-link {
+	--tabs-color:0,0,0!important;
+	--tabs-opacity:0!important;
 }
 
 
@@ -5370,6 +5373,8 @@ background-color:var(--highlight-background-color);
 }
 
 .visualmode-contrast body {
+	--checkbox-tabs-opacity:0;
+	--checkbox-tabs-background-color:0,0,0;
 	--checkbox-unchecked-bg-hover:var(--highlight-text-background-color);
 	--checkbox-unchecked-shadow-hover:var(--highlight-background-color);
 	--checkbox-active-bg:var(--highlight-background-color);
