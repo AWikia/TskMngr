@@ -5,152 +5,86 @@
 		'<link rel="shortcut icon" href="favicon.ico">' +
 		'<link rel="icon" href="favicon.ico">' +
 		'<link rel="favicon" href="favicon.ico">'
-		);	
+		);
+		SetPage(page=0);
 })();
 
-/* Tab Changing Functions */
+   /** When the document is ready, this self-executing function will be run. **/
+    (function() {
 
-function CPU() {
-		$('body').attr("tab", "CPU");
-}
+        var ajax = new XMLHttpRequest();
+//        ajax.open("GET", "https://static.wikia.nocookie.net/pkmn/images/a/a6/TMP_EveTM_Graphs.svg/revision/latest?cb=20230330211512&path-prefix=el", true);
+        ajax.open("GET", "graphs.svg", true);
+        ajax.send();
 
-function RAM() {
-		$('body').attr("tab", "MEM");
-}
+        /**
+         * Append the external SVG to this very SVG.
+         *
+         * Notice the use of an SVG selector on the document derived from the AJAX result.
+         *  This is because the full cannot be included directly into the SVG.
+         *  Trying to include to do so would result in:
+         *      `HierarchyRequestError: Node cannot be inserted at the specified point in the hierarchy` in Firefox;
+         *      `Nodes of type '#document' may not be inserted inside nodes of type 'svg'.` in Chrome.
+         */
+        ajax.onload = function(e) {
+            var parser = new DOMParser();
+            var ajaxdoc = parser.parseFromString( ajax.responseText, "image/svg+xml" );
+            document.getElementsByTagName('body')[0].appendChild( ajaxdoc.getElementsByTagName('svg')[0] );
+        }
 
-function Disk() {
-		$('body').attr("tab", "DSK");
-}
-
-function Network() {
-		$('body').attr("tab", "NET");
-}
-
-function GPU() {
-		$('body').attr("tab", "GPU");
-}
-
-function TV() {
-		$('body').attr("tab", "TV");
-}
+    })();   /* END (anonymous function) */
 
 
 /* Page Changing Functions */
-
-function CPU0() {
-		$('.page.cpu').attr("page", "0");
+function SetPage(page=0) {
+		$('.page.performancepage').attr("page", page);
+		$('.page.performancepage .left .button.selected, .page .right').removeClass("selected");
+		$('.page.performancepage .left .button.p' + page + ', .page .right.p'+ page).addClass("selected");
 }
 
-function CPU1() {
-		$('.page.cpu').attr("page", "1");
-}
+
+
 
 function CPU1_t() {
-	if ($('.page.cpu .g_raph').attr("page") == 0) {
-		$('.page.cpu .g_raph').attr("page", "1");
-	} else if ($('.page.cpu .g_raph').attr("page") == 1) {
-		$('.page.cpu .g_raph').attr("page", "2");
-	} else if ($('.page.cpu .g_raph').attr("page") == 2) {
-		$('.page.cpu .g_raph').attr("page", "3");
+	if ($('.page box.right.cpu .g_raph').attr("page") == 0) {
+		$('.page box.right.cpu .g_raph').attr("page", "1");
+	} else if ($('.page box.right.cpu .g_raph').attr("page") == 1) {
+		$('.page box.right.cpu .g_raph').attr("page", "2");
+	} else if ($('.page box.right.cpu .g_raph').attr("page") == 2) {
+		$('.page box.right.cpu .g_raph').attr("page", "3");
 	} else {
-		$('.page.cpu .g_raph').attr("page", "0");
+		$('.page box.right.cpu .g_raph').attr("page", "0");
 	}
 }
 
 function Disk1_t() {
-	if ($('.page.disk .g_raph').attr("page") == 0) {
-		$('.page.disk .g_raph').attr("page", "1");
+	if ($('.page box.right.disk .g_raph').attr("page") == 0) {
+		$('.page box.right.disk .g_raph').attr("page", "1");
 	} else {
-		$('.page.disk .g_raph').attr("page", "0");
+		$('.page box.right.disk .g_raph').attr("page", "0");
 	}
 }
 
 function Network1_t() {
-	if ($('.page.network .g_raph').attr("page") == 0) {
-		$('.page.network .g_raph').attr("page", "1");
+	if ($('.page box.right.network .g_raph').attr("page") == 0) {
+		$('.page box.right.network .g_raph').attr("page", "1");
 	} else {
-		$('.page.network .g_raph').attr("page", "0");
+		$('.page box.right.network .g_raph').attr("page", "0");
 	}
 }
 
 function GPU1_t() {
-	if ($('.page.gpu .g_raph').attr("page") == 0) {
-		$('.page.gpu .g_raph').attr("page", "1");
-	} else if ($('.page.gpu .g_raph').attr("page") == 1) {
-		$('.page.gpu .g_raph').attr("page", "2");
-	} else if ($('.page.gpu .g_raph').attr("page") == 2) {
-		$('.page.gpu .g_raph').attr("page", "3");
+	if ($('.page box.right.gpu .g_raph').attr("page") == 0) {
+		$('.page box.right.gpu .g_raph').attr("page", "1");
+	} else if ($('.page box.right.gpu .g_raph').attr("page") == 1) {
+		$('.page box.right.gpu .g_raph').attr("page", "2");
+	} else if ($('.page box.right.gpu .g_raph').attr("page") == 2) {
+		$('.page box.right.gpu .g_raph').attr("page", "3");
 	} else {
-		$('.page.gpu .g_raph').attr("page", "0");
+		$('.page box.right.gpu .g_raph').attr("page", "0");
 	}
 }
 
-
-function TV1_t() {
-	if ($('.page.tv .g_raph').attr("page") == 0) {
-		$('.page.tv .g_raph').attr("page", "1");
-	} else if ($('.page.tv .g_raph').attr("page") == 1) {
-		$('.page.tv .g_raph').attr("page", "2");
-	} else if ($('.page.tv .g_raph').attr("page") == 2) {
-		$('.page.tv .g_raph').attr("page", "3");
-	} else if ($('.page.tv .g_raph').attr("page") == 3) {
-		$('.page.tv .g_raph').attr("page", "4");
-	} else if ($('.page.tv .g_raph').attr("page") == 4) {
-		$('.page.tv .g_raph').attr("page", "5");
-	} else {
-		$('.page.tv .g_raph').attr("page", "0");
-	}
-}
-
-
-function Disk0() {
-		$('.page.disk').attr("page", "0");
-}
-
-function Disk1() {
-		$('.page.disk').attr("page", "1");
-}
-
-function Disk2() {
-		$('.page.disk').attr("page", "2");
-}
-
-function Network0() {
-		$('.page.network').attr("page", "0");
-}
-
-function Network1() {
-		$('.page.network').attr("page", "1");
-}
-
-function GPU0() {
-		$('.page.gpu').attr("page", "0");
-}
-
-function GPU1() {
-		$('.page.gpu').attr("page", "1");
-}
-
-function GPU2() {
-		$('.page.gpu').attr("page", "2");
-}
-
-
-function TV0() {
-		$('.page.tv').attr("page", "0");
-}
-
-function TV1() {
-		$('.page.tv').attr("page", "1");
-}
-
-function TV2() {
-		$('.page.tv').attr("page", "2");
-}
-
-function TV3() {
-		$('.page.tv').attr("page", "3");
-}
 
 /* Section Changing Functions */
 
