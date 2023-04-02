@@ -658,6 +658,7 @@ user-select:none;
 
 body {
 --graphs-opacity:0.25;
+--page-opacity:0.85;
 }
 
 .desktop-background {
@@ -871,7 +872,7 @@ main {
 .proc_page article {
 	flex:1;
 	overflow-y:scroll; /* Not auto, as it will cause isses when container is not scrollable */
-	background-color:rgba(var(--canvas-background-color-rgb),var(--acrylic-opacity));
+	background-color:rgba(var(--canvas-background-color-rgb),var(--page-opacity));
 	color:var(--canvas-text-background-color);
 	scrollbar-color:var(--canvas-background-color) var(--canvas-text-background-color);
 	/* Width */
@@ -964,7 +965,7 @@ main {
 
 .page {
 	display:flex;
-	background-color:rgba(var(--canvas-background-color-rgb),var(--acrylic-opacity));
+	background-color:rgba(var(--canvas-background-color-rgb),var(--page-opacity));
 	color:var(--canvas-text-background-color);
 	height:calc(100vh - 1px);
 	box-sizing:border-box;
@@ -1275,6 +1276,7 @@ PCR = PerfCap Reason  (Page 4)
 /* High Contrast Styling */
 .visualmode-contrast body {
 --graphs-opacity:0;
+--page-opacity:1;
 }
 
 .visualmode-contrast .tabs a:hover,
