@@ -656,6 +656,10 @@ user-select:none;
 -moz-user-select:none;
 }
 
+body {
+--graphs-opacity:0.25;
+}
+
 .desktop-background {
 	display:none;
 }
@@ -867,7 +871,7 @@ main {
 .proc_page article {
 	flex:1;
 	overflow-y:scroll; /* Not auto, as it will cause isses when container is not scrollable */
-	background-color:var(--canvas-background-color);
+	background-color:rgba(var(--canvas-background-color-rgb),var(--acrylic-opacity));
 	color:var(--canvas-text-background-color);
 	scrollbar-color:var(--canvas-background-color) var(--canvas-text-background-color);
 	/* Width */
@@ -947,32 +951,6 @@ main {
 	justify-content:flex-start;
 }
 
-.graphs {
-	display:flex;
-	flex-flow:column;
-	width:128px;
-	color:var(--canvas-text-secondary-background-color);
-	background-color:rgba(var(--canvas-tabs-background-color),var(--canvas-active-tabs-opacity));
-	padding:5px;
-	margin:0;
-	height:calc(100vh - 1px);
-	position:relative;
-	transition:background-color 400ms var(--transitioner);
-}
-
-.graphs a {
-	display:inline-flex;
-	align-items:center;
-	justify-content:flex-start;
-	color:inherit;
-	border:1px solid transparent;
-	padding:10px;
-	transition:color 400ms var(--transitioner), background-color 400ms var(--transitioner);
-	color:inherit;
-	border-radius:var(--border-radius);
-	text-decoration:none;
-}
-
 @media only screen and (max-width:889px) {
 	.tabs a  {
 		font-size:0;
@@ -984,68 +962,9 @@ main {
 
 
 
-@media only screen and (max-width:1019px) {
-	.graphs a  {
-		font-size:0;
-	}
-	.graphs {
-		width:38px;
-	}
-}
-
-
-.graphs a:hover {
-	background-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.2);
-	border-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.1);
-	color:var(--canvas-text-secondary-background-color-hover);
-    box-shadow:var(--threeD-shadow);
-}
-
-.graphs a:active {
-    box-shadow:var(--threeD-shadow-active);
-}
-
-[tab*="CPU"] .graphs .cpu,
-[tab*="MEM"] .graphs .ram,
-[tab*="DSK"] .graphs .disk,
-[tab*="NET"] .graphs .network,
-[tab*="GPU"] .graphs .gpu,
-[tab*="TV"]  .graphs .tv {
-	background-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.4);
-	border-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.2);
-	color:var(--hyperlink-secondary-background-color);
-    box-shadow:var(--threeD-shadow-active);
-	font-variation-settings: 'FILL' 1;
-}
-
- .graphs .cpu:before {
-	content:"developer_board";
- }
-
- .graphs .ram:before {
-	content:"memory";
- }
-
- .graphs .disk:before {
-	content:"album";
- }
-
- .graphs .network:before {
-	content:"wifi";
- }
-
- .graphs .gpu:before {
-	content:"videogame_asset";
- }
-
- .graphs .tv:before {
-	content:"tv";
- }
-
-
 .page {
 	display:flex;
-	background-color:var(--canvas-background-color);
+	background-color:rgba(var(--canvas-background-color-rgb),var(--acrylic-opacity));
 	color:var(--canvas-text-background-color);
 	height:calc(100vh - 1px);
 	box-sizing:border-box;
@@ -1216,7 +1135,7 @@ PCR = PerfCap Reason  (Page 4)
 }
 
 .page box.right.cpu .g_raph .heatmap cpu::after{
-	background-color:rgba(var(--warning-background-color-rgb),0.3);
+	background-color:rgba(var(--hyperlink-background-color-rgb),0.3);
 	width:100%;
 	content:"";
 	display:block;
@@ -1228,7 +1147,7 @@ PCR = PerfCap Reason  (Page 4)
 }
 
 .page box.right.cpu .g_raph .heatmap cpu::before{
-	background-color:rgba(var(--warning-background-color-rgb),0.3);
+	background-color:rgba(var(--hyperlink-background-color-rgb),0.3);
 	width:100%;
 	content:"";
 	display:block;
@@ -1274,7 +1193,7 @@ PCR = PerfCap Reason  (Page 4)
 
 .page box.right .graph {
 	flex:1;
-	background-color:var(--canvas-background-color);
+	background-color:transparent;
 	width:calc(100% - 2px);
 	height:100%;
 	display:flex;
@@ -1293,6 +1212,7 @@ PCR = PerfCap Reason  (Page 4)
 
 .page box.right .graph .graph_container {
 	border:1px solid var(--inactive-text-background-color);
+	background-color:var(--canvas-background-color);
 }
 
 .page box.right .graph.graphPCR {
@@ -1353,8 +1273,11 @@ PCR = PerfCap Reason  (Page 4)
 
 
 /* High Contrast Styling */
+.visualmode-contrast body {
+--graphs-opacity:0;
+}
+
 .visualmode-contrast .tabs a:hover,
-.visualmode-contrast .graphs a:hover,
 .visualmode-contrast .page box.left .button:hover {
 	background-color:var(--highlight-text-background-color);
 	border-color:var(--highlight-background-color);
@@ -1366,12 +1289,6 @@ PCR = PerfCap Reason  (Page 4)
 .visualmode-contrast [page*="history"] .tabs .history,
 .visualmode-contrast [page*="user"] .tabs .users,
 .visualmode-contrast [page*="details"] .tabs .details,
-.visualmode-contrast [tab*="CPU"] .graphs .cpu,
-.visualmode-contrast [tab*="MEM"] .graphs .ram,
-.visualmode-contrast [tab*="DSK"] .graphs .disk,
-.visualmode-contrast [tab*="NET"] .graphs .network,
-.visualmode-contrast [tab*="GPU"] .graphs .gpu,
-.visualmode-contrast [tab*="TV"]  .graphs .tv,
 .visualmode-contrast .page box.left .button.selected {
 	background-color:var(--highlight-background-color);
 	border-color:var(--highlight-background-color);

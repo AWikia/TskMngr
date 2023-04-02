@@ -65,12 +65,6 @@ var visualStyles = [
 */
 
 var visualColors = [
-					['forced', '{{msg-evelution-color-forced}}', 'contrast'],
-					['evelution', 'Evelution', 'evelution'],
-					['colors', '{{msg-evelution-color-colors}}', 'format_paint'],
-					['android', 'Android', 'android'],
-					['qqore', 'Qora Qore', 'qqore'],
-					['dynamic', '{{msg-evelution-color-dynamic}}', 'colorize'],
 				    ];
 var visualColorNames = ['standard', 'nocolormanagement'];
 
@@ -80,11 +74,7 @@ var visualColorNames = ['standard', 'nocolormanagement'];
 		insertKey('theme-selected', 'A' );
 	}
 	if (getKey('visual-appearance-mode') === '-1') {
-		if ( ( ForcedColors() ) ) {
-			insertKey('visual-appearance-mode', 'contrast' );
-		} else {
-			insertKey('visual-appearance-mode', 'standard' );
-		}
+		insertKey('visual-appearance-mode', 'standard' );
 	}
 	if (getKey('visual-appearance-style') === '-1') {
 		insertKey('visual-appearance-style', 'standard' );
@@ -2847,7 +2837,9 @@ document.querySelector("head .theming").innerHTML = result;
 			document.querySelector('html').classList.replace("theme-fandomdesktop-" +  oldtheme,"theme-fandomdesktop-" +  window.MW18ActiveThemeMode);
 		}
 		/* Forced Colors */
-		VisualMode(window.MW18ActiveStyleMode,false);
+		if (window.MW18ActiveStyleMode != '-') {
+			VisualMode(window.MW18ActiveStyleMode,false);
+		}
 
 
 }
