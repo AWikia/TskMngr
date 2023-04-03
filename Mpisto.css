@@ -658,7 +658,18 @@ user-select:none;
 
 body {
 --graphs-opacity:0.25;
+--graphs-opacity-filter:brightness(150%);
 --page-opacity:0.85;
+--cpu-graph-color:var(--warning-background-color);
+--ram-graph-color:var(--progress-background-color);
+--disk-graph-color:var(--success-background-color);
+--network-graph-color:var(--pause-background-color);
+--gpu-graph-color:var(--alert-background-color);
+}
+
+.theme-fandomdesktop-dark body {
+--graphs-opacity:0.3;
+--graphs-opacity-filter:brightness(50%);
 }
 
 .desktop-background {
@@ -1095,10 +1106,10 @@ PCR = PerfCap Reason  (Page 4)
 .page box.right.cpu .g_raph .heatmaps {
 	display:grid;
 	height:100%;
+	width:calc(100% + 2px);
 }
 
 .page box.right.cpu .g_raph .heatmaps[more] {
-	grid-gap:4px;
 	gap:4px;
 	grid:auto-flow / repeat(2, 1fr);
 }
@@ -1111,7 +1122,7 @@ PCR = PerfCap Reason  (Page 4)
 	grid:auto-flow / repeat(var(--heatmap-rows, 2), 1fr);
 	flex:1;
 	overflow:auto;
-	background-color:var(--canvas-background-color);
+/*	background-color:var(--canvas-background-color); */
 	color:var(--canvas-text-background-color);
 	height:100%;
 	min-height:26px;
@@ -1128,27 +1139,31 @@ PCR = PerfCap Reason  (Page 4)
 	justify-content:center;
 	font-size:16px;
 	font-weight:500;
-	min-width:50px;
+	min-width:47px;
 /*	background-color:rgba(193,144,0,calc( var(--heatmap-usage) / 100 )); */
+	background-color:var(--canvas-background-color);
 	border:1px solid var(--inactive-text-background-color);
 	position:relative;
 	z-index:1;
+	color:var(--canvas-text-background-color);
 }
 
 .page box.right.cpu .g_raph .heatmap cpu::after{
-	background-color:rgba(var(--hyperlink-background-color-rgb),0.3);
+	background-color:rgba(var(--warning-background-color-rgb),calc( var(--heatmap-usage) / 1 )); 
 	width:100%;
 	content:"";
 	display:block;
 	bottom:0;
 	left:0;
-	height:var(--heatmap-usage);
+	height:100%;
 	z-index:-1;
 	position:absolute;
+	filter:var(--graphs-opacity-filter);
 }
 
+/*
 .page box.right.cpu .g_raph .heatmap cpu::before{
-	background-color:rgba(var(--hyperlink-background-color-rgb),0.3);
+	background-color:rgba(var(--warning-background-color-rgb),0.3);
 	width:100%;
 	content:"";
 	display:block;
@@ -1158,7 +1173,7 @@ PCR = PerfCap Reason  (Page 4)
 	z-index:-1;
 	position:absolute;
 }
-
+*/
 
 .page box.left .button .graph {
 	width:92px;
@@ -1277,6 +1292,11 @@ PCR = PerfCap Reason  (Page 4)
 .visualmode-contrast body {
 --graphs-opacity:0;
 --page-opacity:1;
+--cpu-graph-color:var(--canvas-text-background-color);
+--ram-graph-color:var(--canvas-text-background-color);
+--disk-graph-color:var(--canvas-text-background-color);
+--network-graph-color:var(--canvas-text-background-color);
+--gpu-graph-color:var(--canvas-text-background-color);
 }
 
 .visualmode-contrast .tabs a:hover,
@@ -1295,4 +1315,8 @@ PCR = PerfCap Reason  (Page 4)
 	background-color:var(--highlight-background-color);
 	border-color:var(--highlight-background-color);
 	color:var(--highlight-text-background-color);
+}
+
+.visualmode-contrast .page box.right.cpu .g_raph .heatmap cpu::after{
+	content:none;
 }
