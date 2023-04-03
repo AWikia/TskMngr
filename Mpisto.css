@@ -648,7 +648,7 @@ text-rendering:optimizeSpeed;
 touch-action:manipulation;
 	overflow-y:auto;
 	font-weight:500;
-text-shadow:0 0 1px rgba(0,0,0,0.1),0 0 1px rgba(255,255,255,0.1); /* Partially Embolding */
+/*text-shadow:0 0 1px rgba(0,0,0,0.1),0 0 1px rgba(255,255,255,0.1);*/ /* Partially Embolding */
 margin:0 0 0;
 /*text-shadow:0 0 1px rgba(255,0,0,0.1), 0 0 1px rgba(0,255,0,0.1), 0 0 1px rgba(0,0,255,0.1), 0 0 1px rgba(255,255,0,0.1), 0 0 1px rgba(255,0,255,0.1), 0 0 1px rgba(0,255,255,0.1), 0 0 1px rgba(0,0,0,0.1), 0 0 1px rgba(255,255,255,0.1); */
 user-select:none;
@@ -1229,6 +1229,11 @@ PCR = PerfCap Reason  (Page 4)
 .page box.right .graph .graph_container {
 	border:1px solid var(--inactive-text-background-color);
 	background-color:var(--canvas-background-color);
+	background-image:repeating-linear-gradient(-90deg,   transparent 0 calc(5% - 1px), var(--inactive-text-fadeout-color) calc(5% - 1px) 5%  ), 
+					 repeating-linear-gradient(  0deg,   transparent 0 calc(10% - 1px), var(--inactive-text-fadeout-color) calc(10% - 1px) 10%  );
+    background-position: -1px -1px;
+    background-size: calc(100% + 1px) calc(100% + 1px);
+
 }
 
 .page box.right .graph.graphPCR {
