@@ -658,18 +658,18 @@ user-select:none;
 
 body {
 --graphs-opacity:0.25;
---graphs-opacity-filter:brightness(150%);
+--graphs-opacity-filter:brightness(150%) contrast(150%);
 --page-opacity:0.85;
---cpu-graph-color:var(--warning-background-color);
---ram-graph-color:var(--progress-background-color);
---disk-graph-color:var(--success-background-color);
---network-graph-color:var(--pause-background-color);
---gpu-graph-color:var(--alert-background-color);
+--cpu-graph-color:var(--graph-1-background-color);
+--ram-graph-color:var(--graph-2-background-color);
+--disk-graph-color:var(--graph-3-background-color);
+--network-graph-color:var(--graph-4-background-color);
+--gpu-graph-color:var(--graph-5-background-color);
 }
 
 .theme-fandomdesktop-dark body {
 --graphs-opacity:0.3;
---graphs-opacity-filter:brightness(50%);
+--graphs-opacity-filter:brightness(50%) contrast(200%);
 }
 
 .desktop-background {
@@ -738,7 +738,7 @@ main {
 	color:inherit;
 	border:1px solid transparent;
 	padding:10px;
-	transition:color 400ms var(--transitioner), background-color 400ms var(--transitioner);
+	transition:color var(--transition-duration) var(--transition-timing-function), background-color var(--transition-duration) var(--transition-timing-function);
 	color:inherit;
 	border-radius:var(--border-radius);
 	text-decoration:none;
@@ -853,7 +853,7 @@ main {
 	top:0;
 	position:relative;
 	padding-right:var(--scrollbar-width);
-	transition:background-color 400ms var(--transitioner);
+	transition:background-color var(--transition-duration) var(--transition-timing-function);
 	scrollbar-color:transparent transparent;
 	/* Track */
 	--scrollbar-track-color-1:transparent;
@@ -908,7 +908,7 @@ main {
 	align-items:center;
 	justify-content:flex-end;
 	margin-top:-1px;
-	transition:background-color 400ms var(--transitioner);
+	transition:background-color var(--transition-duration) var(--transition-timing-function);
 }
 
 
@@ -1027,7 +1027,7 @@ main {
 	margin:0 0px 5px;
 	border:1px solid transparent;
 	color:inherit;
-	transition:color 400ms var(--transitioner), background-color 400ms var(--transitioner);
+	transition:color var(--transition-duration) var(--transition-timing-function), background-color var(--transition-duration) var(--transition-timing-function);
 	border-radius:var(--border-radius);
 	text-decoration:none;
 }
@@ -1149,7 +1149,8 @@ PCR = PerfCap Reason  (Page 4)
 }
 
 .page box.right.cpu .g_raph .heatmap cpu::after{
-	background-color:rgba(var(--warning-background-color-rgb),calc( var(--heatmap-usage) / 1 )); 
+	background-color:var(--cpu-graph-color);
+	opacity:calc( var(--heatmap-usage) / 1.25 );
 	width:100%;
 	content:"";
 	display:block;
