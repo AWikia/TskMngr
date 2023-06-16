@@ -609,20 +609,6 @@
 
 
 
-/* Special Hack for Edge and mInerva 6.5 - 7.5 */
-body * {
---desktop-background-image:inherit;
---desktop-background-color:inherit;
---hyperlink-background-color:inherit;
---canvas-background-color:inherit;
---inactive-text-background-color:inherit;
---canvas-text-background-color:inherit;
---highlight-background-color:inherit;
---caret-color:inherit;
-}
-
-
-
 main {
 overflow:hidden!important;
 }
@@ -877,7 +863,7 @@ main {
 
 .proc_page .upper span:hover,
 .proc_page .header.item:hover {
-	background-color:rgba(var(--canvas-text-background-color-rgb),0.3);
+	background-color:var(--canvas-text-fadeout-color);
 }
 
 .proc_page article {
@@ -929,19 +915,38 @@ main {
 	justify-content:flex-end;
 }
 
+.proc_page .item span {
+	height:20px;
+}
+
+.touch-events .proc_page .heading span {
+	height:30px;
+}
+
+.touch-events .proc_page .item span {
+	height:25px;
+}
+
+
 
 .proc_page h2{
 	color:var(--hyperlink-background-color);
-	font-weight:normal;
+	font-weight:500;
 	margin:0;
 	padding:0;
 }
 
 
-.history .proc_page span,
-.details .proc_page span {
+.history .proc_page .upper span,
+.details .proc_page .upper span {
 	height:25px;
 }
+
+.touch-events .history .proc_page .upper span,
+.touch-events .details .proc_page .upper span {
+	height:30px;
+}
+
 
 .proc_page .name{
 	width:auto;
@@ -995,7 +1000,7 @@ main {
 
 
 .page box.left {
-	width:278px;
+	width:280px;
 	max-width:calc(80px + 35%);
 	border-right:1px solid;
 	padding:0 5px 0 0;
@@ -1019,7 +1024,7 @@ main {
 .page box.left .button {
 	cursor:var(--cpe-hand-cursor);
 	font-size:13px;
-	font-weight:300;
+	font-weight:400;
 	height:78px;
 	padding:5px;
 	box-sizing:border-box;
@@ -1041,6 +1046,13 @@ main {
 	flex-basis:calc(100% - 160px);
 }
 
+.page box.left .button > div > big {
+	font-weight:500;
+}
+
+.page box.left .button > div > .subtitle {
+	opacity:var(--disabled-elements-opacity);
+}
 
 .page box.left .button:hover {
 	background-color:rgba(var(--canvas-text-background-color-rgb),0.2);
@@ -1228,11 +1240,12 @@ PCR = PerfCap Reason  (Page 4)
 }
 
 .page box.right .graph .graph_container {
+	--grid-lines-color:var(--inactive-text-fadeout-color);
 	border:1px solid var(--inactive-text-background-color);
 	background-color:var(--canvas-background-color);
-	background-image:repeating-linear-gradient(-90deg,   transparent 0 calc(5% - 1px), var(--inactive-text-fadeout-color) calc(5% - 1px) 5%  ), 
+	background-image:repeating-linear-gradient(-90deg,   transparent 0 calc(5% - 1px), var(--grid-lines-color) calc(5% - 1px) 5%  ), 
 					 repeating-linear-gradient(-90deg,   transparent 0 calc(5% - 1px), var(--canvas-background-color) calc(5% - 1px) 5%  ), 
-					 repeating-linear-gradient(  0deg,   transparent 0 calc(10% - 1px), var(--inactive-text-fadeout-color) calc(10% - 1px) 10%  );
+					 repeating-linear-gradient(  0deg,   transparent 0 calc(10% - 1px), var(--grid-lines-color) calc(10% - 1px) 10%  );
     background-position: -1px -1px;
     background-size: calc(100% + 1px) calc(100% + 1px);
 
@@ -1306,6 +1319,12 @@ PCR = PerfCap Reason  (Page 4)
 --gpu-graph-color:var(--canvas-text-background-color);
 }
 
+.visualmode-contrast .proc_page .upper span:hover, 
+.visualmode-contrast .proc_page .header.item:hover {
+	background-color:var(--highlight-background-color);
+	color:var(--highlight-text-background-color);
+}
+
 .visualmode-contrast .tabs a:hover,
 .visualmode-contrast .page box.left .button:hover {
 	background-color:var(--highlight-text-background-color);
@@ -1322,6 +1341,19 @@ PCR = PerfCap Reason  (Page 4)
 	background-color:var(--highlight-background-color);
 	border-color:var(--highlight-background-color);
 	color:var(--highlight-text-background-color);
+}
+
+.visualmode-contrast .page box.left .button > div > .subtitle {
+	opacity:1;
+}
+
+.visualmode-contrast .page box.right .graph .graph_container {
+	--grid-lines-color:var(--highlight-background-color);
+}
+
+.visualmode-contrast .page box .graph,
+.visualmode-contrast .page box.right .graph .graph_container {
+	border-color:var(--canvas-text-background-color);
 }
 
 .visualmode-contrast .page box.right.cpu .g_raph .heatmap cpu::after{

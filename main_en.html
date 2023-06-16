@@ -201,6 +201,15 @@
 							<span class="gpu">0%</span>
 							<span class="ucpu">00:10:00</span>
 						</header>
+						<header appname="registry" class="header item">
+							<span class="name">Registry</span>
+							<span class="cpu">0%</span>
+							<span class="ram">4MB</span>
+							<span class="disk">0KBps</span>
+							<span class="network">0Kbps</span>
+							<span class="gpu">0%</span>
+							<span class="ucpu">01:08:22</span>
+						</header>
 						<header appname="system" class="header item">
 							<span class="name">System</span>
 							<span class="cpu">0%</span>
@@ -281,12 +290,14 @@
 						</div>
 						<div>
 							<big>CPU</big>
-							<br>
-							Intel(R) Core(TM)️ i5-9300H CPU @ 2.40GHz
-							<br>
-							5% (48°C)
-							<br>
-							3,98GHz
+							<span class="subtitle">
+								<br>
+								Intel(R) Core(TM)️ i5-9300H CPU @ 2.40GHz
+								<br>
+								5% (48°C)
+								<br>
+								3,98GHz
+							</span>
 						</div>
 					</a>
 					<a class="button p1" onclick="SetPage(1)">
@@ -297,10 +308,12 @@
 						</div>
 						<div>
 							<big>RAM</big>
-							<br>
-							4,0/8,0GB (50%)
-							<br>
-							DDR4
+							<span class="subtitle">
+								<br>
+								4,0/8,0GB (50%)
+								<br>
+								DDR4
+							</span>
 						</div>
 					</a>
 					<a class="button p2" onclick="SetPage(2)">
@@ -312,11 +325,13 @@
 
 						<div>
 							<big>Disk 0 (A:)</big>
-							<br>
-							WDC PC SN520 SDAPMUW-128G-1101
-							<br>
-							W: 200 R: 240MBps
-							<br>System (46%)
+							<span class="subtitle">
+								<br>
+								WDC PC SN520 SDAPMUW-128G-1101
+								<br>
+								W: 200 R: 240MBps
+								<br>System (46%)
+							</span>
 						</div>
 					</a>
 					<a class="button p3" onclick="SetPage(3)">
@@ -327,13 +342,15 @@
 						</div>
 						<div>
 							<big>Wi-Fi</big>
-							<br>
-							Paksama ConnectUp Network Adapter
-							<br>
-							100%
-							</br>
-							S: 0,9 R: 100Mbps
-							<br>
+							<span class="subtitle">
+								<br>
+								Paksama ConnectUp Network Adapter
+								<br>
+								100%
+								</br>
+								S: 0,9 R: 100Mbps
+								<br>
+							</span>
 						</div>
 					</a>
 					<a class="button p4" onclick="SetPage(4)">
@@ -344,9 +361,11 @@
 						</div>
 						<div>
 							<big>GPU 0</big>
-							<br>
-							<span>NVidia GeForce GTX 1650</span>
-							<br> G: 65 M: 30 V: 10 B: 2%<br>27% (54°C)
+							<span class="subtitle">
+								<br>
+								<span>NVidia GeForce GTX 1650</span>
+								<br> G: 65 M: 30 V: 10 B: 2%<br>27% (54°C)
+							</span>
 						</div>
 					</a>
 
@@ -1135,6 +1154,15 @@
 							<span class="network">0Mbps</span>
 							<span class="gpu">0%</span>
 							<span class="ucpu">HM100</span>
+						</header>
+						<header appname="registry" class="header item">
+							<span class="name">registry.exe</span>
+							<span class="cpu">0%</span>
+							<span class="ram">4MB</span>
+							<span class="disk">0KBps</span>
+							<span class="network">0Kbps</span>
+							<span class="gpu">0%</span>
+							<span class="ucpu">SYSTEM</span>
 						</header>
 						<header appname="system" class="header item">
 							<span class="name">system.exe</span>
