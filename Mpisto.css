@@ -1307,6 +1307,59 @@ PCR = PerfCap Reason  (Page 4)
 	color:var(--canvas-text-background-color);
 }
 
+/* App Icons */
+.proc_page .header.item .name::before {
+    content:"";
+    align-self:center;
+    background-image:url("AppIcons/Application.ico");
+    background-size:100%;
+    background-position:center;
+    background-repeat:no-repeat;
+    width:24px;
+    height:24px;
+    margin-right:5px;
+}
+
+.proc_page .header.item[appname="FileManager"] .name::before {
+    background-image:url("AppIcons/File Manager.ico");
+}
+
+.proc_page .header.item[appname="browser"] .name::before {
+    background-image:url("AppIcons/Qortex Chromessentials.ico");
+}
+
+.proc_page .header.item[appname="services"] .name::before {
+    background-image:url("AppIcons/Services.ico");
+}
+
+.proc_page .header.item[appname="console"] .name::before {
+    background-image:url("AppIcons/Command Console.ico");
+}
+
+.proc_page .header.item[appname="system"] .name::before {
+    background-image:url("AppIcons/Evelution.ico");
+}
+
+.theme-fandomdesktop-dark .proc_page .header.item[appname="system"] .name::before {
+    background-image:url("AppIcons/Evelution_dark.ico");
+}
+
+.proc_page .header.item[appname="settings"] .name::before {
+    background-image:url("AppIcons/System Settings.ico");
+}
+
+.proc_page .header.item[appname="qqupdater"] .name::before {
+    background-image:url("AppIcons/Q.Qore Updater.ico");
+}
+
+.proc_page .header.item[appname="TaskMgr"] .name::before {
+    background-image:url("AppIcons/Task Manager.ico");
+}
+
+.users .proc_page .header.item .name::before {
+    background-image:url("AppIcons/User.ico");
+}
+
 
 /* High Contrast Styling */
 .visualmode-contrast body {
