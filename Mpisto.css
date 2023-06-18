@@ -729,6 +729,7 @@ main {
 	border-radius:var(--border-radius);
 	text-decoration:none;
 }
+
 .tabs a:hover {
 	background-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.2);
 	border-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.1);
@@ -743,6 +744,7 @@ main {
 [page*="processes"] .tabs .processes,
 [page*="performance"] .tabs .performance,
 [page*="history"] .tabs .history,
+[page*="startup"] .tabs .startup,
 [page*="user"] .tabs .users,
 [page*="details"] .tabs .details {
 	background-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.4);
@@ -752,30 +754,39 @@ main {
     box-shadow:var(--threeD-shadow-active);
 }
 
+.tabs :before {
+	--icon-scale:1.25;
+}
+
 .tabs .processes:before {
 	content:"dashboard";
 }
 
 .tabs .performance:before {
-	content:"speed";
+	content:"earthquake";
 }
 
 .tabs .history:before {
 	content:"history";
 }
 
+.tabs .startup:before {
+	content:"speed";
+}
+
 .tabs .users:before {
-	content:"person";
+	content:"group";
 }
 
 .tabs .details:before {
-	content:"info";
+	content:"format_list_bulleted";
 }
 
 
 [page*="processes"] main.processes,
 [page*="performance"] main.performance,
 [page*="history"] main.history,
+[page*="startup"] main.startup,
 [page*="user"] main.users,
 [page*="details"] main.details {
 	display:block;
@@ -802,6 +813,52 @@ main {
 	border-bottom:1px solid var(--inactive-text-background-color);
 	display:flex;
 }
+
+.proc_page details > .header {
+    padding-left: 15px;
+}
+
+.proc_page details summary { 
+	display:grid; 
+	position:relative;
+}
+
+.proc_page details summary .header::before {
+	content: "keyboard_arrow_right";
+	position:absolute;
+	align-self:center;
+	display: inline-block;
+	left: -3px;
+	font-family: var(--icon-font-family);
+    cursor:inherit;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    user-select:none;
+    font-size:16px;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    /* @noflip */
+    direction: ltr;
+    pointer-events:none;
+    vertical-align:top;
+    overflow:hidden;
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+.proc_page details[open] summary .header::before {
+	content: "keyboard_arrow_down";
+}
+
 
 .proc_page span {
 	vertical-align:bottom;
@@ -919,6 +976,15 @@ main {
 	height:20px;
 }
 
+.proc_page details > .item span {
+	height:15px;
+}
+
+.touch-events .proc_page details > .item span {
+	height:20px;
+}
+
+
 .touch-events .proc_page .heading span {
 	height:30px;
 }
@@ -938,11 +1004,13 @@ main {
 
 
 .history .proc_page .upper span,
+.startup .proc_page .upper span,
 .details .proc_page .upper span {
 	height:25px;
 }
 
 .touch-events .history .proc_page .upper span,
+.touch-events .startup .proc_page .upper span,
 .touch-events .details .proc_page .upper span {
 	height:30px;
 }
@@ -960,6 +1028,13 @@ main {
 	width:auto;
 	align-items:flex-start;
 	text-align:left;
+	width:100px;
+}
+
+
+.startup .proc_page .cpu,
+.startup .proc_page .ram,
+.startup .proc_page .disk {
 	width:100px;
 }
 
@@ -1356,7 +1431,7 @@ PCR = PerfCap Reason  (Page 4)
     background-image:url("AppIcons/Task Manager.ico");
 }
 
-.users .proc_page .header.item .name::before {
+.users .proc_page .header.item[alt] .name::before {
     background-image:url("AppIcons/User.ico");
 }
 
@@ -1388,6 +1463,7 @@ PCR = PerfCap Reason  (Page 4)
 .visualmode-contrast [page*="processes"] .tabs .processes,
 .visualmode-contrast [page*="performance"] .tabs .performance,
 .visualmode-contrast [page*="history"] .tabs .history,
+.visualmode-contrast [page*="startup"] .tabs .startup,
 .visualmode-contrast [page*="user"] .tabs .users,
 .visualmode-contrast [page*="details"] .tabs .details,
 .visualmode-contrast .page box.left .button.selected {
@@ -1411,4 +1487,9 @@ PCR = PerfCap Reason  (Page 4)
 
 .visualmode-contrast .page box.right.cpu .g_raph .heatmap cpu::after{
 	content:none;
+}
+
+.visualmode-contrast .proc_page .upper,
+.visualmode-contrast .proc_page footer {
+	background-color:transparent;
 }

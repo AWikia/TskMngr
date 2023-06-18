@@ -107,3 +107,7 @@ function Tab3() {
 function Tab4() {
 		$('body').attr("page", "history");
 }
+
+function Tab5() {
+		$('body').attr("page", "startup");
+}

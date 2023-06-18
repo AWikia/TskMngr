@@ -90,6 +90,7 @@
 			<a class="processes has-icon" onclick="Tab0()">Διεργασίες</a>
 			<a class="performance has-icon" onclick="Tab1()">Επιδόσεις</a>
 			<a class="history has-icon" onclick="Tab4()">Ιστορικό</a>
+			<a class="startup has-icon" onclick="Tab5()">Εκκίνηση</a>
 			<a class="users has-icon" onclick="Tab2()">Χρήστες</a>
 			<a class="details has-icon" onclick="Tab3()">Πληροφορίες</a>
 		</header>
@@ -129,7 +130,7 @@
 					<article>
 
 						<header class="header heading">
-							<span class="name"><h2>Διεργασίες Προσκήνιου</h2></span>
+							<span class="name"><h2>Ενεργές Εφαρμογές</h2></span>
 						</header>
 
 						<header appname="FileManager" class="header item">
@@ -259,6 +260,15 @@
 							<span class="name">Κονσόλα Εντολών</span>
 							<span class="cpu">0%</span>
 							<span class="ram">0,2ΜΒ</span>
+							<span class="disk">0KBps</span>
+							<span class="network">0Kbps</span>
+							<span class="gpu">0%</span>
+							<span class="ucpu">01:08:22</span>
+						</header>
+						<header appname="settings" class="header item">
+							<span class="name">Ρυθμίσεις</span>
+							<span class="cpu">0%</span>
+							<span class="ram">0ΜΒ</span>
 							<span class="disk">0KBps</span>
 							<span class="network">0Kbps</span>
 							<span class="gpu">0%</span>
@@ -1002,6 +1012,66 @@
 			</div>
 		</main>
 
+		<!--Startup-->
+		<main class="startup">
+			<div class="proc_page">
+				<section>
+					<header class="header upper">
+						<div class="lunalevit"></div>
+						<span class="name">
+							Όνομα Εφαρμογής
+						</span>
+						<span class="cpu">
+							Εκδότης
+						</span>
+						<span class="ram">
+							Κατάσταση
+						</span>
+						<span class="disk">
+							Επίδραση
+						</span>
+						<span class="ucpu">
+							Χρόνος CPU
+						</span>
+					</header>
+					<article>
+						<header appname="browser" class="header item">
+							<span class="name">Qortex Chromessentials</span>
+							<span class="cpu">QQC</span>
+							<span class="ram">Ενεργή</span>
+							<span class="disk">Χαμηλή</span>
+							<span class="ucpu">0ms</span>
+						</header>
+						<header appname="qqupdater" class="header item">
+							<span class="name">Qora Qore Updater</span>
+							<span class="cpu">QQC</span>
+							<span class="ram">Ανενεργή</span>
+							<span class="disk">Χωρίς Μέτρηση</span>
+							<span class="ucpu">0ms</span>
+						</header>
+			
+					</article>
+					<footer>
+						<div class="lunalevit"></div>
+						<div class="cpe-button-group">
+							<button class="cpe-button is-tertiary is-success-color">
+							<span class="cpe-icon cpe-icon-small material-icons">done</span>
+							<span>Ενεργοποίηση</span>
+							</button>
+							<button class="cpe-button is-tertiary is-alert-color">
+							<span class="cpe-icon cpe-icon-small material-icons">block</span>
+							<span>Απενεργοποίηση</span>
+							</button>
+							<button class="cpe-button is-tertiary is-unaccented">
+							<span class="cpe-icon cpe-icon-small material-icons">build</span>
+							<span>Ιδιότητες</span>
+							</button>
+						</div>
+					</footer>
+
+				</section>
+			</div>
+		</main>
 
 		<!--Users-->
 		<main class="users">
@@ -1039,15 +1109,119 @@
 					<article>
 
 
-						<header alt="ΗΜ100" class="header item">
-							<span class="name">HM100</span>
-							<span class="cpu">5%</span>
-							<span class="ram">4000ΜΒ</span>
-							<span class="disk">275MBps</span>
-							<span class="network">100Μbps</span>
-							<span class="gpu">72%</span>
-							<span class="ucpu">01:08:22</span>
-						</header>
+						<details>
+							<summary>
+								<header alt="ΗΜ100" class="header item">
+									<span class="name">HM100</span>
+									<span class="cpu">5%</span>
+									<span class="ram">4000ΜΒ</span>
+									<span class="disk">275MBps</span>
+									<span class="network">100Μbps</span>
+									<span class="gpu">72%</span>
+									<span class="ucpu">01:08:22</span>
+								</header>
+							</summary>
+							<header appname="FileManager" class="header item">
+								<span class="name">Διαχείριση Αρχείων</span>
+								<span class="cpu">1%</span>
+								<span class="ram">700ΜΒ</span>
+								<span class="disk">275MBps</span>
+								<span class="network">0Kbps</span>
+								<span class="gpu">1%</span>
+								<span class="ucpu">00:01:30</span>
+							</header>
+							<header appname="TaskMgr" class="header item">
+								<span class="name">Διαχείριση Εργασιών</span>
+								<span class="cpu">0%</span>
+								<span class="ram">0ΜΒ</span>
+								<span class="disk">1ΚBps</span>
+								<span class="network">0Kbps</span>
+								<span class="gpu">0%</span>
+								<span class="ucpu">00:00:45</span>
+							</header>
+							<header appname="dolphin" class="header item">
+								<span class="name">Dolphin 5.0</span>
+								<span class="cpu">3%</span>
+								<span class="ram">816ΜΒ</span>
+								<span class="disk">125KBps</span>
+								<span class="network">0Kbps</span>
+								<span class="gpu">68%</span>
+								<span class="ucpu">01:00:30</span>
+							</header>
+							<header appname="rpgmv" class="header item">
+								<span class="name">RPG Maker MV</span>
+								<span class="cpu">1%</span>
+								<span class="ram">208ΜΒ</span>
+								<span class="disk">2KBps</span>
+								<span class="network">0Kbps</span>
+								<span class="gpu">0%</span>
+								<span class="ucpu">00:05:34</span>
+							</header>
+							
+							<header appname="browser" class="header item">
+								<span class="name">Qortex Chromessentials</span>
+								<span class="cpu">0%</span>
+								<span class="ram">1536ΜΒ</span>
+								<span class="disk">500KBps</span>
+								<span class="network">100Mbps</span>
+								<span class="gpu">3%</span>
+								<span class="ucpu">00:44:07</span>
+							</header>
+							<header appname="browser" class="header item">
+								<span class="name">Qortex Chromessentials</span>
+								<span class="cpu">0%</span>
+								<span class="ram">768ΜΒ</span>
+								<span class="disk">500KBps</span>
+								<span class="network">100Mbps</span>
+								<span class="gpu">2%</span>
+								<span class="ucpu">00:44:07</span>
+							</header>
+							<header appname="browser" class="header item">
+								<span class="name">Qortex Chromessentials</span>
+								<span class="cpu">0%</span>
+								<span class="ram">713ΜΒ</span>
+								<span class="disk">0KBps</span>
+								<span class="network">0Mbps</span>
+								<span class="gpu">1%</span>
+								<span class="ucpu">00:44:07</span>
+							</header>
+							<header appname="browser" class="header item">
+								<span class="name">Qortex Chromessentials</span>
+								<span class="cpu">0%</span>
+								<span class="ram">55ΜΒ</span>
+								<span class="disk">80KBps</span>
+								<span class="network">0Mbps</span>
+								<span class="gpu">0%</span>
+								<span class="ucpu">00:10:00</span>
+							</header>
+							<header appname="console" class="header item">
+								<span class="name">Κονσόλα Εντολών</span>
+								<span class="cpu">0%</span>
+								<span class="ram">0,1ΜΒ</span>
+								<span class="disk">0KBps</span>
+								<span class="network">0Kbps</span>
+								<span class="gpu">0%</span>
+								<span class="ucpu">01:08:22</span>
+							</header>
+							<header appname="console" class="header item">
+								<span class="name">Κονσόλα Εντολών</span>
+								<span class="cpu">0%</span>
+								<span class="ram">0,2ΜΒ</span>
+								<span class="disk">0KBps</span>
+								<span class="network">0Kbps</span>
+								<span class="gpu">0%</span>
+								<span class="ucpu">01:08:22</span>
+							</header>
+							<header appname="settings" class="header item">
+								<span class="name">Ρυθμίσεις</span>
+								<span class="cpu">0%</span>
+								<span class="ram">0ΜΒ</span>
+								<span class="disk">0KBps</span>
+								<span class="network">0Kbps</span>
+								<span class="gpu">0%</span>
+								<span class="ucpu">01:08:22</span>
+							</header>
+						</details>
 			
 					</article>
 					<footer>
@@ -1216,7 +1390,7 @@
 							<span class="disk">0KBps</span>
 							<span class="network">0Kbps</span>
 							<span class="gpu">0%</span>
-							<span class="ucpu">SYSTEM</span>
+							<span class="ucpu">HM100</span>
 						</header>
 						<header appname="console" class="header item">
 							<span class="name">cnsl.exe</span>
@@ -1225,9 +1399,17 @@
 							<span class="disk">0KBps</span>
 							<span class="network">0Kbps</span>
 							<span class="gpu">0%</span>
-							<span class="ucpu">SYSTEM</span>
+							<span class="ucpu">HM100</span>
 						</header>
-			
+						<header appname="settings" class="header item">
+							<span class="name">Settings.exe</span>
+							<span class="cpu">0%</span>
+							<span class="ram">0ΜΒ</span>
+							<span class="disk">0KBps</span>
+							<span class="network">0Kbps</span>
+							<span class="gpu">0%</span>
+							<span class="ucpu">HM100</span>
+						</header>
 					</article>
 					<footer>
 						<div class="lunalevit"></div>
