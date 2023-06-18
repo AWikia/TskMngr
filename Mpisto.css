@@ -689,12 +689,13 @@ main {
 .tabs {
 	display:flex;
 	height:100vh;
-	width:192px;
+	width:202px;
 	flex-flow:column;
 	color:rgba(var(--canvas-text-secondary-background-color-rgb),1);
 	padding:5px;
 	margin:0;
 	position:relative;
+	box-sizing:border-box;
 }
 
 .graphs-with-page {
@@ -703,8 +704,11 @@ main {
 	height:100%;
 /*    grid-template-columns: min-content minmax(0,1fr); */
     grid-template-rows: max-content;
+    position:relative;
 }
 
+
+/* Navigation Pane */
 .tabs-with-page { 
     display: grid;
     width: 100%;
@@ -746,7 +750,8 @@ main {
 [page*="history"] .tabs .history,
 [page*="startup"] .tabs .startup,
 [page*="user"] .tabs .users,
-[page*="details"] .tabs .details {
+[page*="details"] .tabs .details,
+[page*="settings"] .tabs .settings {
 	background-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.4);
 	border-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.2);
 	color:var(--hyperlink-secondary-background-color);
@@ -782,19 +787,30 @@ main {
 	content:"format_list_bulleted";
 }
 
+.tabs .settings:before {
+	content:"settings";
+}
 
+
+.tabs .separator {
+	flex:1;
+}
+
+/* Main Content */
 [page*="processes"] main.processes,
 [page*="performance"] main.performance,
 [page*="history"] main.history,
 [page*="startup"] main.startup,
 [page*="user"] main.users,
-[page*="details"] main.details {
+[page*="details"] main.details,
+[page*="settings"] main.settings {
 	display:block;
 	flex:1;
 }
 
 
-.proc_page {
+.proc_page,
+.settings_page {
 	width:100%;
 	color:var(--canvas-text-background-color);
 	height:calc(100vh - 1px);
@@ -802,7 +818,8 @@ main {
 	position:relative;
 }
 
-.proc_page section {
+.proc_page section,
+.settings_page section {
 	display:flex;
 	flex-direction:column;
 	flex:1;
@@ -890,7 +907,8 @@ main {
 }
 
 
-.proc_page .upper {
+.proc_page .upper,
+.settings_page .upper {
 	background-color:rgba(var(--canvas-tabs-background-color),var(--canvas-active-tabs-opacity));
 	color:var(--canvas-text-secondary-background-color);
 	top:0;
@@ -918,12 +936,28 @@ main {
 	text-overflow:ellipsis;
 }
 
+.settings_page .upper {
+	border-bottom:1px solid var(--inactive-text-background-color);
+	height:48px;
+}
+
+.settings_page .upper h2 {
+	display:flex;
+	flex-direction:column;
+	text-align:left;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	padding:10px;
+	font-weight:500;
+}
+
 .proc_page .upper span:hover,
 .proc_page .header.item:hover {
 	background-color:var(--canvas-text-fadeout-color);
 }
 
-.proc_page article {
+.proc_page article,
+.settings_page article {
 	flex:1;
 	overflow-y:scroll; /* Not auto, as it will cause isses when container is not scrollable */
 	background-color:rgba(var(--canvas-background-color-rgb),var(--page-opacity));
@@ -941,6 +975,9 @@ main {
 	--scrollbar-thumb-text:var(--canvas-background-color);
 
 }
+
+
+
 
 
 .proc_page footer {
@@ -1048,12 +1085,12 @@ main {
 		font-size:0;
 	}
 	.tabs {
-		width:38px;
+		width:49px;
 	}
 }
 
 
-
+/* Performance Page */
 .page {
 	display:flex;
 	background-color:rgba(var(--canvas-background-color-rgb),var(--page-opacity));
@@ -1436,6 +1473,85 @@ PCR = PerfCap Reason  (Page 4)
 }
 
 
+/* Settings Page */
+.fieldset {
+  border-radius:10px;
+  padding:10px;
+  margin:15px 10px;
+  background-color:var(--canvas-secondary-background-color);
+  border:1px solid var(--inactive-text-background-color);
+  box-shadow: 0 0 5px 0.5px rgba(24, 24, 24, 0.3), 0 0 5px 0.5px rgba(247, 247, 247, 0.3);
+}
+
+.fieldset fieldset {
+color:inherit;
+border:0;
+padding:0;
+line-height:inherit;
+}
+
+.fieldset fieldset legend,
+.fieldset > fieldset > h2 {
+  font-size:23px;
+  font-weight:bolder;
+  display:block;
+  margin:0 0 4px;
+  padding:0;
+  display:flex;
+  align-items:center;
+  color:inherit;
+}
+
+.fieldset fieldset legend .cpe-icon,
+.fieldset > fieldset > h2 .cpe-icon {
+	margin-right:5px;
+	width:27px;
+	height:27px;
+	min-width:27px;
+	min-height:27px;
+	vertical-align:middle;
+}
+
+/* Level B Fieldset */
+.fieldset fieldset .fieldset {
+  border-color:var(--canvas-background-color);
+  background-image:linear-gradient(to bottom, rgba(24,24,24,0.0), rgba(247,247,247,0.01), rgba(24,24,24,0));
+  background-color:rgba(var(--highlight-background-color-rgb),0.1);
+  color:var(--canvas-foreground-color);
+  box-shadow:none;
+  margin:10px;
+}
+
+/* Level C Fieldset */
+.fieldset fieldset .fieldset fieldset .fieldset {
+	background-color:var(--canvas-secondary-background-color);
+	color:var(--canvas-foreground-color);
+	background-image:none;
+	border-color:var(--inactive-text-background-color);
+}
+
+@media only screen and (max-width:1019px) {
+
+label {
+	font-size:18px;
+}
+
+.fieldset fieldset legend,
+.fieldset > fieldset > h2 {
+	font-size:20px;
+}
+
+.fieldset fieldset legend .cpe-icon,
+.fieldset > fieldset > h2 .cpe-icon {
+	margin-right:4px;
+	--icon-size:1;
+}
+
+
+}
+
+
+
 /* High Contrast Styling */
 .visualmode-contrast body {
 --graphs-opacity:0;
@@ -1466,6 +1582,7 @@ PCR = PerfCap Reason  (Page 4)
 .visualmode-contrast [page*="startup"] .tabs .startup,
 .visualmode-contrast [page*="user"] .tabs .users,
 .visualmode-contrast [page*="details"] .tabs .details,
+.visualmode-contrast [page*="settings"] .tabs .settings,
 .visualmode-contrast .page box.left .button.selected {
 	background-color:var(--highlight-background-color);
 	border-color:var(--highlight-background-color);
@@ -1490,6 +1607,15 @@ PCR = PerfCap Reason  (Page 4)
 }
 
 .visualmode-contrast .proc_page .upper,
+.visualmode-contrast .settings_page .upper,
 .visualmode-contrast .proc_page footer {
 	background-color:transparent;
+}
+
+.visualmode-contrast .fieldset fieldset .fieldset {
+	border-color:currentColor;
+}
+
+.visualmode-contrast .fieldset fieldset .fieldset fieldset .fieldset {
+	border-color:var(--inactive-text-background-color);
 }

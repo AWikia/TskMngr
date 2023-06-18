@@ -84,1045 +84,58 @@
 		</div>
 	</div>
 	<div class="top-gap" style="pointer-events:none;"></div>
-		<div class="tabs-with-page">
-		<header class="tabs">
-			<div class="lunalevit"></div>
-			<a class="processes has-icon" onclick="Tab0()">Processes</a>
-			<a class="performance has-icon" onclick="Tab1()">Performance</a>
-			<a class="history has-icon" onclick="Tab4()">History</a>
-			<a class="startup has-icon" onclick="Tab5()">Startup</a>
-			<a class="users has-icon" onclick="Tab2()">Users</a>
-			<a class="details has-icon" onclick="Tab3()">Details</a>
-		</header>
-		<!--Processes-->
-		<main class="processes">
-			<div class="proc_page">
-				<section>
-					<header class="header upper">
-						<div class="lunalevit"></div>
-						<span class="name">
-							Process name
-						</span>
-						<span class="cpu">
-						<counter>5%</counter>
-							CPU
-						</span>
-						<span class="ram">
-						<counter>50%</counter>
-							RAM
-						</span>
-						<span class="disk">
-						<counter>46%</counter>
-							Disk
-						</span>
-						<span class="network">
-						<counter>2%</counter>
-							Network
-						</span>
-						<span class="gpu">
-						<counter>72%</counter>
-							GPU
-						</span>
-						<span class="ucpu">
-							CPU Uptime
-						</span>
-					</header>
-					<article>
-
-						<header class="header heading">
-							<span class="name"><h2>Active Apps</h2></span>
-						</header>
-
-						<header appname="FileManager" class="header item">
-							<span class="name">File Manager</span>
-							<span class="cpu">1%</span>
-							<span class="ram">700ΜΒ</span>
-							<span class="disk">275MBps</span>
-							<span class="network">0Kbps</span>
-							<span class="gpu">1%</span>
-							<span class="ucpu">00:01:30</span>
-						</header>
-						<header appname="TaskMgr" class="header item">
-							<span class="name">Task Manager</span>
-							<span class="cpu">0%</span>
-							<span class="ram">0ΜΒ</span>
-							<span class="disk">1ΚBps</span>
-							<span class="network">0Kbps</span>
-							<span class="gpu">0%</span>
-							<span class="ucpu">00:00:45</span>
-						</header>
-						<header appname="dolphin" class="header item">
-							<span class="name">Dolphin 5.0</span>
-							<span class="cpu">3%</span>
-							<span class="ram">816ΜΒ</span>
-							<span class="disk">125KBps</span>
-							<span class="network">0Kbps</span>
-							<span class="gpu">68%</span>
-							<span class="ucpu">01:00:30</span>
-						</header>
-						<header appname="dolphin" class="header item">
-							<span class="name">RPG Maker MV</span>
-							<span class="cpu">1%</span>
-							<span class="ram">208ΜΒ</span>
-							<span class="disk">2KBps</span>
-							<span class="network">0Kbps</span>
-							<span class="gpu">0%</span>
-							<span class="ucpu">00:05:34</span>
-						</header>
-						
-						<header appname="browser" class="header item">
-							<span class="name">Qortex Chromessentials</span>
-							<span class="cpu">0%</span>
-							<span class="ram">1536ΜΒ</span>
-							<span class="disk">500KBps</span>
-							<span class="network">100Mbps</span>
-							<span class="gpu">3%</span>
-							<span class="ucpu">00:44:07</span>
-						</header>
-							
-						<header class="header heading">
-							<span class="name"><h2>Background Processes</h2></span>
-						</header>
-
-						<header appname="browser" class="header item">
-							<span class="name">Qortex Chromessentials</span>
-							<span class="cpu">0%</span>
-							<span class="ram">768ΜΒ</span>
-							<span class="disk">500KBps</span>
-							<span class="network">100Mbps</span>
-							<span class="gpu">2%</span>
-							<span class="ucpu">00:44:07</span>
-						</header>
-						<header appname="browser" class="header item">
-							<span class="name">Qortex Chromessentials</span>
-							<span class="cpu">0%</span>
-							<span class="ram">713ΜΒ</span>
-							<span class="disk">0KBps</span>
-							<span class="network">0Mbps</span>
-							<span class="gpu">1%</span>
-							<span class="ucpu">00:44:07</span>
-						</header>
-						<header appname="browser" class="header item">
-							<span class="name">Qortex Chromessentials</span>
-							<span class="cpu">0%</span>
-							<span class="ram">55ΜΒ</span>
-							<span class="disk">80KBps</span>
-							<span class="network">0Mbps</span>
-							<span class="gpu">0%</span>
-							<span class="ucpu">00:10:00</span>
-						</header>
-						<header appname="registry" class="header item">
-							<span class="name">Registry</span>
-							<span class="cpu">0%</span>
-							<span class="ram">4MB</span>
-							<span class="disk">0KBps</span>
-							<span class="network">0Kbps</span>
-							<span class="gpu">0%</span>
-							<span class="ucpu">01:08:22</span>
-						</header>
-						<header appname="system" class="header item">
-							<span class="name">System</span>
-							<span class="cpu">0%</span>
-							<span class="ram">738ΜΒ</span>
-							<span class="disk">1KBps</span>
-							<span class="network">0Kbps</span>
-							<span class="gpu">0%</span>
-							<span class="ucpu">01:08:22</span>
-						</header>
-						<header appname="windowproc" class="header item">
-							<span class="name">Window Process</span>
-							<span class="cpu">0%</span>
-							<span class="ram">0ΜΒ</span>
-							<span class="disk">1KBps</span>
-							<span class="network">0Kbps</span>
-							<span class="gpu">0%</span>
-							<span class="ucpu">01:08:22</span>
-						</header>
-						<header appname="services" class="header item">
-							<span class="name">Mpisto Services</span>
-							<span class="cpu">0%</span>
-							<span class="ram">1,7ΜΒ</span>
-							<span class="disk">0KBps</span>
-							<span class="network">0Kbps</span>
-							<span class="gpu">0%</span>
-							<span class="ucpu">01:08:22</span>
-						</header>
-						<header appname="console" class="header item">
-							<span class="name">Command Console</span>
-							<span class="cpu">0%</span>
-							<span class="ram">0,1ΜΒ</span>
-							<span class="disk">0KBps</span>
-							<span class="network">0Kbps</span>
-							<span class="gpu">0%</span>
-							<span class="ucpu">01:08:22</span>
-						</header>
-						<header appname="console" class="header item">
-							<span class="name">Command Console</span>
-							<span class="cpu">0%</span>
-							<span class="ram">0,2ΜΒ</span>
-							<span class="disk">0KBps</span>
-							<span class="network">0Kbps</span>
-							<span class="gpu">0%</span>
-							<span class="ucpu">01:08:22</span>
-						</header>
-						<header appname="settings" class="header item">
-							<span class="name">Settings</span>
-							<span class="cpu">0%</span>
-							<span class="ram">0ΜΒ</span>
-							<span class="disk">0KBps</span>
-							<span class="network">0Kbps</span>
-							<span class="gpu">0%</span>
-							<span class="ucpu">01:08:22</span>
-						</header>
-			
-					</article>
-					<footer>
-						<div class="lunalevit"></div>
-						<div class="cpe-button-group">
-							<button class="cpe-button is-tertiary is-alert-color">
-							<span class="cpe-icon cpe-icon-small material-icons">block</span>
-							<span>Shutdown Process</span>
-							</button>
-							<button class="cpe-button is-tertiary is-unaccented">
-							<span class="cpe-icon cpe-icon-small material-icons">assignment_add</span>
-							<span>New Process</span>
-							</button>
-						</div>
-					</footer>
-
-				</section>
-			</div>
-		</main>
-		<!--Performance-->
-		<main class="performance">
-			<div class="graphs-with-page">
-			<div class="lunalevit"></div>
-			<!--CPU-->
-			<section class="page performancepage cpu" page="0">
-				<box class="left">
-					<!--Options-->
-					<a class="button p0 selected" onclick="SetPage(0)">
-						<div class="graph">
-		<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gCPU0A"/>
-		</svg>
-						</div>
-						<div>
-							<big>CPU</big>
-							<span class="subtitle">
-								<br>
-								Intel(R) Core(TM)️ i5-9300H CPU @ 2.40GHz
-								<br>
-								5% (48°C)
-								<br>
-								3,98GHz
+		<container>
+			<div class="tabs-with-page">
+			<header class="tabs">
+				<div class="lunalevit"></div>
+				<a class="processes has-icon" onclick="Tab0()">Processes</a>
+				<a class="performance has-icon" onclick="Tab1()">Performance</a>
+				<a class="history has-icon" onclick="Tab4()">History</a>
+				<a class="startup has-icon" onclick="Tab5()">Startup</a>
+				<a class="users has-icon" onclick="Tab2()">Users</a>
+				<a class="details has-icon" onclick="Tab3()">Details</a>
+				<div class="separator"></div>
+				<a class="settings has-icon" onclick="Tab6()">Settings</a>
+			</header>
+			<!--Processes-->
+			<main class="processes">
+				<div class="proc_page">
+					<section>
+						<header class="header upper">
+							<div class="lunalevit"></div>
+							<span class="name">
+								Process name
 							</span>
-						</div>
-					</a>
-					<a class="button p1" onclick="SetPage(1)">
-						<div class="graph">
-		<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gRAM0A"/>
-		</svg>
-						</div>
-						<div>
-							<big>RAM</big>
-							<span class="subtitle">
-								<br>
-								4,0/8,0GB (50%)
-								<br>
-								DDR4
+							<span class="cpu">
+							<counter>5%</counter>
+								CPU
 							</span>
-						</div>
-					</a>
-					<a class="button p2" onclick="SetPage(2)">
-						<div class="graph">
-		<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gDisk0A"/>
-		</svg>
-						</div>
-
-						<div>
-							<big>Disk 0 (A:)</big>
-							<span class="subtitle">
-								<br>
-								WDC PC SN520 SDAPMUW-128G-1101
-								<br>
-								W: 200 R: 240MBps
-								<br>System (46%)
+							<span class="ram">
+							<counter>50%</counter>
+								RAM
 							</span>
-						</div>
-					</a>
-					<a class="button p3" onclick="SetPage(3)">
-						<div class="graph">
-		<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gNetwork0A"/>
-		</svg>
-						</div>
-						<div>
-							<big>Wi-Fi</big>
-							<span class="subtitle">
-								<br>
-								Paksama ConnectUp Network Adapter
-								<br>
-								100%
-								</br>
-								S: 0,9 R: 100Mbps
-								<br>
+							<span class="disk">
+							<counter>46%</counter>
+								Disk
 							</span>
-						</div>
-					</a>
-					<a class="button p4" onclick="SetPage(4)">
-						<div class="graph">
-		<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gGPU0A"/>
-		</svg>
-						</div>
-						<div>
-							<big>GPU 0</big>
-							<span class="subtitle">
-								<br>
-								<span>NVidia GeForce GTX 1650</span>
-								<br> G: 65 M: 30 V: 10 B: 2%<br>27% (54°C)
+							<span class="network">
+							<counter>2%</counter>
+								Network
 							</span>
-						</div>
-					</a>
-
-				</box>
-				<box class="right cpu p0">
-					<div class="header">
-						<h3>Intel(R) Core(TM)️ i5-9300H CPU @ 2.40GHz</h3>
-						<h1>CPU</h1>
-					</div>
-						<div class="g_raph" onclick="CPU1_t()" page="0">
-							<div class="graph">
-								<span class="graph_text">
-									<span>
-										Utilization
-									</span>
-									<span>
-										100%
-									</span>
-								</span>		
-		<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gCPU0"/>
-		</svg>
-							</div>
-							<div class="graph graphHTM">
-								<span class="graph_text">
-									<span>
-										Logical Processors
-									</span>
-									<span>
-										100%
-									</span>
-								</span>
-								<div class="heatmaps">
-									<aside class="heatmap">
-										<cpu style="--heatmap-usage:5%;">5%</cpu>
-										<cpu style="--heatmap-usage:6%;">6%</cpu>
-										<cpu style="--heatmap-usage:4%;">4%</cpu>
-										<cpu style="--heatmap-usage:5%;">5%</cpu>
-										<cpu style="--heatmap-usage:7%;">7%</cpu>
-										<cpu style="--heatmap-usage:3%;">3%</cpu>
-										<cpu style="--heatmap-usage:4%;">4%</cpu>
-										<cpu style="--heatmap-usage:6%;">6%</cpu>
-									</aside>
-								</div>
-							</div>
-
-							<div class="graph graphT">
-								<span class="graph_text">
-									<span>
-										Temperature
-									</span>
-									<span>
-										100°C
-									</span>
-								</span>						
-		<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gCPU2"/>
-		</svg>
-							</div>
-
-							<div class="graph graphF">
-								<span class="graph_text">
-									<span>
-										Frequency
-									</span>
-									<span title="Normal: 2,40GHz">
-										4,10GHz
-									</span>
-								</span>						
-		<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gCPU3"/>
-		</svg>
-							</div>
-						</div>
-						<div class="bottom">
-							<div class="leftp">
-								<div class="col">
-									<div class="info">
-										<span>Utilization</span>
-										<em>5%</em>
-									</div>
-									<div class="info">
-										<span>Frequency</span>
-										<em>3.98GHz</em>
-									</div>
-								</div>
-
-								<div class="col">
-									<div class="info">
-										<span>Processes</span>
-										<em>100</em>
-									</div>
-									<div class="info">
-										<span>Threads</span>
-										<em>2180</em>
-									</div>
-								</div>
-								
-								<div class="col">
-									<div class="info">
-										<span>Temperature</span>
-										<em>48°C</em>
-									</div>
-								</div>
-
-
-							</div>
-							<div class="rightp">
-								<ul>
-								<li>
-								Normal Speed: <span>2,40GHz</span>
-								</li>
-								<li>
-								Cores: <span>4</span>
-								</li>
-								<li>
-								Logical Processors: <span>8</span>
-								</li>
-								<li>
-								NUMA Nodes: <span>1</span>
-								</li>
-								<li>
-								L1 Cache: <span>256KB</span>
-								</li>
-								<li>
-								L2 Cache: <span>1MB</span>
-								</li>
-								<li>
-								L3 Cache: <span>8MB</span>
-								</li>
-								</ul>
-							</div>
-						</div>
-				</box>
-				<!--RAM-->
-				<box class="right ram p1">
-					<div class="header">
-						<h3>DDR4 8,0GB</h3>
-						<h1>RAM</h1>
-					</div>
-							<div class="graph">
-								<span class="graph_text">
-									<span>
-										Memory in use
-									</span>
-									<span>
-										8,0GB
-									</span>
-								</span>		
-		<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gRAM0"/>
-		</svg>
-							</div>
-						<div class="bottom">
-							<div class="leftp">
-								<div class="col">
-									<div class="info">
-										<span>Utilization</span>
-										<em>50%</em>
-									</div>
-									<div class="info">
-										<span>Memory in use</span>
-										<em>4,0/8,0GB</em>
-									</div>
-								</div>
-
-								<div class="col">
-									<div class="info">
-										<span>Virtual Memory</span>
-										<em>6,1/9,9GB</em>
-									</div>
-									<div class="info">
-										<span>Free</span>
-										<em>4,0GB</em>
-									</div>
-								</div>
-								
-								<div class="col">
-									<div class="info">
-										<span>Ping Time</span>
-										<em>90ms</em>
-									</div>
-									<div class="info">
-										<span>Cached</span>
-										<em>1,1GB</em>
-									</div>
-								</div>
-
-
-							</div>
-							<div class="rightp">
-								<ul>
-								<li>
-								Frequency: <span>2,6GHz</span>
-								</li>
-								<li>
-								Slots used: <span>2/4 (-/4,0GB 1,3GHz/-/4,0GB 1,3GHz)</span>
-								</li>
-								<li>
-								Hardware-exclusive Memory: <span>10,4MB</span>
-								</li>
-								</ul>
-							</div>
-						</div>
-				</box>
-				<!--Disk-->
-				<box class="right disk p2">
-					<div class="header">
-						<h3>WDC PC SN520 SDAPMUW-128G-1101</h3>
-						<h1>Disk 0 (A:)</h1>
-					</div>
-						<div class="g_raph" onclick="Disk1_t()" page="0">
-
-							<div class="graph">
-								<span class="graph_text">
-									<span>
-										Throughput Speed
-									</span>
-									<span title="Usual: 125MBps">
-										250MBps
-									</span>
-								</span>		
-		<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gDisk0"/>
-		</svg>
-							</div>
-							<div class="graph graphAT">
-								<span class="graph_text">
-									<span>
-										Utilization
-									</span>
-									<span>
-										100%
-									</span>
-								</span>		
-		<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gDisk1"/>
-		</svg>
-							</div>
-
-						</div>
-						<div class="bottom">
-							<div class="leftp">
-								<div class="col">
-									<div class="info">
-										<span>Utilization</span>
-										<em>46%</em>
-									</div>
-									<div class="info">
-										<span>Ping Time</span>
-										<em>0,5ms</em>
-									</div>
-								</div>
-
-								<div class="col">
-									<div class="info" style="border-left: 2px dotted var(--disk-graph-color);">
-										<span>Write</span>
-										<em>200MBps</em>
-									</div>
-									<div class="info" style="border-left: 2px solid var(--disk-graph-color);">
-										<span>Read</span>
-										<em>240MBps</em>
-									</div>
-								</div>
-						
-
-							</div>
-							<div class="rightp">
-								<ul>
-								<li>
-								Capacibility: <span>230GB</span>
-								</li>
-								<li>
-								Formatted: <span>230GB</span>
-								</li>
-								<li>
-								Type: <span>System Drive</span>
-								</li>
-								<li>
-								Kotzindi Reserved: <span>3,9MB</span>
-								</li>
-								</ul>
-							</div>
-						</div>
-				</box>
-
-				<box class="right network p3">
-					<div class="header">
-						<h3>Paksama ConnectUp Network Adapter</h3>
-						<h1>Wi-Fi</h1>
-					</div>
-						<div class="g_raph" onclick="Network1_t()" page="0">
-
-							<div class="graph">
-								<span class="graph_text">
-									<span>
-										Throughput Speed
-									</span>
-									<span title="Usual: 60Mbps">
-										100Mbps
-									</span>
-								</span>		
-		<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gNetwork0"/>
-		</svg>
-							</div>
-							<div class="graph graphAT">
-								<span class="graph_text">
-									<span>
-										Utilization
-									</span>
-									<span>
-										100%
-									</span>
-								</span>		
-		<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gNetwork1"/>
-		</svg>
-							</div>
-						</div>
-						<div class="bottom">
-							<div class="leftp">
-								<div class="col">
-									<div class="info">
-										<span>Utilization</span>
-										<em>100%</em>
-									</div>
-									<div class="info">
-										<span>Ping Time</span>
-										<em>10ms</em>
-									</div>
-								</div>
-								<div class="col">
-									<div class="info">
-										<span>Signal Strength</span>
-										<em>100%</em>
-									</div>
-									<div class="info">
-										<span>Signal Quality</span>
-										<em>60%</em>
-									</div>
-								</div>
-								<div class="col">
-									<div class="info" style="border-left: 2px dotted var(--network-graph-color);">
-										<span>Send</span>
-										<em>944Kbps</em>
-									</div>
-									<div class="info" style="border-left: 2px solid var(--network-graph-color);">
-										<span>Receive</span>
-										<em>100Mbps</em>
-									</div>
-								</div>
-								
-
-
-							</div>
-							<div class="rightp">
-								<ul>
-								<li>
-								SSID: <span>Yorkbook Internet</span>
-								</li>
-								<li>
-								Internet Service Provider: <span>YN100000-YI</span>
-								</li>
-								<li>
-								Network Type: <span>ConnectUp</span>
-								</li>
-								<li>
-								DNS: <span>---</span>
-								</li>
-								<li>
-								IPv4: <span>192.168.1.3</span>
-								</li>
-								<li>
-								IPv6: <span>2a02:587:a009:8191:48e0:e063:117a:4d18</span>
-								</li>
-								</ul>
-							</div>
-						</div>
-				</box>
-				<!--GPU-->
-				<box class="right gpu p4">
-					<div class="header">
-						<h3>NVidia GeForce GTX 1650</h3>
-						<h1>GPU 0</h1>
-					</div>
-						<div class="g_raph" onclick="GPU1_t()" page="0">
-
-							<div class="graph">
-								<span class="graph_text">
-									<span>
-										Utilization
-									</span>
-									<span>
-										100%
-									</span>
-								</span>		
-		<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gGPU0"/>
-		</svg>
-							</div>
-							<div class="graph graphT">
-								<span class="graph_text">
-									<span>
-										Temperature
-									</span>
-									<span>
-										100°C
-									</span>
-								</span>		
-		<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gGPU1"/>
-		</svg>
-							</div>
-							<div class="graph graphMEM">
-								<span class="graph_text">
-									<span>
-										Memory in use
-									</span>
-									<span>
-										4,0GB
-									</span>
-								</span>		
-		<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gGPU2"/>
-		</svg>
-							</div>
-							<div class="graph graphF">
-								<span class="graph_text">
-									<span>
-										Frequency
-									</span>
-									<span title="Normal: 1,40GHz">
-										1,56GHz
-									</span>
-								</span>		
-		<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gGPU3"/>
-		</svg>
-							</div>
-
-
-						</div>
-						<div class="bottom">
-							<div class="leftp">
-								<div class="col">
-									<div class="info">
-										<span>Utilization</span>
-										<em>27%</em>
-									</div>
-									<div class="info">
-										<span>Frequency</span>
-										<em>1,52GHz</em>
-									</div>
-									<div class="info">
-										<span>Temperature</span>
-										<em>54°C</em>
-									</div>
-								</div>
-								<div class="col">
-									<div class="info">
-										<span>Dedicated Memory in use</span>
-										<em>1,4/4,0GB</em>
-									</div>
-									<div class="info">
-										<span>Shared Memory in use</span>
-										<em>0,3/4,0GΒ</em>
-									</div>
-								</div>
-
-								<div class="col">
-									<div class="info" style="border-left: 2px dotted var(--gpu-graph-color);">
-										<span>Memory Controller</span>
-										<em>30%</em>
-									</div>
-									<div class="info" style="border-left: 2px solid var(--gpu-graph-color);">
-										<span>Graphics Procession</span>
-										<em>65%</em>
-									</div>
-								</div>
-								
-								<div class="col">
-									<div class="info" style="border-left: 2px double var(--gpu-graph-color);">
-										<span>Bus Interface</span>
-										<em>2%</em>
-									</div>
-									<div class="info" style="border-left: 2px dashed var(--gpu-graph-color);">
-										<span>Video Engine</span>
-										<em>10%</em>
-									</div>
-								</div>
-
-
-							</div>
-							<div class="rightp">
-								<ul>
-								<li>
-								Normal Speed: <span>1,40GHz</span>
-								</li>
-								<li>
-								GPU Memory: <span>4,0GB</span>
-								</li>
-								<li>
-								DX Version: <span>12</span>
-								</li>
-								<li>
-								Kotzindi Reserved: <span>120MB</span>
-								</li>
-								</ul>
-							</div>
-						</div>
-				</box>
-
-			</section>
-			</div>
-		</main>
-		<!--History-->
-		<main class="history">
-			<div class="proc_page">
-				<section>
-					<header class="header upper">
-						<div class="lunalevit"></div>
-						<span class="name">
-							Proccess Name
-						</span>
-						<span class="cpu">
-							Network
-						</span>
-						<span class="ram">
-							Disk
-						</span>
-						<span class="disk">
-							Notifications
-						</span>
-						<span class="network">
-							Downstreams
-						</span>
-						<span class="gpu">
-							Upstreams
-						</span>
-						<span class="ucpu">
-							CPU Uptime
-						</span>
-					</header>
-					<article>
-
-
-						<header appname="FileManager" class="header item">
-							<span class="name">File Manager</span>
-							<span class="cpu">1,5GB</span>
-							<span class="ram">2,4GB</span>
-							<span class="disk">0KB</span>
-							<span class="network">100MB</span>
-							<span class="gpu">0KB</span>
-							<span class="ucpu">04:04:30</span>
+							<span class="gpu">
+							<counter>72%</counter>
+								GPU
+							</span>
+							<span class="ucpu">
+								CPU Uptime
+							</span>
 						</header>
-						<header appname="dolphin" class="header item">
-							<span class="name">Dolphin</span>
-							<span class="cpu">20KB</span>
-							<span class="ram">10GB</span>
-							<span class="disk">0KB</span>
-							<span class="network">0KB</span>
-							<span class="gpu">0KB</span>
-							<span class="ucpu">02:05:10</span>
-						</header>
-						<header appname="rpgmv" class="header item">
-							<span class="name">RPG Maker MV</span>
-							<span class="cpu">0KB</span>
-							<span class="ram">35MB</span>
-							<span class="disk">0KB</span>
-							<span class="network">0KB</span>
-							<span class="gpu">0KB</span>
-							<span class="ucpu">00:54:47</span>
-						</header>
-						
-						<header appname="browser" class="header item">
-							<span class="name">Qortex Chromessentials</span>
-							<span class="cpu">700MB</span>
-							<span class="ram">72MB</span>
-							<span class="disk">768KB</span>
-							<span class="network">4,4GB</span>
-							<span class="gpu">930MB</span>
-							<span class="ucpu">01:57:30</span>
-						</header>
-						<header appname="qqupdater" class="header item">
-							<span class="name">Qora Qore Updater</span>
-							<span class="cpu">4GB</span>
-							<span class="ram">3,5GB</span>
-							<span class="disk">8KB</span>
-							<span class="network">4,4GB</span>
-							<span class="gpu">0KB</span>
-							<span class="ucpu">02:05:09</span>
-						</header>
-						<header appname="console" class="header item">
-							<span class="name">Command Console</span>
-							<span class="cpu">0ΚΒ</span>
-							<span class="ram">10ΜΒ</span>
-							<span class="disk">0ΚΒ</span>
-							<span class="network">0ΚΒ</span>
-							<span class="gpu">0ΚΒ</span>
-							<span class="ucpu">00:09:00</span>
-						</header>
-						<header appname="settings" class="header item">
-							<span class="name">Settings</span>
-							<span class="cpu">0ΚΒ</span>
-							<span class="ram">4MB</span>
-							<span class="disk">0ΚΒ</span>
-							<span class="network">0ΚΒ</span>
-							<span class="gpu">0ΚΒ</span>
-							<span class="ucpu">01:00:00</span>
-						</header>
-			
-					</article>
-					<footer>
-						<div class="lunalevit"></div>
-						<div class="cpe-button-group">
-							<button class="cpe-button is-tertiary is-alert-color">
-							<span class="cpe-icon cpe-icon-small material-icons">delete</span>
-							<span>Clear History</span>
-							</button>
-							<button class="cpe-button is-tertiary is-unaccented">
-							<span class="cpe-icon cpe-icon-small material-icons">open_in_new</span>
-							<span>Open Application</span>
-							</button>
-						</div>
-					</footer>
+						<article>
 
-				</section>
-			</div>
-		</main>
-		<!--Startup-->
-		<main class="startup">
-			<div class="proc_page">
-				<section>
-					<header class="header upper">
-						<div class="lunalevit"></div>
-						<span class="name">
-							App Name
-						</span>
-						<span class="cpu">
-							Publisher
-						</span>
-						<span class="ram">
-							Status
-						</span>
-						<span class="disk">
-							Impact
-						</span>
-						<span class="ucpu">
-							CPU Uptime
-						</span>
-					</header>
-					<article>
-						<header appname="browser" class="header item">
-							<span class="name">Qortex Chromessentials</span>
-							<span class="cpu">QQC</span>
-							<span class="ram">Enabled</span>
-							<span class="disk">Low</span>
-							<span class="ucpu">0ms</span>
-						</header>
-						<header appname="qqupdater" class="header item">
-							<span class="name">Qora Qore Updater</span>
-							<span class="cpu">QQC</span>
-							<span class="ram">Disabled</span>
-							<span class="disk">No meassure</span>
-							<span class="ucpu">0ms</span>
-						</header>
-			
-					</article>
-					<footer>
-						<div class="lunalevit"></div>
-						<div class="cpe-button-group">
-							<button class="cpe-button is-tertiary is-success-color">
-							<span class="cpe-icon cpe-icon-small material-icons">done</span>
-							<span>Enable</span>
-							</button>
-							<button class="cpe-button is-tertiary is-alert-color">
-							<span class="cpe-icon cpe-icon-small material-icons">block</span>
-							<span>Disable</span>
-							</button>
-							<button class="cpe-button is-tertiary is-unaccented">
-							<span class="cpe-icon cpe-icon-small material-icons">build</span>
-							<span>Properties</span>
-							</button>
-						</div>
-					</footer>
+							<header class="header heading">
+								<span class="name"><h2>Active Apps</h2></span>
+							</header>
 
-				</section>
-			</div>
-		</main>
-		<!--Users-->
-		<main class="users">
-			<div class="proc_page">
-				<section>
-					<header class="header upper">
-						<div class="lunalevit"></div>
-						<span class="name">
-							User Name
-						</span>
-						<span class="cpu">
-						<counter>5%</counter>
-							CPU
-						</span>
-						<span class="ram">
-						<counter>50%</counter>
-							RAM
-						</span>
-						<span class="disk">
-						<counter>46%</counter>
-							Disk
-						</span>
-						<span class="network">
-						<counter>2%</counter>
-							Network
-						</span>
-						<span class="gpu">
-						<counter>72%</counter>
-							GPU
-						</span>
-						<span class="ucpu">
-							CPU Uptime
-						</span>
-					</header>
-					<article>
-
-
-						<details>
-							<summary>
-								<header alt="ΗΜ100" class="header item">
-									<span class="name">HM100</span>
-									<span class="cpu">5%</span>
-									<span class="ram">4000ΜΒ</span>
-									<span class="disk">275MBps</span>
-									<span class="network">100Μbps</span>
-									<span class="gpu">72%</span>
-									<span class="ucpu">01:08:22</span>
-								</header>
-							</summary>
 							<header appname="FileManager" class="header item">
 								<span class="name">File Manager</span>
 								<span class="cpu">1%</span>
@@ -1150,7 +163,7 @@
 								<span class="gpu">68%</span>
 								<span class="ucpu">01:00:30</span>
 							</header>
-							<header appname="rpgmv" class="header item">
+							<header appname="dolphin" class="header item">
 								<span class="name">RPG Maker MV</span>
 								<span class="cpu">1%</span>
 								<span class="ram">208ΜΒ</span>
@@ -1169,6 +182,11 @@
 								<span class="gpu">3%</span>
 								<span class="ucpu">00:44:07</span>
 							</header>
+								
+							<header class="header heading">
+								<span class="name"><h2>Background Processes</h2></span>
+							</header>
+
 							<header appname="browser" class="header item">
 								<span class="name">Qortex Chromessentials</span>
 								<span class="cpu">0%</span>
@@ -1195,6 +213,42 @@
 								<span class="network">0Mbps</span>
 								<span class="gpu">0%</span>
 								<span class="ucpu">00:10:00</span>
+							</header>
+							<header appname="registry" class="header item">
+								<span class="name">Registry</span>
+								<span class="cpu">0%</span>
+								<span class="ram">4MB</span>
+								<span class="disk">0KBps</span>
+								<span class="network">0Kbps</span>
+								<span class="gpu">0%</span>
+								<span class="ucpu">01:08:22</span>
+							</header>
+							<header appname="system" class="header item">
+								<span class="name">System</span>
+								<span class="cpu">0%</span>
+								<span class="ram">738ΜΒ</span>
+								<span class="disk">1KBps</span>
+								<span class="network">0Kbps</span>
+								<span class="gpu">0%</span>
+								<span class="ucpu">01:08:22</span>
+							</header>
+							<header appname="windowproc" class="header item">
+								<span class="name">Window Process</span>
+								<span class="cpu">0%</span>
+								<span class="ram">0ΜΒ</span>
+								<span class="disk">1KBps</span>
+								<span class="network">0Kbps</span>
+								<span class="gpu">0%</span>
+								<span class="ucpu">01:08:22</span>
+							</header>
+							<header appname="services" class="header item">
+								<span class="name">Mpisto Services</span>
+								<span class="cpu">0%</span>
+								<span class="ram">1,7ΜΒ</span>
+								<span class="disk">0KBps</span>
+								<span class="network">0Kbps</span>
+								<span class="gpu">0%</span>
+								<span class="ucpu">01:08:22</span>
 							</header>
 							<header appname="console" class="header item">
 								<span class="name">Command Console</span>
@@ -1223,213 +277,1252 @@
 								<span class="gpu">0%</span>
 								<span class="ucpu">01:08:22</span>
 							</header>
-						</details>
-			
-					</article>
-					<footer>
-						<div class="lunalevit"></div>
-						<div class="cpe-button-group">
-							<button class="cpe-button is-tertiary is-alert-color">
-							<span class="cpe-icon cpe-icon-small material-icons">person_off</span>
-							<span>Disconnect User</span>
-							</button>
-							<button class="cpe-button is-tertiary is-unaccented">
-							<span class="cpe-icon cpe-icon-small material-icons">manage_accounts</span>
-							<span>Manage Profiles</span>
-							</button>
-						</div>
-					</footer>
+				
+						</article>
+						<footer>
+							<div class="lunalevit"></div>
+							<div class="cpe-button-group">
+								<button class="cpe-button is-tertiary is-alert-color">
+								<span class="cpe-icon cpe-icon-small material-icons">block</span>
+								<span>Shutdown Process</span>
+								</button>
+								<button class="cpe-button is-tertiary is-unaccented">
+								<span class="cpe-icon cpe-icon-small material-icons">assignment_add</span>
+								<span>New Process</span>
+								</button>
+							</div>
+						</footer>
 
-				</section>
-			</div>
-		</main>
-		<!--Details-->
-		<main class="details">
-			<div class="proc_page">
-				<section>
-					<header class="header upper">
-						<div class="lunalevit"></div>
-						<span class="name">
-							Process Name
-						</span>
-						<span class="cpu">
-							CPU
-						</span>
-						<span class="ram">
-							RAM
-						</span>
-						<span class="disk">
-							Disk
-						</span>
-						<span class="network">
-							Network
-						</span>
-						<span class="gpu">
-							GPU
-						</span>
-						<span class="ucpu">
-							User
-						</span>
-					</header>
-					<article>
-						<header appname="FileManager" class="header item">
-							<span class="name">manager.exe</span>
-							<span class="cpu">1%</span>
-							<span class="ram">700ΜΒ</span>
-							<span class="disk">275MBps</span>
-							<span class="network">0Kbps</span>
-							<span class="gpu">1%</span>
-							<span class="ucpu">HM100</span>
-						</header>
-						<header appname="TaskMgr" class="header item">
-							<span class="name">taskmgr.exe</span>
-							<span class="cpu">0%</span>
-							<span class="ram">0ΜΒ</span>
-							<span class="disk">1ΚBps</span>
-							<span class="network">0Kbps</span>
-							<span class="gpu">0%</span>
-							<span class="ucpu">HM100</span>
-						</header>
-						<header appname="dolphin" class="header item">
-							<span class="name">dolphin.exe</span>
-							<span class="cpu">3%</span>
-							<span class="ram">816ΜΒ</span>
-							<span class="disk">125KBps</span>
-							<span class="network">0Kbps</span>
-							<span class="gpu">68%</span>
-							<span class="ucpu">HM100</span>
-						</header>
-						<header appname="dolphin" class="header item">
-							<span class="name">RPGMV.exe</span>
-							<span class="cpu">1%</span>
-							<span class="ram">208ΜΒ</span>
-							<span class="disk">2KBps</span>
-							<span class="network">0Kbps</span>
-							<span class="gpu">0%</span>
-							<span class="ucpu">HM100</span>
-						</header>
-						
-						<header appname="browser" class="header item">
-							<span class="name">qortex.exe</span>
-							<span class="cpu">0%</span>
-							<span class="ram">1536ΜΒ</span>
-							<span class="disk">500KBps</span>
-							<span class="network">100Mbps</span>
-							<span class="gpu">3%</span>
-							<span class="ucpu">HM100</span>
-						</header>
+					</section>
+				</div>
+			</main>
+			<!--Performance-->
+			<main class="performance">
+				<div class="graphs-with-page">
+				<div class="lunalevit"></div>
+				<!--CPU-->
+				<section class="page performancepage cpu" page="0">
+					<box class="left">
+						<!--Options-->
+						<a class="button p0 selected" onclick="SetPage(0)">
+							<div class="graph">
+			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gCPU0A"/>
+			</svg>
+							</div>
+							<div>
+								<big>CPU</big>
+								<span class="subtitle">
+									<br>
+									Intel(R) Core(TM)️ i5-9300H CPU @ 2.40GHz
+									<br>
+									5% (48°C)
+									<br>
+									3,98GHz
+								</span>
+							</div>
+						</a>
+						<a class="button p1" onclick="SetPage(1)">
+							<div class="graph">
+			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gRAM0A"/>
+			</svg>
+							</div>
+							<div>
+								<big>RAM</big>
+								<span class="subtitle">
+									<br>
+									4,0/8,0GB (50%)
+									<br>
+									DDR4
+								</span>
+							</div>
+						</a>
+						<a class="button p2" onclick="SetPage(2)">
+							<div class="graph">
+			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gDisk0A"/>
+			</svg>
+							</div>
+
+							<div>
+								<big>Disk 0 (A:)</big>
+								<span class="subtitle">
+									<br>
+									WDC PC SN520 SDAPMUW-128G-1101
+									<br>
+									W: 200 R: 240MBps
+									<br>System (46%)
+								</span>
+							</div>
+						</a>
+						<a class="button p3" onclick="SetPage(3)">
+							<div class="graph">
+			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gNetwork0A"/>
+			</svg>
+							</div>
+							<div>
+								<big>Wi-Fi</big>
+								<span class="subtitle">
+									<br>
+									Paksama ConnectUp Network Adapter
+									<br>
+									100%
+									</br>
+									S: 0,9 R: 100Mbps
+									<br>
+								</span>
+							</div>
+						</a>
+						<a class="button p4" onclick="SetPage(4)">
+							<div class="graph">
+			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gGPU0A"/>
+			</svg>
+							</div>
+							<div>
+								<big>GPU 0</big>
+								<span class="subtitle">
+									<br>
+									<span>NVidia GeForce GTX 1650</span>
+									<br> G: 65 M: 30 V: 10 B: 2%<br>27% (54°C)
+								</span>
+							</div>
+						</a>
+
+					</box>
+					<box class="right cpu p0">
+						<div class="header">
+							<h3>Intel(R) Core(TM)️ i5-9300H CPU @ 2.40GHz</h3>
+							<h1>CPU</h1>
+						</div>
+							<div class="g_raph" onclick="CPU1_t()" page="0">
+								<div class="graph">
+									<span class="graph_text">
+										<span>
+											Utilization
+										</span>
+										<span>
+											100%
+										</span>
+									</span>		
+			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gCPU0"/>
+			</svg>
+								</div>
+								<div class="graph graphHTM">
+									<span class="graph_text">
+										<span>
+											Logical Processors
+										</span>
+										<span>
+											100%
+										</span>
+									</span>
+									<div class="heatmaps">
+										<aside class="heatmap">
+											<cpu style="--heatmap-usage:5%;">5%</cpu>
+											<cpu style="--heatmap-usage:6%;">6%</cpu>
+											<cpu style="--heatmap-usage:4%;">4%</cpu>
+											<cpu style="--heatmap-usage:5%;">5%</cpu>
+											<cpu style="--heatmap-usage:7%;">7%</cpu>
+											<cpu style="--heatmap-usage:3%;">3%</cpu>
+											<cpu style="--heatmap-usage:4%;">4%</cpu>
+											<cpu style="--heatmap-usage:6%;">6%</cpu>
+										</aside>
+									</div>
+								</div>
+
+								<div class="graph graphT">
+									<span class="graph_text">
+										<span>
+											Temperature
+										</span>
+										<span>
+											100°C
+										</span>
+									</span>						
+			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gCPU2"/>
+			</svg>
+								</div>
+
+								<div class="graph graphF">
+									<span class="graph_text">
+										<span>
+											Frequency
+										</span>
+										<span title="Normal: 2,40GHz">
+											4,10GHz
+										</span>
+									</span>						
+			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gCPU3"/>
+			</svg>
+								</div>
+							</div>
+							<div class="bottom">
+								<div class="leftp">
+									<div class="col">
+										<div class="info">
+											<span>Utilization</span>
+											<em>5%</em>
+										</div>
+										<div class="info">
+											<span>Frequency</span>
+											<em>3.98GHz</em>
+										</div>
+									</div>
+
+									<div class="col">
+										<div class="info">
+											<span>Processes</span>
+											<em>100</em>
+										</div>
+										<div class="info">
+											<span>Threads</span>
+											<em>2180</em>
+										</div>
+									</div>
+									
+									<div class="col">
+										<div class="info">
+											<span>Temperature</span>
+											<em>48°C</em>
+										</div>
+									</div>
+
+
+								</div>
+								<div class="rightp">
+									<ul>
+									<li>
+									Normal Speed: <span>2,40GHz</span>
+									</li>
+									<li>
+									Cores: <span>4</span>
+									</li>
+									<li>
+									Logical Processors: <span>8</span>
+									</li>
+									<li>
+									NUMA Nodes: <span>1</span>
+									</li>
+									<li>
+									L1 Cache: <span>256KB</span>
+									</li>
+									<li>
+									L2 Cache: <span>1MB</span>
+									</li>
+									<li>
+									L3 Cache: <span>8MB</span>
+									</li>
+									</ul>
+								</div>
+							</div>
+					</box>
+					<!--RAM-->
+					<box class="right ram p1">
+						<div class="header">
+							<h3>DDR4 8,0GB</h3>
+							<h1>RAM</h1>
+						</div>
+								<div class="graph">
+									<span class="graph_text">
+										<span>
+											Memory in use
+										</span>
+										<span>
+											8,0GB
+										</span>
+									</span>		
+			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gRAM0"/>
+			</svg>
+								</div>
+							<div class="bottom">
+								<div class="leftp">
+									<div class="col">
+										<div class="info">
+											<span>Utilization</span>
+											<em>50%</em>
+										</div>
+										<div class="info">
+											<span>Memory in use</span>
+											<em>4,0/8,0GB</em>
+										</div>
+									</div>
+
+									<div class="col">
+										<div class="info">
+											<span>Virtual Memory</span>
+											<em>6,1/9,9GB</em>
+										</div>
+										<div class="info">
+											<span>Free</span>
+											<em>4,0GB</em>
+										</div>
+									</div>
+									
+									<div class="col">
+										<div class="info">
+											<span>Ping Time</span>
+											<em>90ms</em>
+										</div>
+										<div class="info">
+											<span>Cached</span>
+											<em>1,1GB</em>
+										</div>
+									</div>
+
+
+								</div>
+								<div class="rightp">
+									<ul>
+									<li>
+									Frequency: <span>2,6GHz</span>
+									</li>
+									<li>
+									Slots used: <span>2/4 (-/4,0GB 1,3GHz/-/4,0GB 1,3GHz)</span>
+									</li>
+									<li>
+									Hardware-exclusive Memory: <span>10,4MB</span>
+									</li>
+									</ul>
+								</div>
+							</div>
+					</box>
+					<!--Disk-->
+					<box class="right disk p2">
+						<div class="header">
+							<h3>WDC PC SN520 SDAPMUW-128G-1101</h3>
+							<h1>Disk 0 (A:)</h1>
+						</div>
+							<div class="g_raph" onclick="Disk1_t()" page="0">
+
+								<div class="graph">
+									<span class="graph_text">
+										<span>
+											Throughput Speed
+										</span>
+										<span title="Usual: 125MBps">
+											250MBps
+										</span>
+									</span>		
+			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gDisk0"/>
+			</svg>
+								</div>
+								<div class="graph graphAT">
+									<span class="graph_text">
+										<span>
+											Utilization
+										</span>
+										<span>
+											100%
+										</span>
+									</span>		
+			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gDisk1"/>
+			</svg>
+								</div>
+
+							</div>
+							<div class="bottom">
+								<div class="leftp">
+									<div class="col">
+										<div class="info">
+											<span>Utilization</span>
+											<em>46%</em>
+										</div>
+										<div class="info">
+											<span>Ping Time</span>
+											<em>0,5ms</em>
+										</div>
+									</div>
+
+									<div class="col">
+										<div class="info" style="border-left: 2px dotted var(--disk-graph-color);">
+											<span>Write</span>
+											<em>200MBps</em>
+										</div>
+										<div class="info" style="border-left: 2px solid var(--disk-graph-color);">
+											<span>Read</span>
+											<em>240MBps</em>
+										</div>
+									</div>
 							
 
-						<header appname="browser" class="header item">
-							<span class="name">qortex.exe</span>
-							<span class="cpu">0%</span>
-							<span class="ram">768ΜΒ</span>
-							<span class="disk">500KBps</span>
-							<span class="network">100Mbps</span>
-							<span class="gpu">2%</span>
-							<span class="ucpu">HM100</span>
-						</header>
-						<header appname="browser" class="header item">
-							<span class="name">qortex.exe</span>
-							<span class="cpu">0%</span>
-							<span class="ram">713ΜΒ</span>
-							<span class="disk">0KBps</span>
-							<span class="network">0Mbps</span>
-							<span class="gpu">1%</span>
-							<span class="ucpu">HM100</span>
-						</header>
-						<header appname="browser" class="header item">
-							<span class="name">qortex.exe</span>
-							<span class="cpu">0%</span>
-							<span class="ram">55ΜΒ</span>
-							<span class="disk">80KBps</span>
-							<span class="network">0Mbps</span>
-							<span class="gpu">0%</span>
-							<span class="ucpu">HM100</span>
-						</header>
-						<header appname="registry" class="header item">
-							<span class="name">registry.exe</span>
-							<span class="cpu">0%</span>
-							<span class="ram">4MB</span>
-							<span class="disk">0KBps</span>
-							<span class="network">0Kbps</span>
-							<span class="gpu">0%</span>
-							<span class="ucpu">SYSTEM</span>
-						</header>
-						<header appname="system" class="header item">
-							<span class="name">system.exe</span>
-							<span class="cpu">0%</span>
-							<span class="ram">738ΜΒ</span>
-							<span class="disk">1KBps</span>
-							<span class="network">0Kbps</span>
-							<span class="gpu">0%</span>
-							<span class="ucpu">SYSTEM</span>
-						</header>
-						<header appname="windowproc" class="header item">
-							<span class="name">Wndproc.exe</span>
-							<span class="cpu">0%</span>
-							<span class="ram">0ΜΒ</span>
-							<span class="disk">1KBps</span>
-							<span class="network">0Kbps</span>
-							<span class="gpu">0%</span>
-							<span class="ucpu">SYSTEM</span>
-						</header>
-						<header appname="services" class="header item">
-							<span class="name">MSrvc.exe</span>
-							<span class="cpu">0%</span>
-							<span class="ram">1,7ΜΒ</span>
-							<span class="disk">0KBps</span>
-							<span class="network">0Kbps</span>
-							<span class="gpu">0%</span>
-							<span class="ucpu">SYSTEM</span>
-						</header>
-						<header appname="console" class="header item">
-							<span class="name">cnsl.exe</span>
-							<span class="cpu">0%</span>
-							<span class="ram">0,1ΜΒ</span>
-							<span class="disk">0KBps</span>
-							<span class="network">0Kbps</span>
-							<span class="gpu">0%</span>
-							<span class="ucpu">SYSTEM</span>
-						</header>
-						<header appname="console" class="header item">
-							<span class="name">cnsl.exe</span>
-							<span class="cpu">0%</span>
-							<span class="ram">0,2ΜΒ</span>
-							<span class="disk">0KBps</span>
-							<span class="network">0Kbps</span>
-							<span class="gpu">0%</span>
-							<span class="ucpu">SYSTEM</span>
-						</header>
-						<header appname="settings" class="header item">
-							<span class="name">Settings.exe</span>
-							<span class="cpu">0%</span>
-							<span class="ram">0ΜΒ</span>
-							<span class="disk">0KBps</span>
-							<span class="network">0Kbps</span>
-							<span class="gpu">0%</span>
-							<span class="ucpu">HM100</span>
-						</header>
-			
-					</article>
-					<footer>
-						<div class="lunalevit"></div>
-						<div class="cpe-button-group">
-							<button class="cpe-button is-tertiary is-alert-color">
-							<span class="cpe-icon cpe-icon-small material-icons">block</span>
-							<span>Shutdown Process</span>
-							</button>
-							<button class="cpe-button is-tertiary is-unaccented">
-							<span class="cpe-icon cpe-icon-small material-icons">assignment_add</span>
-							<span>New Process</span>
-							</button>
+								</div>
+								<div class="rightp">
+									<ul>
+									<li>
+									Capacibility: <span>230GB</span>
+									</li>
+									<li>
+									Formatted: <span>230GB</span>
+									</li>
+									<li>
+									Type: <span>System Drive</span>
+									</li>
+									<li>
+									Kotzindi Reserved: <span>3,9MB</span>
+									</li>
+									</ul>
+								</div>
+							</div>
+					</box>
+
+					<box class="right network p3">
+						<div class="header">
+							<h3>Paksama ConnectUp Network Adapter</h3>
+							<h1>Wi-Fi</h1>
 						</div>
-					</footer>
+							<div class="g_raph" onclick="Network1_t()" page="0">
+
+								<div class="graph">
+									<span class="graph_text">
+										<span>
+											Throughput Speed
+										</span>
+										<span title="Usual: 60Mbps">
+											100Mbps
+										</span>
+									</span>		
+			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gNetwork0"/>
+			</svg>
+								</div>
+								<div class="graph graphAT">
+									<span class="graph_text">
+										<span>
+											Utilization
+										</span>
+										<span>
+											100%
+										</span>
+									</span>		
+			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gNetwork1"/>
+			</svg>
+								</div>
+							</div>
+							<div class="bottom">
+								<div class="leftp">
+									<div class="col">
+										<div class="info">
+											<span>Utilization</span>
+											<em>100%</em>
+										</div>
+										<div class="info">
+											<span>Ping Time</span>
+											<em>10ms</em>
+										</div>
+									</div>
+									<div class="col">
+										<div class="info">
+											<span>Signal Strength</span>
+											<em>100%</em>
+										</div>
+										<div class="info">
+											<span>Signal Quality</span>
+											<em>60%</em>
+										</div>
+									</div>
+									<div class="col">
+										<div class="info" style="border-left: 2px dotted var(--network-graph-color);">
+											<span>Send</span>
+											<em>944Kbps</em>
+										</div>
+										<div class="info" style="border-left: 2px solid var(--network-graph-color);">
+											<span>Receive</span>
+											<em>100Mbps</em>
+										</div>
+									</div>
+									
+
+
+								</div>
+								<div class="rightp">
+									<ul>
+									<li>
+									SSID: <span>Yorkbook Internet</span>
+									</li>
+									<li>
+									Internet Service Provider: <span>YN100000-YI</span>
+									</li>
+									<li>
+									Network Type: <span>ConnectUp</span>
+									</li>
+									<li>
+									DNS: <span>---</span>
+									</li>
+									<li>
+									IPv4: <span>192.168.1.3</span>
+									</li>
+									<li>
+									IPv6: <span>2a02:587:a009:8191:48e0:e063:117a:4d18</span>
+									</li>
+									</ul>
+								</div>
+							</div>
+					</box>
+					<!--GPU-->
+					<box class="right gpu p4">
+						<div class="header">
+							<h3>NVidia GeForce GTX 1650</h3>
+							<h1>GPU 0</h1>
+						</div>
+							<div class="g_raph" onclick="GPU1_t()" page="0">
+
+								<div class="graph">
+									<span class="graph_text">
+										<span>
+											Utilization
+										</span>
+										<span>
+											100%
+										</span>
+									</span>		
+			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gGPU0"/>
+			</svg>
+								</div>
+								<div class="graph graphT">
+									<span class="graph_text">
+										<span>
+											Temperature
+										</span>
+										<span>
+											100°C
+										</span>
+									</span>		
+			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gGPU1"/>
+			</svg>
+								</div>
+								<div class="graph graphMEM">
+									<span class="graph_text">
+										<span>
+											Memory in use
+										</span>
+										<span>
+											4,0GB
+										</span>
+									</span>		
+			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gGPU2"/>
+			</svg>
+								</div>
+								<div class="graph graphF">
+									<span class="graph_text">
+										<span>
+											Frequency
+										</span>
+										<span title="Normal: 1,40GHz">
+											1,56GHz
+										</span>
+									</span>		
+			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gGPU3"/>
+			</svg>
+								</div>
+
+
+							</div>
+							<div class="bottom">
+								<div class="leftp">
+									<div class="col">
+										<div class="info">
+											<span>Utilization</span>
+											<em>27%</em>
+										</div>
+										<div class="info">
+											<span>Frequency</span>
+											<em>1,52GHz</em>
+										</div>
+										<div class="info">
+											<span>Temperature</span>
+											<em>54°C</em>
+										</div>
+									</div>
+									<div class="col">
+										<div class="info">
+											<span>Dedicated Memory in use</span>
+											<em>1,4/4,0GB</em>
+										</div>
+										<div class="info">
+											<span>Shared Memory in use</span>
+											<em>0,3/4,0GΒ</em>
+										</div>
+									</div>
+
+									<div class="col">
+										<div class="info" style="border-left: 2px dotted var(--gpu-graph-color);">
+											<span>Memory Controller</span>
+											<em>30%</em>
+										</div>
+										<div class="info" style="border-left: 2px solid var(--gpu-graph-color);">
+											<span>Graphics Procession</span>
+											<em>65%</em>
+										</div>
+									</div>
+									
+									<div class="col">
+										<div class="info" style="border-left: 2px double var(--gpu-graph-color);">
+											<span>Bus Interface</span>
+											<em>2%</em>
+										</div>
+										<div class="info" style="border-left: 2px dashed var(--gpu-graph-color);">
+											<span>Video Engine</span>
+											<em>10%</em>
+										</div>
+									</div>
+
+
+								</div>
+								<div class="rightp">
+									<ul>
+									<li>
+									Normal Speed: <span>1,40GHz</span>
+									</li>
+									<li>
+									GPU Memory: <span>4,0GB</span>
+									</li>
+									<li>
+									DX Version: <span>12</span>
+									</li>
+									<li>
+									Kotzindi Reserved: <span>120MB</span>
+									</li>
+									</ul>
+								</div>
+							</div>
+					</box>
 
 				</section>
-			</div>
-		</main>
-	</div>
+				</div>
+			</main>
+			<!--History-->
+			<main class="history">
+				<div class="proc_page">
+					<section>
+						<header class="header upper">
+							<div class="lunalevit"></div>
+							<span class="name">
+								Proccess Name
+							</span>
+							<span class="cpu">
+								Network
+							</span>
+							<span class="ram">
+								Disk
+							</span>
+							<span class="disk">
+								Notifications
+							</span>
+							<span class="network">
+								Downstreams
+							</span>
+							<span class="gpu">
+								Upstreams
+							</span>
+							<span class="ucpu">
+								CPU Uptime
+							</span>
+						</header>
+						<article>
+
+
+							<header appname="FileManager" class="header item">
+								<span class="name">File Manager</span>
+								<span class="cpu">1,5GB</span>
+								<span class="ram">2,4GB</span>
+								<span class="disk">0KB</span>
+								<span class="network">100MB</span>
+								<span class="gpu">0KB</span>
+								<span class="ucpu">04:04:30</span>
+							</header>
+							<header appname="dolphin" class="header item">
+								<span class="name">Dolphin</span>
+								<span class="cpu">20KB</span>
+								<span class="ram">10GB</span>
+								<span class="disk">0KB</span>
+								<span class="network">0KB</span>
+								<span class="gpu">0KB</span>
+								<span class="ucpu">02:05:10</span>
+							</header>
+							<header appname="rpgmv" class="header item">
+								<span class="name">RPG Maker MV</span>
+								<span class="cpu">0KB</span>
+								<span class="ram">35MB</span>
+								<span class="disk">0KB</span>
+								<span class="network">0KB</span>
+								<span class="gpu">0KB</span>
+								<span class="ucpu">00:54:47</span>
+							</header>
+							
+							<header appname="browser" class="header item">
+								<span class="name">Qortex Chromessentials</span>
+								<span class="cpu">700MB</span>
+								<span class="ram">72MB</span>
+								<span class="disk">768KB</span>
+								<span class="network">4,4GB</span>
+								<span class="gpu">930MB</span>
+								<span class="ucpu">01:57:30</span>
+							</header>
+							<header appname="qqupdater" class="header item">
+								<span class="name">Qora Qore Updater</span>
+								<span class="cpu">4GB</span>
+								<span class="ram">3,5GB</span>
+								<span class="disk">8KB</span>
+								<span class="network">4,4GB</span>
+								<span class="gpu">0KB</span>
+								<span class="ucpu">02:05:09</span>
+							</header>
+							<header appname="console" class="header item">
+								<span class="name">Command Console</span>
+								<span class="cpu">0ΚΒ</span>
+								<span class="ram">10ΜΒ</span>
+								<span class="disk">0ΚΒ</span>
+								<span class="network">0ΚΒ</span>
+								<span class="gpu">0ΚΒ</span>
+								<span class="ucpu">00:09:00</span>
+							</header>
+							<header appname="settings" class="header item">
+								<span class="name">Settings</span>
+								<span class="cpu">0ΚΒ</span>
+								<span class="ram">4MB</span>
+								<span class="disk">0ΚΒ</span>
+								<span class="network">0ΚΒ</span>
+								<span class="gpu">0ΚΒ</span>
+								<span class="ucpu">01:00:00</span>
+							</header>
+				
+						</article>
+						<footer>
+							<div class="lunalevit"></div>
+							<div class="cpe-button-group">
+								<button class="cpe-button is-tertiary is-alert-color">
+								<span class="cpe-icon cpe-icon-small material-icons">delete</span>
+								<span>Clear History</span>
+								</button>
+								<button class="cpe-button is-tertiary is-unaccented">
+								<span class="cpe-icon cpe-icon-small material-icons">open_in_new</span>
+								<span>Open Application</span>
+								</button>
+							</div>
+						</footer>
+
+					</section>
+				</div>
+			</main>
+			<!--Startup-->
+			<main class="startup">
+				<div class="proc_page">
+					<section>
+						<header class="header upper">
+							<div class="lunalevit"></div>
+							<span class="name">
+								App Name
+							</span>
+							<span class="cpu">
+								Publisher
+							</span>
+							<span class="ram">
+								Status
+							</span>
+							<span class="disk">
+								Impact
+							</span>
+							<span class="ucpu">
+								CPU Uptime
+							</span>
+						</header>
+						<article>
+							<header appname="browser" class="header item">
+								<span class="name">Qortex Chromessentials</span>
+								<span class="cpu">QQC</span>
+								<span class="ram">Enabled</span>
+								<span class="disk">Low</span>
+								<span class="ucpu">0ms</span>
+							</header>
+							<header appname="qqupdater" class="header item">
+								<span class="name">Qora Qore Updater</span>
+								<span class="cpu">QQC</span>
+								<span class="ram">Disabled</span>
+								<span class="disk">No meassure</span>
+								<span class="ucpu">0ms</span>
+							</header>
+				
+						</article>
+						<footer>
+							<div class="lunalevit"></div>
+							<div class="cpe-button-group">
+								<button class="cpe-button is-tertiary is-success-color">
+								<span class="cpe-icon cpe-icon-small material-icons">done</span>
+								<span>Enable</span>
+								</button>
+								<button class="cpe-button is-tertiary is-alert-color">
+								<span class="cpe-icon cpe-icon-small material-icons">block</span>
+								<span>Disable</span>
+								</button>
+								<button class="cpe-button is-tertiary is-unaccented">
+								<span class="cpe-icon cpe-icon-small material-icons">build</span>
+								<span>Properties</span>
+								</button>
+							</div>
+						</footer>
+
+					</section>
+				</div>
+			</main>
+			<!--Users-->
+			<main class="users">
+				<div class="proc_page">
+					<section>
+						<header class="header upper">
+							<div class="lunalevit"></div>
+							<span class="name">
+								User Name
+							</span>
+							<span class="cpu">
+							<counter>5%</counter>
+								CPU
+							</span>
+							<span class="ram">
+							<counter>50%</counter>
+								RAM
+							</span>
+							<span class="disk">
+							<counter>46%</counter>
+								Disk
+							</span>
+							<span class="network">
+							<counter>2%</counter>
+								Network
+							</span>
+							<span class="gpu">
+							<counter>72%</counter>
+								GPU
+							</span>
+							<span class="ucpu">
+								CPU Uptime
+							</span>
+						</header>
+						<article>
+
+
+							<details>
+								<summary>
+									<header alt="ΗΜ100" class="header item">
+										<span class="name">HM100</span>
+										<span class="cpu">5%</span>
+										<span class="ram">4000ΜΒ</span>
+										<span class="disk">275MBps</span>
+										<span class="network">100Μbps</span>
+										<span class="gpu">72%</span>
+										<span class="ucpu">01:08:22</span>
+									</header>
+								</summary>
+								<header appname="FileManager" class="header item">
+									<span class="name">File Manager</span>
+									<span class="cpu">1%</span>
+									<span class="ram">700ΜΒ</span>
+									<span class="disk">275MBps</span>
+									<span class="network">0Kbps</span>
+									<span class="gpu">1%</span>
+									<span class="ucpu">00:01:30</span>
+								</header>
+								<header appname="TaskMgr" class="header item">
+									<span class="name">Task Manager</span>
+									<span class="cpu">0%</span>
+									<span class="ram">0ΜΒ</span>
+									<span class="disk">1ΚBps</span>
+									<span class="network">0Kbps</span>
+									<span class="gpu">0%</span>
+									<span class="ucpu">00:00:45</span>
+								</header>
+								<header appname="dolphin" class="header item">
+									<span class="name">Dolphin 5.0</span>
+									<span class="cpu">3%</span>
+									<span class="ram">816ΜΒ</span>
+									<span class="disk">125KBps</span>
+									<span class="network">0Kbps</span>
+									<span class="gpu">68%</span>
+									<span class="ucpu">01:00:30</span>
+								</header>
+								<header appname="rpgmv" class="header item">
+									<span class="name">RPG Maker MV</span>
+									<span class="cpu">1%</span>
+									<span class="ram">208ΜΒ</span>
+									<span class="disk">2KBps</span>
+									<span class="network">0Kbps</span>
+									<span class="gpu">0%</span>
+									<span class="ucpu">00:05:34</span>
+								</header>
+								
+								<header appname="browser" class="header item">
+									<span class="name">Qortex Chromessentials</span>
+									<span class="cpu">0%</span>
+									<span class="ram">1536ΜΒ</span>
+									<span class="disk">500KBps</span>
+									<span class="network">100Mbps</span>
+									<span class="gpu">3%</span>
+									<span class="ucpu">00:44:07</span>
+								</header>
+								<header appname="browser" class="header item">
+									<span class="name">Qortex Chromessentials</span>
+									<span class="cpu">0%</span>
+									<span class="ram">768ΜΒ</span>
+									<span class="disk">500KBps</span>
+									<span class="network">100Mbps</span>
+									<span class="gpu">2%</span>
+									<span class="ucpu">00:44:07</span>
+								</header>
+								<header appname="browser" class="header item">
+									<span class="name">Qortex Chromessentials</span>
+									<span class="cpu">0%</span>
+									<span class="ram">713ΜΒ</span>
+									<span class="disk">0KBps</span>
+									<span class="network">0Mbps</span>
+									<span class="gpu">1%</span>
+									<span class="ucpu">00:44:07</span>
+								</header>
+								<header appname="browser" class="header item">
+									<span class="name">Qortex Chromessentials</span>
+									<span class="cpu">0%</span>
+									<span class="ram">55ΜΒ</span>
+									<span class="disk">80KBps</span>
+									<span class="network">0Mbps</span>
+									<span class="gpu">0%</span>
+									<span class="ucpu">00:10:00</span>
+								</header>
+								<header appname="console" class="header item">
+									<span class="name">Command Console</span>
+									<span class="cpu">0%</span>
+									<span class="ram">0,1ΜΒ</span>
+									<span class="disk">0KBps</span>
+									<span class="network">0Kbps</span>
+									<span class="gpu">0%</span>
+									<span class="ucpu">01:08:22</span>
+								</header>
+								<header appname="console" class="header item">
+									<span class="name">Command Console</span>
+									<span class="cpu">0%</span>
+									<span class="ram">0,2ΜΒ</span>
+									<span class="disk">0KBps</span>
+									<span class="network">0Kbps</span>
+									<span class="gpu">0%</span>
+									<span class="ucpu">01:08:22</span>
+								</header>
+								<header appname="settings" class="header item">
+									<span class="name">Settings</span>
+									<span class="cpu">0%</span>
+									<span class="ram">0ΜΒ</span>
+									<span class="disk">0KBps</span>
+									<span class="network">0Kbps</span>
+									<span class="gpu">0%</span>
+									<span class="ucpu">01:08:22</span>
+								</header>
+							</details>
+				
+						</article>
+						<footer>
+							<div class="lunalevit"></div>
+							<div class="cpe-button-group">
+								<button class="cpe-button is-tertiary is-alert-color">
+								<span class="cpe-icon cpe-icon-small material-icons">person_off</span>
+								<span>Disconnect User</span>
+								</button>
+								<button class="cpe-button is-tertiary is-unaccented">
+								<span class="cpe-icon cpe-icon-small material-icons">manage_accounts</span>
+								<span>Manage Profiles</span>
+								</button>
+							</div>
+						</footer>
+
+					</section>
+				</div>
+			</main>
+			<!--Details-->
+			<main class="details">
+				<div class="proc_page">
+					<section>
+						<header class="header upper">
+							<div class="lunalevit"></div>
+							<span class="name">
+								Process Name
+							</span>
+							<span class="cpu">
+								CPU
+							</span>
+							<span class="ram">
+								RAM
+							</span>
+							<span class="disk">
+								Disk
+							</span>
+							<span class="network">
+								Network
+							</span>
+							<span class="gpu">
+								GPU
+							</span>
+							<span class="ucpu">
+								User
+							</span>
+						</header>
+						<article>
+							<header appname="FileManager" class="header item">
+								<span class="name">manager.exe</span>
+								<span class="cpu">1%</span>
+								<span class="ram">700ΜΒ</span>
+								<span class="disk">275MBps</span>
+								<span class="network">0Kbps</span>
+								<span class="gpu">1%</span>
+								<span class="ucpu">HM100</span>
+							</header>
+							<header appname="TaskMgr" class="header item">
+								<span class="name">taskmgr.exe</span>
+								<span class="cpu">0%</span>
+								<span class="ram">0ΜΒ</span>
+								<span class="disk">1ΚBps</span>
+								<span class="network">0Kbps</span>
+								<span class="gpu">0%</span>
+								<span class="ucpu">HM100</span>
+							</header>
+							<header appname="dolphin" class="header item">
+								<span class="name">dolphin.exe</span>
+								<span class="cpu">3%</span>
+								<span class="ram">816ΜΒ</span>
+								<span class="disk">125KBps</span>
+								<span class="network">0Kbps</span>
+								<span class="gpu">68%</span>
+								<span class="ucpu">HM100</span>
+							</header>
+							<header appname="dolphin" class="header item">
+								<span class="name">RPGMV.exe</span>
+								<span class="cpu">1%</span>
+								<span class="ram">208ΜΒ</span>
+								<span class="disk">2KBps</span>
+								<span class="network">0Kbps</span>
+								<span class="gpu">0%</span>
+								<span class="ucpu">HM100</span>
+							</header>
+							
+							<header appname="browser" class="header item">
+								<span class="name">qortex.exe</span>
+								<span class="cpu">0%</span>
+								<span class="ram">1536ΜΒ</span>
+								<span class="disk">500KBps</span>
+								<span class="network">100Mbps</span>
+								<span class="gpu">3%</span>
+								<span class="ucpu">HM100</span>
+							</header>
+								
+
+							<header appname="browser" class="header item">
+								<span class="name">qortex.exe</span>
+								<span class="cpu">0%</span>
+								<span class="ram">768ΜΒ</span>
+								<span class="disk">500KBps</span>
+								<span class="network">100Mbps</span>
+								<span class="gpu">2%</span>
+								<span class="ucpu">HM100</span>
+							</header>
+							<header appname="browser" class="header item">
+								<span class="name">qortex.exe</span>
+								<span class="cpu">0%</span>
+								<span class="ram">713ΜΒ</span>
+								<span class="disk">0KBps</span>
+								<span class="network">0Mbps</span>
+								<span class="gpu">1%</span>
+								<span class="ucpu">HM100</span>
+							</header>
+							<header appname="browser" class="header item">
+								<span class="name">qortex.exe</span>
+								<span class="cpu">0%</span>
+								<span class="ram">55ΜΒ</span>
+								<span class="disk">80KBps</span>
+								<span class="network">0Mbps</span>
+								<span class="gpu">0%</span>
+								<span class="ucpu">HM100</span>
+							</header>
+							<header appname="registry" class="header item">
+								<span class="name">registry.exe</span>
+								<span class="cpu">0%</span>
+								<span class="ram">4MB</span>
+								<span class="disk">0KBps</span>
+								<span class="network">0Kbps</span>
+								<span class="gpu">0%</span>
+								<span class="ucpu">SYSTEM</span>
+							</header>
+							<header appname="system" class="header item">
+								<span class="name">system.exe</span>
+								<span class="cpu">0%</span>
+								<span class="ram">738ΜΒ</span>
+								<span class="disk">1KBps</span>
+								<span class="network">0Kbps</span>
+								<span class="gpu">0%</span>
+								<span class="ucpu">SYSTEM</span>
+							</header>
+							<header appname="windowproc" class="header item">
+								<span class="name">Wndproc.exe</span>
+								<span class="cpu">0%</span>
+								<span class="ram">0ΜΒ</span>
+								<span class="disk">1KBps</span>
+								<span class="network">0Kbps</span>
+								<span class="gpu">0%</span>
+								<span class="ucpu">SYSTEM</span>
+							</header>
+							<header appname="services" class="header item">
+								<span class="name">MSrvc.exe</span>
+								<span class="cpu">0%</span>
+								<span class="ram">1,7ΜΒ</span>
+								<span class="disk">0KBps</span>
+								<span class="network">0Kbps</span>
+								<span class="gpu">0%</span>
+								<span class="ucpu">SYSTEM</span>
+							</header>
+							<header appname="console" class="header item">
+								<span class="name">cnsl.exe</span>
+								<span class="cpu">0%</span>
+								<span class="ram">0,1ΜΒ</span>
+								<span class="disk">0KBps</span>
+								<span class="network">0Kbps</span>
+								<span class="gpu">0%</span>
+								<span class="ucpu">SYSTEM</span>
+							</header>
+							<header appname="console" class="header item">
+								<span class="name">cnsl.exe</span>
+								<span class="cpu">0%</span>
+								<span class="ram">0,2ΜΒ</span>
+								<span class="disk">0KBps</span>
+								<span class="network">0Kbps</span>
+								<span class="gpu">0%</span>
+								<span class="ucpu">SYSTEM</span>
+							</header>
+							<header appname="settings" class="header item">
+								<span class="name">Settings.exe</span>
+								<span class="cpu">0%</span>
+								<span class="ram">0ΜΒ</span>
+								<span class="disk">0KBps</span>
+								<span class="network">0Kbps</span>
+								<span class="gpu">0%</span>
+								<span class="ucpu">HM100</span>
+							</header>
+				
+						</article>
+						<footer>
+							<div class="lunalevit"></div>
+							<div class="cpe-button-group">
+								<button class="cpe-button is-tertiary is-alert-color">
+								<span class="cpe-icon cpe-icon-small material-icons">block</span>
+								<span>Shutdown Process</span>
+								</button>
+								<button class="cpe-button is-tertiary is-unaccented">
+								<span class="cpe-icon cpe-icon-small material-icons">assignment_add</span>
+								<span>New Process</span>
+								</button>
+							</div>
+						</footer>
+
+					</section>
+				</div>
+			</main>
+			<!--Settings-->
+			<main class="settings">
+				<div class="settings_page">
+					<section>
+						<div class="lunalevit"></div>
+						<header class="upper">
+							<h2>Settings</h2>
+						</header>
+						<article>
+							<div class="fieldset AppTheme">
+								<fieldset>
+								<h2>
+								<span class="cpe-icon material-icons">palette</span>
+								App Theme
+								</h2>
+								<input type="radio" name="AppTheme" id="AppTheme01" checked><label for="AppTheme01">Automatic</label>
+								<br>
+								<input type="radio" name="AppTheme" id="AppTheme02"><label for="AppTheme02">Automatic (Dark)</label>
+								<br>
+								<input type="radio" name="AppTheme" id="AppTheme03"><label for="AppTheme03">Light</label>
+								<br>
+								<input type="radio" name="AppTheme" id="AppTheme04"><label for="AppTheme04">Dark</label>
+								</fieldset>
+								<div style="margin:5px 0;"><small>This setting sets Task Manager's device theme</small></div>
+							</div>
+							
+							<div class="fieldset LandingPage">
+								<fieldset>
+								<h2>
+								<span class="cpe-icon material-icons">home</span>
+								Landing Page
+								</h2>
+								<input type="radio" name="LandingPage" id="LandingPage01" checked><label for="LandingPage01">Processes</label>
+								<br>
+								<input type="radio" name="LandingPage" id="LandingPage02"><label for="LandingPage02">Performance</label>
+								<br>
+								<input type="radio" name="LandingPage" id="LandingPage03"><label for="LandingPage03">History</label>
+								<br>
+								<input type="radio" name="LandingPage" id="LandingPage04"><label for="LandingPage04">Startup</label>
+								<br>
+								<input type="radio" name="LandingPage" id="LandingPage05"><label for="LandingPage05">Users</label>
+								<br>
+								<input type="radio" name="LandingPage" id="LandingPage06"><label for="LandingPage06">Details</label>
+								</fieldset>
+								<div style="margin:5px 0;"><small>This setting sets the page that will be shown each time Task Manager starts</small></div>
+							</div>
+
+							<div class="fieldset UpdateSpeed">
+								<fieldset>
+								<h2>
+								<span class="cpe-icon material-icons">speed</span>
+								Update Speed
+								</h2>
+								<input type="radio" name="UpdateSpeed" id="UpdateSpeed01"><label for="UpdateSpeed01">High</label>
+								<br>
+								<input type="radio" name="UpdateSpeed" id="UpdateSpeed02" checked><label for="UpdateSpeed02">Normal</label>
+								<br>
+								<input type="radio" name="UpdateSpeed" id="UpdateSpeed03"><label for="UpdateSpeed03">Low</label>
+								<br>
+								<input type="radio" name="UpdateSpeed" id="UpdateSpeed04"><label for="UpdateSpeed04">Paused</label>
+								</fieldset>
+								<div style="margin:5px 0;"><small>This setting sets Task Manager's details refresh rate</small></div>
+							</div>
+
+
+							<div class="fieldset Windowing">
+								<fieldset>
+								<h2>
+								<span class="cpe-icon material-icons">select_window</span>
+								Windowing
+								</h2>
+								<input type="checkbox" name="Windowing" id="Windowing01" title="Task Manager will be over the other windows"><label for="Windowing01" title="Task Manager will be over the other windows">Always on top</label>
+								<br>
+								<input type="checkbox" name="Windowing" id="Windowing02" title="Task Manager will not be shown in the taskbar while being on the foreground"><label for="Windowing02" title="Task Manager will not be shown in the taskbar while being on the foreground">Hide while minimized</label>
+								<br>
+								<input type="checkbox" name="Windowing" id="Windowing03" title="Task Manager will start during system startup"><label for="Windowing03" title="Task Manager will start during system startup">Load during system startup</label>
+								<br>
+								<input type="checkbox" name="Windowing" id="Windowing04" title="Task Manager will start in the foreground"><label for="Windowing04" title="Task Manager will start in the foreground">Start minimized</label>
+								<br>
+								</fieldset>
+							</div>
+
+
+						</article>
+
+					</section>
+				</div>
+			</main>
+		</div>
+
+	</container>
 
 	</body>
 </html>

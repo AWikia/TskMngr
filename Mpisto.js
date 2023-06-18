@@ -111,3 +111,7 @@ function Tab4() {
 function Tab5() {
 		$('body').attr("page", "startup");
 }
+
+function Tab6() {
+		$('body').attr("page", "settings");
+}
