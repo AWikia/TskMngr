@@ -394,8 +394,8 @@
 					</box>
 					<box class="right cpu p0">
 						<div class="header">
-							<h3>Intel(R) Core(TM)️ i5-9300H CPU @ 2.40GHz</h3>
 							<h1>CPU</h1>
+							<h3>Intel(R) Core(TM)️ i5-9300H CPU @ 2.40GHz</h3>
 						</div>
 							<div class="g_raph" onclick="CPU1_t()" page="0">
 								<div class="graph">
@@ -525,8 +525,8 @@
 					<!--RAM-->
 					<box class="right ram p1">
 						<div class="header">
-							<h3>DDR4 8,0GB</h3>
 							<h1>RAM</h1>
+							<h3>DDR4 8,0GB</h3>
 						</div>
 								<div class="graph">
 									<span class="graph_text">
@@ -596,8 +596,8 @@
 					<!--Disk-->
 					<box class="right disk p2">
 						<div class="header">
-							<h3>WDC PC SN520 SDAPMUW-128G-1101</h3>
 							<h1>Disk 0 (A:)</h1>
+							<h3>WDC PC SN520 SDAPMUW-128G-1101</h3>
 						</div>
 							<div class="g_raph" onclick="Disk1_t()" page="0">
 
@@ -676,8 +676,8 @@
 
 					<box class="right network p3">
 						<div class="header">
-							<h3>Paksama ConnectUp Network Adapter</h3>
 							<h1>Wi-Fi</h1>
+							<h3>Paksama ConnectUp Network Adapter</h3>
 						</div>
 							<div class="g_raph" onclick="Network1_t()" page="0">
 
@@ -771,8 +771,8 @@
 					<!--GPU-->
 					<box class="right gpu p4">
 						<div class="header">
-							<h3>NVidia GeForce GTX 1650</h3>
 							<h1>GPU 0</h1>
+							<h3>NVidia GeForce GTX 1650</h3>
 						</div>
 							<div class="g_raph" onclick="GPU1_t()" page="0">
 
@@ -1447,13 +1447,16 @@
 								<span class="cpe-icon material-icons">palette</span>
 								App Theme
 								</h2>
-								<input type="radio" name="AppTheme" id="AppTheme01" onclick="colortheme('match-parent','light','match-parent','match-parent','duo',true,false,true)" checked><label for="AppTheme01">Automatic</label>
+								<input type="radio" name="AppTheme" id="AppTheme01" onclick="colortheme('match-parent','light','match-parent','match-parent','duo')"><label for="AppTheme01">Automatic</label>
 								<br>
-								<input type="radio" name="AppTheme" id="AppTheme02" onclick="colortheme('match-parent','dark','match-parent','match-parent','duo',true,false,true)"><label for="AppTheme02">Automatic (Dark)</label>
+								<input type="radio" name="AppTheme" id="AppTheme02" onclick="colortheme('match-parent','dark','match-parent','match-parent','duo')"><label for="AppTheme02">Automatic (Dark)</label>
 								<br>
-								<input type="radio" name="AppTheme" id="AppTheme03" onclick="colortheme('match-parent','light','match-parent','match-parent','solo',true,false,true)"><label for="AppTheme03">Light</label>
+								<input type="radio" name="AppTheme" id="AppTheme03" onclick="colortheme('match-parent','light','match-parent','match-parent','solo')"><label for="AppTheme03">Light</label>
 								<br>
-								<input type="radio" name="AppTheme" id="AppTheme04" onclick="colortheme('match-parent','dark','match-parent','match-parent','solo',true,false,true)"><label for="AppTheme04">Dark</label>
+								<input type="radio" name="AppTheme" id="AppTheme04" onclick="colortheme('match-parent','dark','match-parent','match-parent','solo')"><label for="AppTheme04">Dark</label>
+								<div>
+								<input type="radio" name="AppTheme" id="AppTheme05"><label for="AppTheme05">Custom</label>
+								</div>
 								</fieldset>
 								<div style="margin:5px 0;"><small>This setting sets Task Manager's device theme</small></div>
 							</div>
@@ -1464,17 +1467,17 @@
 								<span class="cpe-icon material-icons">home</span>
 								Landing Page
 								</h2>
-								<input type="radio" name="LandingPage" id="LandingPage01" checked><label for="LandingPage01">Processes</label>
+								<input type="radio" name="LandingPage" id="LandingPage01" onclick="insertKey('tm-default-page', 'processes')"><label for="LandingPage01">Processes</label>
 								<br>
-								<input type="radio" name="LandingPage" id="LandingPage02"><label for="LandingPage02">Performance</label>
+								<input type="radio" name="LandingPage" id="LandingPage02" onclick="insertKey('tm-default-page', 'performance')"><label for="LandingPage02">Performance</label>
 								<br>
-								<input type="radio" name="LandingPage" id="LandingPage03"><label for="LandingPage03">History</label>
+								<input type="radio" name="LandingPage" id="LandingPage03" onclick="insertKey('tm-default-page', 'history')"><label for="LandingPage03">History</label>
 								<br>
-								<input type="radio" name="LandingPage" id="LandingPage04"><label for="LandingPage04">Startup</label>
+								<input type="radio" name="LandingPage" id="LandingPage04" onclick="insertKey('tm-default-page', 'startup')"><label for="LandingPage04">Startup</label>
 								<br>
-								<input type="radio" name="LandingPage" id="LandingPage05"><label for="LandingPage05">Users</label>
+								<input type="radio" name="LandingPage" id="LandingPage05" onclick="insertKey('tm-default-page', 'users')"><label for="LandingPage05">Users</label>
 								<br>
-								<input type="radio" name="LandingPage" id="LandingPage06"><label for="LandingPage06">Details</label>
+								<input type="radio" name="LandingPage" id="LandingPage06" onclick="insertKey('tm-default-page', 'details')"><label for="LandingPage06">Details</label>
 								</fieldset>
 								<div style="margin:5px 0;"><small>This setting sets the page that will be shown each time Task Manager starts</small></div>
 							</div>

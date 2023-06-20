@@ -6,7 +6,26 @@
 		'<link rel="icon" href="favicon.ico">' +
 		'<link rel="favicon" href="favicon.ico">'
 		);
+	if (getKey('tm-default-page') === '-1') {
+		insertKey('tm-default-page', 'processes' );
+	}
+		/* Active Theme */
+		if (getKey('device-theme') === 'light' ) {
+			active_tm_theme =  (getKey('color-style-behavior') === 'duo' ) ? 'auto' : 'light'
+		} else if ( (getKey('device-theme') === 'dark' ) ) {
+			active_tm_theme =  (getKey('color-style-behavior') === 'duo' ) ? 'auto-dark' : 'dark'
+		} else if ( (getKey('device-theme') === 'auto' ) || (getKey('device-theme') === 'auto-dark' ) ) {
+			active_tm_theme = 'custom';
+		} else {
+			active_tm_theme = 'auto';
+		}
+		document.getElementById("AppTheme" + ['01','02','03','04','05'][ ['auto','auto-dark','light','dark','custom'].indexOf(active_tm_theme) ]).checked=true;
+		/* Default Page */
+		default_page = getKey('tm-default-page');
+		$('body').attr("page",  default_page);
+		document.getElementById("LandingPage" + ['01','02','03','04','05','06'][ ['processes','performance','history','startup','users','details'].indexOf(default_page) ]).checked=true;
 		SetPage(page=0);
+
 })();
 
    /** When the document is ready, this self-executing function will be run. **/

@@ -705,6 +705,7 @@ main {
 /*    grid-template-columns: min-content minmax(0,1fr); */
     grid-template-rows: max-content;
     position:relative;
+    overflow-x:auto;
 }
 
 
@@ -816,6 +817,7 @@ main {
 	height:calc(100vh - 1px);
 	display:flex;
 	position:relative;
+	overflow-x:auto;
 }
 
 .proc_page section,
@@ -1188,6 +1190,7 @@ main {
 .page box .graph {
 	color:var(--canvas-text-background-color);
 	border:1px solid var(--inactive-text-background-color);
+	border-radius:var(--menu-border-radius);
 }
 
 .page box.left .graph {
@@ -1251,7 +1254,7 @@ PCR = PerfCap Reason  (Page 4)
 	height:100%;
 	min-height:26px;
 	width:calc(100% - 0);
-	gap:4px;
+	gap:1px;
 }
 
 .page box.right.cpu .g_raph .heatmap cpu{
@@ -1270,6 +1273,7 @@ PCR = PerfCap Reason  (Page 4)
 	position:relative;
 	z-index:1;
 	color:var(--canvas-text-background-color);
+	border-radius:var(--border-radius);
 }
 
 .page box.right.cpu .g_raph .heatmap cpu::after{
@@ -1284,6 +1288,7 @@ PCR = PerfCap Reason  (Page 4)
 	z-index:-1;
 	position:absolute;
 	filter:var(--graphs-opacity-filter);
+	border-radius:var(--border-radius);
 }
 
 /*
@@ -1318,18 +1323,18 @@ PCR = PerfCap Reason  (Page 4)
 }
 
 .page box.right h3 {
-	flex:1;
-	font-size:22px;
+	font-size:20px;
 	font-weight:400;
 	margin:0;
 	padding:0;
 }
 
 .page box.right h1 {
-	font-size:45px;
+	flex:1 0 auto;
+	font-size:40px;
 	font-weight:500;
 	margin:0;
-	padding:0;
+	padding:0 10px 0 0;
 }
 
 .page box.right .graph {
@@ -1360,6 +1365,7 @@ PCR = PerfCap Reason  (Page 4)
 					 repeating-linear-gradient(  0deg,   transparent 0 calc(10% - 1px), var(--grid-lines-color) calc(10% - 1px) 10%  );
     background-position: -1px -1px;
     background-size: calc(100% + 1px) calc(100% + 1px);
+    border-radius:var(--border-radius);
 
 }
 
@@ -1390,7 +1396,7 @@ PCR = PerfCap Reason  (Page 4)
 }
 
 .page box.right .bottom .leftp .info span {
-	color:var(--inactive-text-gradient-color-hover);
+	color:var(--inactive-text-background-color);
 	font-size:12px;
 	display:block;
 	white-space:nowrap;
@@ -1411,7 +1417,7 @@ PCR = PerfCap Reason  (Page 4)
 }
 
 .page box.right .bottom .rightp li {
-	color:var(--inactive-text-gradient-color-hover);
+	color:var(--inactive-text-background-color);
 	padding-left:0;
 }
 
@@ -1530,6 +1536,11 @@ line-height:inherit;
 	border-color:var(--inactive-text-background-color);
 }
 
+.settings_page input#AppTheme05:not(:checked),
+.settings_page input#AppTheme05:not(:checked) + label { 
+    display:none; 
+}
+
 @media only screen and (max-width:1019px) {
 
 label {
@@ -1546,7 +1557,6 @@ label {
 	margin-right:4px;
 	--icon-size:1;
 }
-
 
 }
 
