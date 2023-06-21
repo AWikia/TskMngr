@@ -1152,7 +1152,7 @@ main.performance footer.upper {
 	cursor:var(--cpe-hand-cursor);
 	font-size:13px;
 	font-weight:400;
-	height:78px;
+/*	min-height:78px; */
 	padding:5px;
 	box-sizing:border-box;
 	display:flex;
@@ -1162,6 +1162,7 @@ main.performance footer.upper {
 	transition:color var(--transition-duration) var(--transition-timing-function), background-color var(--transition-duration) var(--transition-timing-function);
 	border-radius:var(--border-radius);
 	text-decoration:none;
+	line-height:1.23;
 }
 
 
@@ -1320,7 +1321,7 @@ PCR = PerfCap Reason  (Page 4)
 
 .page box.left .button .graph {
 	width:92px;
-	height:64px;
+/*	min-height:64px; */
 	margin:0 5px 0 0;
 }
 
