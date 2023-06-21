@@ -618,7 +618,7 @@ button {
 }
 
 body { 
-font-family:"Inter", -apple-system, BlinkMacSystemFont, "Nanum Gothic", "M PLUS 1p", "Prompt", "Cairo", "Ramabhadra", "Catamaran", "Noto Sans", "Noto Sans SC", "Noto Sans TC", "Noto Sans HK", "Hind Siliguri", "M PLUS Rounded 1c", sans-serif; /* Uses a font stack suitable for High Contrast Mode */
+/*font-family:"Inter", -apple-system, BlinkMacSystemFont, "Nanum Gothic", "M PLUS 1p", "Prompt", "Cairo", "Ramabhadra", "Catamaran", "Noto Sans", "Noto Sans SC", "Noto Sans TC", "Noto Sans HK", "Hind Siliguri", "M PLUS Rounded 1c", sans-serif; /* Uses a font stack suitable for High Contrast Mode */
 background-repeat:no-repeat;
 background-attachment:local;
 background-attachment:fixed;
@@ -684,11 +684,14 @@ main {
 	display:none;
 	border-top:1px solid var(--inactive-text-background-color);
 	border-left:1px solid var(--inactive-text-background-color);
+	position:relative;
+	flex-direction:column;
 }
 
 .tabs {
 	display:flex;
 	height:100vh;
+	height:100dvh;
 	width:202px;
 	flex-flow:column;
 	color:rgba(var(--canvas-text-secondary-background-color-rgb),1);
@@ -699,13 +702,12 @@ main {
 }
 
 .graphs-with-page {
-	display:grid;
+	display:flex;
 	width:100%;
 	height:100%;
-/*    grid-template-columns: min-content minmax(0,1fr); */
-    grid-template-rows: max-content;
     position:relative;
     overflow-x:auto;
+    flex-direction:column;
 }
 
 
@@ -805,7 +807,7 @@ main {
 [page*="user"] main.users,
 [page*="details"] main.details,
 [page*="settings"] main.settings {
-	display:block;
+	display:flex;
 	flex:1;
 }
 
@@ -815,6 +817,7 @@ main {
 	width:100%;
 	color:var(--canvas-text-background-color);
 	height:calc(100vh - 1px);
+	height:calc(100dvh - 1px);
 	display:flex;
 	position:relative;
 	overflow-x:auto;
@@ -911,7 +914,7 @@ main {
 
 .proc_page .upper,
 .settings_page .upper {
-	background-color:rgba(var(--canvas-tabs-background-color),var(--canvas-active-tabs-opacity));
+	background-color:rgba(var(--canvas-background-color-rgb),var(--page-opacity));
 	color:var(--canvas-text-secondary-background-color);
 	top:0;
 	position:relative;
@@ -929,6 +932,10 @@ main {
 
 }
 
+.settings_page .upper {
+	background-color:rgba(var(--canvas-tabs-background-color),var(--canvas-active-tabs-opacity));
+}
+
 .proc_page .upper span {
 	display:flex;
 	justify-content:flex-end;
@@ -943,7 +950,9 @@ main {
 	height:48px;
 }
 
-.settings_page .upper h2 {
+.settings_page .upper h2,
+.proc_page footer h2,
+main.performance footer.upper h2 {
 	display:flex;
 	flex-direction:column;
 	text-align:left;
@@ -951,6 +960,8 @@ main {
 	text-overflow:ellipsis;
 	padding:10px;
 	font-weight:500;
+	flex:1;
+	color:inherit;
 }
 
 .proc_page .upper span:hover,
@@ -982,11 +993,12 @@ main {
 
 
 
-.proc_page footer {
+.proc_page footer,
+main.performance footer.upper {
 	background-color:rgba(var(--canvas-tabs-background-color),var(--canvas-active-tabs-opacity));
-	padding:10px;
+	padding-right:var(--scrollbar-width);
 	display:flex;
-	border-top:1px solid var(--inactive-text-background-color);
+	border-bottom:1px solid var(--inactive-text-background-color);
 	align-items:center;
 	justify-content:flex-end;
 	margin-top:-1px;
@@ -1097,10 +1109,11 @@ main {
 	display:flex;
 	background-color:rgba(var(--canvas-background-color-rgb),var(--page-opacity));
 	color:var(--canvas-text-background-color);
-	height:calc(100vh - 1px);
+	height:0;
 	box-sizing:border-box;
 	padding:10px;
 	margin:0;
+	flex:1 0 auto;
 }
 
 
