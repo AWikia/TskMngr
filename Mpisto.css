@@ -642,6 +642,16 @@ user-select:none;
 -moz-user-select:none;
 }
 
+/*TMP */
+.translated-rtl {
+    direction:rtl;
+}
+
+.translated-ltr {
+    direction:ltr;
+}
+/* END TMP  */
+
 body {
 --graphs-opacity:0.25;
 --graphs-opacity-filter:brightness(150%) contrast(100%);
