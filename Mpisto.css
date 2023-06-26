@@ -842,7 +842,6 @@ main {
 }
 
 .proc_page .header{
-	border-bottom:1px solid var(--inactive-text-background-color);
 	display:flex;
 }
 
@@ -925,6 +924,7 @@ main {
 .proc_page .upper,
 .settings_page .upper {
 	background-color:rgba(var(--canvas-background-color-rgb),var(--page-opacity));
+	border-bottom:1px solid var(--inactive-text-background-color);
 	color:var(--canvas-text-secondary-background-color);
 	top:0;
 	position:relative;
@@ -942,6 +942,14 @@ main {
 
 }
 
+.proc_page .heading {
+	border-bottom:1px solid var(--inactive-text-background-color);
+}
+
+.proc_page .heading:not(:first-child) {
+	border-top:1px solid var(--inactive-text-background-color);
+}
+
 .settings_page .upper {
 	background-color:rgba(var(--canvas-tabs-background-color),var(--canvas-active-tabs-opacity));
 }
@@ -956,7 +964,6 @@ main {
 }
 
 .settings_page .upper {
-	border-bottom:1px solid var(--inactive-text-background-color);
 	height:48px;
 }
 
