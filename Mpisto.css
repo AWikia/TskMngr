@@ -745,6 +745,8 @@ main {
 	color:inherit;
 	border-radius:var(--border-radius);
 	text-decoration:none;
+	box-sizing:border-box;
+	width:100%;
 }
 
 .tabs a:hover {
@@ -764,7 +766,9 @@ main {
 [page*="startup"] .tabs .startup,
 [page*="user"] .tabs .users,
 [page*="details"] .tabs .details,
-[page*="settings"] .tabs .settings {
+[page*="settings"] .tabs .settings,
+.tabs .cpe-dropdown:focus > a,
+.tabs .cpe-dropdown:focus-within > a {
 	background-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.4);
 	border-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.2);
 	color:var(--hyperlink-secondary-background-color);
@@ -1116,7 +1120,7 @@ main.performance footer.upper {
 		font-size:0;
 	}
 	.tabs {
-		width:49px;
+		width:48px;
 	}
 }
 
@@ -1624,6 +1628,8 @@ label {
 .visualmode-contrast [page*="user"] .tabs .users,
 .visualmode-contrast [page*="details"] .tabs .details,
 .visualmode-contrast [page*="settings"] .tabs .settings,
+.visualmode-contrast .tabs .cpe-dropdown:focus > a,
+.visualmode-contrast .tabs .cpe-dropdown:focus-within > a,
 .visualmode-contrast .page box.left .button.selected {
 	background-color:var(--highlight-background-color);
 	border-color:var(--highlight-background-color);
