@@ -88,12 +88,30 @@
 			<div class="tabs-with-page">
 			<header class="tabs">
 				<div class="lunalevit"></div>
-				<a class="processes has-icon" onclick="Tab0()">Processes</a>
-				<a class="performance has-icon" onclick="Tab1()">Performance</a>
-				<a class="history has-icon" onclick="Tab4()">History</a>
-				<a class="startup has-icon" onclick="Tab5()">Startup</a>
-				<a class="users has-icon" onclick="Tab2()">Users</a>
-				<a class="details has-icon" onclick="Tab3()">Details</a>
+					<div class="cpe-dropdown__content">
+						<ul class="cpe-list">
+							<li>
+								<div class="pageheader-search">
+									<input type="search" name="search" class="cpe-input media-search" placeholder="Search processes" autocapitalize="sentences" id="searchInput" autocomplete="off">
+									<button for="searchButton2" class="cpe-button">
+										<span translate="no" class="cpe-icon cpe-icon-small material-icons">
+											search
+										</span>
+									</button>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<hr>
+				<div class="items">
+					<a class="processes has-icon" onclick="Tab0()">Processes</a>
+					<a class="performance has-icon" onclick="Tab1()">Performance</a>
+					<a class="history has-icon" onclick="Tab4()">History</a>
+					<a class="startup has-icon" onclick="Tab5()">Startup</a>
+					<a class="users has-icon" onclick="Tab2()">Users</a>
+					<a class="details has-icon" onclick="Tab3()">Details</a>
+				</div>
 				<div class="separator"></div>
 				<a class="settings has-icon" onclick="Tab6()">Settings</a>
 			</header>

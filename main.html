@@ -88,12 +88,34 @@
 		<div class="tabs-with-page">
 			<header class="tabs">
 				<div class="lunalevit"></div>
-				<a class="processes has-icon" onclick="Tab0()">Διεργασίες</a>
-				<a class="performance has-icon" onclick="Tab1()">Επιδόσεις</a>
-				<a class="history has-icon" onclick="Tab4()">Ιστορικό</a>
-				<a class="startup has-icon" onclick="Tab5()">Εκκίνηση</a>
-				<a class="users has-icon" onclick="Tab2()">Χρήστες</a>
-				<a class="details has-icon" onclick="Tab3()">Πληροφορίες</a>
+				<div class="search__container cpe-dropdown" cpe-orient="land" tabindex="-1">
+					<a class="search has-icon">
+
+					</a>
+					<div class="cpe-dropdown__content">
+						<ul class="cpe-list">
+							<li>
+								<div class="pageheader-search">
+									<input type="search" name="search" class="cpe-input media-search" placeholder="Αναζήτηση διεργασιών" autocapitalize="sentences" id="searchInput" autocomplete="off">
+									<button for="searchButton2" class="cpe-button">
+										<span translate="no" class="cpe-icon cpe-icon-small material-icons">
+											search
+										</span>
+									</button>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<hr>
+				<div class="items">
+					<a class="processes has-icon" onclick="Tab0()">Διεργασίες</a>
+					<a class="performance has-icon" onclick="Tab1()">Επιδόσεις</a>
+					<a class="history has-icon" onclick="Tab4()">Ιστορικό</a>
+					<a class="startup has-icon" onclick="Tab5()">Εκκίνηση</a>
+					<a class="users has-icon" onclick="Tab2()">Χρήστες</a>
+					<a class="details has-icon" onclick="Tab3()">Πληροφορίες</a>
+				</div>
 				<div class="separator"></div>
 				<a class="settings has-icon" onclick="Tab6()">Ρυθμίσεις</a>
 			</header>
