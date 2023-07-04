@@ -1,0 +1,241 @@
+﻿/* App specific CSS for Visual Styles */
+
+/* High Contrast Styling */
+.visualmode-contrast body {
+--graphs-opacity:0;
+--page-opacity:1;
+--cpu-graph-color:var(--canvas-text-background-color);
+--ram-graph-color:var(--canvas-text-background-color);
+--disk-graph-color:var(--canvas-text-background-color);
+--network-graph-color:var(--canvas-text-background-color);
+--gpu-graph-color:var(--canvas-text-background-color);
+}
+
+.visualmode-contrast .proc_page .upper span:hover, 
+.visualmode-contrast .proc_page .header.item:hover {
+	background-color:var(--highlight-background-color);
+	color:var(--highlight-text-background-color);
+}
+
+.visualmode-contrast .tabs a:hover,
+.visualmode-contrast .page box.left .button:hover {
+	background-color:var(--highlight-text-background-color);
+	border-color:var(--highlight-background-color);
+	color:var(--highlight-background-color);
+}
+
+.visualmode-contrast [page*="processes"] .tabs .processes,
+.visualmode-contrast [page*="performance"] .tabs .performance,
+.visualmode-contrast [page*="history"] .tabs .history,
+.visualmode-contrast [page*="startup"] .tabs .startup,
+.visualmode-contrast [page*="user"] .tabs .users,
+.visualmode-contrast [page*="details"] .tabs .details,
+.visualmode-contrast [page*="settings"] .tabs .settings,
+.visualmode-contrast .tabs .cpe-dropdown:focus > a,
+.visualmode-contrast .tabs .cpe-dropdown:focus-within > a,
+.visualmode-contrast .page box.left .button.selected {
+	background-color:var(--highlight-background-color);
+	border-color:var(--highlight-background-color);
+	color:var(--highlight-text-background-color);
+}
+
+.visualmode-contrast .page box.left .button > div > .subtitle {
+	opacity:1;
+}
+
+.visualmode-contrast .page box.right .graph .graph_container {
+	--grid-lines-color:var(--highlight-background-color);
+}
+
+.visualmode-contrast .page box .graph,
+.visualmode-contrast .page box.right .graph .graph_container {
+	border-color:var(--canvas-text-background-color);
+}
+
+.visualmode-contrast .page box.right.cpu .g_raph .heatmap cpu::after{
+	content:none;
+}
+
+.visualmode-contrast .proc_page .upper,
+.visualmode-contrast .settings_page .upper,
+.visualmode-contrast .proc_page footer {
+	background-color:transparent;
+}
+
+/** General **/
+/* Standard */
+.visualstyle-general .tabs a:hover,
+.visualstyle-general .page box.left .button:hover {
+	background-color:var(--hyperlink-background-color);
+	border-color:var(--hyperlink-background-color);
+	color:var(--hyperlink-foreground-color);
+}
+
+.visualstyle-general [page*="processes"] .tabs .processes,
+.visualstyle-general [page*="performance"] .tabs .performance,
+.visualstyle-general [page*="history"] .tabs .history,
+.visualstyle-general [page*="startup"] .tabs .startup,
+.visualstyle-general [page*="user"] .tabs .users,
+.visualstyle-general [page*="details"] .tabs .details,
+.visualstyle-general [page*="settings"] .tabs .settings,
+.visualstyle-general .tabs .cpe-dropdown:focus > a,
+.visualstyle-general .tabs .cpe-dropdown:focus-within > a,
+.visualstyle-general .page box.left .button.selected {
+	background-color:var(--hyperlink-background-color-hover);
+	border-color:var(--hyperlink-background-color-hover);
+	color:var(--hyperlink-foreground-color-inverted);
+}
+
+
+/* High Contrast */
+.visualstyle-general.visualmode-contrast .proc_page .upper span:hover, 
+.visualstyle-general.visualmode-contrast .proc_page .header.item:hover {
+	background-color:var(--hyperlink-background-color);
+	color:var(--hyperlink-foreground-color);
+}
+
+
+.visualstyle-general.visualmode-contrast .page box.right .graph .graph_container {
+	--grid-lines-color:var(--hyperlink-background-color);
+}
+
+/** Basic **/
+/* Standard */
+.visualstyle-basic .tabs a {
+	border-color:var(--luna-foreground-color);
+	color:var(--luna-foreground-color);
+}
+
+.visualstyle-basic .tabs a:hover {
+	color:var(--luna-foreground-color-hover);
+	border-color:var(--luna-foreground-color-hover);
+	background-color:rgba(var(--luna-hyperlink-background-color-rgb),0.2);
+}
+
+.visualstyle-basic [page*="processes"] .tabs .processes,
+.visualstyle-basic [page*="performance"] .tabs .performance,
+.visualstyle-basic [page*="history"] .tabs .history,
+.visualstyle-basic [page*="startup"] .tabs .startup,
+.visualstyle-basic [page*="user"] .tabs .users,
+.visualstyle-basic [page*="details"] .tabs .details,
+.visualstyle-basic [page*="settings"] .tabs .settings,
+.visualstyle-basic .tabs .cpe-dropdown:focus > a,
+.visualstyle-basic .tabs .cpe-dropdown:focus-within > a {
+	color:var(--luna-foreground-color-hover);
+	border-color:var(--luna-foreground-color-hover);
+	background-color:rgba(var(--luna-hyperlink-background-color-rgb),0.4);
+}
+
+.visualstyle-basic .proc_page .upper span:hover, 
+.visualstyle-basic .proc_page .header.item:hover {
+	background-color:var(--hyperlink-fadeout-color);
+}
+
+.visualstyle-basic .page box.left .button:hover {
+	border-color:rgba(var(--canvas-text-background-color-rgb),0.5);
+}
+
+.visualstyle-basic .page box.left .button.selected {
+	background-color:var(--hyperlink-fadeout-color);
+	border-color:var(--hyperlink-background-color);
+	color:var(--hyperlink-background-color);
+}
+
+/* High Contrast */
+.visualstyle-basic.visualmode-contrast .proc_page .upper span:hover, 
+.visualstyle-basic.visualmode-contrast .proc_page .header.item:hover {
+	background-color:var(--highlight-background-color);
+	color:var(--highlight-text-background-color);
+}
+
+.visualstyle-basic.visualmode-contrast .tabs a {
+	background-clip:padding-box;
+	background-color:var(--canvas-background-color);
+	border-color:transparent;
+	color:var(--canvas-text-background-color);
+}
+
+.visualstyle-basic.visualmode-contrast .tabs a:hover,
+.visualstyle-basic.visualmode-contrast .page box.left .button:hover {
+	background-color:var(--canvas-secondary-background-color);
+	border-color:var(--canvas-text-secondary-background-color);
+	color:var(--canvas-text-secondary-background-color);
+}
+
+.visualstyle-basic.visualmode-contrast [page*="processes"] .tabs .processes,
+.visualstyle-basic.visualmode-contrast [page*="performance"] .tabs .performance,
+.visualstyle-basic.visualmode-contrast [page*="history"] .tabs .history,
+.visualstyle-basic.visualmode-contrast [page*="startup"] .tabs .startup,
+.visualstyle-basic.visualmode-contrast [page*="user"] .tabs .users,
+.visualstyle-basic.visualmode-contrast [page*="details"] .tabs .details,
+.visualstyle-basic.visualmode-contrast [page*="settings"] .tabs .settings,
+.visualstyle-basic.visualmode-contrast .tabs .cpe-dropdown:focus > a,
+.visualstyle-basic.visualmode-contrast .tabs .cpe-dropdown:focus-within > a,
+.visualstyle-basic.visualmode-contrast .page box.left .button.selected {
+	background-color:var(--highlight-background-color);
+	border-color:var(--canvas-text-secondary-background-color);
+	color:var(--highlight-text-background-color);
+}
+
+/** Simple **/
+/* Standard */
+.visualstyle-simple .tabs a:hover,
+.visualstyle-simple [page*="processes"] .tabs .processes,
+.visualstyle-simple [page*="performance"] .tabs .performance,
+.visualstyle-simple [page*="history"] .tabs .history,
+.visualstyle-simple [page*="startup"] .tabs .startup,
+.visualstyle-simple [page*="user"] .tabs .users,
+.visualstyle-simple [page*="details"] .tabs .details,
+.visualstyle-simple [page*="settings"] .tabs .settings,
+.visualstyle-simple .tabs .cpe-dropdown:focus > a,
+.visualstyle-simple .tabs .cpe-dropdown:focus-within > a {
+	background-color:rgba(var(--canvas-secondary-background-color-hover-rgb),var(--mica-opacity-2));
+	color:var(--canvas-secondary-foreground-color-inverted);
+	animation:none;
+	border-color:rgba(var(--canvas-foreground-color-rgb),0.2);
+}
+
+.visualstyle-simple .page box.left .button:hover,
+.visualstyle-simple .page box.left .button.selected {
+	background-color:rgba(var(--canvas-background-color-hover-rgb),var(--page-opacity));
+	border-color:rgba(var(--canvas-foreground-color-rgb),0.2);
+	color:var(--canvas-foreground-color-inverted);
+}
+
+
+/* High Contrast */
+.visualstyle-simple.visualmode-contrast .proc_page .upper span:hover, 
+.visualstyle-simple.visualmode-contrast .proc_page .header.item:hover {
+	background-color:var(--canvas-foreground-color);
+	color:var(--canvas-background-color);
+}
+
+.visualstyle-simple.visualmode-contrast .tabs a:hover,
+.visualstyle-simple.visualmode-contrast [page*="processes"] .tabs .processes,
+.visualstyle-simple.visualmode-contrast [page*="performance"] .tabs .performance,
+.visualstyle-simple.visualmode-contrast [page*="history"] .tabs .history,
+.visualstyle-simple.visualmode-contrast [page*="startup"] .tabs .startup,
+.visualstyle-simple.visualmode-contrast [page*="user"] .tabs .users,
+.visualstyle-simple.visualmode-contrast [page*="details"] .tabs .details,
+.visualstyle-simple.visualmode-contrast [page*="settings"] .tabs .settings,
+.visualstyle-simple.visualmode-contrast .tabs .cpe-dropdown:focus > a,
+.visualstyle-simple.visualmode-contrast .tabs .cpe-dropdown:focus-within > a {
+	background-color:var(--canvas-secondary-foreground-color);
+	color:var(--canvas-secondary-background-color);
+	box-shadow:none;
+	animation:none;
+	border-color:rgba(var(--canvas-secondary-background-color-rgb),0.5);
+}
+
+.visualstyle-simple.visualmode-contrast .page box.left .button:hover,
+.visualstyle-simple.visualmode-contrast .page box.left .button.selected {
+	background-color:var(--canvas-foreground-color);
+	color:var(--canvas-background-color);
+	box-shadow:none;
+	animation:none;
+	border-color:rgba(var(--canvas-background-color-rgb),0.5);
+}
+
+.visualstyle-simple.visualmode-contrast .page box.right .graph .graph_container {
+	--grid-lines-color:var(--inactive-text-background-color);
+}
