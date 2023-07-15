@@ -1,6 +1,7 @@
 ﻿{
     "name": "Evelution OS Task Manager",
     "short_name": "Task Manager",
+	"display": "standalone",
     "icons": [
         {
             "sizes": "114x114",
