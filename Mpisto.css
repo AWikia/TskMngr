@@ -1012,6 +1012,8 @@ line-height:16px;
 
 .settings_page .upper {
 	height:48px;
+	display:flex;
+	align-items:center;
 }
 
 .settings_page .upper h2,
@@ -1065,8 +1067,8 @@ main.performance footer.upper {
 	border-bottom:1px solid var(--inactive-text-background-color);
 	align-items:center;
 	justify-content:flex-end;
-	margin-top:-1px;
 	transition:background-color var(--transition-duration) var(--transition-timing-function);
+	height:48px;
 }
 
 
