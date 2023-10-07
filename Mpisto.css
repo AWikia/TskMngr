@@ -652,6 +652,11 @@ body {
 --disk-graph-color:var(--graph-3-background-color);
 --network-graph-color:var(--graph-4-background-color);
 --gpu-graph-color:var(--graph-5-background-color);
+--cpu-graph-color-rgb:var(--graph-1-background-color-rgb);
+--ram-graph-color-rgb:var(--graph-2-background-color-rgb);
+--disk-graph-color-rgb:var(--graph-3-background-color-rgb);
+--network-graph-color-rgb:var(--graph-4-background-color-rgb);
+--gpu-graph-color-rgb:var(--graph-5-background-color-rgb);
 }
 
 .theme-fandomdesktop-dark body {
@@ -1413,8 +1418,7 @@ PCR = PerfCap Reason  (Page 4)
 }
 
 .page box.right.cpu .g_raph .heatmap cpu::after{
-	background-color:var(--cpu-graph-color);
-	opacity:calc( var(--heatmap-usage) / 1.25 );
+	background-color:rgba(var(--cpu-graph-color-rgb),calc( var(--heatmap-usage) / 1.25 ));
 	width:100%;
 	content:"";
 	display:block;

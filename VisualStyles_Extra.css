@@ -9,6 +9,11 @@
 --disk-graph-color:var(--canvas-text-background-color);
 --network-graph-color:var(--canvas-text-background-color);
 --gpu-graph-color:var(--canvas-text-background-color);
+--cpu-graph-color-rgb:var(--canvas-text-background-color-rgb);
+--ram-graph-color-rgb:var(--canvas-text-background-color-rgb);
+--disk-graph-color-rgb:var(--canvas-text-background-color-rgb);
+--network-graph-color-rgb:var(--canvas-text-background-color-rgb);
+--gpu-graph-color-rgb:var(--canvas-text-background-color-rgb);
 }
 
 .visualmode-contrast .proc_page .upper span:hover, 
