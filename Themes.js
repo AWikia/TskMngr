@@ -1,5 +1,4 @@
 ﻿/* Color Modes */
-/* Color Modes */
 window.ThemingEngine_InvertColors = false; // false = light mode | true = light mode
 window.ThemingEngine_ColorFilterMode = 0; // 0 = No special behavior  | 1 = Color Tint (ColorScale) | 2 = Temperature | 3 = Inverted Temperature
 window.ThemingEngine_ColorFilterHueShift = 0; // From -180 to 180
@@ -256,7 +255,7 @@ var visualColorNames = ['standard', 'nocolormanagement'];
                 break;
         }
     });
-    var themes = ""; // @REMOVEME: In Ivilution, Parmalution and CPE Language (Change to Empty String instead)
+    var themes = "";
 	document.querySelector("head").insertAdjacentHTML('afterbegin','<meta name="theme-color" content="#ffffff"><style class="devicetheme"></style><style class="themes">' + themes + '</style><style class="theming"></style>');
 	ToggleTheme(theme_selected,false,false);
 	colortheme(color_style,device_theme,color_hue,color_sat,color_style_behavior,false,false);
@@ -1014,11 +1013,11 @@ if (isLightColor(page)) { // ( chroma(page).get('hsl.l') < 0.5)
 	var colors = ['54%', '56%', '58%', '60%', '62%', '64%', '66%', '68%', '70%', '72%', '74%', '76%', '78%', '80%', '82%', '84%', '86%', '88%', '90%', '92%', '94%', '96%']
 }
 
-		alerth = 355
-		pauseh = 25
-		warningh = 45
-		successh = 140
-		progressh = 225
+		alerth = 350
+		pauseh = 30
+		warningh = 50
+		successh = 110
+		progressh = 230
 //		messageh = -1
 		
 		contrast = window.ThemingEngine_SmallTextContrast*ContrastRatio()*1
@@ -1055,11 +1054,11 @@ if (isLightColor(page)) {
 	var colors = ['54%', '56%', '58%', '60%', '62%', '64%', '66%', '68%', '70%', '72%', '74%', '76%', '78%', '80%', '82%', '84%', '86%', '88%', '90%', '92%', '94%', '96%']
 
 }
-		g1h = 195
-		g2h = 215
-		g3h = 80
-		g4h = 340
-		g5h = 280
+		g1h = 180
+		g2h = 200
+		g3h = 140
+		g4h = 320
+		g5h = 270
 
 	
 		contrast = window.ThemingEngine_SmallTextContrast*ContrastRatio()*1
