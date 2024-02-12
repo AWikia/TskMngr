@@ -340,6 +340,8 @@
 										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gCPU0A"/>
 			</svg>
 							</div>
+							<div class="circle cpu">
+							</div>
 							<div>
 								<big>CPU</big>
 								<span class="subtitle">
@@ -357,6 +359,8 @@
 			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
 										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gRAM0A"/>
 			</svg>
+							</div>
+							<div class="circle ram">
 							</div>
 							<div>
 								<big>RAM</big>
@@ -376,6 +380,8 @@
 										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gDisk0A"/>
 			</svg>
 							</div>
+							<div class="circle disk">
+							</div>
 
 							<div>
 								<big>Δίσκος 0 (A:)</big>
@@ -393,6 +399,8 @@
 			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
 										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gNetwork0A"/>
 			</svg>
+							</div>
+							<div class="circle network">
 							</div>
 							<div>
 								<big>Wi-Fi</big>
@@ -412,6 +420,8 @@
 			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
 										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gGPU0A"/>
 			</svg>
+							</div>
+							<div class="circle gpu">
 							</div>
 							<div>
 								<big>GPU 0</big>
@@ -1543,7 +1553,15 @@
 								<div style="margin:5px 0;"><small>Αυτή η ρύθμιση ορίζει τον ρυθμό ανανέωσης των πληροφοριών της Διαχείριση Εργασιών</small></div>
 							</div>
 
-
+							<div class="cpe-settings-fieldset Performance">
+								<details class="cpe-settings-fieldset__content" open>
+								<summary><h2>
+								<span translate="no" class="cpe-icon material-icons">earthquake</span>
+								Επιδόσεις
+								</h2></summary>
+								<input type="checkbox" name="Performance" id="Performance01" onclick="SwitchGraphs()" title="Δεν θα εμφανίζονται γραφήματα στην συνοπτική προβολή"><label for="Performance01" title="Δεν θα εμφανίζονται γραφήματα στην συνοπτική προβολή">Απόκρυψη Γραφημάτων στην συνοπτική προβολή</label>
+							</div>
+							
 							<div class="cpe-settings-fieldset Windowing">
 								<details class="cpe-settings-fieldset__content" open>
 								<summary><h2>

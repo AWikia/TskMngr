@@ -48,6 +48,11 @@
 	opacity:1;
 }
 
+.visualmode-contrast .page box.left .circle {
+	background-color:transparent!important;
+	border-color:currentColor;
+}
+
 .visualmode-contrast .page box.right .graph .graph_container {
 	--grid-lines-color:var(--highlight-background-color);
 }

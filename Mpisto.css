@@ -1301,6 +1301,10 @@ main.performance footer.upper {
 	flex-basis:calc(100% - 160px);
 }
 
+body.has-no-left-graphs .page box.left .button > div {
+	flex-basis:calc(100% - 55px);
+}
+
 .page box.left .button > div > big {
 	font-weight:500;
 }
@@ -1328,6 +1332,45 @@ main.performance footer.upper {
 	font-variation-settings: 'FILL' 1;
 }
 
+.page box.left .circle {
+	--border-color:currentColor;
+	--background-color:transparent;
+	flex-basis:0!important;
+	border:1px solid;
+	border-radius:50%;
+	width:24px;
+	height:24px;
+	margin:0 5px 0 0;
+	background-color:var(--canvas-background-color);
+	border-color:var(--border-color);
+	box-shadow:0 0 0 100vh var(--background-color) inset;
+}
+
+.page box.left .circle.cpu {
+	--border-color:var(--cpu-graph-color);
+	--background-color:rgba(var(--cpu-graph-color-rgb),var(--graphs-opacity));
+}
+
+.page box.left .circle.ram {
+	--border-color:var(--ram-graph-color);
+	--background-color:rgba(var(--ram-graph-color-rgb),var(--graphs-opacity));
+}
+
+.page box.left .circle.disk {
+	--border-color:var(--disk-graph-color);
+	--background-color:rgba(var(--disk-graph-color-rgb),var(--graphs-opacity));
+}
+
+.page box.left .circle.network {
+	--border-color:var(--network-graph-color);
+	--background-color:rgba(var(--network-graph-color-rgb),var(--graphs-opacity));
+}
+
+.page box.left .circle.gpu {
+	--border-color:var(--gpu-graph-color);
+	--background-color:rgba(var(--gpu-graph-color-rgb),var(--graphs-opacity));
+}
+
 .page box .graph {
 	color:var(--canvas-text-background-color);
 	border:1px solid var(--inactive-text-background-color);
@@ -1337,6 +1380,11 @@ main.performance footer.upper {
 .page box.left .graph {
 	background-color:var(--canvas-background-color);
 	flex-basis:0!important;
+}
+
+body.has-no-left-graphs .page box.left .graph,
+body:not(.has-no-left-graphs) .page box.left .circle {
+	display:none!important
 }
 
 .page box .graph .graph_container {

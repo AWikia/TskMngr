@@ -22,6 +22,9 @@
 	if (getKey('tm-default-page') === '-1') {
 		insertKey('tm-default-page', 'processes' );
 	}
+	if (getKey('tm-has-no-left-graphs') === '-1') {
+		insertKey('tm-has-no-left-graphs', 'false' );
+	}
 		/* Active Theme */
 		if (getKey('device-theme') === 'light' ) {
 			active_tm_theme =  (getKey('color-style-behavior') === 'duo' ) ? 'auto' : 'light'
@@ -38,6 +41,11 @@
 		$('body').attr("page",  default_page);
 		document.getElementById("LandingPage" + ['01','02','03','04','05','06'][ ['processes','performance','history','startup','users','details'].indexOf(default_page) ]).checked=true;
 		SetPage(page=0);
+		/* Performance */
+		if (getKey('tm-has-no-left-graphs') === 'true') {
+		document.getElementById("Performance01").checked=true;
+		document.querySelector("body").classList.add('has-no-left-graphs');
+		}
 
 })();
 
@@ -117,6 +125,16 @@ function GPU1_t() {
 	}
 }
 
+/* Graph Switch */
+function SwitchGraphs() {
+	if (document.getElementById("Performance01").checked) {
+		insertKey('tm-has-no-left-graphs', 'true' );
+		document.querySelector("body").classList.add('has-no-left-graphs');
+	} else {
+		insertKey('tm-has-no-left-graphs', 'false' );
+		document.querySelector("body").classList.remove('has-no-left-graphs');
+	}
+}
 
 /* Section Changing Functions */
 
