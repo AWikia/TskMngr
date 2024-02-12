@@ -643,25 +643,34 @@ user-select:none;
 }
 
 
+
 body {
 --graphs-opacity:0.25;
---graphs-opacity-filter:brightness(150%) contrast(100%);
 --page-opacity:0.85;
 --cpu-graph-color:var(--graph-1-background-color);
+--cpu-graph-color-hover:var(--graph-1-background-color-hover);
 --ram-graph-color:var(--graph-2-background-color);
+--ram-graph-color-hover:var(--graph-2-background-color-hover);
 --disk-graph-color:var(--graph-3-background-color);
+--disk-graph-color-hover:var(--graph-3-background-color-hover);
 --network-graph-color:var(--graph-4-background-color);
+--network-graph-color-hover:var(--graph-4-background-color-hover);
 --gpu-graph-color:var(--graph-5-background-color);
+--gpu-graph-color-hover:var(--graph-5-background-color-hover);
 --cpu-graph-color-rgb:var(--graph-1-background-color-rgb);
+--cpu-graph-color-hover-rgb:var(--graph-1-background-color-hover-rgb);
 --ram-graph-color-rgb:var(--graph-2-background-color-rgb);
+--ram-graph-color-hover-rgb:var(--graph-2-background-color-hover-rgb);
 --disk-graph-color-rgb:var(--graph-3-background-color-rgb);
+--disk-graph-color-hover-rgb:var(--graph-3-background-color-hover-rgb);
 --network-graph-color-rgb:var(--graph-4-background-color-rgb);
+--network-graph-color-hover-rgb:var(--graph-4-background-color-hover-rgb);
 --gpu-graph-color-rgb:var(--graph-5-background-color-rgb);
+--gpu-graph-color-hover-rgb:var(--graph-5-background-color-hover-rgb);
 }
 
 .theme-fandomdesktop-dark body {
 --graphs-opacity:0.3;
---graphs-opacity-filter:brightness(50%) contrast(150%);
 }
 
 .desktop-background {
@@ -1348,27 +1357,27 @@ body.has-no-left-graphs .page box.left .button > div {
 
 .page box.left .circle.cpu {
 	--border-color:var(--cpu-graph-color);
-	--background-color:rgba(var(--cpu-graph-color-rgb),var(--graphs-opacity));
+	--background-color:rgba(var(--cpu-graph-color-hover-rgb),var(--graphs-opacity));
 }
 
 .page box.left .circle.ram {
 	--border-color:var(--ram-graph-color);
-	--background-color:rgba(var(--ram-graph-color-rgb),var(--graphs-opacity));
+	--background-color:rgba(var(--ram-graph-color-hover-rgb),var(--graphs-opacity));
 }
 
 .page box.left .circle.disk {
 	--border-color:var(--disk-graph-color);
-	--background-color:rgba(var(--disk-graph-color-rgb),var(--graphs-opacity));
+	--background-color:rgba(var(--disk-graph-color-hover-rgb),var(--graphs-opacity));
 }
 
 .page box.left .circle.network {
 	--border-color:var(--network-graph-color);
-	--background-color:rgba(var(--network-graph-color-rgb),var(--graphs-opacity));
+	--background-color:rgba(var(--network-graph-color-hover-rgb),var(--graphs-opacity));
 }
 
 .page box.left .circle.gpu {
 	--border-color:var(--gpu-graph-color);
-	--background-color:rgba(var(--gpu-graph-color-rgb),var(--graphs-opacity));
+	--background-color:rgba(var(--gpu-graph-color-hover-rgb),var(--graphs-opacity));
 }
 
 .page box .graph {
@@ -1466,7 +1475,7 @@ PCR = PerfCap Reason  (Page 4)
 }
 
 .page box.right.cpu .g_raph .heatmap cpu::after{
-	background-color:rgba(var(--cpu-graph-color-rgb),calc( var(--heatmap-usage) / 1.25 ));
+	background-color:rgba(var(--cpu-graph-color-hover-rgb),calc( var(--heatmap-usage) / 1.25 ));
 	width:100%;
 	content:"";
 	display:block;
@@ -1475,7 +1484,6 @@ PCR = PerfCap Reason  (Page 4)
 	height:100%;
 	z-index:-1;
 	position:absolute;
-	filter:var(--graphs-opacity-filter);
 	border-radius:var(--border-radius);
 }
 
