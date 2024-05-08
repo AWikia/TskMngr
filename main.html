@@ -161,6 +161,10 @@
 							<counter>72%</counter>
 								GPU
 							</span>
+							<span class="npu">
+							<counter>30%</counter>
+								NPU
+							</span>
 							<span class="ucpu">
 								Χρόνος CPU
 							</span>
@@ -178,6 +182,7 @@
 								<span class="disk">275MBps</span>
 								<span class="network">0Kbps</span>
 								<span class="gpu">1%</span>
+								<span class="npu">30%</span>
 								<span class="ucpu">00:01:30</span>
 							</header>
 							<header appname="TaskMgr" class="header item">
@@ -187,6 +192,7 @@
 								<span class="disk">1ΚBps</span>
 								<span class="network">0Kbps</span>
 								<span class="gpu">0%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">00:00:45</span>
 							</header>
 							<header appname="dolphin" class="header item">
@@ -196,6 +202,7 @@
 								<span class="disk">125KBps</span>
 								<span class="network">0Kbps</span>
 								<span class="gpu">68%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">01:00:30</span>
 							</header>
 							<header appname="rpgmv" class="header item">
@@ -205,6 +212,7 @@
 								<span class="disk">2KBps</span>
 								<span class="network">0Kbps</span>
 								<span class="gpu">0%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">00:05:34</span>
 							</header>
 							
@@ -215,6 +223,7 @@
 								<span class="disk">500KBps</span>
 								<span class="network">100Mbps</span>
 								<span class="gpu">3%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">00:44:07</span>
 							</header>
 								
@@ -229,6 +238,7 @@
 								<span class="disk">500KBps</span>
 								<span class="network">100Mbps</span>
 								<span class="gpu">2%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">00:44:07</span>
 							</header>
 							<header appname="browser" class="header item">
@@ -238,6 +248,7 @@
 								<span class="disk">0KBps</span>
 								<span class="network">0Mbps</span>
 								<span class="gpu">1%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">00:44:07</span>
 							</header>
 							<header appname="browser" class="header item">
@@ -247,6 +258,7 @@
 								<span class="disk">80KBps</span>
 								<span class="network">0Mbps</span>
 								<span class="gpu">0%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">00:10:00</span>
 							</header>
 							<header appname="registry" class="header item">
@@ -256,6 +268,7 @@
 								<span class="disk">0KBps</span>
 								<span class="network">0Kbps</span>
 								<span class="gpu">0%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">01:08:22</span>
 							</header>
 							<header appname="system" class="header item">
@@ -265,6 +278,7 @@
 								<span class="disk">1KBps</span>
 								<span class="network">0Kbps</span>
 								<span class="gpu">0%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">01:08:22</span>
 							</header>
 							<header appname="windowproc" class="header item">
@@ -274,6 +288,7 @@
 								<span class="disk">1KBps</span>
 								<span class="network">0Kbps</span>
 								<span class="gpu">0%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">01:08:22</span>
 							</header>
 							<header appname="services" class="header item">
@@ -283,6 +298,7 @@
 								<span class="disk">0KBps</span>
 								<span class="network">0Kbps</span>
 								<span class="gpu">0%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">01:08:22</span>
 							</header>
 							<header appname="console" class="header item">
@@ -292,6 +308,7 @@
 								<span class="disk">0KBps</span>
 								<span class="network">0Kbps</span>
 								<span class="gpu">0%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">01:08:22</span>
 							</header>
 							<header appname="console" class="header item">
@@ -301,6 +318,7 @@
 								<span class="disk">0KBps</span>
 								<span class="network">0Kbps</span>
 								<span class="gpu">0%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">01:08:22</span>
 							</header>
 							<header appname="settings" class="header item">
@@ -310,6 +328,7 @@
 								<span class="disk">0KBps</span>
 								<span class="network">0Kbps</span>
 								<span class="gpu">0%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">01:08:22</span>
 							</header>
 				
@@ -429,6 +448,23 @@
 									<br>
 									<span>NVidia GeForce GTX 1650</span>
 									<br> G: 65 M: 30 V: 10 B: 2%<br>27% (54°C)
+								</span>
+							</div>
+						</a>
+						<a class="button p5" onclick="SetPage(5)">
+							<div class="graph">
+			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gNPU0A"/>
+			</svg>
+							</div>
+							<div class="circle npu">
+							</div>
+							<div>
+								<big>NPU 0</big>
+								<span class="subtitle">
+									<br>
+									<span>AI NPU Boost</span>
+									<br> 30% (48°C)<br>1,0GHz
 								</span>
 							</div>
 						</a>
@@ -685,11 +721,11 @@
 									</div>
 
 									<div class="col">
-										<div class="info" style="border-left: 2px dotted var(--disk-graph-color);">
+										<div class="info" style="border-left: 2px dotted var(--disk-graph-background-color);">
 											<span>Εγγραφή</span>
 											<em>200MBps</em>
 										</div>
-										<div class="info" style="border-left: 2px solid var(--disk-graph-color);">
+										<div class="info" style="border-left: 2px solid var(--disk-graph-background-color);">
 											<span>Ανάγνωση</span>
 											<em>240MBps</em>
 										</div>
@@ -773,11 +809,11 @@
 										</div>
 									</div>
 									<div class="col">
-										<div class="info" style="border-left: 2px dotted var(--network-graph-color);">
+										<div class="info" style="border-left: 2px dotted var(--network-graph-background-color);">
 											<span>Αποστολή</span>
 											<em>944Kbps</em>
 										</div>
-										<div class="info" style="border-left: 2px solid var(--network-graph-color);">
+										<div class="info" style="border-left: 2px solid var(--network-graph-background-color);">
 											<span>Λήψη</span>
 											<em>100Mbps</em>
 										</div>
@@ -898,22 +934,22 @@
 										</div>
 									</div>
 									<div class="col">
-										<div class="info" style="border-left: 2px dotted var(--gpu-graph-color);">
+										<div class="info" style="border-left: 2px dotted var(--gpu-graph-background-color);">
 											<span>Ελεγκτής Μνήμης</span>
 											<em>30%</em>
 										</div>
-										<div class="info" style="border-left: 2px solid var(--gpu-graph-color);">
+										<div class="info" style="border-left: 2px solid var(--gpu-graph-background-color);">
 											<span>Επεξεργαστής Γραφικών</span>
 											<em>65%</em>
 										</div>
 									</div>
 									
 									<div class="col">
-										<div class="info" style="border-left: 2px double var(--gpu-graph-color);">
+										<div class="info" style="border-left: 2px double var(--gpu-graph-background-color);">
 											<span>Διασύνδεση Διαύλου</span>
 											<em>2%</em>
 										</div>
-										<div class="info" style="border-left: 2px dashed var(--gpu-graph-color);">
+										<div class="info" style="border-left: 2px dashed var(--gpu-graph-background-color);">
 											<span>Μηχανή Βίντεο</span>
 											<em>10%</em>
 										</div>
@@ -939,8 +975,114 @@
 								</div>
 							</div>
 					</box>
+					<!--NPU-->
+					<box class="right npu p5">
+						<div class="header">
+							<h1>NPU 0</h1>
+							<h3>AI NPU Boost</h3>
+						</div>
+							<div class="g_raph" onclick="NPU1_t()" page="0">
+								<div class="graph">
+									<span class="graph_text">
+										<span>
+											Ενεργός Χρόνος
+										</span>
+										<span>
+											100%
+										</span>
+									</span>		
+			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gNPU0"/>
+			</svg>
+								</div>
+								<div class="graph graphT">
+									<span class="graph_text">
+										<span>
+											Θερμοκρασία
+										</span>
+										<span>
+											100°C
+										</span>
+									</span>		
+			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gNPU1"/>
+			</svg>
+								</div>
+								<div class="graph graphMEM">
+									<span class="graph_text">
+										<span>
+											Μνήμη σε χρήση
+										</span>
+										<span>
+											4,0GB
+										</span>
+									</span>		
+			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gNPU2"/>
+			</svg>
+								</div>
+								<div class="graph graphF">
+									<span class="graph_text">
+										<span>
+											Συχνότητα
+										</span>
+										<span title="Κανονική: 1,00GHz">
+											1,00GHz
+										</span>
+									</span>		
+			<svg class="graph_container" version="1.1" preserveaspectratio="none" viewBox="0.0 0.0 600.0 371.0" fill="none" width="600" height="371" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gNPU3"/>
+			</svg>
+								</div>
+							</div>
+							<div class="bottom">
+								<div class="leftp">
+									<div class="col">
+										<div class="info">
+											<span>Ενεργός Χρόνος</span>
+											<em>30%</em>
+										</div>
+										<div class="info">
+											<span>Συχνότητα</span>
+											<em>1,0GHz</em>
+										</div>
+										<div class="info">
+											<span>Θερμοκρασία</span>
+											<em>48°C</em>
+										</div>
+									</div>
+
+									<div class="col">
+										<div class="info">
+											<span>Αποκελιστική Μνήμη σε χρήση</span>
+											<em>-/-</em>
+										</div>
+										<div class="info">
+											<span>Κοινή Μνήμη σε Χρήση</span>
+											<em>0,1/4,0GΒ</em>
+										</div>
+									</div>
+
+
+								</div>
+								<div class="rightp">
+									<ul>
+									<li>
+									Κανονική Ταχύτητα: <span>1,00GHz</span>
+									</li>
+									<li>
+									Μνήμη NPU: <span>---</span>
+									</li>
+									<li>
+									Δεσμευμένη στο Κονζτίντι: <span>30MB</span>
+									</li>
+									</ul>
+								</div>
+							</div>
+					</box>
 				</section>
 				</div>
+
 			</main>
 
 			<!--History-->
@@ -1173,6 +1315,10 @@
 							<counter>72%</counter>
 								GPU
 							</span>
+							<span class="npu">
+							<counter>30%</counter>
+								NPU
+							</span>
 							<span class="ucpu">
 								Χρόνος CPU
 							</span>
@@ -1189,6 +1335,7 @@
 										<span class="disk">275MBps</span>
 										<span class="network">100Μbps</span>
 										<span class="gpu">72%</span>
+										<span class="npu">30%</span>
 										<span class="ucpu">01:08:22</span>
 									</header>
 								</summary>
@@ -1199,6 +1346,7 @@
 									<span class="disk">275MBps</span>
 									<span class="network">0Kbps</span>
 									<span class="gpu">1%</span>
+									<span class="npu">30%</span>
 									<span class="ucpu">00:01:30</span>
 								</header>
 								<header appname="TaskMgr" class="header item">
@@ -1208,6 +1356,7 @@
 									<span class="disk">1ΚBps</span>
 									<span class="network">0Kbps</span>
 									<span class="gpu">0%</span>
+									<span class="npu">0%</span>
 									<span class="ucpu">00:00:45</span>
 								</header>
 								<header appname="dolphin" class="header item">
@@ -1217,6 +1366,7 @@
 									<span class="disk">125KBps</span>
 									<span class="network">0Kbps</span>
 									<span class="gpu">68%</span>
+									<span class="npu">0%</span>
 									<span class="ucpu">01:00:30</span>
 								</header>
 								<header appname="rpgmv" class="header item">
@@ -1226,6 +1376,7 @@
 									<span class="disk">2KBps</span>
 									<span class="network">0Kbps</span>
 									<span class="gpu">0%</span>
+									<span class="npu">0%</span>
 									<span class="ucpu">00:05:34</span>
 								</header>
 								
@@ -1236,6 +1387,7 @@
 									<span class="disk">500KBps</span>
 									<span class="network">100Mbps</span>
 									<span class="gpu">3%</span>
+									<span class="npu">0%</span>
 									<span class="ucpu">00:44:07</span>
 								</header>
 								<header appname="browser" class="header item">
@@ -1245,6 +1397,7 @@
 									<span class="disk">500KBps</span>
 									<span class="network">100Mbps</span>
 									<span class="gpu">2%</span>
+									<span class="npu">0%</span>
 									<span class="ucpu">00:44:07</span>
 								</header>
 								<header appname="browser" class="header item">
@@ -1254,6 +1407,7 @@
 									<span class="disk">0KBps</span>
 									<span class="network">0Mbps</span>
 									<span class="gpu">1%</span>
+									<span class="npu">0%</span>
 									<span class="ucpu">00:44:07</span>
 								</header>
 								<header appname="browser" class="header item">
@@ -1263,6 +1417,7 @@
 									<span class="disk">80KBps</span>
 									<span class="network">0Mbps</span>
 									<span class="gpu">0%</span>
+									<span class="npu">0%</span>
 									<span class="ucpu">00:10:00</span>
 								</header>
 								<header appname="console" class="header item">
@@ -1272,6 +1427,7 @@
 									<span class="disk">0KBps</span>
 									<span class="network">0Kbps</span>
 									<span class="gpu">0%</span>
+									<span class="npu">0%</span>
 									<span class="ucpu">01:08:22</span>
 								</header>
 								<header appname="console" class="header item">
@@ -1281,6 +1437,7 @@
 									<span class="disk">0KBps</span>
 									<span class="network">0Kbps</span>
 									<span class="gpu">0%</span>
+									<span class="npu">0%</span>
 									<span class="ucpu">01:08:22</span>
 								</header>
 								<header appname="settings" class="header item">
@@ -1290,6 +1447,7 @@
 									<span class="disk">0KBps</span>
 									<span class="network">0Kbps</span>
 									<span class="gpu">0%</span>
+									<span class="npu">0%</span>
 									<span class="ucpu">01:08:22</span>
 								</header>
 							</details>
@@ -1336,6 +1494,9 @@
 							<span class="gpu">
 								GPU
 							</span>
+							<span class="npu">
+								NPU
+							</span>
 							<span class="ucpu">
 								Χρήστης
 							</span>
@@ -1350,6 +1511,7 @@
 								<span class="disk">275MBps</span>
 								<span class="network">0Kbps</span>
 								<span class="gpu">1%</span>
+								<span class="npu">30%</span>
 								<span class="ucpu">HM100</span>
 							</header>
 							<header appname="TaskMgr" class="header item">
@@ -1359,6 +1521,7 @@
 								<span class="disk">1ΚBps</span>
 								<span class="network">0Kbps</span>
 								<span class="gpu">0%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">HM100</span>
 							</header>
 							<header appname="dolphin" class="header item">
@@ -1368,6 +1531,7 @@
 								<span class="disk">125KBps</span>
 								<span class="network">0Kbps</span>
 								<span class="gpu">68%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">HM100</span>
 							</header>
 							<header appname="rpgmv" class="header item">
@@ -1377,6 +1541,7 @@
 								<span class="disk">2KBps</span>
 								<span class="network">0Kbps</span>
 								<span class="gpu">0%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">HM100</span>
 							</header>
 							
@@ -1387,6 +1552,7 @@
 								<span class="disk">500KBps</span>
 								<span class="network">100Mbps</span>
 								<span class="gpu">3%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">HM100</span>
 							</header>
 								
@@ -1398,6 +1564,7 @@
 								<span class="disk">500KBps</span>
 								<span class="network">100Mbps</span>
 								<span class="gpu">2%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">HM100</span>
 							</header>
 							<header appname="browser" class="header item">
@@ -1407,6 +1574,7 @@
 								<span class="disk">0KBps</span>
 								<span class="network">0Mbps</span>
 								<span class="gpu">1%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">HM100</span>
 							</header>
 							<header appname="browser" class="header item">
@@ -1416,6 +1584,7 @@
 								<span class="disk">80KBps</span>
 								<span class="network">0Mbps</span>
 								<span class="gpu">0%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">HM100</span>
 							</header>
 							<header appname="registry" class="header item">
@@ -1425,6 +1594,7 @@
 								<span class="disk">0KBps</span>
 								<span class="network">0Kbps</span>
 								<span class="gpu">0%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">SYSTEM</span>
 							</header>
 							<header appname="system" class="header item">
@@ -1434,6 +1604,7 @@
 								<span class="disk">1KBps</span>
 								<span class="network">0Kbps</span>
 								<span class="gpu">0%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">SYSTEM</span>
 							</header>
 							<header appname="windowproc" class="header item">
@@ -1443,6 +1614,7 @@
 								<span class="disk">1KBps</span>
 								<span class="network">0Kbps</span>
 								<span class="gpu">0%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">SYSTEM</span>
 							</header>
 							<header appname="services" class="header item">
@@ -1452,6 +1624,7 @@
 								<span class="disk">0KBps</span>
 								<span class="network">0Kbps</span>
 								<span class="gpu">0%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">SYSTEM</span>
 							</header>
 							<header appname="console" class="header item">
@@ -1461,6 +1634,7 @@
 								<span class="disk">0KBps</span>
 								<span class="network">0Kbps</span>
 								<span class="gpu">0%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">HM100</span>
 							</header>
 							<header appname="console" class="header item">
@@ -1470,6 +1644,7 @@
 								<span class="disk">0KBps</span>
 								<span class="network">0Kbps</span>
 								<span class="gpu">0%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">HM100</span>
 							</header>
 							<header appname="settings" class="header item">
@@ -1479,6 +1654,7 @@
 								<span class="disk">0KBps</span>
 								<span class="network">0Kbps</span>
 								<span class="gpu">0%</span>
+								<span class="npu">0%</span>
 								<span class="ucpu">HM100</span>
 							</header>
 						</article>

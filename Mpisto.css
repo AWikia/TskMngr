@@ -680,26 +680,6 @@ user-select:none;
 body {
 --graphs-opacity:0.25;
 --page-opacity:0.85;
---cpu-graph-color:var(--graph-1-background-color);
---cpu-graph-color-hover:var(--graph-1-background-color-hover);
---ram-graph-color:var(--graph-2-background-color);
---ram-graph-color-hover:var(--graph-2-background-color-hover);
---disk-graph-color:var(--graph-3-background-color);
---disk-graph-color-hover:var(--graph-3-background-color-hover);
---network-graph-color:var(--graph-4-background-color);
---network-graph-color-hover:var(--graph-4-background-color-hover);
---gpu-graph-color:var(--graph-5-background-color);
---gpu-graph-color-hover:var(--graph-5-background-color-hover);
---cpu-graph-color-rgb:var(--graph-1-background-color-rgb);
---cpu-graph-color-hover-rgb:var(--graph-1-background-color-hover-rgb);
---ram-graph-color-rgb:var(--graph-2-background-color-rgb);
---ram-graph-color-hover-rgb:var(--graph-2-background-color-hover-rgb);
---disk-graph-color-rgb:var(--graph-3-background-color-rgb);
---disk-graph-color-hover-rgb:var(--graph-3-background-color-hover-rgb);
---network-graph-color-rgb:var(--graph-4-background-color-rgb);
---network-graph-color-hover-rgb:var(--graph-4-background-color-hover-rgb);
---gpu-graph-color-rgb:var(--graph-5-background-color-rgb);
---gpu-graph-color-hover-rgb:var(--graph-5-background-color-hover-rgb);
 }
 
 .theme-fandomdesktop-dark body {
@@ -989,7 +969,7 @@ line-height:16px;
 	border-right:1px solid var(--inactive-text-background-color);
 	font-size:13px;
 	font-weight:normal;
-	width:60px;
+	width:50px;
 	text-align:right;
 	height:40px;
 	padding:10px;
@@ -1192,14 +1172,23 @@ main.performance footer.upper {
 	width:auto;
 	align-items:flex-start;
 	text-align:left;
-	width:100px;
+	width:90px;
 }
 
 
 .startup .proc_page .cpu,
 .startup .proc_page .ram,
-.startup .proc_page .disk {
+.startup .proc_page .disk,
+.startup .proc_page .ucpu  {
 	width:100px;
+}
+
+.history .proc_page .cpu,
+.history .proc_page .ram,
+.history .proc_page .disk,
+.history .proc_page .network,
+.history .proc_page .gpu {
+	width:60px;
 }
 
 .proc_page header:not(.upper) .name,
@@ -1289,7 +1278,8 @@ main.performance footer.upper {
 .page.ram,
 .page.disk,
 .page.network,
-.page.gpu {
+.page.gpu,
+.page.npu {
 	display:none;
 }
 
@@ -1341,6 +1331,7 @@ main.performance footer.upper {
 	overflow:hidden;
 	flex:1;
 	flex-basis:calc(100% - 160px);
+	min-height:65px;
 }
 
 body.has-no-left-graphs .page box.left .button > div {
@@ -1382,6 +1373,7 @@ body.has-no-left-graphs .page box.left .button > div {
 	border-radius:50%;
 	width:24px;
 	height:24px;
+	min-height:auto!important;
 	margin:0 5px 0 0;
 	background-color:var(--canvas-background-color);
 	border-color:var(--border-color);
@@ -1389,28 +1381,33 @@ body.has-no-left-graphs .page box.left .button > div {
 }
 
 .page box.left .circle.cpu {
-	--border-color:var(--cpu-graph-color);
-	--background-color:rgba(var(--cpu-graph-color-hover-rgb),var(--graphs-opacity));
+	--border-color:var(--cpu-graph-background-color);
+	--background-color:rgba(var(--cpu-graph-background-color-hover-rgb),var(--graphs-opacity));
 }
 
 .page box.left .circle.ram {
-	--border-color:var(--ram-graph-color);
-	--background-color:rgba(var(--ram-graph-color-hover-rgb),var(--graphs-opacity));
+	--border-color:var(--ram-graph-background-color);
+	--background-color:rgba(var(--ram-graph-background-color-hover-rgb),var(--graphs-opacity));
 }
 
 .page box.left .circle.disk {
-	--border-color:var(--disk-graph-color);
-	--background-color:rgba(var(--disk-graph-color-hover-rgb),var(--graphs-opacity));
+	--border-color:var(--disk-graph-background-color);
+	--background-color:rgba(var(--disk-graph-background-color-hover-rgb),var(--graphs-opacity));
 }
 
 .page box.left .circle.network {
-	--border-color:var(--network-graph-color);
-	--background-color:rgba(var(--network-graph-color-hover-rgb),var(--graphs-opacity));
+	--border-color:var(--network-graph-background-color);
+	--background-color:rgba(var(--network-graph-background-color-hover-rgb),var(--graphs-opacity));
 }
 
 .page box.left .circle.gpu {
-	--border-color:var(--gpu-graph-color);
-	--background-color:rgba(var(--gpu-graph-color-hover-rgb),var(--graphs-opacity));
+	--border-color:var(--gpu-graph-background-color);
+	--background-color:rgba(var(--gpu-graph-background-color-hover-rgb),var(--graphs-opacity));
+}
+
+.page box.left .circle.npu {
+	--border-color:var(--npu-graph-background-color);
+	--background-color:rgba(var(--npu-graph-background-color-hover-rgb),var(--graphs-opacity));
 }
 
 .page box .graph {
@@ -1441,11 +1438,10 @@ body:not(.has-no-left-graphs) .page box.left .circle {
 }
 
 /*
-T   = Temperature	  (Page 1 or 2)
-AT  = Utilization	  (Page 1)
-F   = Frequency 	  (Page 2)
-MEM = Discrete Memory (Page 3)
-PCR = PerfCap Reason  (Page 4)
+T   = Temperature	  (Page 1 for GPU and NPU, Page 2 for CPU)
+AT  = Utilization	  (Page 1 for Disk and Network)
+MEM = Discrete Memory (Page 2 for GPU and NPU)
+F   = Frequency 	  (Page 3 for CPU, GPU and NPU)
 */
 
 .page box.right.cpu .g_raph:not([page*="1"]) .heatmap,
@@ -1453,11 +1449,14 @@ PCR = PerfCap Reason  (Page 4)
 .page .g_raph:not([page*="0"]) .graph:not(.graphHTM):not([class*="graphT"]):not([class*="graphAT"]):not([class*="graphF"]):not([class*="graphMEM"]):not([class*="graphPCR"]),
 .page box.right.cpu .g_raph:not([page*="2"]) .graphT,
 .page box.right.gpu .g_raph:not([page*="1"]) .graphT,
+.page box.right.npu .g_raph:not([page*="1"]) .graphT,
 .page box.right.disk .g_raph:not([page*="1"]) .graphAT, 
 .page box.right.network .g_raph:not([page*="1"]) .graphAT, 
+.page box.right.gpu .g_raph:not([page*="2"]) .graphMEM,
+.page box.right.npu .g_raph:not([page*="2"]) .graphMEM,
 .page box.right.cpu .g_raph:not([page*="3"]) .graphF, 
 .page box.right.gpu .g_raph:not([page*="3"]) .graphF, 
-.page box.right.gpu .g_raph:not([page*="2"]) .graphMEM {
+.page box.right.npu .g_raph:not([page*="3"]) .graphF {
 	display:none!important;
 }
 
@@ -1508,7 +1507,7 @@ PCR = PerfCap Reason  (Page 4)
 }
 
 .page box.right.cpu .g_raph .heatmap cpu::after{
-	background-color:rgba(var(--cpu-graph-color-hover-rgb),calc( var(--heatmap-usage) / 1.25 ));
+	background-color:rgba(var(--cpu-graph-background-color-hover-rgb),calc( var(--heatmap-usage) / 1.25 ));
 	width:100%;
 	content:"";
 	display:block;

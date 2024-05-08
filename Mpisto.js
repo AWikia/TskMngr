@@ -125,6 +125,18 @@ function GPU1_t() {
 	}
 }
 
+function NPU1_t() {
+	if ($('.page box.right.npu .g_raph').attr("page") == 0) {
+		$('.page box.right.npu .g_raph').attr("page", "1");
+	} else if ($('.page box.right.npu .g_raph').attr("page") == 1) {
+		$('.page box.right.npu .g_raph').attr("page", "2");
+	} else if ($('.page box.right.npu .g_raph').attr("page") == 2) {
+		$('.page box.right.npu .g_raph').attr("page", "3");
+	} else {
+		$('.page box.right.npu .g_raph').attr("page", "0");
+	}
+}
+
 /* Graph Switch */
 function SwitchGraphs() {
 	if (document.getElementById("Performance01").checked) {

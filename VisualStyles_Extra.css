@@ -4,16 +4,11 @@
 .visualmode-contrast body {
 --graphs-opacity:0;
 --page-opacity:1;
---cpu-graph-color:var(--canvas-text-background-color);
---ram-graph-color:var(--canvas-text-background-color);
---disk-graph-color:var(--canvas-text-background-color);
---network-graph-color:var(--canvas-text-background-color);
---gpu-graph-color:var(--canvas-text-background-color);
---cpu-graph-color-rgb:var(--canvas-text-background-color-rgb);
---ram-graph-color-rgb:var(--canvas-text-background-color-rgb);
---disk-graph-color-rgb:var(--canvas-text-background-color-rgb);
---network-graph-color-rgb:var(--canvas-text-background-color-rgb);
---gpu-graph-color-rgb:var(--canvas-text-background-color-rgb);
+--cpu-graph-background-color-rgb:var(--canvas-text-background-color-rgb);
+--ram-graph-background-color-rgb:var(--canvas-text-background-color-rgb);
+--disk-graph-background-color-rgb:var(--canvas-text-background-color-rgb);
+--network-graph-background-color-rgb:var(--canvas-text-background-color-rgb);
+--gpu-graph-background-color-rgb:var(--canvas-text-background-color-rgb);
 }
 
 .visualmode-contrast .proc_page .upper span:hover, 
