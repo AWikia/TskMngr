@@ -667,9 +667,9 @@ text-rendering:optimizeSpeed;
 touch-action:manipulation;
 	overflow-y:auto;
 	font-weight:500;
-/*text-shadow:0 0 1px rgba(0,0,0,0.1),0 0 1px rgba(255,255,255,0.1);*/ /* Partially Embolding */
+/*text-shadow:0 0 1px rgb(0 0 0 / 0.1),0 0 1px rgb(255 / 255 / 255 / 0.1);*/ /* Partially Embolding */
 margin:0 0 0;
-/*text-shadow:0 0 1px rgba(255,0,0,0.1), 0 0 1px rgba(0,255,0,0.1), 0 0 1px rgba(0,0,255,0.1), 0 0 1px rgba(255,255,0,0.1), 0 0 1px rgba(255,0,255,0.1), 0 0 1px rgba(0,255,255,0.1), 0 0 1px rgba(0,0,0,0.1), 0 0 1px rgba(255,255,255,0.1); */
+/*text-shadow:0 0 1px rgb(255 0 0 / 0.1), 0 0 1px rgb(0 255 0 / 0.1), 0 0 1px rgb(0 0 255 / 0.1), 0 0 1px rgb(255 255 0 / 0.1), 0 0 1px rgb(255 0 255 / 0.1), 0 0 1px rgb(0 255 255 / 0.1), 0 0 1px rgb(0 0 0 / 0.1), 0 0 1px rgb(255 255 255 / 0.1); */
 user-select:none;
 -webkit-user-select:none;
 -moz-user-select:none;
@@ -722,7 +722,7 @@ main {
 	height:100dvh;
 	width:232px;
 	flex-flow:column;
-	color:rgba(var(--canvas-text-secondary-background-color-rgb),1);
+	color:rgb(var(--canvas-text-secondary-background-color-rgb) / 1);
 	padding:5px;
 	margin:0;
 	position:relative;
@@ -785,8 +785,8 @@ main {
 }
 
 .tabs a:hover {
-	background-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.2);
-	border-color:rgba(var(--canvas-text-secondary-background-color-rgb),0.1);
+	background-color:rgb(var(--canvas-text-secondary-background-color-rgb) / 0.2);
+	border-color:rgb(var(--canvas-text-secondary-background-color-rgb) / 0.1);
 	color:var(--canvas-text-secondary-background-color-hover);
     box-shadow:var(--threeD-shadow);
 }
@@ -804,8 +804,8 @@ main {
 [page*="settings"] .tabs .settings,
 .tabs .cpe-dropdown:focus > a,
 .tabs .cpe-dropdown:focus-within > a {
-	background-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.4);
-	border-color:rgba(var(--hyperlink-secondary-background-color-rgb),0.2);
+	background-color:rgb(var(--hyperlink-secondary-background-color-rgb) / 0.4);
+	border-color:rgb(var(--hyperlink-secondary-background-color-rgb) / 0.2);
 	color:var(--hyperlink-secondary-background-color);
 	font-variation-settings: 'FILL' 1;
     box-shadow:var(--threeD-shadow-active);
@@ -996,7 +996,7 @@ line-height:16px;
 
 .proc_page .upper,
 .settings_page .upper {
-	background-color:rgba(var(--canvas-background-color-rgb),var(--page-opacity));
+	background-color:rgb(var(--canvas-background-color-rgb) / var(--page-opacity));
 	border-bottom:1px solid var(--inactive-text-background-color);
 	color:var(--canvas-text-background-color);
 	top:0;
@@ -1024,7 +1024,7 @@ line-height:16px;
 }
 
 .settings_page .upper {
-	background-color:rgba(var(--canvas-tabs-background-color),var(--canvas-active-tabs-opacity));
+	background-color:rgb(var(--canvas-tabs-background-color) / var(--canvas-active-tabs-opacity));
 	color:var(--canvas-text-secondary-background-color);
 }
 
@@ -1066,7 +1066,7 @@ main.performance footer.upper h2 {
 .settings_page article {
 	flex:1;
 	overflow-y:scroll; /* Not auto, as it will cause isses when container is not scrollable */
-	background-color:rgba(var(--canvas-background-color-rgb),var(--page-opacity));
+	background-color:rgb(var(--canvas-background-color-rgb) / var(--page-opacity));
 	color:var(--canvas-text-background-color);
 	scrollbar-color:var(--scrollbar-thumb-color-1) var(--scrollbar-track-color-1);
 	/* Width */
@@ -1088,7 +1088,7 @@ main.performance footer.upper h2 {
 
 .proc_page footer,
 main.performance footer.upper {
-	background-color:rgba(var(--canvas-tabs-background-color),var(--canvas-active-tabs-opacity));
+	background-color:rgb(var(--canvas-tabs-background-color) / var(--canvas-active-tabs-opacity));
 	padding-right:10px;
 	display:flex;
 	border-bottom:1px solid var(--inactive-text-background-color);
@@ -1265,7 +1265,7 @@ main.performance footer.upper {
 /* Performance Page */
 .page {
 	display:flex;
-	background-color:rgba(var(--canvas-background-color-rgb),var(--page-opacity));
+	background-color:rgb(var(--canvas-background-color-rgb) / var(--page-opacity));
 	color:var(--canvas-text-background-color);
 	height:0;
 	box-sizing:border-box;
@@ -1347,8 +1347,8 @@ body.has-no-left-graphs .page box.left .button > div {
 }
 
 .page box.left .button:hover {
-	background-color:rgba(var(--canvas-text-background-color-rgb),0.2);
-	border-color:rgba(var(--canvas-text-background-color-rgb),0.1);
+	background-color:rgb(var(--canvas-text-background-color-rgb) / 0.2);
+	border-color:rgb(var(--canvas-text-background-color-rgb) / 0.1);
 	color:var(--canvas-text-background-color-hover);
     box-shadow:var(--threeD-shadow);
 }
@@ -1358,8 +1358,8 @@ body.has-no-left-graphs .page box.left .button > div {
 }
 
 .page box.left .button.selected {
-	background-color:rgba(var(--hyperlink-background-color-rgb),0.4);
-	border-color:rgba(var(--hyperlink-background-color-rgb),0.2);
+	background-color:rgb(var(--hyperlink-background-color-rgb) / 0.4);
+	border-color:rgb(var(--hyperlink-background-color-rgb) / 0.2);
 	color:var(--hyperlink-background-color);
     box-shadow:var(--threeD-shadow-active);
 	font-variation-settings: 'FILL' 1;
@@ -1382,32 +1382,32 @@ body.has-no-left-graphs .page box.left .button > div {
 
 .page box.left .circle.cpu {
 	--border-color:var(--cpu-graph-background-color);
-	--background-color:rgba(var(--cpu-graph-background-color-hover-rgb),var(--graphs-opacity));
+	--background-color:rgb(var(--cpu-graph-background-color-hover-rgb) / var(--graphs-opacity));
 }
 
 .page box.left .circle.ram {
 	--border-color:var(--ram-graph-background-color);
-	--background-color:rgba(var(--ram-graph-background-color-hover-rgb),var(--graphs-opacity));
+	--background-color:rgb(var(--ram-graph-background-color-hover-rgb) / var(--graphs-opacity));
 }
 
 .page box.left .circle.disk {
 	--border-color:var(--disk-graph-background-color);
-	--background-color:rgba(var(--disk-graph-background-color-hover-rgb),var(--graphs-opacity));
+	--background-color:rgb(var(--disk-graph-background-color-hover-rgb) / var(--graphs-opacity));
 }
 
 .page box.left .circle.network {
 	--border-color:var(--network-graph-background-color);
-	--background-color:rgba(var(--network-graph-background-color-hover-rgb),var(--graphs-opacity));
+	--background-color:rgb(var(--network-graph-background-color-hover-rgb) / var(--graphs-opacity));
 }
 
 .page box.left .circle.gpu {
 	--border-color:var(--gpu-graph-background-color);
-	--background-color:rgba(var(--gpu-graph-background-color-hover-rgb),var(--graphs-opacity));
+	--background-color:rgb(var(--gpu-graph-background-color-hover-rgb) / var(--graphs-opacity));
 }
 
 .page box.left .circle.npu {
 	--border-color:var(--npu-graph-background-color);
-	--background-color:rgba(var(--npu-graph-background-color-hover-rgb),var(--graphs-opacity));
+	--background-color:rgb(var(--npu-graph-background-color-hover-rgb) / var(--graphs-opacity));
 }
 
 .page box .graph {
@@ -1497,7 +1497,7 @@ F   = Frequency 	  (Page 3 for CPU, GPU and NPU)
 	font-size:16px;
 	font-weight:500;
 	min-width:47px;
-/*	background-color:rgba(193,144,0,calc( var(--heatmap-usage) / 100 )); */
+/*	background-color:rgb(193 144 0 / calc( var(--heatmap-usage) / 100 )); */
 	background-color:var(--canvas-background-color);
 	border:1px solid var(--inactive-text-background-color);
 	position:relative;
@@ -1507,7 +1507,7 @@ F   = Frequency 	  (Page 3 for CPU, GPU and NPU)
 }
 
 .page box.right.cpu .g_raph .heatmap cpu::after{
-	background-color:rgba(var(--cpu-graph-background-color-hover-rgb),calc( var(--heatmap-usage) / 1.25 ));
+	background-color:rgb(var(--cpu-graph-background-color-hover-rgb) / calc( var(--heatmap-usage) / 1.25 ));
 	width:100%;
 	content:"";
 	display:block;
@@ -1521,7 +1521,7 @@ F   = Frequency 	  (Page 3 for CPU, GPU and NPU)
 
 /*
 .page box.right.cpu .g_raph .heatmap cpu::before{
-	background-color:rgba(var(--warning-background-color-rgb),0.3);
+	background-color:rgb(var(--warning-background-color-rgb) / 0.3);
 	width:100%;
 	content:"";
 	display:block;

@@ -114,7 +114,7 @@
 .visualstyle-basic .tabs a:hover {
 	color:var(--luna-foreground-color-hover);
 	border-color:var(--luna-foreground-color-hover);
-	background-color:rgba(var(--luna-hyperlink-background-color-rgb),0.2);
+	background-color:rgb(var(--luna-hyperlink-background-color-rgb) / 0.2);
 }
 
 .visualstyle-basic [page*="processes"] .tabs .processes,
@@ -128,7 +128,7 @@
 .visualstyle-basic .tabs .cpe-dropdown:focus-within > a {
 	color:var(--luna-foreground-color-hover);
 	border-color:var(--luna-foreground-color-hover);
-	background-color:rgba(var(--luna-hyperlink-background-color-rgb),0.4);
+	background-color:rgb(var(--luna-hyperlink-background-color-rgb) / 0.4);
 }
 
 .visualstyle-basic .proc_page .upper span:hover, 
@@ -137,7 +137,7 @@
 }
 
 .visualstyle-basic .page box.left .button:hover {
-	border-color:rgba(var(--canvas-text-background-color-rgb),0.5);
+	border-color:rgb(var(--canvas-text-background-color-rgb) / 0.5);
 }
 
 .visualstyle-basic .page box.left .button.selected {
@@ -194,16 +194,16 @@
 .visualstyle-simple [page*="settings"] .tabs .settings,
 .visualstyle-simple .tabs .cpe-dropdown:focus > a,
 .visualstyle-simple .tabs .cpe-dropdown:focus-within > a {
-	background-color:rgba(var(--canvas-secondary-background-color-hover-rgb),var(--mica-opacity-2));
+	background-color:rgb(var(--canvas-secondary-background-color-hover-rgb) / var(--mica-opacity-2));
 	color:var(--canvas-secondary-foreground-color-inverted);
 	animation:none;
-	border-color:rgba(var(--canvas-foreground-color-rgb),0.2);
+	border-color:rgb(var(--canvas-foreground-color-rgb) / 0.2);
 }
 
 .visualstyle-simple .page box.left .button:hover,
 .visualstyle-simple .page box.left .button.selected {
-	background-color:rgba(var(--canvas-background-color-hover-rgb),var(--page-opacity));
-	border-color:rgba(var(--canvas-foreground-color-rgb),0.2);
+	background-color:rgb(var(--canvas-background-color-hover-rgb) / var(--page-opacity));
+	border-color:rgb(var(--canvas-foreground-color-rgb) / 0.2);
 	color:var(--canvas-foreground-color-inverted);
 }
 
@@ -229,7 +229,7 @@
 	color:var(--canvas-secondary-background-color);
 	box-shadow:none;
 	animation:none;
-	border-color:rgba(var(--canvas-secondary-background-color-rgb),0.5);
+	border-color:rgb(var(--canvas-secondary-background-color-rgb) / 0.5);
 }
 
 .visualstyle-simple.visualmode-contrast .page box.left .button:hover,
@@ -238,7 +238,7 @@
 	color:var(--canvas-background-color);
 	box-shadow:none;
 	animation:none;
-	border-color:rgba(var(--canvas-background-color-rgb),0.5);
+	border-color:rgb(var(--canvas-background-color-rgb) / 0.5);
 }
 
 .visualstyle-simple.visualmode-contrast .page box.right .graph .graph_container {
