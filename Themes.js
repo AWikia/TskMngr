@@ -9,7 +9,7 @@ window.ThemingEngine_ActiveColorFilter = 'standard';
 window.ThemingEngine_ContrastMode = 'auto';
 /* Active Theme */
 window.ThemingEngine_ActiveTheme = 'A';
-window.ThemingEngine_ActiveThemeMode = 'none'; // none = Not yet loaded | light or dark = Loaded
+window.ThemingEngine_ActiveThemeMode = 'none'; // none = Not yet loaded | light or dark = Loaded // @FIXME: Remove once If() gets supported more broadly
 /* Visual Colors */
 window.ThemingEngine_ActiveVisualColors = 'standard';
 window.ThemingEngine_ActiveColorScheme = 'auto'; // auto | auto-dark | light | dark
@@ -17,9 +17,6 @@ window.ThemingEngine_ActiveColorScheme = 'auto'; // auto | auto-dark | light | d
 window.ThemingEngine_ActiveVisualStyle = '-';
 window.ThemingEngine_ActiveVisualMode = '-';
 window.ThemingEngine_ActiveVisualMode2 = '-'; // This is like ThemingEngine_ActiveVisualMode but different for High Contrast Mode (where it is contrast)
-/* DCM Modes */
-window.ThemingEngine_ActiveDCMMode = 'standard';
-window.ThemingEngine_ActiveDCMType = 'standard';
 /* Some Theming Colors */
 window.ThemingEngine_HighlightColor = GetHighlight();
 window.ThemingEngine_PageColor = GetCanvas();
@@ -112,12 +109,6 @@ var visualColorNames = ['standard', 'nocolormanagement'];
 	if (getKey('serif-font') === '-1') {
 		insertKey('serif-font', 'false' );
 	}
-	if (getKey('dcm-mode') === '-1') {
-		insertKey('dcm-mode', 'standard' );
-	}
-	if (getKey('dcm-type') === '-1') {
-		insertKey('dcm-type', 'standard' );
-	}
 
 	var theme_selected = getKey('theme-selected');
 	var visual_mode = getKey('visual-appearance-mode');
@@ -131,8 +122,6 @@ var visualColorNames = ['standard', 'nocolormanagement'];
 	var contrast_mode = getKey('contrast-mode');
 	var accent_active = getKey('accent-active');
 	var serif_font = getKey('serif-font');
-	var dcm_mode = getKey('dcm-mode');
-	var dcm_type = getKey('dcm-type');
     getParams().forEach(function (param) {
         var key = param.split("=")[0];
         var value = param.split("=")[1];
@@ -236,23 +225,13 @@ var visualColorNames = ['standard', 'nocolormanagement'];
 				serif_font = value;
 				console.info('Serif Font settings overriden');
                 break;
-            case 'usedcmmode':
-				dcm_mode = value;
-				console.info('DCM mode settings overriden');
-                break;
-            case 'usedcmtype':
-				dcm_type = value;
-				console.info('DCM type settings overriden');
-                break;
         }
     });
     var themes = "";
-
-	document.querySelector("head").insertAdjacentHTML('afterbegin','<meta name="theme-color" content="#ffffff"><style class="devicetheme"></style><style class="themes">' + themes + '</style><style class="theming"></style>');
+	document.querySelector("head").insertAdjacentHTML('afterbegin','<meta name="theme-color" content="#ffffff"><style class="theming_configuration_active-visual-colors"></style><style class="devicetheme"></style><style class="themes">' + themes + '</style><style class="theming"></style>');
 	ToggleTheme(theme_selected,false,false);
 	colortheme(color_style,device_theme,color_hue,color_sat,false,false);
 	contrastmode(contrast_mode,false,false);
-	SetDCM(dcm_type,dcm_mode,false,false);
 	VisualColorCompile(); // Compiles the Contrast Options
 	VisualColor(visual_color,false,false);
 	ColorScheme(color_scheme,false);
@@ -315,7 +294,7 @@ function SupportsColorContrast() {
 }
 
 function DisabledColorManagement() {
-	return ( (ForcedColors()) || (document.querySelector("body.no-color-management") ) ||  (window.ThemingEngine_ActiveVisualColors === 'nocolormanagement') )
+	return ( (ForcedColors()) || (document.querySelector("body.no-color-management") ) ||  (getVisualColors() === 'nocolormanagement') )
 }
 
 function ForcedColors() {
@@ -327,26 +306,6 @@ function ShouldUseFallbackColor() {
 			(getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--desktop-background-color") === 'auto') &&
 			(GetDesktopImage2() === ''))
 }
-
-function ForcedColorMode() {
-	return window.ThemingEngine_ActiveDCMMode;
-}
-
-function ForcedColorType() {
-	type = window.ThemingEngine_ActiveDCMType;
-	if (type === 'auto') {
-		return (ForcedColors()) ? 'standard' : ( window.matchMedia('(prefers-color-scheme: light)').matches ) ? 'standard' : 'reversi';
-	} else if (type === 'auto-reversi') {
-		return (ForcedColors()) ? 'reversi' : ( window.matchMedia('(prefers-color-scheme: dark)').matches ) ? 'standard' : 'reversi';
-	} else if (type === 'reversi') {
-		return 'reversi';
-	} else if (type === 'standard') {
-		return 'standard';
-	} else {
-		return 'standard';
-	}
-}
-
 
 /* Copied from Base JS */
 function HandleSelectInputBlurring() { // Handles Blurring
@@ -382,6 +341,16 @@ function UpdateRangeInputs() {
 
 
 /* Visual Styles */
+function setConfig(cnf="active-visual-colors",val="standard") { // Does not repaint anything, just changes config
+    var config = "\n:root {" +
+					"--"+ cnf + ":" + val + ";\n" +
+				 "}"
+	var x = document.querySelector("head .theming_configuration_" + cnf)
+	if (x) {
+		x.innerHTML = config 
+	}
+}
+
 function getVisualMode() {
 	if (ForcedColors()) {
 		return 'contrast';
@@ -487,6 +456,9 @@ function ColorScheme(style,save=true,repaint=true) {
 
 }
 
+function getVisualColors() {
+	return getComputedStyle(document.querySelector("html")).getPropertyValue("--active-visual-colors")
+}
 
 function VisualColor(style,save=true,repaint=true) {
     var x = document.querySelector('html');
@@ -495,9 +467,9 @@ function VisualColor(style,save=true,repaint=true) {
 			var style='standard';
 			var save = true;
 		}
-		oldcolors = window.ThemingEngine_ActiveVisualColors;
+		oldcolors = getVisualColors();
 	try {
-		window.ThemingEngine_ActiveVisualColors = style;
+		setConfig("active-visual-colors",style);
 		if (repaint) {
 			CompileThemingEngine(true);
 		}
@@ -516,7 +488,7 @@ function VisualColor(style,save=true,repaint=true) {
 	}
 
 	catch (err) {
-		window.ThemingEngine_ActiveVisualColors = oldcolors
+		setConfig("active-visual-colors",oldcolors);
 		AddFloatingBanner('Failed to switch to this Visual Color Pack as theme ' + window.ThemingEngine_ActiveTheme + ' had typographical errors.','alert');
 		console.error(err);
 	}
@@ -572,21 +544,12 @@ function VisualColorCompile() {
 					badge2 ='<span class="cpe-icon cpe-icon-small material-icons cpe-icon-badge">'+ visualColors[i][4] +'</span>'
 				}
 			}
-			theme = "";
-			themeD = "";
-			for (let j = 0; j < 8; j++) {
-				theme += '<div class="cpe-theming visualcolors-' + visualColors[i][0] + ' colorscheme-light theme-'+ ['A','B','C','D','E','F','G','H'][j] + '"></div>'
-				themeD += '<div class="cpe-theming visualcolors-' + visualColors[i][0] + ' colorscheme-dark theme-'+ ['A','B','C','D','E','F','G','H'][j] + '"></div>'
-			}
 			str = 	'<li data-visual-color="' + visualColors[i][0] + '" title="' + visualColors[i][1] + '">' +
 						'<a onclick="VisualColor(' + "'" + visualColors[i][0]  + "'" + ')">' +
 							badge2 +
 							badge +
 							icon +
 						'</a>' +
-						'<div style="position:absolute; z-index:-1; pointer-events:none;">' +
-							theme + themeD +
-						'</div>' +
 					'</li>'
 			var x = document.querySelector(".cpe-dropdown .cpe-dropdown__content .cpe-list.cpe-visual-colors");
 			if (x) {
@@ -605,17 +568,17 @@ function GetActiveThemeConfiguration() { // Used for ECM (Enabled Color Manageme
 	if (DisabledColorManagement()) {
 		return document.querySelector('.cpe-theming.visualcolors-nocolormanagement');
 	} else {
-		return document.querySelector('.cpe-theming.colorscheme-' + getColorScheme()  + '.visualcolors-' + window.ThemingEngine_ActiveVisualColors + '.theme-' + window.ThemingEngine_ActiveTheme);
+		return document.querySelector('.cpe-theming.colorscheme-' + getColorScheme() + '.theme-' + window.ThemingEngine_ActiveTheme);
 	}
 }
 
 function GetActiveDCMConfiguration() { // Used for DCM (Disabled Color Management)
-	return document.querySelector('.cpe-theming.visualcolors-nocolormanagement.dcmmode-' + ForcedColorMode());
+	return document.querySelector('.cpe-theming.visualcolors-nocolormanagement.dcmmode-standard');
 }
 
 
 function GetSystemColor(color='canvas') { // System Colors
-	return getComputedStyle(document.querySelector('.dcm-' + ForcedColorType() + ' .fc-' + color)).getPropertyValue("color")
+	return chroma(getComputedStyle(document.querySelector('.dcm-standard' + ' .fc-' + color)).getPropertyValue("color")).alpha(1)
 }
 
 function GetSystemColorValue(color='--desktop-background-color') { // Suppliment
@@ -635,7 +598,7 @@ async function RecalcAutoColor() {
 
 function GetDesktop() {
 	if (DisabledColorManagement()) {
-		return GetSystemColorValue('--desktop-background-color')
+		return GetSystemColorValue('--dcm-desktop-background-color')
 	} else if (getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--desktop-background-color") === 'auto') {
 		return window.ThemingEngine_PageColor;
 
@@ -665,7 +628,7 @@ function GetDesktopImage2() {
 
 function GetDesktopText() {
 	if (DisabledColorManagement()) {
-		return GetSystemColorValue('--desktop-text-background-color')
+		return GetSystemColorValue('--dcm-desktop-text-background-color')
 	} else if (getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--desktop-text-background-color") === 'auto') {
 		return ColorInvert(window.ThemingEngine_DesktopColor)
 	} else {
@@ -676,7 +639,7 @@ function GetDesktopText() {
 
 function GetCanvas() {
 	if (DisabledColorManagement()) {
-		return GetSystemColorValue('--canvas-background-color')
+		return GetSystemColorValue('--dcm-canvas-background-color')
 	} else if (getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--canvas-background-color") === 'auto') {
 		var color = GetHighlight();
 		var fg = GetForegroundVariables(color);
@@ -691,11 +654,11 @@ function GetCanvas() {
 
 function GetCanvas2() {
 	if (DisabledColorManagement()) {
-		return GetSystemColorValue('--canvas-secondary-background-color')
+		return GetSystemColorValue('--dcm-canvas-secondary-background-color')
 	} else if (getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--canvas-secondary-background-color") === 'auto') {
 		var color = window.ThemingEngine_PageColor;
 		var color2 = window.ThemingEngine_PageColorFG;
-		return ColorMix(color,color2,ContrastRatioDropdown());
+		return ColorMix(color,color2,0.25);
 
 	} else {
 		return getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--canvas-secondary-background-color").trim();
@@ -705,7 +668,7 @@ function GetCanvas2() {
 
 function GetHyperlink() {
 	if (DisabledColorManagement()) {
-		return GetSystemColorValue('--hyperlink-background-color')
+		return GetSystemColorValue('--dcm-hyperlink-background-color')
 	} else if (getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--hyperlink-background-color") === 'auto') {
 		var color = window.ThemingEngine_HighlightColor;
 		var color2 = [0.7,-0.8][['#000000','#ffffff'].indexOf(window.ThemingEngine_PageColorFG)];
@@ -719,7 +682,7 @@ function GetHyperlink() {
 
 function GetVisitedHyperlink() {
 	if (DisabledColorManagement()) {
-		return GetSystemColorValue('--visited-hyperlink-background-color')
+		return GetSystemColorValue('--dcm-visited-hyperlink-background-color')
 	} else if (getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--visited-hyperlink-background-color") === 'auto') {
 		return window.ThemingEngine_HyperlinkColor;
 	} else {
@@ -730,9 +693,9 @@ function GetVisitedHyperlink() {
 
 function GetInactiveText() {
 	if (DisabledColorManagement()) {
-		return GetSystemColorValue('--inactive-text-background-color')
+		return GetSystemColorValue('--dcm-inactive-text-background-color')
 	} else if (getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--inactive-text-background-color") === 'auto') {
-		return ColorMix(window.ThemingEngine_PageColor,window.ThemingEngine_PageColorFG,window.ThemingEngine_FinalContrast);
+		return ColorMix(window.ThemingEngine_PageColor,window.ThemingEngine_PageColorFG,0.7);
 	} else {
 		return getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--inactive-text-background-color").trim();
 	}
@@ -740,7 +703,7 @@ function GetInactiveText() {
 
 function GetActiveText() {
 	if (DisabledColorManagement()) {
-		return GetSystemColorValue('--active-text-background-color')
+		return GetSystemColorValue('--dcm-active-text-background-color')
 	} else if (getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--active-text-background-color") === 'auto') {
 		var color = window.ThemingEngine_HyperlinkColor;
 		var color2 = [0.7,-0.8][['#000000','#ffffff'].indexOf(window.ThemingEngine_PageColorFG)];
@@ -755,7 +718,7 @@ function GetActiveText() {
 
 function GetCanvasText() {
 	if (DisabledColorManagement()) {
-		return GetSystemColorValue('--canvas-text-background-color')
+		return GetSystemColorValue('--dcm-canvas-text-background-color')
 	} else if (getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--canvas-text-background-color") === 'auto') {
 		return ColorInvert(window.ThemingEngine_PageColor)
 	} else {
@@ -766,7 +729,7 @@ function GetCanvasText() {
 
 function GetCanvasText2() {
 	if (DisabledColorManagement()) {
-		return GetSystemColorValue('--canvas-text-secondary-background-color')
+		return GetSystemColorValue('--dcm-canvas-text-secondary-background-color')
 	} else if (getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--canvas-text-secondary-background-color") === 'auto') {
 		return GetCanvasText();
 	} else {
@@ -777,7 +740,7 @@ function GetCanvasText2() {
 
 function GetHighlight() {
 	if (DisabledColorManagement()) {
-		return GetSystemColorValue('--highlight-background-color')
+		return GetSystemColorValue('--dcm-highlight-background-color')
 	} else if (getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--highlight-background-color") === 'auto') {
 		if (ShouldUseFallbackColor()) {
 			return chroma('#3366cc'); // Fallback method
@@ -791,7 +754,7 @@ function GetHighlight() {
 
 function GetHighlightText() {
 	if (DisabledColorManagement()) {
-		return GetSystemColorValue('--highlight-text-background-color')
+		return GetSystemColorValue('--dcm-highlight-text-background-color')
 	} else if (getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--highlight-text-background-color") === 'auto') {
 		return ColorInvert(window.ThemingEngine_HighlightColor);
 	} else {
@@ -802,7 +765,7 @@ function GetHighlightText() {
 
 function GetActiveTitle() {
 	if (DisabledColorManagement()) {
-		return GetSystemColorValue('--active-title-background-color')
+		return GetSystemColorValue('--dcm-active-title-background-color')
 	} else if (getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--active-title-background-color") === 'auto') {
 		var color = window.ThemingEngine_HighlightColor;
 		var color2 = [-0.8,0.7][['#000000','#ffffff'].indexOf(window.ThemingEngine_PageColorFG)];
@@ -815,7 +778,7 @@ function GetActiveTitle() {
 
 function GetActiveTitleText() {
 	if (DisabledColorManagement()) {
-		return GetSystemColorValue('--active-title-text-background-color')
+		return GetSystemColorValue('--dcm-active-title-text-background-color')
 	} else if (getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--active-title-text-background-color") === 'auto') {
 		return ColorInvert(window.ThemingEngine_ActiveTitleColor);
 	} else {
@@ -826,7 +789,7 @@ function GetActiveTitleText() {
 
 function GetInactiveTitle() {
 	if (DisabledColorManagement()) {
-		return GetSystemColorValue('--inactive-title-background-color')
+		return GetSystemColorValue('--dcm-inactive-title-background-color')
 	} else if (getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--inactive-title-background-color") === 'auto') {
 		return ColorMix(window.ThemingEngine_ActiveTitleColor,window.ThemingEngine_PageColor,1.5);
 	} else {
@@ -836,7 +799,7 @@ function GetInactiveTitle() {
 
 function GetInactiveTitleText() {
 	if (DisabledColorManagement()) {
-		return GetSystemColorValue('--inactive-title-text-background-color')
+		return GetSystemColorValue('--dcm-inactive-title-text-background-color')
 	} else if (getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--inactive-title-text-background-color") === 'auto') {
 		return ColorInvert(window.ThemingEngine_InactiveTitleColor);
 	} else {
@@ -925,76 +888,6 @@ function ContrastRatio() { // Used for Text and Form Controls
 		result = (window.matchMedia('(prefers-contrast: more)').matches) ? 15 : (window.matchMedia('(prefers-contrast: custom)').matches) ? 7.5 : 0.0
 	}
 	return result
-}
-
-function ContrastRatioDropdown() { // Used For Dropdown
-
-	if (ThemingEngine_ContrastMode == 'auto') {
-		return (window.matchMedia('(prefers-contrast: more)').matches) ? 0.35 : (window.matchMedia('(prefers-contrast: custom)').matches) ? 0.30 : 0.25
-	} else if (ThemingEngine_ContrastMode == 'low') {
-		return 0.25
-	} else if (ThemingEngine_ContrastMode == 'custom1') { // Custom
-		return 0.2625
-	} else if (ThemingEngine_ContrastMode == 'med-low') {
-		return 0.275
-	} else if (ThemingEngine_ContrastMode == 'custom2') { // Custom
-		return 0.2875
-	} else if (ThemingEngine_ContrastMode == 'med') {
-		return 0.3
-	} else if (ThemingEngine_ContrastMode == 'custom3') { // Custom
-		return 0.3125
-	} else if (ThemingEngine_ContrastMode == 'med-hi') {
-		return 0.325
-	} else if (ThemingEngine_ContrastMode == 'custom4') { // Custom
-		return 0.3375
-	} else if (ThemingEngine_ContrastMode == 'hi') {
-		return 0.35
-	} else if (ThemingEngine_ContrastMode == 'custom5') { // Custom
-		return 0.3625
-	} else if (ThemingEngine_ContrastMode == 'hi-vhi') {
-		return 0.375
-	} else if (ThemingEngine_ContrastMode == 'custom6') { // Custom
-		return 0.3875
-	} else if (ThemingEngine_ContrastMode == 'vhi') {
-		return 0.4
-	} else {
-		return (window.matchMedia('(prefers-contrast: more)').matches) ? 0.35 : (window.matchMedia('(prefers-contrast: custom)').matches) ? 0.30 : 0.25
-	}
-}
-
-function ContrastRatioAutoInactiveText() { // Used For Inactive Text
-
-	if (ThemingEngine_ContrastMode == 'auto') {
-		return (window.matchMedia('(prefers-contrast: more)').matches) ? 0.86 : (window.matchMedia('(prefers-contrast: custom)').matches) ? 0.78 : 0.7
-	} else if (ThemingEngine_ContrastMode == 'low') {
-		return 0.7
-	} else if (ThemingEngine_ContrastMode == 'custom1') { // Custom
-		return 0.72
-	} else if (ThemingEngine_ContrastMode == 'med-low') {
-		return 0.74
-	} else if (ThemingEngine_ContrastMode == 'custom2') { // Custom
-		return 0.76
-	} else if (ThemingEngine_ContrastMode == 'med') {
-		return 0.78
-	} else if (ThemingEngine_ContrastMode == 'custom3') { // Custom
-		return 0.8
-	} else if (ThemingEngine_ContrastMode == 'med-hi') {
-		return 0.82
-	} else if (ThemingEngine_ContrastMode == 'custom4') { // Custom
-		return 0.84
-	} else if (ThemingEngine_ContrastMode == 'hi') {
-		return 0.86
-	} else if (ThemingEngine_ContrastMode == 'custom5') { // Custom
-		return 0.88
-	} else if (ThemingEngine_ContrastMode == 'hi-vhi') {
-		return 0.9
-	} else if (ThemingEngine_ContrastMode == 'custom6') { // Custom
-		return 0.92
-	} else if (ThemingEngine_ContrastMode == 'vhi') {
-		return 0.94
-	} else {
-		return (window.matchMedia('(prefers-contrast: more)').matches) ? 0.86 : (window.matchMedia('(prefers-contrast: custom)').matches) ? 0.78 : 0.7
-	}
 }
 
 
@@ -1148,16 +1041,6 @@ function GetForegroundVariables(color) {
 	return [f1, f2, lt]
 }
 
-
-/* Get Gradient Variables */
-function GetGradientVariable(color,name="canvas", invert=false) {
-	var func = invert ? (isDarkColor(color)) : (isLightColor(color));
-	if (func) {
-		return ['var(--' + name + '-background-color)', 'var(--' + name + '-background-color-hover)']
-	} else {
-		return ['var(--' + name + '-background-color-hover)', 'var(--' + name + '-background-color)']
-	}
-}
 
 /* End of this work */
 
@@ -1433,44 +1316,6 @@ function ToggleSerifFont() {
 	}
 }
 
-
-function SetDCM(type='match-parent',tick='match-parent',save='true',repaint='true') {
-	if (type === 'match-parent') {
-		type = window.ThemingEngine_ActiveDCMType;
-	}
-	if (tick === 'match-parent') {
-		tick = window.ThemingEngine_ActiveDCMMode;
-	}
-
-		if (save) {
-			insertKey('dcm-mode', tick );
-			insertKey('dcm-type', type );
-		}
-		window.ThemingEngine_ActiveDCMMode = tick;
-		var x = document.querySelector(".cpe-dropdown .cpe-dropdown__content .cpe-list.cpe-dcm-modes li.selected");
-		if (x) {
-			x.classList.remove("selected");
-		}
-		var y = document.querySelector(".cpe-dropdown .cpe-dropdown__content .cpe-list.cpe-dcm-modes li[data-dcm-mode='" + tick + "']");
-		if (y) {
-			y.classList.add("selected")
-		}
-		window.ThemingEngine_ActiveDCMType = type;
-		var x = document.querySelector(".cpe-dropdown .cpe-dropdown__content .cpe-list.cpe-dcm-types li.selected");
-		if (x) {
-			x.classList.remove("selected");
-		}
-		var y = document.querySelector(".cpe-dropdown .cpe-dropdown__content .cpe-list.cpe-dcm-types li[data-dcm-type='" + type + "']");
-		if (y) {
-			y.classList.add("selected")
-		}
-
-		if (repaint) {
-			CompileThemingEngine(false);
-		}
-
-}
-
 /* Downloads all modificative values of the current selected theme to a file */
 /**
 *** Moved to Debug.js 
@@ -1498,15 +1343,6 @@ function ColorLuminanceAdjust(color,ratio) {
 	}
 }
 
-function ColorHoverRatio(color) { // Regular Colors
-	if (isLightColor(color)) {
-		return -20;
-	} else {
-		return 20;
-	}
-}
-
-
 function ColorAdjust(color,color2,dark=false) { // Regular Colors
 	var func = dark ? (isDarkColor(color2)) : (isLightColor(color2));
 	var light = chroma(color).get('hsl.l');
@@ -1525,7 +1361,7 @@ function ColorInvert(color) {
 	var b = 255 - chroma(color).get('rgb.b');
 	var h = chroma(color).get('oklch.h');
 	var h2 = chroma(color).get('hsl.h');
-	return 	chroma(color).set('rgb.r', r).set('rgb.g', g).set('rgb.b', b).set('oklch.h', h).set('hsl.h', h2)
+	return 	chroma(color).set('rgb.r', r).set('rgb.g', g).set('rgb.b', b).set('oklch.h', h).set('hsl.h', h2).hex();
 }
 
 
@@ -1555,6 +1391,12 @@ function isSuitableColorFormControls(color,color2) {
 var contrast = getLargeTextContrast()+ContrastRatio()
 return ((getContrast(color, color2)) >= contrast) // For Border Color
 }
+
+function isSuitableColorSecondary(color,color2) {
+var contrast = ContrastRatio()
+return ((getContrast(color, color2)) >= contrast) // For Border Color
+}
+
 
 function getDefaultHyperlinkTextDecoration(color,color2) {
 var contrast = getLargeTextContrast() / 2.0
@@ -1620,10 +1462,6 @@ var content_color =  GetCanvas();
 	var lightPage = isLightColor(content_color);
 
 
-var content_colorR = ColorHoverRatio(content_color);
-
-var adjustment = ContrastRatioDropdown();
-window.ThemingEngine_FinalContrast = ContrastRatioAutoInactiveText();
 
 	if (lightPage) {
 		var lightness = '#000000';
@@ -1640,6 +1478,10 @@ window.ThemingEngine_FinalContrast = ContrastRatioAutoInactiveText();
 
 	while ( ( isSuitableColorFormControls(dropdowncolor, content_color) ) && (dropdowncolor !== lightnessR)  ) {
 		var dropdowncolor= ColorAdjust(dropdowncolor,window.ThemingEngine_PageColor,true);
+	}
+	
+	while ( ( !(isSuitableColorSecondary(dropdowncolor, content_color)) ) && (dropdowncolor !== lightness)  ) {
+		var dropdowncolor= ColorAdjust(dropdowncolor,window.ThemingEngine_PageColor);
 	}
 
 
@@ -1746,11 +1588,6 @@ var button_color = GetHighlight();
 window.ThemingEngine_HighlightColor = button_color
 
 
-
-var buttoncolorR = ColorHoverRatio(button_color);
-
-
-
 /** Button text color **/
 
 
@@ -1794,8 +1631,6 @@ var caret_color = GetActiveTitle();
 
 window.ThemingEngine_ActiveTitleColor = caret_color
 
-var caretcolorR = ColorHoverRatio(caret_color);
-
 /** Caret text color **/
 
 
@@ -1812,10 +1647,12 @@ var carettext_color= GetActiveTitleText();
 /* Set Vars */
 var caretIT_color = GetInactiveTitle();
 
-			while ( ( isSuitableColorFormControls(caretIT_color, content_color) ) && (caretIT_color !== lightnessR)  ) {
+		while ( ( isSuitableColorFormControls(caretIT_color, content_color) ) && (caretIT_color !== lightnessR)  ) {
 			var caretIT_color= ColorAdjust(caretIT_color,window.ThemingEngine_PageColor,true);
 		}
-
+		while ( ( !(isSuitableColorSecondary(caretIT_color, content_color)) ) && (caretIT_color !== lightness)  ) {
+			var caretIT_color= ColorAdjust(caretIT_color,window.ThemingEngine_PageColor);
+		}
 
 	var lightCaretIT = isLightColor(caretIT_color);
 	if (lightCaretIT) {
@@ -1920,9 +1757,6 @@ var border_color =	dropdowncolor2;
 	var border3_color =	border_color;
 	var border4_color =	border_color;
 
-
-
-var bordercolorR = ColorHoverRatio(border_color);
 
 
 /* Generic Colors */
@@ -2063,22 +1897,6 @@ if (imgfilter == 'none') {
 }
 
 
-// Gradient Sets
-var button_gradient = GetGradientVariable(button_color,'highlight');
-var buttontext_gradient = GetGradientVariable(button_color,'highlight-text',true);
-var border_gradient = GetGradientVariable(border_color,'inactive-text');
-var caret_gradient = GetGradientVariable(caret_color,'active-title');
-var carettext_gradient = GetGradientVariable(caret_color,'active-title-text',true);
-
-// Foreground texts
-var dropdowncolor_fg = GetForegroundVariables(dropdowncolor); // Still required, as one can have a light canvas but a dark secondary canvas color under certain circumstances
-var button_fg = GetForegroundVariables(button_color);
-var border_fg = GetForegroundVariables(border_color);
-var head_fg = GetForegroundVariables(head_color);
-var caret_fg = GetForegroundVariables(caret_color);
-var caretIT_fg = GetForegroundVariables(caretIT_color); // Still required, as one can have a light canvas but a dark inactive title color under certain circumstances
-
-// Inverted Foreground texts
 
 
 	wordfilter2 = getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--icon-filter-hover")
@@ -2122,27 +1940,25 @@ var invfilters = [
 					['hue-rotate(' + hue + 'deg) grayscale(' + saturation + ') var(--achromatomaly-filter)',	'invert(1) hue-rotate(' + (180+hue) + 'deg)  grayscale(' + saturation + ')  var(--achromatomaly-filter)'],	// Mode 7 (Achromatomaly)
 
 				 ];
+		/* Theme Mode */
+		var oldtheme = window.ThemingEngine_ActiveThemeMode;
+		if (!(lightPage)) {
+			 window.ThemingEngine_ActiveThemeMode = 'dark';
+		} else {
+			 window.ThemingEngine_ActiveThemeMode = 'light';
+		}
+
 /* Set Values for dynamical variables */
 	var result = 		  colorstyle +
 						  ":root {" +
 						  "--canvas-secondary-background-color:" + dropdowncolor + ";\n" + 
-						  "--canvas-secondary-foreground-color:" + dropdowncolor_fg[0] + ";\n" +
-						  "--canvas-secondary-foreground-color-hover:" +  dropdowncolor_fg[1] + ";\n" + 
 						  "--canvas-background-color:" + content_color + ";\n" +
-						  "--canvas-background-color-hover-ratio:" + content_colorR + ";\n" +
 						  "--canvas-tabs-background-color:" + tabscPage  + ";\n" +
 						  "--canvas-active-tabs-opacity:" + tabsoPage  + ";\n" +
 						  "--canvas-text-background-color:" + content_text + ";\n" +
 						  "--canvas-text-secondary-background-color:" + content2_text + ";\n" +
 						  "--highlight-background-color:" + button_color + ";\n" +
-						  "--highlight-background-color-hover-ratio:" + buttoncolorR + ";\n" +
-						  "--highlight-gradient-color:" + button_gradient[0] + ";\n" +
-						  "--highlight-gradient-color-hover:" + button_gradient[1] + ";\n" +
-						  "--highlight-foreground-color:" + button_fg[0] + ";\n" +
-						  "--highlight-foreground-color-hover:" + button_fg[1] + ";\n" +
 						  "--highlight-text-background-color:" + buttontext_color + ";\n" +
-						  "--highlight-text-gradient-color:" + buttontext_gradient[0] + ";\n" +
-						  "--highlight-text-gradient-color-hover:" + buttontext_gradient[1] + ";\n" +
 						  "--highlight-secondary-background-color:" + button2_color + ";\n" +
 						  "--highlight-tertiary-background-color:" + button3_color + ";\n" +
 						  "--highlight-quaternary-background-color:" + button4_color + ";\n" +
@@ -2165,35 +1981,19 @@ var invfilters = [
 						  "--active-text-tertiary-background-color:" + alink3_color + ";\n" +
 						  "--active-text-quaternary-background-color:" + alink4_color + ";\n" +
 						  "--inactive-text-background-color:" + border_color + ";\n" +
-						  "--inactive-text-background-color-hover-ratio:" + bordercolorR + ";\n" +
-						  "--inactive-text-gradient-color:" + border_gradient[0] + ";\n" +
-						  "--inactive-text-gradient-color-hover:" + border_gradient[1] + ";\n" +
-						  "--inactive-text-foreground-color:" + border_fg[0] + ";\n" +
-						  "--inactive-text-foreground-color-hover:" + border_fg[1] + ";\n" +
 						  "--inactive-text-secondary-background-color:" + border2_color + ";\n" +
 						  "--inactive-text-tertiary-background-color:" + border3_color + ";\n" +
 						  "--inactive-text-quaternary-background-color:" + border4_color + ";\n" +
 						  "--desktop-background-color:" + head_color + ";\n" +
-						  "--desktop-foreground-color:" + head_fg[0] + ";\n" +
-						  "--desktop-foreground-color-hover:" + head_fg[1] + ";\n" +
 						  "--desktop-text-background-color:" + headertext_color + ";\n" +
 						  "--active-title-background-color:" + caret_color + ";\n" +
-						  "--active-title-background-color-hover-ratio:" + caretcolorR + ";\n" +
-						  "--active-title-gradient-color:" + caret_gradient[0] + ";\n" +
-						  "--active-title-gradient-color-hover:" + caret_gradient[1] + ";\n" +
-						  "--active-title-foreground-color:" + caret_fg[0] + ";\n" +
-						  "--active-title-foreground-color-hover:" + caret_fg[1] + ";\n" +
 						  "--active-title-tabs-background-color:" + tabscCaret  + ";\n" +
 						  "--active-title-active-tabs-opacity:" + tabsoCaret  + ";\n" +
 						  "--active-title-text-background-color:" + carettext_color + ";\n" +
-						  "--active-title-text-gradient-color:" + carettext_gradient[0] + ";\n" +
-						  "--active-title-text-gradient-color-hover:" + carettext_gradient[1] + ";\n" +
 						  "--active-title-secondary-background-color:" + caret2_color + ";\n" +
 						  "--active-title-tertiary-background-color:" + caret3_color + ";\n" +
 						  "--active-title-quaternary-background-color:" + caret4_color + ";\n" +
 						  "--inactive-title-background-color:" + caretIT_color + ";\n" +
-						  "--inactive-title-foreground-color:" + caretIT_fg[0] + ";\n" +
-						  "--inactive-title-foreground-color-hover:" + caretIT_fg[1] + ";\n" +
 						  "--inactive-title-tabs-background-color:" + tabscCaretIT  + ";\n" +
 						  "--inactive-title-active-tabs-opacity:" + tabsoCaretIT  + ";\n" +
 						  "--inactive-title-text-background-color:" + caretITtext_color + ";\n" +
@@ -2253,6 +2053,7 @@ var invfilters = [
 						 '--system-icon-style:' + getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--system-icon-style")  + ';\n' +
 						 '--system-icon-font-family:' + iconstyle  + ';\n' +
 						 '--system-clock-font-family:' + clockstyle  + ';\n' +
+						 '--system-icon-shape:' + getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--system-icon-shape")  + ';\n' +
 						 '--screensaver-highlight-color:' + sshighlight  + ';\n' +
 
 // Misc Background Settings
@@ -2260,7 +2061,11 @@ var invfilters = [
 						  "--bg-tile-x:" + ['repeat','no-repeat'][["false", "true"].indexOf( getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--desktop-background-no-horizontal-tiling") ) ] + ";\n" +
 						  "--bg-tile-y:" + ['repeat','no-repeat'][["false", "true"].indexOf( getComputedStyle(GetActiveThemeConfiguration()).getPropertyValue("--desktop-background-no-vertical-tiling") ) ] + ";\n" +
 						  "--color-mode-filter:" + invfilters[window.ThemingEngine_ColorFilterMode][[false, true].indexOf(window.ThemingEngine_InvertColors) ] + ";\n" +
-						  "--desktop-filter:" + deskfilter +
+						  "--threeD-color-light:" + ["#fff5","#0005"][[false, true].indexOf(window.ThemingEngine_InvertColors) ]  + ";\n" +
+						  "--threeD-color-dark:" + ["#fff5","#0005"][[true, false].indexOf(window.ThemingEngine_InvertColors) ]  + ";\n" +
+						  "--desktop-filter:" + deskfilter + ";\n" +
+// Color Scheme
+						  "--color-scheme:" + window.ThemingEngine_ActiveThemeMode + ";\n" + // @FIXME: Remove once If() gets supported more broadly
 						  "}"
 						  //
 
@@ -2268,18 +2073,7 @@ var invfilters = [
 /* Write them to the stylesheet */
 document.querySelector("head .theming").innerHTML = result;
 
-		/* Theme Mode */
-		var oldtheme = window.ThemingEngine_ActiveThemeMode;
-		if (!(lightPage)) {
-			 window.ThemingEngine_ActiveThemeMode = 'dark';
-		} else {
-			 window.ThemingEngine_ActiveThemeMode = 'light';
-		}
-		if (oldtheme === 'none') {
-			document.querySelector('html').classList.add("theme-fandomdesktop-" +  window.ThemingEngine_ActiveThemeMode);
-		} else if (oldtheme != window.ThemingEngine_ActiveThemeMode ) {
-			document.querySelector('html').classList.replace("theme-fandomdesktop-" +  oldtheme,"theme-fandomdesktop-" +  window.ThemingEngine_ActiveThemeMode);
-		}
+
 		/* Forced Colors */
 		if (window.ThemingEngine_ActiveVisualMode != '-') {
 			VisualMode(window.ThemingEngine_ActiveVisualMode,false,false);
